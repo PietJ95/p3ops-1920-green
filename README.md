@@ -6,6 +6,10 @@ Invite link: [Trello invite](https://trello.com/invite/b/3mZIkr7D/c77776add109cb
 
 Doorverwijslink: [Trello board](https://trello.com/b/3mZIkr7D/team-green-linux)
 
+## Communicatieplatform
+
+Slack: [join Slack channel](https://join.slack.com/t/projecteniiigreen/shared_invite/enQtNzcxNjUyMTY5NDc5LTI0M2JiMTc2MDBhZjVlY2M5Y2MzZTczYWU4NGQ5ODNlZDVlNTgyZDA3YWJjZGMwMTdmYWQ4OWU4MmRlODFiYTQ)
+
 ## Taakverdeling teamleden
 
 De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak, "Testen" is voor de verantwoordelijke voor de acceptatietests (schrijft dus testrapport). De naam van de verantwoordelijke is een link naar diens Github profielpagina, bv. [Bert Van Vreckem](https://github.com/bertvv/).
