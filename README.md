@@ -1,46 +1,45 @@
-# Ansible role `ROLENAME`
+# p3ops-team-repo
 
-An Ansible role for PURPOSE. Specifically, the responsibilities of this role are to:
+## Trello board
 
--
+Invite link: [Trello invite](https://trello.com/invite/b/3mZIkr7D/c77776add109cb1083b3267c9787840d/team-green-linux)
 
-## Requirements
+Doorverwijslink: [Trello board](https://trello.com/b/3mZIkr7D/team-green-linux)
 
-No specific requirements
+## Communicatieplatform
 
-## Role Variables
+Slack: [join Slack channel](https://join.slack.com/t/projecteniiigreen/shared_invite/enQtNzcxNjUyMTY5NDc5LTI0M2JiMTc2MDBhZjVlY2M5Y2MzZTczYWU4NGQ5ODNlZDVlNTgyZDA3YWJjZGMwMTdmYWQ4OWU4MmRlODFiYTQ)
+
+## Taakverdeling teamleden
+
+De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak, "Testen" is voor de verantwoordelijke voor de acceptatietests (schrijft dus testrapport). De naam van de verantwoordelijke is een link naar diens Github profielpagina, bv. [Bert Van Vreckem](https://github.com/bertvv/).
+
+| Taak | Uitvoering | Testen |
+| :--- | :---       | :---   |
+|      |            |        |
+
+## Overzicht IP-adrestoewijzing
 
 
-| Variable   | Default | Comments (type)  |
-| :---       | :---    | :---             |
-| `role_var` | -       | (scalar) PURPOSE |
 
-## Dependencies
+## Overzicht documentatie
 
-No dependencies.
 
-## Example Playbook
 
-See the test playbooks in either the [Vagrant](https://github.com/bertvv/ansible-role-ROLENAME/blob/vagrant-tests/test.yml) or [Docker](https://github.com/bertvv/ansible-role-ROLENAME/blob/docker-tests/test.yml) test environment. See the section Testing for details.
+## TODOs
 
-## Testing
-
-There are two types of test environments available. One powered by Vagrant, another by Docker. The latter is suitable for running automated tests on Travis-CI. Test code is kept in separate orphan branches. For details of how to set up these test environments on your own machine, see the README files in the respective branches:
-
-- Vagrant: [vagrant-tests](https://github.com/bertvv/ansible-role-ROLENAME/tree/vagrant-tests)
-- Docker: [docker-tests](https://github.com/bertvv/ansible-role-ROLENAME/tree/docker-tests)
-
-## Contributing
-
-Issues, feature requests, ideas are appreciated and can be posted in the Issues section.
-
-Pull requests are also very welcome. The best way to submit a PR is by first creating a fork of this Github project, then creating a topic branch for the suggested change and pushing that branch to your own fork. Github can then easily create a PR based on that branch. Don't forget to add your name to the contributor list below!
-
-## License
-
-2-clause BSD license, see [LICENSE.md](LICENSE.md)
-
-## Contributors
-
-- [Bert Van Vreckem](https://github.com/bertvv/) (maintainer)
-
+- [ ] Overzichten in deze README
+    - [ ] taakverdeling met verantwoordelijken
+    - [ ] inhoudstafel documentatie
+    - [ ] IP-adrestoewijzingen
+- [ ] Directorystructuur
+    - [ ] broncode met duidelijke, logische structuur
+        - Linux: layout volgens [Ansible best practices](https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html). Gebruik evt. <https://github.com/bertvv/ansible-skeleton> als basis.
+    - [ ] documentatie
+        - per deeltaak:
+            - lastenboek
+            - technische documentatie, incl. verslag opzoekwerk
+            - testplannen en -rapporten
+        - draaiboek productie-release
+        - integratietestplannen
+    - [ ] Verslagen stand-ups en ander overleg
