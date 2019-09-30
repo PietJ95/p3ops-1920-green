@@ -1,0 +1,7 @@
+# site.yml
+---
+    
+- hosts: pr001
+  become: true
+  roles:
+    - bertvv.dhcp
