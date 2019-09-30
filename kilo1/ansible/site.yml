@@ -1,7 +1,7 @@
 # site.yml
 ---
     
-- hosts: pr001
+- hosts: kilo1
   become: true
   roles:
     - bertvv.dhcp
