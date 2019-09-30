@@ -14,8 +14,7 @@ require 'yaml'
 ENV["LC_ALL"] = "en_US.UTF-8"
 
 # Set your default base box here
-DEFAULT_BASE_BOX = 'bento/centos-7.5'
-ROUTER_BASE_BOX = 'samdoran/vyos'
+DEFAULT_BASE_BOX = 'centos/7'
 
 # When set to `true`, Ansible will be forced to be run locally on the VM
 # instead of from the host machine (provided Ansible is installed).
@@ -28,6 +27,7 @@ FORCE_LOCAL_RUN = false
 VAGRANTFILE_API_VERSION = '2'
 PROJECT_NAME = '/' + File.basename(Dir.getwd)
 
+# set custom vagrant-hosts file
 vagranthosts = ENV['VAGRANTS_HOST'] ? ENV['VAGRANTS_HOST'] : 'vagrant-hosts.yml'
 hosts = YAML.load_file(File.join(__dir__, vagranthosts))
 
@@ -39,7 +39,7 @@ def provision_ansible(config, host)
   else
     ansible_mode = 'ansible'
   end
-
+  
   # Provisioning configuration for Ansible (for Mac/Linux hosts).
   config.vm.provision ansible_mode do |ansible|
     ansible.playbook = host.key?('playbook') ?
@@ -133,39 +133,33 @@ end
 # }}}
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.define 'router' do |router |
-    router.vm.box = ROUTER_BASE_BOX
-    router.vm.network :private_network,
-      ip: '192.0.2.254',
-      netmask: '255.255.255.0'
-    router.vm.network :private_network,
-      ip: '172.16.255.254',
-      netmask: '255.255.0.0'
-    router.ssh.insert_key = false
-
-    router.vm.provision "shell" do |sh|
-      sh.path = "scripts/router-config.sh"
-    end
-  end
-
+  config.ssh.insert_key = false
   hosts.each do |host|
     config.vm.define host['name'] do |node|
       node.vm.box = host['box'] ||= DEFAULT_BASE_BOX
       node.vm.box_url = host['box_url'] if host.key? 'box_url'
 
       node.vm.hostname = host['name']
-      node.vm.network :private_network, network_options(host)
+
       custom_synced_folders(node.vm, host)
       shell_provisioners_always(node.vm, host)
       forwarded_ports(node.vm, host)
 
-      # Add VM to a VirtualBox group
+      # Libvirt settings
+      node.vm.provider :libvirt do |lv|
+	lv.memory = host['memory'] ||= 1024
+	lv.cpus = host['cpus'] ||= 1
+      end
+
+      # Virtualbox settings
       node.vm.provider :virtualbox do |vb|
         # WARNING: if the name of the current directory is the same as the
         # host name, this will fail.
         vb.customize ['modifyvm', :id, '--groups', PROJECT_NAME]
+	vb.memory = host['memory'] ||= 1024
+	vb.cpus = host['cpus'] ||= 1
       end
-
+      
       # Run Ansible playbook for the VM
       provision_ansible(config, host)
     end
@@ -173,4 +167,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 end
 
 # -*- mode: ruby -*-
-# vi: ft=ruby
+# vi: ft=ruby :
