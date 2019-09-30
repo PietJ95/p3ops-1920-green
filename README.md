@@ -22,7 +22,8 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 
 ### Overzicht netwerk
 
-| Subnet | Aantal hosts | Netwerk adres |     Mask    | Subnetmask  | Range                   | Broadcast |
+| Subnet | Aantal hosts | Netwerk adres | Mask | Subnetmask | Range | Broadcast |
+| :--- | :---       | :---   | :---   | :---   | :---   | :---   |
 |20|128|172.16.0.0 |/24|255.255.255.0|172.16.0.1 - 172.16.0.254|172.16.0.255|
 |30|40|172.16.1.0|/26|255.255.255.192|172.16.1.1 - 172.16.1.62|172.16.1.63|
 |50|30|172.16.1.64|/27|255.255.255.224|172.16.1.65 - 172.16.1.94|172.16.1.95|
