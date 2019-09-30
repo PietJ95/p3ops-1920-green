@@ -20,7 +20,8 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 
 ## Overzicht IP-adrestoewijzing
 
-###Overzicht netwerk
+### Overzicht netwerk
+
 | Subnet | Aantal hosts | Netwerk adres |     Mask    | Subnetmask  | Range                   | Broadcast |
 |20|128|172.16.0.0 |/24|255.255.255.0|172.16.0.1 - 172.16.0.254|172.16.0.255|
 |30|40|172.16.1.0|/26|255.255.255.192|172.16.1.1 - 172.16.1.62|172.16.1.63|
@@ -29,8 +30,10 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 |60|2|172.16.1.100|/30|255.255.255.252|172.16.1.101 - 172.16.1.102|172.16.1.103|
 |70|2|172.16.1.104|/30|255.255.255.252|172.16.1.105 - 172.16.1.106|172.16.1.107|
 
-###IP-adressen
+### IP-adressen
+
 | Naam | VLAN | IP-adres |
+| :--- | :---       | :---   |
 | Alpha1 | VLAN 50 | 172.16.1.65 |
 | Bravo1 | VLAN 50 | 172.16.1.66 |
 | Charlie1 | VLAN 50 | 172.16.1.67 |
