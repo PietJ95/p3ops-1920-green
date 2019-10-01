@@ -1,0 +1,6 @@
+#handlers/main.yml for LDAP role
+---
+- name: restart OpenLDAP
+  service:
+    name: slapd
+    state: restarted

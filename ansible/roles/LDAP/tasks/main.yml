@@ -1,0 +1,21 @@
+#tasks/main.yml for LDAP role
+---
+# - name: load variables
+  # include_vars:
+    # file: vars.yml
+
+- name: install OpenLDAP
+  yum: 
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+    - openldap
+    - openldap-servers
+    - openldap-clients
+    
+- name: ensure OpenLDAP is running
+  service:
+    name: slapd
+    state: started
+    enabled: yes

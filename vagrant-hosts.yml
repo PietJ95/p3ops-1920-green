@@ -4,8 +4,8 @@
 # possible settings, see the documentation at
 # <https://github.com/bertvv/ansible-skeleton>
 ---
-- name: srv001
-  ip: 192.168.56.10
+- name: Alpha1
+  ip: 172.16.1.65
 
 # Example of a more elaborate host definition
 # - name: srv002

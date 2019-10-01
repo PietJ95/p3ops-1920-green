@@ -1,0 +1,8 @@
+# servers.yml
+---
+- name: Install Alpha1
+  hosts: Alpha1
+  remote_user: root
+  
+  roles:
+    - LDAP

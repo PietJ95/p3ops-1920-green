@@ -1,4 +1,5 @@
 # site.yml
 ---
-- hosts: all
-  roles: []
+- import_playbook: switches.yml
+- import_playbook: routers.yml
+- import_playbook: servers.yml
