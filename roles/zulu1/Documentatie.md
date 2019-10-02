@@ -4,6 +4,7 @@
 ### Manuele setup(Virtual box)
 1. Download Pfsense iso file via [PfSense Website](https://www.pfsense.org/download/). 
 2. Create Virtual Machine met type: BDS,versie:FREEBSD(64bit) en met opties TYPE: 
+
   2.1 Minstens 1024MB ram
   
   2.2 NAT NIC interface(WAN).
