@@ -4,7 +4,8 @@
 # possible settings, see the documentation at
 # <https://github.com/bertvv/ansible-skeleton>
 ---
-- name: Alpha1
+  #Alfa1 LDAP server
+- name: alfa1
   ip: 172.16.1.65
 
   #Bravo1 DNS Server
