@@ -17,3 +17,5 @@
 [Link 8 : Automatically Restore a pfSense Configuration During Installation](https://docs.netgate.com/pfsense/en/latest/backup/automatically-restore-during-install.html)
 
 [Link 9 : (Youtube)pfSense Setup](https://www.youtube.com/watch?v=D2wjR3pCwrU)
+
+[Link 10:(Youtube)UnBoxing of the Netgate Firewall pre-loaded with pfSense](https://www.youtube.com/watch?v=Z8icT5-H0eA)
