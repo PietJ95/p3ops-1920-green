@@ -1,13 +1,12 @@
 # Documentatie  Zulu1
 ## PfSense configuratie en setup
-### Olivier Troch en Joeri Verhavert
 
-#### Manuele setup(Virtual box)
+### Manuele setup(Virtual box)
 1. Download Pfsense iso file via [PfSense Website](https://www.pfsense.org/download/). 
 2. Create Virtual Machine met type: BDS,versie:FREEBSD(64bit) en met opties TYPE: 
-  - Minstens 1024MB ram
-  - 1 NAT NIC interface(WAN).
-  - 1 intern netwerk met keuze naamgeving(LAN).
+  2.1 Minstens 1024MB ram
+  2.2 NAT NIC interface(WAN).
+  2.3 intern netwerk met keuze naamgeving(LAN).
 3. Store iso in Virtual Machine
 4. Accepteer eerste pop-up venster.
 5. Selecteer "Install". 
@@ -20,12 +19,13 @@
 12. Start systeem terug op. 
 11. Accepteer de Copyright notice. 
 12. Kies voor "Set interface(s) IP Addresses"
-    a. Kies een interface. 
-    b. Stel in volgens ip addresserings tabel. 
-    c. Stel subnet bit in volgens addresserings tabel.
-    d. Geen DHCP. 
-    e. Indien bij WAN, IPV4 upstream gateway address wordt default gateway van het netwerk. 
-    f. Geen ipv6.
-    g. geen reverting to HTTP. 
+    12.1 Kies een interface. 
+    12.2 Stel in volgens ip addresserings tabel. 
+    12.3 Stel subnet bit in volgens addresserings tabel.
+    12.4 Geen DHCP. 
+    12.5 Indien bij WAN, IPV4 upstream gateway address wordt default gateway van het netwerk. 
+    12.6 Geen ipv6.
+    12.7 geen reverting to HTTP. 
     
     
+Opgemaakt door : Olivier Troch en Joeri Verhavert
