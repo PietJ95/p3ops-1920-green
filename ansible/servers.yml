@@ -1,8 +1,8 @@
 # servers.yml
 ---
-- name: Install Alpha1
-  hosts: Alpha1
+# Configure server alfa1 with LDAP role
+- name: Configure alfa1
+  hosts: alfa1
   remote_user: root
-  
   roles:
     - LDAP
