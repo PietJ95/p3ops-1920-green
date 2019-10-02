@@ -7,6 +7,13 @@
 - name: Alpha1
   ip: 172.16.1.65
 
+  #Bravo1 DNS Server
+- name: ns1
+  ip: 172.16.1.66
+  
+  #Charlie1 DNS Backup Server
+- name: ns2
+  ip: 172.16.1.67
 # Example of a more elaborate host definition
 # - name: srv002
 #   box: bento/fedora-28
