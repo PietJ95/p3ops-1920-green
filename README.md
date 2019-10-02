@@ -47,6 +47,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Oscar1 | VLAN 30 | 172.16.1.5 |
 | Papa1 | VLAN 30 | 172.16.1.6 |
 | Zulu1 | VLAN 70 | 172.16.1.106 |
+| Zulu1 | VLAN 60 | 172.16.1.102 |
 | Router0 | VLAN 70 | 172.16.1.105 |
 | Switch1 | VLAN 40 | 172.16.1.97 |
 | Switch2 | VLAN 40 | 172.16.1.98 |
