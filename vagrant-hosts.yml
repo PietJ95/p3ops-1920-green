@@ -15,6 +15,10 @@
   #Charlie1 DNS Backup Server
 - name: ns2
   ip: 172.16.1.67
+
+- name: db001
+  ip: 172.16.1.68
+  
 # Example of a more elaborate host definition
 # - name: srv002
 #   box: bento/fedora-28
