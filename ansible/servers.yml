@@ -6,3 +6,11 @@
   remote_user: root
   roles:
     - LDAP
+
+- hosts: db001
+  become: true
+  gather_facts: yes
+  roles: 
+    - november1
+
+
