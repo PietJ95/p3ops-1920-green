@@ -2,9 +2,9 @@
 
 ## Trello board
 
-Invite link: [Trello invite](https://trello.com/invite/b/3mZIkr7D/c77776add109cb1083b3267c9787840d/team-green-linux)
+Invite link: [Trello invite](https://trello.com/invite/b/3mZIkr7D/c77776add109cb1083b3267c9787840d/p3ops-1920-green)
 
-Doorverwijslink: [Trello board](https://trello.com/b/3mZIkr7D/team-green-linux)
+Doorverwijslink: [Trello board](https://trello.com/b/3mZIkr7D/p3ops-1920-green)
 
 ## Communicatieplatform
 
