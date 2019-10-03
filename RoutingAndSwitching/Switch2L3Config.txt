@@ -1,0 +1,31 @@
+enable
+configure terminal
+hostname Switch2L3
+no ip domain-lookup
+ip routing
+
+vlan 20
+vlan 30
+vlan 40
+
+int f0/3
+switchport trunk encapsulation dot1q
+
+int f0/1
+switchport trunk encapsulation dot1q
+
+int vlan 20
+ip address 172.16.0.1 255.255.255.0
+no shut
+
+int vlan 30
+ip address 172.16.1.1 255.255.255.192
+no shut
+
+int vlan 40
+ip address 172.16.1.102 255.255.255.252
+no shut
+
+router rip
+version 2
+network 172.16.1.64

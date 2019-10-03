@@ -1,0 +1,12 @@
+enable
+configure terminal
+hostname Switch3L2
+vlan 50
+name VLAN50
+int range f0/1-5
+switchport mode access 
+switchport access vlan 50
+int f0/6
+switchport mode trunk
+switchport trunk native vlan 1
+switchport trunk allowed vlan 50,20
