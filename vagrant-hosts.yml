@@ -18,6 +18,10 @@
 
 - name: db001
   ip: 172.16.1.68
+
+  # Oscar1 Monitoring Server
+- name: oscar1
+  ip: 172.16.1.5
   
 # Example of a more elaborate host definition
 # - name: srv002
