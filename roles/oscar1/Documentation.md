@@ -16,13 +16,13 @@
 >
 > Installatie lukt bij mij, zie [output](commandoutput.txt).
 >
-> Pingen naar het ip-adres van oscar1(`172.16.1.5`), gaat zonder problemen, maar als ik `172.16.1.5:9100`(!1) probeer te openen in Firefox, dan lukt dit niet. Dit al geprbeerd maar werkte niet:
+> Pingen naar het ip-adres van oscar1 (`172.16.1.5`), gaat zonder problemen, maar als ik `172.16.1.5:9100`(!1) probeer te openen in Firefox, dan lukt dit niet. Dit al geprbeerd maar werkte niet:
 >
 > * Firewallregel toevoegen met http en https (`sudo firewall-cmd --add-service http`)
 > * Log over prometheus nog niet gevonden, als je dit googled krijg je resultaten van hoe logs er in importeren of hoe de logs bekijken als het draait op docker
 >
 > !1: deze poort staat ingesteld in [server.yml](/ansible/servers.yml)
-> 
+
 ## Stappenplan opzetten
 
 1. `vagrant up oscar1`
