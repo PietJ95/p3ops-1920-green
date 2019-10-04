@@ -28,4 +28,17 @@
   roles: 
     - november1
 
+# Configure oscar 1: monitoring server
 
+- hosts: oscar1
+  become: true
+  gather_facts: yes
+  roles:
+  - oscar1
+  vars:
+    prometheus_targets:
+      node:
+      - targets:
+        - localhost:9100
+        labels:
+          env: demosite
