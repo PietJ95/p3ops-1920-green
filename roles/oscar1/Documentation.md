@@ -21,6 +21,8 @@
 > * Firewallregel toevoegen met http en https (`sudo firewall-cmd --add-service http`)
 > * Log over prometheus nog niet gevonden, als je dit googled krijg je resultaten van hoe logs er in importeren of hoe de logs bekijken als het draait op docker
 >
+> Weet dus niet zeker als prometheus al draait op het systeem. Configuratiebestanden (`/etc/prometheus/*`) kan ik wel bekijken op de vm.
+> 
 > !1: deze poort staat ingesteld in [server.yml](/ansible/servers.yml)
 
 ## Stappenplan opzetten
