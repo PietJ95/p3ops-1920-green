@@ -4,7 +4,7 @@
 bind_log: "data/named.run"
 
 bind_zone_domains:
-  - name: "example.com"
+  - name: "green.local"
     hostmaster_email: "hostmaster"
     networks:
       - "10.0.2"

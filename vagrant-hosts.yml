@@ -9,11 +9,11 @@
   ip: 172.16.1.65
 
   #Bravo1 DNS Server
-- name: ns1
+- name: bravo1
   ip: 172.16.1.66
   
   #Charlie1 DNS Backup Server
-- name: ns2
+- name: charlie1
   ip: 172.16.1.67
 
 - name: db001
