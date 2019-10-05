@@ -3,11 +3,12 @@
 ## To Do
 
 - [x] Zoeken naar goede ansible role
-- [ ] Prometheus laten draaien op server `oscar1`
+- [x] Prometheus laten draaien op server `oscar1`
 - [ ] Prometheus op anders servers installeren
+- [ ] Prometheus queries schrijven
 - [ ] Zorgen dat andere servers naar prometheus rapporteren
 - [ ] Querying zodat juiste informatie wordt getoond
-- [ ] Installatie *Grafana* met ansible
+- [x] Installatie *Grafana* met ansible
 - [ ] Zorgen dat alles correct wordt weergegeven op grafana
 
 ## Notes to Stijn
@@ -25,6 +26,14 @@
 > 
 > !1: deze poort staat ingesteld in [server.yml](/ansible/servers.yml)
 
+## Notes to Maarten
+
+> De prometheus server is bereikbaar via `172.16.1.5:9090`
+> Grafana is geinstalleerd, bereikbaar via `172.16.1.5:3000`
+>   Grafana username: `admin`
+>   Grafana password: `oscar1`
+> Het viel mij op dat standaard Firewalld is uitgeschakeld bij het opstarten van de server
+
 ## Stappenplan opzetten
 
 1. `vagrant up oscar1`
@@ -41,15 +50,16 @@ ansible-galaxy install cloudalchemy.prometheus
 
 ```yml
 ---
-- hosts: all
+- hosts: oscar1
+  become: true
+  gather_facts: yes
   roles:
-  - cloudalchemy.prometheus
+  - oscar1
   vars:
     prometheus_targets:
       node:
       - targets:
-        - localhost:9100
-        - demo.cloudalchemy.org:9100
+        - 172.16.1.5:9100
         labels:
           env: demosite
 ```
