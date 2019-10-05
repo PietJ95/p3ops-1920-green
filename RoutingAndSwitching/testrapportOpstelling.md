@@ -258,3 +258,174 @@ interface FastEthernet0/8
 ```
 
 **Voldaan**
+
+## Switch2L3
+#### Overzicht
+ - [x] Hostname geconfigureerd
+ - [x] Vlan 20 opgesteld en IP toegekend
+ - [x] Vlan 30 opgesteld en IP toegekend
+ - [x] Vlan 40 opgesteld en IP toegekend
+ - [x] Switchport trunk encapsulation dot1q op interface f0/1 & f0/3
+ - [x] Router RIPv2 network 172.16.1.64
+ 
+### Hostnames en IP-adres geconfigureerd
+Als de prompt iets anders is dan de standaard `switch>`, dan is er een hostname geconfigureerd. Kan ook gecheckt worden door `show running-config` 
+
+```
+Switch2L3#show running-config 
+Building configuration...
+
+Current configuration : 1541 bytes
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch2L3
+```
+**Voldaan**
+
+### Switchport trunk encapsulation dot1q op interface f0/1 & f0/3
+```
+Switch2L3# show running-config 
+Building configuration...
+
+Current configuration : 1541 bytes
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch2L3
+!
+!
+ip routing
+!
+!
+spanning-tree mode pvst
+!
+!
+interface FastEthernet0/1
+ switchport trunk encapsulation dot1q
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+ switchport trunk encapsulation dot1q
+```
+**Voldaan**
+
+### Vlan 20/30/40 opgesteld en IP toegekend
+```
+Switch2L3# show running-config
+!
+interface Vlan20
+ mac-address 0001.43d6.bd01
+ ip address 172.16.0.1 255.255.255.0
+!
+interface Vlan30
+ mac-address 0001.43d6.bd02
+ ip address 172.16.1.1 255.255.255.192
+!
+interface Vlan40
+ mac-address 0001.43d6.bd03
+ ip address 172.16.1.102 255.255.255.252
+```
+**Voldaan**
+
+### Router RIPv2
+
+```
+Switch2L3# show running-config
+!
+ router rip
+ version 2
+ network 172.16.0.0
+```
+**Voldaan**
+
+## Switch3L2
+#### Overzicht
+ - [x] Hostname geconfigureerd
+ - [x] Vlan 50 opgesteld
+ - [x] Switchport mode access vlan 50 op interfaces f0/1-5
+ - [x] Switchport mode trunk native vlan 1 op f0/6. Allowed vlan 50 & 20
+
+### Hostnames en IP-adres geconfigureerd
+Als de prompt iets anders is dan de standaard `switch>`, dan is er een hostname geconfigureerd. Kan ook gecheckt worden door `show running-config` 
+
+```
+Switch3L2#show running-config 
+Building configuration...
+
+Current configuration : 1396 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch3L2
+```
+
+**Voldaan**
+
+### Vlan 50 opgesteld en Switchport mode access vlan 50 op interfaces f0/1-5
+
+```
+Switch3L2#show running-config 
+Building configuration...
+
+Current configuration : 1396 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch3L2
+!
+interface FastEthernet0/1
+ switchport access vlan 50
+ switchport mode access
+!
+interface FastEthernet0/2
+ switchport access vlan 50
+ switchport mode access
+!
+interface FastEthernet0/3
+ switchport access vlan 50
+ switchport mode access
+!
+interface FastEthernet0/4
+ switchport access vlan 50
+ switchport mode access
+!
+interface FastEthernet0/5
+ switchport access vlan 50
+ switchport mode access
+```
+**Voldaan**
+
+### Switchport mode trunk native vlan 1 op f0/6. Allowed vlan 50 & 20
+
+```
+Switch3L2# show running-config 
+Building configuration...
+
+Current configuration : 1396 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch3L2
+!
+interface FastEthernet0/6
+ switchport trunk allowed vlan 20,50
+ switchport mode trunk
+```
+**Voldaan**
