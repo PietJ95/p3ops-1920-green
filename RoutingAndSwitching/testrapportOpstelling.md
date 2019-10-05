@@ -107,7 +107,7 @@ Configuratie document is leeg.
 ## Switch0L2
 #### Overzicht
  - [x] Hostname geconfigureerd
- - [x] Switchport mode Trunk op vlan 20
+ - [x] Switchport mode Trunk op f0/1 vlan 20
  - [x] Switchport mode Acces f0/2-7 vlan 20
 
 ### Hostnames en IP-adres geconfigureerd
@@ -168,6 +168,93 @@ interface FastEthernet0/7
  switchport access vlan 20
  switchport mode access
 !
+```
+
+**Voldaan**
+
+## Switch1L3
+#### Overzicht
+ - [x] Hostname geconfigureerd
+ - [x] Switchport mode Trunk op f0/1-2
+ - [x] Switchport mode Acces f0/3-8 vlan 30
+
+### Hostnames en IP-adres geconfigureerd
+Als de prompt iets anders is dan de standaard `switch>`, dan is er een hostname geconfigureerd. Kan ook gecheckt worden door `show running-config` 
+
+```
+Switch1L3#show running-config 
+Building configuration...
+
+Current configuration : 1710 bytes
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch1L3
+```
+**Voldaan**
+
+### Switchport mode Trunk op f0/1-2 en Switchport mode Acces f0/3-8 vlan 30
+```
+Switch1L3#show running-config 
+Building configuration...
+
+Current configuration : 1710 bytes
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch1L3
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ switchport trunk encapsulation dot1q
+!
+interface FastEthernet0/2
+ switchport trunk allowed vlan 20
+ switchport trunk encapsulation dot1q
+!
+interface FastEthernet0/3
+ switchport access vlan 30
+ switchport mode access
+ switchport nonegotiate
+!
+interface FastEthernet0/4
+ switchport access vlan 30
+ switchport mode access
+ switchport nonegotiate
+!
+interface FastEthernet0/5
+ switchport access vlan 30
+ switchport mode access
+ switchport nonegotiate
+!
+interface FastEthernet0/6
+ switchport access vlan 30
+ switchport mode access
+ switchport nonegotiate
+!
+interface FastEthernet0/7
+ switchport access vlan 30
+ switchport mode access
+ switchport nonegotiate
+!
+interface FastEthernet0/8
+ switchport access vlan 30
+ switchport mode access
+ switchport nonegotiate
 ```
 
 **Voldaan**
