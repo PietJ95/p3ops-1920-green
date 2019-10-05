@@ -104,3 +104,70 @@ Interface Serial 0/1/0 is administratively down. Is dit correct?
 
 Configuratie document is leeg.
 
+## Switch0L2
+#### Overzicht
+ - [x] Hostname geconfigureerd
+ - [x] Switchport mode Trunk op vlan 20
+ - [x] Switchport mode Acces f0/2-7 vlan 20
+
+### Hostnames en IP-adres geconfigureerd
+Als de prompt iets anders is dan de standaard `switch>`, dan is er een hostname geconfigureerd. Kan ook gecheckt worden door `show running-config` 
+
+```
+Switch0L2# show running-config 
+Building configuration...
+
+Current configuration : 1444 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch0L2
+```
+**Voldaan**
+
+### Switchport mode Trunk op vlan 20 en Switchport mode Acces f0/2-7 vlan 20
+```
+Switch0L2# show running-config 
+hostname Switch0L2
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport trunk allowed vlan 20
+ switchport mode trunk
+!
+interface FastEthernet0/2
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/3
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/4
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/5
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/6
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/7
+ switchport access vlan 20
+ switchport mode access
+!
+```
+
+**Voldaan**
