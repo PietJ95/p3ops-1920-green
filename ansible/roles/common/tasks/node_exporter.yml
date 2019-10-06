@@ -32,3 +32,10 @@
       dest: /etc/systemd/system/{{ node_exporter_service }}.service
   notify:
     - start node exporter
+
+- name: Open node exporter port
+  firewalld:
+    port: "{{ node_exporter_port }}"
+    permanent: yes
+    state: enabled
+    immediate: yes

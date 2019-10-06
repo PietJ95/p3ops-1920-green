@@ -2,3 +2,4 @@ node_exporter_user: node_exporter
 node_exporter_group: node_exporter
 node_exporter_directory: /opt/node_exporter
 node_exporter_service: node_exporter
+node_exporter_port: 9100/tcp
