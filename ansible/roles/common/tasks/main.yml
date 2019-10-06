@@ -1,0 +1,2 @@
+- name: deploy node exporter
+  import_tasks: node_exporter.yml
