@@ -14,9 +14,9 @@
 
 - name: Download node_exporter binary and verify integrity
   get_url:
-    url: https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz
+    url: "{{ node_exporter_download }}"
     dest: /tmp/node_exporter.tar.gz
-    checksum: "sha256:b2503fd932f85f4e5baf161268854bf5d22001869b84f00fd2d1f57b51b72424"
+    checksum: "{{ node_exporter_checksum }}"
 
 - name: Unarchive node_exporter archive
   unarchive:
