@@ -1,4 +1,4 @@
-# Alpha1
+# Alfa1
 
 **Ter referentie**
 
@@ -33,8 +33,8 @@ Dit bestand is de playbook voor alle servers en zorgt ervoor dat deze gerund wor
 ```
 # servers.yml
 ---
-- name: Install Alpha1
-  hosts: Alpha1
+- name: Install alfa1
+  hosts: alfa1
   remote_user: root
   roles:
     - LDAP
@@ -69,4 +69,4 @@ Dit bestand zorgt ervoor dat OpenLDAP wordt geïnstalleerd en kijkt of de servic
 
 Als we nu `vagrant up` doen in de hoofddirectory, brengt vagrant alle servers in de hosts.yml file online en past de rollen toe.
 
-**OpenLDAP is geïnstalleerd en runt op Alpha1**
+**OpenLDAP is geïnstalleerd en runt op alfa1**
