@@ -70,6 +70,20 @@
   roles: 
     - november1
 
+#Echo1
+
+- hosts: echo1
+  become: true
+  roles:
+    - webtier
+
+#Mike1
+
+- hosts: mike1
+  become: true
+  roles:
+    - webtier
+
 # Configure oscar 1: monitoring server
 
 - hosts: oscar1
