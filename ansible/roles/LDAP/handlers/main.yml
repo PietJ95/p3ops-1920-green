@@ -1,6 +1,6 @@
-#handlers/main.yml for LDAP role
 ---
-- name: restart OpenLDAP
-  service:
-    name: slapd
-    state: restarted
+# handlers file for openldap
+
+- name: restart slapd
+  service: name=slapd state=restarted
+  tags: openldap
