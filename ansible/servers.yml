@@ -77,7 +77,7 @@
   become: true
   roles:
     - common
-    - echo1
+    - nginx
 
 #Mike1
 
