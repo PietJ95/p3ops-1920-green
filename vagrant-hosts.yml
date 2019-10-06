@@ -19,6 +19,11 @@
 - name: db001
   ip: 172.16.1.68
 
+- name: echo1
+  ip: 172.16.1.69
+
+- name: mike1
+  ip: 172.16.1.3
   # Oscar1 Monitoring Server
 - name: oscar1
   ip: 172.16.1.5
