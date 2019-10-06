@@ -1,61 +1,56 @@
 ---
-# defaults file for openldap
 
-openldap_domain: example.com
-openldap_organization: example
-openldap_admin_password: password
+# Schemas
+openldap_schemas:
+- /etc/openldap/schema/cosine.ldif
+- /etc/openldap/schema/nis.ldif
+- /etc/openldap/schema/inetorgperson.ldif
 
-openldap_default_services: ldap:/// ldapi:///
-openldap_default_options: ""
+# Domain
+openldap_domain: dc=example,dc=org
+openldap_dc: example
+openldap_o: example org
 
-openldap_server_schemas:
-  - core
-  - cosine
-  - inetorgperson
-openldap_server_loglevel: none
-openldap_server_modules:
-  - back_hdb
-  - syncprov
-openldap_server_database: hdb
-openldap_server_suffix: dc=example,dc=com
-openldap_server_rootdn: cn=Manager,dc=example,dc=com
-openldap_server_rootpw: password
-openldap_server_indexes:
-  - objectClass,cn eq
-  - entryCSN,entryUUID eq
-openldap_server_acls:
-  - to attrs=userPassword by anonymous auth by self write by * none
-  - to * by self write by * none
-openldap_server_password_hash: "{SSHA}"
+# Root PW
+openldap_rootpw: ChangeMe
 
-openldap_dbconfig_set_cachesize: 2097152
-openldap_dbconfig_set_lk_max_objects: 1500
-openldap_dbconfig_set_lk_max_locks: 1500
-openldap_dbconfig_set_lk_max_lockers: 1500
+# OUs
+openldap_ous:
+- Users
+- Groups
+- Special Users
 
-openldap_client_uri: ldap://localhost
-openldap_client_base: dc=example,dc=com
-openldap_client_binddn: cn=Manager,dc=example,dc=com
-openldap_client_sizelimit: 0
-openldap_client_timelimit: 0
+openldap_entries:
+- dn: cn=LDAPPosix,ou=Groups,{{ openldap_domain}}
+  objectClass:
+  - top
+  - posixGroup
+  attributes:
+    cn: LDAPPosix
+    gidNumber: 1001
+    description: All Posix Users                                                                                                       
 
-openldap_sync_syncprov_checkpoint: 50 10
-openldap_sync_syncprov_sessionlog: 100
+openldap_users:
+- dn: uid=kolab-service,ou=Special Users,{{ openldap_domain}}
+  objectClass:
+  - organizationalRole
+  - top
+  userPassword: ChangeMe 
+  attributes:
+    cn: kolab-service
 
-openldap_sync_consumer: False
-openldap_sync_syncrepl_rid: 001
-openldap_sync_syncrepl_provider: ldap://ldap.example.com
-openldap_sync_syncrepl_type: refreshAndPersist
-openldap_sync_syncrepl_interval: 00:00:05:00
-openldap_sync_syncrepl_searchbase: "{{ openldap_server_suffix}}"
-openldap_sync_syncrepl_binddn: cn=admin,dc=example,dc=com
-openldap_sync_syncrepl_credentials: secret
-openldap_sync_syncrepl_starttls: "no"
-openldap_sync_syncrepl_retry: 60 +
-openldap_sync_syncrepl_bindmethod: simple
-openldap_sync_syncrepl_timeout: 0
-openldap_sync_syncrepl_network_timeout: 0
-openldap_sync_syncrepl_keepalive: 0:0:0
-openldap_sync_syncrepl_filter: (objectclass=*)
-openldap_sync_syncrepl_scope: sub
-openldap_sync_syncrepl_schemachecking: off
+- dn: uid=example,ou=Users,{{ openldap_domain}}
+  objectClass:
+  - inetOrgPerson
+  - top
+  - posixAccount
+  - shadowAccount
+  userPassword: ChangeMe
+  attributes:
+    cn: example 
+    givenName: Test
+    surName: Example
+    mail: test@example.org
+    uidNumber: 1001
+    gidNumber: 1001
+
