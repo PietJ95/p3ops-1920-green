@@ -17,13 +17,15 @@
     bind_zone_dir: /var/local/named-zones
     bind_zone_file_mode: '0660'
     bind_allow_query:
+      - 172.16.1.0/24
+    bind_listen_ipv4:
       - any
     bind_listen_ipv6:
       - none
     bind_acls:
       - name: acl1
         match_list:
-          - 172.16.0.0/16
+          - 172.16.1.0/24
     bind_forwarders:
       - '8.8.8.8'
       - '8.8.4.4'
@@ -36,34 +38,35 @@
     bind_zone_time_to_retry: "2H"
     bind_zone_time_to_expire: "2W"
     bind_zone_domains:
-      - name: 'green.local'
+      - name: green.local
+        hosts: 
+          - hosts: 
+            - name: bravo1
+              ip: 172.16.1.66
+              aliases:
+                - ns1
+            - name: charlie1
+              ip: 172.16.1.67
+              aliases:
+                - ns2
         networks:
-          - '172.16'
-        name_servers:
-          - ns1.green.local
-          - ns2.green.local
-        hosts:
-          - name: bravo1
-            ip: 172.16.1.66
-            aliases:
-              - www
-          - name: charlie1
-            ip: 172.16.1.67
-          - name: alpha1
-            ip: 172.16.1.65
-          - name: delta1
-            ip: 172.16.1.68
-          - name: echo1
-            ip: 172.16.1.69
+          - '172.16.1'           
+           
   roles:
     - dnsBindBravoCharlie
 
 # Configure charlie 1 (also known as the secondary, backup or slave dns server) with DNS BIND      
-#- name: Configure charlie1
-#  hosts: charlie1
-#  remote_user: root
-#  roles:
-#    - charlie1
+- name: Configure charlie1
+  hosts: charlie1
+  remote_user: root
+  vars:
+    bind_listen_ipv4: ['any']
+    bind_allow_query: ['172.16.1.0/24']
+    bind_zone_master_server_ip: 172.16.1.66
+    bind_zone_domains:
+      - name: green.local
+  roles:
+    - dnsBindBravoCharlie
 
 - hosts: db001
   become: true
