@@ -72,20 +72,19 @@
     - november1
 
 #Echo1
-
 - hosts: echo1
   become: true
   roles:
     - common
     - nginx
+   # - echo1
 
 #Mike1
-
 - hosts: mike1
   become: true
   roles:
     - common
-    - mike1
+  # - mike1
 
 # Configure oscar 1: monitoring server
 
