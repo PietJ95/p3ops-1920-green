@@ -26,3 +26,12 @@ ssl_ciphers: ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-E
 ssl_prefer_server_ciphers: 'on'
 
 hsts: Strict-Transport-Security "max-age=31536000; includeSubDomains" always
+
+nginx_exporter_download: "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v0.4.2/nginx-prometheus-exporter-0.4.2-linux-amd64.tar.gz"
+nginx_exporter_checksum: "sha256:https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v0.4.2/sha256sums.txt"
+
+nginx_exporter_user: nginx_exporter
+nginx_exporter_group: nginx_exporter
+nginx_exporter_directory: /opt/nginx_exporter
+nginx_exporter_service: nginx_exporter
+nginx_exporter_port: 9113/tcp

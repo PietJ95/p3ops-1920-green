@@ -3,3 +3,9 @@
     name: nginx
     state: restarted
     enabled: yes
+
+- name: restart nginx exporter
+  systemd:
+    state: restarted
+    name: "{{ nginx_exporter_service }}"
+    enabled: yes
