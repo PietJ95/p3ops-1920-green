@@ -1,5 +1,5 @@
-- name: start node exporter
+- name: restart node exporter
   systemd:
-    state: started
+    state: restarted
     name: "{{ node_exporter_service }}"
     enabled: yes

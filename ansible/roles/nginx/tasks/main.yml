@@ -12,22 +12,26 @@
   copy:
     src: nginx.conf
     dest: "{{ nginx_default_config }}"
+  notify: restart nginx
+  
 
 - name: Copy site config
   template:
     src: site.conf.j2
     dest: "{{ nginx_site_config }}"
+  notify: restart nginx
 
 - name: Copy ssl config
   template:
     src: ssl.conf.j2
     dest: "{{ nginx_ssl_config }}"
+  notify: restart nginx
 
 - name: Generate openssl private key
   openssl_privatekey:
     path: "{{ nginx_key_directory }}/{{ private_key }}"
     type: "{{ private_key_type }}"
-    size: "{{ private_key_size }}"
+    curve: "{{ private_key_curve }}"
 
 - name: Generate openssl csr
   openssl_csr:
@@ -40,6 +44,14 @@
   openssl_certificate:
     path: "{{ nginx_cert_directory }}/{{ certificate }}"
     privatekey_path: "{{ nginx_key_directory }}/{{ private_key }}"
-    csr: "{{ nginx_key_directory }}/{{ csr }}"
-  notify:
-    - start nginx
+    csr_path: "{{ nginx_key_directory }}/{{ csr }}"
+    provider: selfsigned
+  notify: restart nginx
+
+- name: Open ports for nginx
+  firewalld:
+      state: enabled
+      permanent: yes
+      immediate: yes
+      service: "{{ item }}"
+  loop: "{{ nginx_ports }}"
