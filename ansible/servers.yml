@@ -103,16 +103,6 @@
   roles:
   - cloudalchemy.prometheus
   - cloudalchemy.grafana
-  vars:
-    prometheus_targets:
-      node:
-      - targets:
-        - 172.16.1.5:9090
-        labels:
-          env: Oscar1
-    grafana_security:
-      admin_user: admin
-      admin_password: oscar1
 
 - hosts: papa1
   become: true
