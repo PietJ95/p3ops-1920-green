@@ -7,23 +7,36 @@ ip routing
 vlan 20
 vlan 30
 vlan 40
+vlan 50
+vlan 60
 
-int f0/3
+int f0/1, f0/3
 switchport trunk encapsulation dot1q
 
 int f0/1
-switchport trunk encapsulation dot1q
+switchport trunk allowed vlan 20,30,40
 
-int vlan 20
+int f0/3
+switchport trunk allowed vlan 20,30,40,50
+
+int vlan20
 ip address 172.16.0.1 255.255.255.0
 no shut
 
-int vlan 30
-ip address 172.16.1.1 255.255.255.192
+int vlan30
+ip address 172.16.1.7 255.255.255.192
 no shut
 
-int vlan 40
-ip address 172.16.1.102 255.255.255.252
+int vlan40
+ip address 172.16.1.98 255.255.255.252
+no shut
+
+int vlan50
+ip address 172.16.1.70 255.255.255.224
+no shut
+
+int vlan60
+ip address 172.16.1.101 255.255.255.252
 no shut
 
 router rip
