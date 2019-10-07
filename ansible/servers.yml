@@ -71,7 +71,6 @@
 #  - cloudalchemy.prometheus
 #  - cloudalchemy.grafana
 
-<<<<<<< Updated upstream
 - hosts: oscar1
   become: true
   gather_facts: yes
@@ -84,9 +83,7 @@
   become: true
   roles: 
     - papa1-pxeserver
-=======
 #- hosts: papa1
 #  become: true
 #  roles: 
 #    - papa1-pxeserver
->>>>>>> Stashed changes

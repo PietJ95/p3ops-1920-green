@@ -54,12 +54,38 @@ ansible-galaxy install cloudalchemy.prometheus
   become: true
   gather_facts: yes
   roles:
-  - oscar1
-  vars:
-    prometheus_targets:
-      node:
-      - targets:
-        - 172.16.1.5:9100
-        labels:
-          env: demosite
+  - cloudalchemy.prometheus
+  - cloudalchemy.grafana
+  - cloudalchemy.node-exporter
+```
+
+3. Maak het bestand `ansible/host_vars/oscar1.yml` aan en voeg volgende code toe.  
+
+Functionaliteit code:
+* Prometheus targets toevoegen (apparaten die gemonitored moeten worden)
+* Grafana credentials instellen
+* Grafana datasource instellen
+* Grafana dashboard downloaden
+
+``` yml
+---
+prometheus_targets:
+  node:
+  - targets:
+    - 172.16.1.5:9100
+    labels:
+      env: Oscar1
+grafana_security:
+  admin_user: admin
+  admin_password: oscar1
+grafana_datasources:
+  - name: "prometheus"
+    type: "prometheus"
+    access: proxy
+    url: 'http://localhost:9090'
+    basicAuth: false
+grafana_dashboards:
+  - dashboard_id: 10645
+    revision_id: 1
+    datasource: 'prometheus'
 ```
