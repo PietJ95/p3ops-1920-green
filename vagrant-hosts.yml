@@ -31,6 +31,9 @@
 - name: oscar1
   ip: 172.16.1.5
   
+- name: papa1
+  ip: 172.16.1.6
+  
 # Example of a more elaborate host definition
 # - name: srv002
 #   box: bento/fedora-28
