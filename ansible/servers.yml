@@ -74,6 +74,16 @@
   roles: 
     - november1
 
+- name: Configure Delta1
+  hosts: delta1
+  become: true
+  roles:
+    - bertvv.rh-base
+    - sepolicy
+    - bertvv.httpd
+    - bertvv.mailserver
+    - bertvv.squirrelmail
+
 #Echo1
 - hosts: echo1
   become: true

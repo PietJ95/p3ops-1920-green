@@ -1,0 +1,29 @@
+---
+rhbase_repositories:
+  - epel-release
+
+rhbase_install_packages:
+  - bash-completion
+  - policycoreutils
+  - setroubleshoot-server
+  - tree
+  - vim-enhanced
+  - tcpdump
+
+rhbase_firewall_allow_services:
+  - http
+  - https
+  - pop3
+  - pop3s
+  - imap
+  - imaps
+  - smtp
+  - smtps
+  - smtp-submission
+
+rhbase_users:
+  - name: johndoe
+    groups:
+      - users
+    password: "$1$WIFkXf07$HQZFgDlnfpSd9B.8McNcf."
+    shell: /sbin/nologin
