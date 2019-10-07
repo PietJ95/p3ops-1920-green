@@ -117,4 +117,4 @@
 - hosts: papa1
   become: true
   roles: 
-    - bertvv.pxeserver
+    - papa1-pxeserver
