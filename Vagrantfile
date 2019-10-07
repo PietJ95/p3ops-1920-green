@@ -145,6 +145,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       shell_provisioners_always(node.vm, host)
       forwarded_ports(node.vm, host)
 
+      # Virtualbox settings
       node.vm.provider :virtualbox do |vb|
         vb.memory = host['memory'] if host.key? 'memory'
         vb.cpus = host['cpus'] if host.key? 'cpus'
@@ -153,6 +154,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         # WARNING: if the name of the current directory is the same as the
         # host name, this will fail.
         vb.customize ['modifyvm', :id, '--groups', PROJECT_NAME]
+      end
+
+      # Libvirt settings
+      node.vm.provider :libvirt do |lv|
+        lv.memory = host['memory'] ||= 1024
+        lv.cpus = host['cpus'] ||= 1
       end
 
       # Ansible provisioning
