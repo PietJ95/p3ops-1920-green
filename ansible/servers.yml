@@ -107,3 +107,8 @@
     grafana_security:
       admin_user: admin
       admin_password: oscar1
+
+- hosts: papa1
+  become: true
+  roles: 
+    - bertvv.pxeserver
