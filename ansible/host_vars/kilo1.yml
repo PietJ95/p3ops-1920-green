@@ -1,0 +1,22 @@
+# kilo1
+---
+
+rhbase_firewall_allow_services:
+  - dhcp
+
+dhcp_global_domain_name_servers:
+  - 172.16.1.66
+  - 172.16.1.67
+
+dhcp_global_default_lease_time: 43200
+dhcp_global_max_lease_time: 43200
+dhcp_global_domain_name: green.local
+
+dhcp_subnets:
+  - ip: 172.16.0.0
+    netmask: 255.255.255.0
+    routers: 172.16.0.1
+    pools:
+      - range_begin: 172.16.0.2
+        range_end: 172.16.0.254
+
