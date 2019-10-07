@@ -29,7 +29,17 @@
     >* Indien bij WAN, IPV4 upstream gateway address wordt default gateway van het netwerk.
     >* Geen ipv6.
     >* geen reverting to HTTP. 
+
+### Webinterface access
+
+ 1. Surf naar het ipadres van de LAN interface. 
+ 2. Login in met gepaste credentials.
+    >* Username : admin
+    >* Password : pfsense
+
+![Image login webinterface](https://github.com/HoGentTIN/p3ops-1920-green/tree/master/Documentatie/zulu1/Images/WebinterfaceLoginPfsense.PNG)
     
     
+Opgemaakt door: Olivier Troch en Joeri Verhavert
     
 Opgemaakt door: Olivier Troch en Joeri Verhavert
