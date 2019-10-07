@@ -1,0 +1,8 @@
+# Zulu1 Assignment
+
+Beschrijving: In deze folder vind je de documentatie over hoe men een Pfsense firewall opzet en configureert. Daarnaast vind je ook de research terug die we nodig hadden voor de setup en configuratie. 
+
+[Snelkoppeling documentatie]()
+[Snelkoppeling Reseach ]()
+
+Opgesteld door Olivier Troch en Joeri Verhavert. 

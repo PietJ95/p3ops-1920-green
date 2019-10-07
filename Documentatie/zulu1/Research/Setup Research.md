@@ -1,4 +1,6 @@
-# Links
+# Links over de setup
+
+Beschrijving: In dit bestand vind je de links die we gebruikten om informatie te verwerken over hoe men een Pfsense firewall gaat opzetten. Door het gebruik van deze links, slaagden we erin om de webinterface te bereiken. 
 
 [Link1 : Setup Pfsense Firewall and Basic Configuration](https://linoxide.com/firewall/pfsense-setup-basic-configuration/)
 
@@ -19,3 +21,5 @@
 [Link 9 : (Youtube)pfSense Setup](https://www.youtube.com/watch?v=D2wjR3pCwrU)
 
 [Link 10:(Youtube)UnBoxing of the Netgate Firewall pre-loaded with pfSense](https://www.youtube.com/watch?v=Z8icT5-H0eA)
+
+Opgemaakt door Oliver Troch en Joeri Verhavert
