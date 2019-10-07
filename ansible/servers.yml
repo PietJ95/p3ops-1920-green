@@ -82,6 +82,12 @@
     - nginx
    # - echo1
 
+#Kilo1
+- hosts: kilo1
+  become: true
+  roles:
+    - kilo1-dhcp
+
 #Mike1
 - hosts: mike1
   become: true
@@ -111,4 +117,4 @@
 - hosts: papa1
   become: true
   roles: 
-    - bertvv.pxeserver
+    - papa1-pxeserver
