@@ -95,8 +95,8 @@
   become: true
   gather_facts: yes
   roles:
-  - oscar1
-  - oscar1-grafana
+  - cloudalchemy.prometheus
+  - cloudalchemy.grafana
   vars:
     prometheus_targets:
       node:
