@@ -1,7 +1,0 @@
-# site.yml
----
-    
-- hosts: kilo1
-  become: true
-  roles:
-    - bertvv.dhcp
