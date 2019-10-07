@@ -82,6 +82,12 @@
     - nginx
    # - echo1
 
+#Kilo1
+- hosts: kilo1
+  become: true
+  roles:
+    - bertvv.dhcp
+
 #Mike1
 - hosts: mike1
   become: true
