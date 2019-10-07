@@ -1,0 +1,7 @@
+---
+
+    bind_listen_ipv4: ['any']
+    bind_allow_query: ['172.16.0.0/16']
+    bind_zone_master_server_ip: 172.16.1.66
+    bind_zone_domains:
+      - name: green.local
