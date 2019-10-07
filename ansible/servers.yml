@@ -25,11 +25,11 @@
   roles:
     - dnsBindBravoCharlie
 
-- hosts: mariadb-server
+- hosts: november1
   become: true
   gather_facts: yes
   roles: 
-    - november1
+    - mariadb-server
 
 - name: Configure Delta1
   hosts: delta1
