@@ -50,11 +50,12 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | November1 | VLAN 30 | 172.16.1.4 |
 | Oscar1 | VLAN 30 | 172.16.1.5 |
 | Papa1 | VLAN 30 | 172.16.1.6 |
-| Zulu1 | VLAN 70 | 172.16.1.105 |
-| Zulu1 | VLAN 60 | 172.16.1.101 |
+| Zulu1 | VLAN 70 | 172.16.1.106 |
+| Zulu1 | VLAN 60 | 172.16.1.102 |
 | Router0 | VLAN 70 | 172.16.1.105 |
 | Switch1 | VLAN 40 | 172.16.1.97 |
 | Switch2 | VLAN 40 | 172.16.1.98 |
+| Switch2 | VLAN 60 | 172.16.1.101 |
 | Clients | VLAN 20 | 172.16.0.1 - 172.16.0.254 (DHCP) |
 | Management | VLAN 99 | 172.16.99.1 |
 
