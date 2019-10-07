@@ -20,11 +20,11 @@ int f0/3
 switchport trunk allowed vlan 20,30,40,50
 
 int vlan20
-ip address 172.16.0.1 255.255.255.0
+ip address 172.16.0.253 255.255.255.0
 no shut
 
 int vlan30
-ip address 172.16.1.7 255.255.255.192
+ip address 172.16.1.61 255.255.255.192
 no shut
 
 int vlan40
@@ -32,7 +32,7 @@ ip address 172.16.1.98 255.255.255.252
 no shut
 
 int vlan50
-ip address 172.16.1.70 255.255.255.224
+ip address 172.16.1.94 255.255.255.224
 no shut
 
 int vlan60
