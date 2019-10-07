@@ -103,6 +103,7 @@
   roles:
   - cloudalchemy.prometheus
   - cloudalchemy.grafana
+  - cloudalchemy.node-exporter
 
 - hosts: papa1
   become: true
