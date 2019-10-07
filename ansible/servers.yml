@@ -25,7 +25,7 @@
   roles:
     - dnsBindBravoCharlie
 
-- hosts: db001
+- hosts: mariadb-server
   become: true
   gather_facts: yes
   roles: 

@@ -1,8 +1,13 @@
 # roles/mariadb/defaults/main.yml
----
 
-mariadb_databases: testdatabase
-mariadb_users: dylano
+mariadb_databases: 
+  - name: drupal_echo1
+  - name: drupal_mike1
+
+mariadb_users: 
+  - { name: drupal_echo1, password: admin , priv: 'drupal_echo1.*:ALL', append_privs: 'yes' }
+  - { name: drupal_mike1, password: admin , priv: 'drupal_mike1.*:ALL', append_privs: 'yes' }
+
 mariadb_root_password: admin
 
 mariadb_mirror: yum.mariadb.org
