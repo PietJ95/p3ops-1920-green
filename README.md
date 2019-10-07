@@ -44,6 +44,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Charlie1 | VLAN 50 | 172.16.1.67 |
 | Delta1 | VLAN 50 | 172.16.1.68 |
 | Echo1 | VLAN 50 | 172.16.1.69 |
+| Quebec1 | VLAN 50 | 172.16.1.70 |
 | Kilo1 | VLAN 30 | 172.16.1.1 |
 | Lima1 | VLAN 30 | 172.16.1.2 |
 | Mike1 | VLAN 30 | 172.16.1.3 |
