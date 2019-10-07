@@ -13,13 +13,55 @@ dhcp_global_max_lease_time: 43200
 dhcp_global_domain_name: green.local
 
 dhcp_subnets:
+    # VLAN 20
   - ip: 172.16.0.0
     netmask: 255.255.255.0
     routers: 172.16.0.1
     pools:
       - range_begin: 172.16.0.2
         range_end: 172.16.0.254
-#statische ip via mac
+
+    # VLAN 30
+  - ip: 172.16.1.0
+    netmask: 255.255.255.192
+    routers: 172.16.0.1
+    pools:
+      - range_begin: 172.16.1.1
+        range_end: 172.16.1.62
+
+    # VLAN 40
+  - ip: 172.16.1.96
+    netmask: 255.255.255.252
+    routers: 172.16.0.1
+    pools:
+      - range_begin: 172.16.1.97
+        range_end: 172.16.1.98
+
+    # VLAN 50
+  - ip: 172.16.1.64
+    netmask: 255.255.255.224
+    routers: 172.16.0.1
+    pools:
+      - range_begin: 172.16.1.65
+        range_end: 172.16.1.94
+
+    # VLAN 60
+  - ip: 172.16.1.100
+    netmask: 255.255.255.252
+    routers: 172.16.0.1
+    pools:
+      - range_begin: 172.16.1.101
+        range_end: 172.16.1.102
+        
+    # VLAN 70
+  - ip: 172.16.1.104
+    netmask: 255.255.255.252
+    routers: 172.16.0.1
+    pools:
+      - range_begin: 172.16.1.105
+        range_end: 172.16.1.106
+
+# Statisch IP via MAC
 dhcp_hosts:
   - name: Alfa1
     mac: '08:00:27:66:5D:01'
