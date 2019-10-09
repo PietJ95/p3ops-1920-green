@@ -26,7 +26,8 @@ mariadb_bind_address: '0.0.0.0'
 #mogelijke error!!!
 #geen credentials gevonden in .my.cnf.d
 #,blijkbaar moet dit hier gedefinieerd worden
-mariadb_server_cnf: { username: {{ "mariadb_users_name" }},password: {{ "mariadb_users_password" }} }
+mariadb_server_cnf: {}
+# { "{{ mariadb_users_name }}" ,"{{ mariadb_users_password }}" }
 
 # Custom configuration
 mariadb_custom_cnf: {}
