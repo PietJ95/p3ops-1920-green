@@ -1,30 +1,20 @@
 # roles/mariadb/defaults/main.yml
 
 mariadb_databases: 
-  - name: drupal_echo1
-  - name: drupal_mike1
+  - { name: 'drupal_echo1' }
+  - { name: 'drupal_mike1' }
 
 mariadb_users: 
-  - { name: drupal_echo1, password: admin ,hosts:
-    - '172.16.1.%'
-    - 127.0.0.1
-    - ::1
-    - localhost 
-    ,priv: '*.*:ALL', append_privs: 'yes' }
-  - { name: drupal_mike1, password: admin, hosts:
-    - '172.16.1.%'
-    - 127.0.0.1
-    - ::1
-    - localhost
-    , priv: '*.*:ALL', append_privs: 'yes' }
+  - { name: 'echo1_user', password: 'admin', priv: 'drupal_echo1.*:ALL,GRANT', append_privs: yes }
+  - { name: 'mike1_user', password: 'admin', priv: 'drupal_mike1.*:ALL,GRANT', append_privs: yes }
 
-mariadb_root_password: admin
+mariadb_root_password: 'admin'
 
 mariadb_mirror: yum.mariadb.org
 mariadb_version: '10.4'
 
 mariadb_configure_swappiness: true
-mariadb_swappiness: 0
+mariadb_swappiness: 1 #swappiness naar 1 want dat is aanbevolen voor database workloads
 
 # Network configuration (network.cnf)
 
@@ -32,7 +22,11 @@ mariadb_service: mariadb
 mariadb_bind_address: '0.0.0.0'
 
 # Server configuration
-mariadb_server_cnf: {}
+
+#mogelijke error!!!
+#geen credentials gevonden in .my.cnf.d
+#,blijkbaar moet dit hier gedefinieerd worden
+mariadb_server_cnf: { username: {{ "mariadb_users_name" }},password: {{ "mariadb_users_password" }} }
 
 # Custom configuration
 mariadb_custom_cnf: {}

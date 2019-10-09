@@ -24,3 +24,5 @@
     state: present
   with_items: "{{ mariadb_users }}"
   tags: mariadb
+
+- debug: var=ansible_facts
