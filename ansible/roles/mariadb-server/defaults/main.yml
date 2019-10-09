@@ -5,8 +5,18 @@ mariadb_databases:
   - name: drupal_mike1
 
 mariadb_users: 
-  - { name: drupal_echo1, password: admin , priv: 'drupal_echo1.*:ALL', append_privs: 'yes' }
-  - { name: drupal_mike1, password: admin , priv: 'drupal_mike1.*:ALL', append_privs: 'yes' }
+  - { name: drupal_echo1, password: admin ,hosts:
+    - '172.16.1.%'
+    - 127.0.0.1
+    - ::1
+    - localhost 
+    ,priv: '*.*:ALL', append_privs: 'yes' }
+  - { name: drupal_mike1, password: admin, hosts:
+    - '172.16.1.%'
+    - 127.0.0.1
+    - ::1
+    - localhost
+    , priv: '*.*:ALL', append_privs: 'yes' }
 
 mariadb_root_password: admin
 
