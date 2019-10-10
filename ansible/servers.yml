@@ -7,6 +7,7 @@
   remote_user: root
   roles:
     - LDAP
+    - cloudalchemy.node-exporter
 
 # Configure bravo 1 (also known as the primary or master DNS server) with DNS BIND
 #
@@ -32,6 +33,7 @@
   gather_facts: yes
   roles: 
     - mariadb-server
+#    - cloudalchemy.node-exporter
 
 - name: Configure Delta1
   hosts: delta1
@@ -42,6 +44,7 @@
     - bertvv.httpd
     - bertvv.mailserver
     - bertvv.squirrelmail
+    - cloudalchemy.node-exporter
 
 #Echo1
 - hosts: echo1
@@ -50,18 +53,21 @@
     - common
     - nginx
    # - echo1
+    - cloudalchemy.node-exporter
 
 #Kilo1
 - hosts: kilo1
   become: true
   roles:
     - kilo1-dhcp
+    - cloudalchemy.node-exporter
 
 #Mike1
 - hosts: mike1
   become: true
   roles:
     - common
+    - cloudalchemy.node-exporter
   # - mike1
 
 # Configure oscar 1: monitoring server
@@ -86,6 +92,7 @@
   become: true
   roles: 
     - papa1-pxeserver
+    - cloudalchemy.node-exporter
 #- hosts: papa1
 #  become: true
 #  roles: 

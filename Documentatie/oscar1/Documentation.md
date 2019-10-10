@@ -90,6 +90,8 @@ grafana_dashboards:
     datasource: 'prometheus'
 ```
 
+4. Voeg aan alle servers in het bestand `ansible/servers.yml` de rol cloudalchemy.node-exporter toe.
+
 ## Bekijken van de grafieken met grafana
 
 1. Surf naar 172.16.1.5:3000
@@ -97,4 +99,30 @@ grafana_dashboards:
 3. Klik linksboven op home
 4. Selecteer het enige dashboard in de lijst
 5. Bekijk de grafieken
-   1. Indien er op bepaalde zaken staat "No data" kan je rechtsboven de timespan van de grafieken aanpassen, standaard staat dit op zeven dagen. Indien de server nog maar net is opgestart heeft hij nog geen 7 dagen oude data. Selecteer dan bv.: laatste 5 minuten
+
+## Status Monitoring verschillende linux servers
+|   Server  	|  Monitoring status                                                                                                                                        	|
+|:---------:	|-----------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|    Alfa1  	| Success                                                                                                                                                   	|
+|   Bravo1  	| Success                                                                                                                                                   	|
+|   Delta1  	| Success --> mits toevoegen firewall regel                                                                                                                 	|
+|   Echo1   	| Success                                                                                                                                                   	|
+|   Kilo1   	| Failed --> Geen connectie met kilo1, pingen lukt niet. Dit komt vermoedelijk omdat de kilo1 en de host hetzelfde ip adres hebben met de host-only adapter (172.16.1.1) 	|
+|   Lima1   	| Failed --> Server nog niet aangemaakt                                                                                                                     	|
+|   Mike1   	|  Success                                                                                                                                                  	|
+| November1 	| Failed --> Server start nog niet op zonder fouten                                                                                                         	|
+|   Oscar1  	| Success                                                                                                                                                   	|
+|   Papa1   	| Failed --> Server start nog niet op zonder fouten                                                                                                         	|
+|   Zulu1   	| Failed --> Server nog niet aangemaakt                                                                                                                     	|
+
+## Troubleshooting
+
+### Grafana: No data
+
+Indien op het grafana dashboard bij bepaalde zaken staat "No data" kan je rechtsboven de timespan van de grafieken aanpassen, standaard staat dit op zeven dagen. Indien de server nog maar net is opgestart heeft hij nog geen 7 dagen oude data. Selecteer dan bv.: laatste 5 minuten
+
+## Geen servers bereikbaar
+
+De oscar1 server maakt gebruik van de DNS-server bravo1 om de hostnamen (alfa1,bravo1,...) om te zetten naar IP-addressen.  
+ Indien er geen verbinding kan gemaakt worden met de DNS-server bravo1, dan zal prometheus geen verbinding kunnen maken met de andere servers.  
+Zorg er dus altijd voor dat de prometheus server connectie heeft met de server DNS-server.
