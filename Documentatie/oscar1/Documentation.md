@@ -89,3 +89,12 @@ grafana_dashboards:
     revision_id: 1
     datasource: 'prometheus'
 ```
+
+## Bekijken van de grafieken met grafana
+
+1. Surf naar 172.16.1.5:3000
+2. Login met gebruikersnaam `admin` en wachtwoord `oscar1`
+3. Klik linksboven op home
+4. Selecteer het enige dashboard in de lijst
+5. Bekijk de grafieken
+   1. Indien er op bepaalde zaken staat "No data" kan je rechtsboven de timespan van de grafieken aanpassen, standaard staat dit op zeven dagen. Indien de server nog maar net is opgestart heeft hij nog geen 7 dagen oude data. Selecteer dan bv.: laatste 5 minuten

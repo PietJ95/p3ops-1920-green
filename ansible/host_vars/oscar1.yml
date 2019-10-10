@@ -3,6 +3,7 @@ prometheus_targets:
   node:
   - targets:
     - 172.16.1.5:9100
+    - 172.16.1.67:9100
     labels:
       env: Oscar1
 grafana_security:
@@ -17,4 +18,7 @@ grafana_datasources:
 grafana_dashboards:
   - dashboard_id: 10645
     revision_id: 1
+    datasource: 'prometheus'
+  - dashboard_id: 2939
+    revision_id: 8
     datasource: 'prometheus'

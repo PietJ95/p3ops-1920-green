@@ -24,6 +24,7 @@
   remote_user: root
   roles:
     - dnsBindBravoCharlie
+    - cloudalchemy.node-exporter
 
 - hosts: november1
   become: true
