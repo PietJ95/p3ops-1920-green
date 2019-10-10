@@ -16,6 +16,7 @@
   gather_facts: yes
   roles:
     - dnsBindBravoCharlie
+    - cloudalchemy.node-exporter
 
 # Configure charlie 1 (also known as the secondary, backup or slave dns server) with DNS BIND      
 - name: Configure charlie1
@@ -79,6 +80,7 @@
   - cloudalchemy.prometheus
   - cloudalchemy.grafana
   - cloudalchemy.node-exporter
+  - jdauphant.dns
 
 - hosts: papa1
   become: true

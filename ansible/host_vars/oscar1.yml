@@ -1,11 +1,25 @@
 ---
+dns_nameservers: ['172.16.1.66', '10.0.2.3']
+
 prometheus_targets:
   node:
   - targets:
-    - 172.16.1.5:9100
-    - 172.16.1.67:9100
+    - alpha1.green.local:9100
+    - bravo1.green.local:9100
+    - charlie1.green.local:9100
+    - delta1.green.local:9100
+    - echo1.green.local:9100
+    - kilo1.green.local:9100
+    - lima1.green.local:9100
+    - mike1.green.local:9100
+    - november1.green.local:9100
+    - oscar1.green.local:9100
+    - papa1.green.local:9100
+    - zulu1.green.local:9100
+#    - 172.16.1.5:9100 # Node exporter oscar1
+#    - 172.16.1.67:9100 # Node exporter charlie1
     labels:
-      env: Oscar1
+      env: green.local
 grafana_security:
   admin_user: admin
   admin_password: oscar1
@@ -21,4 +35,10 @@ grafana_dashboards:
     datasource: 'prometheus'
   - dashboard_id: 2939
     revision_id: 8
+    datasource: 'prometheus'
+  - dashboard_id: 9901
+    revision_id: 1
+    datasource: 'prometheus'
+  - dashboard_id: 1666
+    revision_id: 1
     datasource: 'prometheus'
