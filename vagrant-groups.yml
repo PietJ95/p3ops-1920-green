@@ -11,3 +11,14 @@
 #
 # Leave the file empty if you do not want to define groups.
 ---
+node-exporter:
+  - alfa1
+  - bravo1
+  - charlie1
+#  - november1
+  - delta1
+  - echo1
+  - kilo1
+  - mike1
+  - oscar1
+  - papa1
