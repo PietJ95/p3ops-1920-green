@@ -2,7 +2,7 @@
 ---
 # Node exporter for monitoring:
 - name: node-exporter
-  hosts: node-exporter
+  hosts: nodeexporter
   become: true
   roles:
     - cloudalchemy.node-exporter
@@ -82,6 +82,7 @@
   become: true
   gather_facts: yes
   roles:
+  - bertvv.rh-base
   - cloudalchemy.prometheus
   - cloudalchemy.grafana
   - jdauphant.dns

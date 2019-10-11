@@ -11,7 +11,7 @@
 #
 # Leave the file empty if you do not want to define groups.
 ---
-node-exporter:
+nodeexporter:
   - alfa1
   - bravo1
   - charlie1
