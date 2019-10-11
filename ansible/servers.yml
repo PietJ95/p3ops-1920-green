@@ -4,8 +4,10 @@
 - name: node-exporter
   hosts: nodeexporter
   become: true
+  gather_facts: true
   roles:
     - cloudalchemy.node-exporter
+    - mesaguy.prometheus # specific exporters
     
 # Configure server alfa1 with LDAP role
 - name: Configure alfa1
