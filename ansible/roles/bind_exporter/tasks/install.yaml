@@ -1,0 +1,84 @@
+---
+- name: set internal variable platform-suffix for convenience
+  set_fact:
+    prometheus_platform_suffix: "linux-amd64"
+  when: ansible_architecture == "x86_64"
+
+- name: set internal variables for convenience
+  set_fact:
+    prometheus_bind_exporter_subdir: "{{ prometheus_bind_exporter_install_path }}/bind_exporter-{{ prometheus_bind_exporter_version }}.{{ prometheus_platform_suffix }}" # noqa 204
+
+- name: set internal variables for convenience
+  set_fact:
+    prometheus_bind_exporter_daemon_dir: "{{ prometheus_bind_exporter_subdir }}"
+
+- name: set download url for versions
+  set_fact:
+    prometheus_bind_exporter_tar_url: 'https://github.com/crazikPL/bind_exporter/releases/download/{{ prometheus_bind_exporter_version }}-amd64/bind_exporter-{{ prometheus_bind_exporter_version }}.{{ prometheus_platform_suffix }}.tar.gz' # noqa 204
+    prometheus_bind_exporter_tarball: 'bind_exporter-{{ prometheus_bind_exporter_version }}.{{ prometheus_platform_suffix }}.tar.gz'
+
+- name: create Prometheus group
+  group:
+    name: '{{ prometheus_bind_exporter_group }}'
+    state: present
+
+- name: create Prometheus user
+  user:
+    name: "{{ prometheus_bind_exporter_user }}"
+    group: "{{ prometheus_bind_exporter_group }}"
+    createhome: no
+    shell: /sbin/nologin
+    comment: "Prometheus User"
+    state: present
+
+- name: mkdir for prometheus and bind_exporter
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ prometheus_bind_exporter_user }}"
+    group: "{{ prometheus_bind_exporter_group }}"
+    mode: 0750
+  loop:
+    - "{{ prometheus_bind_exporter_install_path }}"
+    - "{{ prometheus_bind_exporter_config_path }}"
+
+- name: download and untar bind_exporter tarball
+  unarchive:
+    src: "{{ prometheus_bind_exporter_tar_url }}"
+    dest: "{{ prometheus_bind_exporter_install_path }}"
+    owner: '{{ prometheus_bind_exporter_user }}'
+    group: '{{ prometheus_bind_exporter_group }}'
+    mode: 0755
+    remote_src: yes
+    creates: '{{ prometheus_bind_exporter_subdir }}'
+  notify:
+    - restart bind_exporter
+
+- name: copy bind_exporter systemd profile
+  template:
+    src: 'bind_exporter.service.j2'
+    dest: '/lib/systemd/system/bind_exporter.service'
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - systemd reload
+    - restart bind_exporter
+
+- name: copy bind_exporter config
+  template:
+    src: 'bind_exporter.defaults.j2'
+    dest: '/etc/default/bind_exporter'
+    owner: '{{ prometheus_bind_exporter_user }}'
+    group: '{{ prometheus_bind_exporter_group }}'
+    mode: 0640
+  notify:
+    - restart bind_exporter
+
+- name: bind_exporter systemd service enable
+  systemd:
+    name: bind_exporter
+    state: started
+    enabled: yes
+
+...

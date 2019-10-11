@@ -1,0 +1,25 @@
+---
+galaxy_info:
+  author: Tomasz Baczynski
+  description: Install and setup bind_exporter agent service
+  company: BulIT
+
+  license: BSD
+
+  min_ansible_version: 2.7
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+    - name: Debian
+      versions:
+        - jessie
+
+  galaxy_tags:
+    - system
+    - prometheus
+    - monitoring
+
+dependencies: []

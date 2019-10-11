@@ -1,0 +1,15 @@
+---
+
+- name: install prometheus bind_exporter
+  include: install.yaml
+  tags:
+    - prometheus
+    - bind_exporter
+
+- name: ufw | open access to bind_exporter
+  include: ufw.yaml
+  when: enable_ufw | bool
+  tags:
+    - prometheus
+    - bind_exporter
+    - ufw

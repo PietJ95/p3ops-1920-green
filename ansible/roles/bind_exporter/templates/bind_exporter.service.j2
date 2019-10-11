@@ -1,0 +1,20 @@
+[Unit]
+Description=Prometheus Bind Exporter
+Documentation=https://github.com/digitalocean/bind_exporter
+After=network-online.target
+
+[Service]
+Type=simple
+PIDFile={{ prometheus_bind_exporter_pid_path }}/bind_exporter.pid
+EnvironmentFile=-/etc/default/bind_exporter
+User={{ prometheus_bind_exporter_user }}
+Group={{ prometheus_bind_exporter_group }}
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStart={{ prometheus_bind_exporter_daemon_dir }}/bind_exporter $STARTUP_ARGS
+
+SyslogIdentifier=prometheus-bind_exporter
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
