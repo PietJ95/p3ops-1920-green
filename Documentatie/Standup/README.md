@@ -7,6 +7,6 @@ De stand up rapporten worden in TLDR vorm opgesteld.
 ## Weekelijkse stand up
 | Stand up | Rapport |
 | :--- | :---       |
-|7/10/2019|[Week 3](Week3.md)|
+|7/10/2019|[Week 3](Rapporten weekelijkse stand up/Week3.md)|
 
 Opgesteld door Bernard Deploige.
