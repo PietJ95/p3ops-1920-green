@@ -34,3 +34,4 @@ int f0/2
 switchport trunk allowed vlan 20,30,40,50
 
 ip route 0.0.0.0 0.0.0.0 172.16.1.98
+
