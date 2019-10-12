@@ -4,6 +4,10 @@
 
 Werken met [Cloudalchemy snmp-exporter](https://galaxy.ansible.com/cloudalchemy/snmp-exporter).
 
+## Grafana dashboards
+
+* https://grafana.com/grafana/dashboards/1124
+* https://grafana.com/grafana/dashboards/9908
 
 ## Cisco configuration
 
@@ -16,4 +20,3 @@ router(config)# snmp-server community public RO
 ## Resources
 
 * https://www.robustperception.io/snmp-monitoring-with-prometheus
-* 
