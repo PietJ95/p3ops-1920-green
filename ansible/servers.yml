@@ -32,6 +32,14 @@
   roles:
     - dnsBindBravoCharlie
 
+#configure quebec 1 (forwards the requests to ns12.green.local and ns12.red.local or extern dns-server)
+- name: Configure quebec1
+  hosts: quebec1
+  gather_facts: yes
+  remote_user: root
+  roles:
+    - dnsBindBravoCharlie
+
 - hosts: november1
   become: true
   gather_facts: yes

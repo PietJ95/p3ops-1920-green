@@ -30,6 +30,9 @@
   mac: '08:00:27:66:5D:05'
   ip: 172.16.1.69
 
+- name: quebec1
+  ip: 172.16.1.70
+
   # Kilo1 DHCP Server
 - name: kilo1
   ip: 172.16.1.1
