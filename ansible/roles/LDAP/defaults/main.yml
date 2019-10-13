@@ -1,15 +1,4 @@
 ---
-# defaults file for openldap
-openldap_packages:
-  - slapd
-  - ldap-utils
-
-# By default, top level organization and domain components are guessed from DNS
-# domain ! If these values are unset, org, domain and rootdn will be
-# yourdomain.org and cn=admin,dc=yourdomain,dc=org
-# openldap_organization: 'example.org'
-# openldap_domain: 'example.org'
-# openldap_rootdn: 'cn=admin,dc=example,dc=org'
 
 #The domain prefix for ldap
 openldap_server_domain_name: green.local
@@ -27,55 +16,4 @@ openldap_server_enable_ssl: true
 
 #The ldif file
 openldap_server_ldif: domain.ldif
-
-# Initial Organization Units to create - VOORBEELD Src: https://github.com/mbocquet/openldap
-# openldap_ou:
-#   - name: 'IT Administratie'
-#     objectclass:
-#       - organizationalunit
-#       - top
-#   - name: 'Verkoop'
-#     objectclass:
-#       - organizationalunit
-#       - top
-#   - name: 'Administratie'
-#     objectclass:
-#       - organizationalunit
-#       - top
-#   - name: 'Ontwikkeling'
-#     objectclass:
-#       - organizationalunit
-#       - top
-#   - name: 'Directie'
-#     objectclass:
-#       - organizationalunit
-#       - top
-
-#Dit is een betere manier denk ik
-#Src: https://github.com/net2grid/ansible-openldap_config
-openldap_create_organizationalunits:
-  - IT Administratie
-  - Verkoop
-  - Administratie
-  - Ontwikkeling
-  - Directie
-
-# Dit weet ik nog niet 100% hoe het werkt
-openldap_create_groups:
-  - name: my_group
-    gid: 1001
-    group_ou: ou=Groups
-
-openldap_create_users:
-  - name: thibault
-    cn: Thibault Dewitte
-    sn: Dewitte
-    password: thibault
-    email: thibault.dewitte@student.hogent.be
-    group_ou: ou=IT Administratie
-
-openldap_add_uniquemember:
-  - name: thibault
-    member_dn: uid=thibault,ou='IT Administratie'
-    group_dn: cn=Admins,ou='IT Administratie'
 ...
