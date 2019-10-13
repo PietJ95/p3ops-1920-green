@@ -2,3 +2,16 @@
 
 
 Een “secondary DNS” server die zelf geen zonebestanden bevat, maar synchroni-seert metbravo1.De buitenwereld kent deze server als “ns2"
+
+## Research
+
+[Research](./research.md)
+
+
+## Testplan
+
+[Testplan](./testplan.md)
+
+## Testrapport
+
+[Testrapport](./testrapport.md)
