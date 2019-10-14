@@ -28,6 +28,9 @@ rhbase_users:
     password: "$1$WIFkXf07$HQZFgDlnfpSd9B.8McNcf."
     shell: /sbin/nologin
 
+rhbase_selinux_booleans:
+  - httpd_can_network_connect
+
 rhbase_firewall_allow_ports:
   - 9100/tcp # Dit is nodig om de server te monitoren
 
