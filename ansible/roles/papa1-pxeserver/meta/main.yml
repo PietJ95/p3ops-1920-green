@@ -13,5 +13,5 @@ galaxy_info:
     - system
     - networking
 dependencies:
-  - bertvv.tftp
-  - bertvv.dhcp
+  #- bertvv.tftp
+  #- bertvv.dhcp

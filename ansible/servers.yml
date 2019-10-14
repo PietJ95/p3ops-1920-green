@@ -1,60 +1,60 @@
 # servers.yml
 ---
 # # Node exporter for monitoring:
-# - name: node-exporter
-#   hosts: nodeexporter
-#   become: true
-#   roles:
-#     - cloudalchemy.node-exporter
+ - name: node-exporter
+   hosts: nodeexporter
+   become: true
+   roles:
+     - cloudalchemy.node-exporter
     
 # # Configure server alfa1 with LDAP role
-# - name: Configure alfa1
-#   hosts: alfa1
-#   become: true
-#   remote_user: root
-#   roles:
-#     - LDAP
+ - name: Configure alfa1
+   hosts: alfa1
+   become: true
+   remote_user: root
+   roles:
+     - LDAP
 
 # # Configure bravo 1 (also known as the primary or master DNS server) with DNS BIND
 # #
-# - name: Configure bravo1
-#   hosts: bravo1
-#   remote_user: root
-#   gather_facts: yes
-#   roles:
-#     - dnsBindBravoCharlie
+ - name: Configure bravo1
+   hosts: bravo1
+   remote_user: root
+   gather_facts: yes
+   roles:
+    - dnsBindBravoCharlie
 
 # # Configure charlie 1 (also known as the secondary, backup or slave dns server) with DNS BIND      
-# - name: Configure charlie1
-#   gather_facts: yes
-#   hosts: charlie1
-#   remote_user: root
-#   roles:
-#     - dnsBindBravoCharlie
+ - name: Configure charlie1
+   gather_facts: yes
+   hosts: charlie1
+   remote_user: root
+   roles:
+     - dnsBindBravoCharlie
 
 # #configure quebec 1 (forwards the requests to ns12.green.local and ns12.red.local or extern dns-server)
-# - name: Configure quebec1
-#   hosts: quebec1
-#   gather_facts: yes
-#   remote_user: root
-#   roles:
-#     - dnsBindBravoCharlie
+ - name: Configure quebec1
+   hosts: quebec1
+   gather_facts: yes
+   remote_user: root
+   roles:
+     - dnsBindBravoCharlie
 
-# - hosts: november1
-#   become: true
-#   gather_facts: yes
-#   roles: 
-#     - mariadb-server
+ - hosts: november1
+   become: true
+   gather_facts: yes
+   roles: 
+     - mariadb-server
 
-# - name: Configure Delta1
-#   hosts: delta1
-#   become: true
-#   roles:
-#     - bertvv.rh-base
-#     - sepolicy
-#     - bertvv.httpd
-#     - bertvv.mailserver
-#     - bertvv.squirrelmail
+- name: Configure Delta1
+  hosts: delta1
+  become: true
+  roles:
+   # - bertvv.rh-base
+   # - sepolicy
+   # - bertvv.httpd
+   # - bertvv.mailserver
+   # - bertvv.squirrelmail
 
 # #Echo1
 # - hosts: echo1
@@ -95,6 +95,14 @@
 #   - cloudalchemy.grafana
 #   - jdauphant.dns
 
+- hosts: oscar1
+  become: true
+  gather_facts: yes
+  roles:
+  #- bertvv.rh-base
+  #- cloudalchemy.prometheus
+  #- cloudalchemy.grafana
+  #- jdauphant.dns
 
 - hosts: papa1
   become: true
