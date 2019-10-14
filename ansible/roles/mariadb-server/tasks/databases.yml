@@ -52,13 +52,3 @@
   with_items: "{{ db_creation.results }}"
   when: item.changed and item.item.init_script is defined
   tags: mariadb
-
-#Eigen toevoeging voor errorhandling
-#kijken of de databases wel degelijk bestaan
-#- name: Ensure MySQL databases are present.
- # mysql_db:
-  #  name: "{{ item.name }}"
-   # collation: "{{ item.collation | default('utf8_general_ci') }}"
-    #encoding: "{{ item.encoding | default('utf8') }}"
-    #state: "{{ item.state | default('present') }}"
-  #with_items: "{{ mariadb_databases }}"

@@ -3,7 +3,7 @@
 
 - name: Remove anonymous users
   mysql_user:
-    name: root
+    name: ''
     host_all: true
     login_user: root
     login_password: "{{ mariadb_root_password }}"
