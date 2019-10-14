@@ -28,7 +28,7 @@ Afwezig omwille van organisatieverandering
 
 ### Estimate/Spent
 
-`TODO`
+![Spent](img/W3/Spent.jpg)
 
 ## Uittreksel timesheet
 
@@ -52,9 +52,9 @@ Afwezig omwille van organisatieverandering
 
 ## Planning volgende week
 
-`TODO`
  - (Berkant en Jonas) Lima1 verder werken
  - (Berkant en Jonas) Communicatie met alpha1
+
 
 ## Vragen voor de begeleiders
 

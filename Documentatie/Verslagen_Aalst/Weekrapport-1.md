@@ -22,7 +22,7 @@ Afwezig omwille van organisatieverandering
 
 ### Estimate/Spent
 
-`TODO`
+![Spent](img/W1/Spent.jpg)
 
 ## Uittreksel timesheet
 
