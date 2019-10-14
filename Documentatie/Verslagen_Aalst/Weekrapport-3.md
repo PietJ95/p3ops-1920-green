@@ -32,7 +32,7 @@ Afwezig omwille van organisatieverandering
 
 ## Uittreksel timesheet
 
-- Totaal gepresteerde uren afgelopen week: `TODO`
+- Totaal gepresteerde uren afgelopen week: +/- 24u
 - Detailoverzicht gepresteerde uren per taak: 
   - (Cedric) Opzoeken basis Delta1: 1u
   - (Cedric) Opzetten basis Delta1: 3u

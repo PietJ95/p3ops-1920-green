@@ -32,7 +32,7 @@ Afwezig omwille van organisatieverandering
 
 ## Uittreksel timesheet
 
-- Totaal gepresteerde uren afgelopen week: `TODO`
+- Totaal gepresteerde uren afgelopen week: +/- 25u
 - Detailoverzicht gepresteerde uren per taak: 
   - (Cedric) Videoconferentie met groep Gent gehouden i.v.m taakverdeling: 1u
   - (Cedric) Weekrapport W1 aangevuld: 15min

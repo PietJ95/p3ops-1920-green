@@ -26,7 +26,7 @@ Afwezig omwille van organisatieverandering
 
 ## Uittreksel timesheet
 
-- Totaal gepresteerde uren afgelopen week: `TODO`
+- Totaal gepresteerde uren afgelopen week: +/- 20u
 - Detailoverzicht gepresteerde uren per taak: 
   - (Cedric) Uitleg en kick-off p3ops: 2u
   - (Cedric) Verdeling groepen: 30min
