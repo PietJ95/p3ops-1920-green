@@ -13,5 +13,10 @@ galaxy_info:
     - system
     - networking
 dependencies:
+<<<<<<< Updated upstream
   #- bertvv.tftp
   #- bertvv.dhcp
+=======
+  - papa1-tftp
+  - kilo1-dhcp
+>>>>>>> Stashed changes
