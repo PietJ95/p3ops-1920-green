@@ -102,7 +102,7 @@
   - bertvv.rh-base
   - cloudalchemy.prometheus
   - cloudalchemy.grafana
-  - cloudalchemy.snmp-exporter
+#  - cloudalchemy.snmp-exporter
   - jdauphant.dns
 
 - hosts: papa1
