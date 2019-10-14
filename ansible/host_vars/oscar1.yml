@@ -9,12 +9,25 @@ rhbase_firewall_allow_ports:
 
 dns_nameservers: ['172.16.1.66', '10.0.2.3']
 
-prometheus_scrape_jobs:
-  - job_name: "snmp"
-    metrics_path: "/snmp"
-    static_configs:
-    - targets:
-      - "{{ ansible_host }}:9116"
+prometheus_targets:
+  node:
+  - targets:
+    - alpha1.green.local:9100
+    - bravo1.green.local:9100
+    - charlie1.green.local:9100
+    - delta1.green.local:9100
+    - echo1.green.local:9100
+    - kilo1.green.local:9100
+    - lima1.green.local:9100
+    - mike1.green.local:9100
+    - november1.green.local:9100
+    - oscar1.green.local:9100
+    - papa1.green.local:9100
+    - zulu1.green.local:9100
+#    - 172.16.1.5:9100 # Node exporter oscar1
+#    - 172.16.1.67:9100 # Node exporter charlie1
+    labels:
+      env: green.local
 
 
 
