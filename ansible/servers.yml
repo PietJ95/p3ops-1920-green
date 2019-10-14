@@ -99,10 +99,11 @@
   become: true
   gather_facts: yes
   roles:
-  #- bertvv.rh-base
-  #- cloudalchemy.prometheus
-  #- cloudalchemy.grafana
-  #- jdauphant.dns
+  - bertvv.rh-base
+  - cloudalchemy.prometheus
+  - cloudalchemy.grafana
+  - cloudalchemy.snmp-exporter
+  - jdauphant.dns
 
 - hosts: papa1
   become: true

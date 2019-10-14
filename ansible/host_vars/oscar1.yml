@@ -5,9 +5,25 @@ rhbase_firewall_allow_services:
 rhbase_firewall_allow_ports:
   - 9090/tcp
   - 3000/tcp
+  - 9116/tcp
 
 dns_nameservers: ['172.16.1.66', '10.0.2.3']
 
+prometheus_scrape_jobs:
+  - job_name: 'snmp'
+    metrics_path: /snmp
+    params:
+      module: [if_mib]
+    static_configs:
+      - targets:
+        - 172.16.1.97
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 127.0.0.1:9116  # SNMP exporter.
 prometheus_targets:
   node:
   - targets:
@@ -47,5 +63,8 @@ grafana_dashboards:
     revision_id: 1
     datasource: 'prometheus'
   - dashboard_id: 1666
+    revision_id: 1
+    datasource: 'prometheus'
+  - dashboard_id: 9908
     revision_id: 1
     datasource: 'prometheus'
