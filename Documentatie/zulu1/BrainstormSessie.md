@@ -39,4 +39,14 @@ Geen poorten?
 Quebec1 => forwarding dns server
 Geen poorten?
 
+CONCLUSIE
+uitgaanpoorten open zijn: 
+	>*161 -> pfsense monitoring
+	
+
+Inkomende open poorten zijn: 
+	>*22
+
+
+
 Opgemaakt door Olivier Troch en Joeri Verhavert

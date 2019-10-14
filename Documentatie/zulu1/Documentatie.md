@@ -38,7 +38,25 @@
     >* Password : pfsense
 
 ![Image login webinterface](https://github.com/HoGentTIN/p3ops-1920-green/tree/master/Documentatie/zulu1/Images/WebinterfaceLoginPfsense.PNG)
-    
+
+### Configuratie
+#### Admin account + account toevoegen
+
+1. Verander het wachtwoord van de pfsense admin account. 
+    >*
+
+#### Monitoring service : SNMP Daemon
+
+1. Enable het SNMP Daemon service voor monitoring. 
+ >* Kies services in menu balk. 
+ >* Kies vervolgens voor SNMP in de dropdown menu. 
+ >* Enable de service
+    >*Zorg ervoor dat de polling port op 161 staat. 
+    >*Zorg ervoor dat alle SNMP Module boxes aangeduid zijn. 
+    >*Selecteer de interface waar je de SNMP-deamon wilt binden. Doorgaans is dit de LAN-interface in uwe pfsense. 
+
+#### Firewall Alias
+
     
 Opgemaakt door: Olivier Troch en Joeri Verhavert
     
