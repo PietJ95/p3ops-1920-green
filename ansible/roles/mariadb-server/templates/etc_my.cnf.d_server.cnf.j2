@@ -6,9 +6,6 @@
 {% for key, value in mariadb_server_cnf.items() %}
 {% if value is defined and value %}
 {{ key }} = {{ value }}
-user = root
-password= "admin"
-host = localhost
 {% else %}
 {{ key }}
 {% endif %}

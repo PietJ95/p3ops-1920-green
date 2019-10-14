@@ -6,10 +6,6 @@
 {% for key, value in section_contents.items() %}
 {% if value is defined and value %}
 {{ key }}={{ value }}
-[client]
-user = root
-password= "admin"
-host = localhost
 {% else %}
 {{ key }}
 {% endif %}
