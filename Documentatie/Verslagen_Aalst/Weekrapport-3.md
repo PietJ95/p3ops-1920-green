@@ -34,6 +34,9 @@ Afwezig omwille van organisatieverandering
   - (Cedric) Opzetten basis Delta1: 3u
   - (Cedric) Migreren weekrapporten naar Github Repo van Green: 2u
 
+  - (Beau) opzoeken basis Delta1: 1u30min
+  - (Beau) Opzoekingswerk Ansbile: 1u30min
+
 ## Planning volgende week
 
 `TODO`
