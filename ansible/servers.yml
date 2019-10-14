@@ -108,6 +108,4 @@
   become: true
   roles: 
     - papa1-pxeserver
-    - bertvv.dhcp
-    - bertvv.tftp
 
