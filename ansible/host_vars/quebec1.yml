@@ -1,0 +1,14 @@
+---
+
+    dnsmasq_upstream_servers:
+      - 8.8.4.4
+      - 8.8.8.8
+      - ns12.green.local
+      - ns12.red.local
+    dnsmasq_srv_hosts:
+      - name: _ldap._tcp.green.local
+        target: ns12.green.local
+        port: 389
+      - name: _ldap._tcp.red.be
+        target: ns12.red.local
+        port: 389
