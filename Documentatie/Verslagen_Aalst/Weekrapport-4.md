@@ -4,7 +4,7 @@ Datum contactmoment: 2019-10-14
 
 ## Overzicht gerealiseerde taken
 
-
+- Standup met groep Gent
 
 ## Charts
 
@@ -23,7 +23,8 @@ Datum contactmoment: 2019-10-14
 ## Uittreksel timesheet
 
 - Totaal gepresteerde uren afgelopen week: 
-- Detailoverzicht gepresteerde uren per taak: 
+- Detailoverzicht gepresteerde uren per taak:
+  - (Cedric) Standup met groep Gent: 20min
 
 ## Planning volgende week
 
