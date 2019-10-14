@@ -21,6 +21,8 @@ test/bats/
 # Directories containing roles imported from Ansible Galaxy
 # (user.role notation)
 ansible/roles/*.*
+#ignore papa1 roles
+ansible/roles/papa1-pxeserver
 
 # Ansible Retry-files
 *.retry
