@@ -1,6 +1,7 @@
-# Testplan bravo1
+# Testplan Bravo1
 
-Author: [Jolien Vervinckt](https://github.com/JolienVervinckt)
+Author: [Jolien Vervinckt](https://github.com/JolienVervinckt) & [Robin Ophalvens](https://github.com/RobinOphalvens)
+
 
 ## DNS BIND
 
