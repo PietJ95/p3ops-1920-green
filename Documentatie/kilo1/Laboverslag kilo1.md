@@ -13,6 +13,28 @@
   - ansible
   - git
 
+Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-configuratie te geven. De IP-configuratie houdt het volgende in: IP-adres, netwerkmask, default gateway, DNS. De servers krijgen een statisch IP-adres via MAC-adres. Hosts doorverwijzen naar PXEBoot server die willen booten over het netwerk.
+
+- 2 L2-switchen: 
+  - Verbinden alle computersystemen binnen een VLAN.
+- l2 L3-switchen: 
+  - Zorgen voor de inter-VLAN verbindingen.
+- VLAN 20 : interne clients om Private
+  -  **dynamische IP-adressen (via DHCP)** 
+  -  Toegang tot de publieke servers van de andere domeinen.
+- VLAN 30 : interne servers
+  - **Vaste IP adressen**
+  - Enkel bereikbaar voor hosts van het eigen domein.
+- VLAN 40 : Verbinding tussen de 2 L3 switchen
+  - **Vaste IP adressen.**
+- VLAN 50 : publiek toegankelijke servers
+  - **Vaste IP adressen**
+  - Bereikbaar voor interne clients én voor clients van andere domeinen.
+- VLAN 60 :
+  - Verbinding naar de PFSense Firewall.
+- VLAN 70 :
+  - Verbinding naar het router netwerk en de buitenwereld
+
 ## Cheat sheet
 
 | Command                  | Uitleg                                                |
@@ -198,10 +220,10 @@
   - [ ] controle statische IP via MAC
     - [ ] controleer per server of het IP-adres correct is
 - [ ] Documentatie
-  - [ ] Inleiding
+  - [x] Inleiding
     - [x] wat leren we
     - [ ] cheatsheet
-  - [x] stappenplan
+  - [ ] stappenplan
   - [ ] extra uitleg bij stappenplan
   - [ ] testplan
   - [x] TO DO
