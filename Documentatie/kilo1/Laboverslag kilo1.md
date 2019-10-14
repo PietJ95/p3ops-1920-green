@@ -15,6 +15,18 @@
 
 ## Cheat sheet
 
+| Command                  | Uitleg                                                |
+| ------------------------ | ----------------------------------------------------- |
+| vagrant up {NAAM}        | opstarten van server via vagrant                      |
+| vagrant provision {NAAM} | provisioning server via vagrant                       |
+| vagrant destroy {NAAM}   | afbreken server                                       |
+| dhclient {interface}     | Ip adres opvragen via DHCP op de effectieve interface |
+|                          |                                                       |
+|                          |                                                       |
+|                          |                                                       |
+|                          |                                                       |
+|                          |                                                       |
+
 
 
 ## Procedure/Documentation (af)

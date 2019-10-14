@@ -1,4 +1,4 @@
-## Test plan (af)
+## Test plan 
 
 - Maak een VM aan in VirtualBox met 2 netwerk adapters 
   - 1 host-only via DHCP
