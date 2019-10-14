@@ -31,6 +31,7 @@ Afwezig omwille van organisatieverandering
   - (Cedric) Verdeling groepen: 30min
   - (Cedric) Repositories aanmaken: 15min
   - (Cedric) Details opdracht per server lezen: 30min
+  - (Jonas, Robin, Berkant) In deze eerste week was het kick-off (23/09) waar we de uitleg gekregen hebben en nog een kwartier gepraat hebben met groepsleden. Aangezien nog veel administratieve zaken moesten gebeuren in deze week is er concreet nog nergens aan begonnen geweest. We hebben enkel de opdracht doorgenomen zodat we wisten wat er de week erna (vanaf 30/09) allemaal juist ging moeten gebeuren. (elk 3 uur)
 
 ## Planning volgende week
 
