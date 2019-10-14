@@ -48,10 +48,16 @@ Afwezig omwille van organisatieverandering
   - (Robin P) Aanmaken persoonlijk Trello-bord: 15min
   - (Robin P) Opzoekwerk dnsmasq: 1u
   - (Robin P) Opzoekwerk Ansible: 1u30
+  
+    - (Jonas, Robin, Berkant) Opzoekwerk omtrent Samba: elk 2u30 min (in les)
+  - (Jonas, Robin, Berkant) Video bekijken van Bert Van Vreckem omtrent het opzetten Samba file server: elk 1u30 min (in les)
+  - (Jonas, Robin, Berkant) Starten met de ansible omgeving te clonen en nader te bekijken, ansible rollen bekijken (Jonas: 20 min, Robin: 10 min, Berkant: 1 uur)
+  - (Jonas, Robin, Berkant) We hebben deze week elk een persoonlijk logboek aangemaakt (moest van meneer Van Vreckem), dat nu blijkbaar toch niet moet? We hebben hieraan elk toch iets meer als een uur aan gespendeerd die uiteindelijk weggegooid werk waren. (elk 1 uur)
 
 ## Planning volgende week
 
 - Server Delta1 opzetten en configureren
+- Server Lima1 opzetten en configureren
 
 ## Vragen voor de begeleiders
 
