@@ -13,4 +13,4 @@ switchport mode access
 switchport access vlan 20
 
 int vlan 20
-ip helper-address 172.16.1.1 (dit voor dhcp adressering)
+ip helper-address 172.16.1.1 
