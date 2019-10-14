@@ -10,39 +10,14 @@ rhbase_firewall_allow_ports:
 dns_nameservers: ['172.16.1.66', '10.0.2.3']
 
 prometheus_scrape_jobs:
-  - job_name: 'snmp'
-    metrics_path: /snmp
-    params:
-      module: [if_mib]
+  - job_name: "snmp"
+    metrics_path: "/snmp"
     static_configs:
-      - targets:
-        - 172.16.1.97
-    relabel_configs:
-      - source_labels: [__address__]
-        target_label: __param_target
-      - source_labels: [__param_target]
-        target_label: instance
-      - target_label: __address__
-        replacement: 127.0.0.1:9116  # SNMP exporter.
-prometheus_targets:
-  node:
-  - targets:
-    - alpha1.green.local:9100
-    - bravo1.green.local:9100
-    - charlie1.green.local:9100
-    - delta1.green.local:9100
-    - echo1.green.local:9100
-    - kilo1.green.local:9100
-    - lima1.green.local:9100
-    - mike1.green.local:9100
-    - november1.green.local:9100
-    - oscar1.green.local:9100
-    - papa1.green.local:9100
-    - zulu1.green.local:9100
-#    - 172.16.1.5:9100 # Node exporter oscar1
-#    - 172.16.1.67:9100 # Node exporter charlie1
-    labels:
-      env: green.local
+    - targets:
+      - "{{ ansible_host }}:9116"
+
+
+
 grafana_security:
   admin_user: admin
   admin_password: oscar1
