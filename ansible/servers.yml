@@ -46,7 +46,6 @@
    roles: 
      - mariadb-server
 
-<<<<<<< Updated upstream
 - name: Configure Delta1
   hosts: delta1
   become: true
@@ -56,17 +55,6 @@
    # - bertvv.httpd
    # - bertvv.mailserver
    # - bertvv.squirrelmail
-=======
-# - name: Configure Delta1
-#   hosts: delta1
-#   become: true
-#   roles:
-#     - bertvv.rh-base
-#     - sepolicy
-#     - bertvv.httpd
-#     - bertvv.mailserver
-#     - bertvv.squirrelmail
->>>>>>> Stashed changes
 
 # #Echo1
 # - hosts: echo1
@@ -107,7 +95,6 @@
 #   - cloudalchemy.grafana
 #   - jdauphant.dns
 
-<<<<<<< Updated upstream
 - hosts: oscar1
   become: true
   gather_facts: yes
@@ -116,25 +103,11 @@
   #- cloudalchemy.prometheus
   #- cloudalchemy.grafana
   #- jdauphant.dns
-=======
-# - hosts: oscar1
-#   become: true
-#   gather_facts: yes
-#   roles:
-#   - bertvv.rh-base
-#   - cloudalchemy.prometheus
-#   - cloudalchemy.grafana
-#   - jdauphant.dns
->>>>>>> Stashed changes
 
 - hosts: papa1
   become: true
   roles: 
-<<<<<<< Updated upstream
     - papa1-pxeserver
     - bertvv.dhcp
     - bertvv.tftp
 
-=======
-    - papa1-pxeserver
->>>>>>> Stashed changes

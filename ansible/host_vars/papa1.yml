@@ -14,21 +14,16 @@ pxeserver_ip: 172.16.1.6
 #default gateway: 172.16.1.62 (do we do anything with this?)
 
 pxeserver_images:
-  - name: centos8_x86_64  #unique identifier for the image
+  - name: centos7_x86_64  #unique identifier for the image
     default: true   #true for the default image
-<<<<<<< Updated upstream
     kernel_url: http://ftp.hosteurope.de/mirror/centos.org/8/BaseOS/x86_64/kickstart/images/pxeboot/vmlinuz   #URL where to download the kernel image
-=======
-    kernel_url: http://ftp.hosteurope.de/mirror/centos.org/8/BaseOS/x86_64/kickstart/images/pxeboot/vmlinuz  #URL where to download the kernel image
->>>>>>> Stashed changes
     initrd_url: http://ftp.hosteurope.de/mirror/centos.org/8/BaseOS/x86_64/kickstart/images/pxeboot/initrd.img #URL where to download the initrd image
     # kickstart_url: #URL where to download the kickstart file.
     # kickstart_path: #Location where to copy the kickstart file from
-    label: CentOS 8 x86_64 #Label for the PXE boot menu entry of this image
+    label: CentOS 7 x86_64 #Label for the PXE boot menu entry of this image
 
 
 #--------------------vars for tftp role-----------------------------------
-<<<<<<< Updated upstream
 #tftp moet (waarschijnlijk) blijven staan, om de images door te sturen naar nieuwe 'pxebooters'
 tftp_root_directory: /srv/tftp
 tftp_server_args: "--secure --create -vvv"
@@ -44,16 +39,6 @@ tftp_user: vagrant
 
 rhbase_firewall_allow_services:
   - dhcp
-=======
-tftp_root_directory: /srv/tftp
-tftp_user: vagrant
-#--------------------vars for dhcp role-----------------------------------
-# dhcp_subnets:
-#       - ip: 192.168.50.0
-#         netmask: 255.255.255.0
-
-#kilo1
->>>>>>> Stashed changes
 
 dhcp_global_domain_name_servers:
   - 172.16.1.66
@@ -158,8 +143,4 @@ dhcp_hosts:
     ip: 172.16.1.98
   - name: Management
     mac: '08:00:27:66:5D:0F'
-<<<<<<< Updated upstream
     ip: 172.16.99.1   
-=======
-    ip: 172.16.99.1   
->>>>>>> Stashed changes
