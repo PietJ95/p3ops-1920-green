@@ -170,6 +170,8 @@ AAN TE VULLEN
 
 #### Routing
 
-AAN TE VULLEN
+* kies voor interfaces
+* Kies WAN in de dropdown menu. 
+* Verander het default gateway naar het ip van router0. 
 
 Opgemaakt door: Olivier Troch en Joeri Verhavert
