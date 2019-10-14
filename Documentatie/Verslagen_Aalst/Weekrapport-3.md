@@ -10,6 +10,7 @@ Datum contactmoment: 2019-10-07
   - Groep A3: Opzoekingswerk Quebec1 (opzetten, niet configureren), Delta1 "Ontvangen"
 - Opzoeken basis Delta1
 - Opzetten basis Delta1
+- Migreren weekrapporten naar Github Repo van Green
 
 ## Charts
 
@@ -29,8 +30,9 @@ Afwezig omwille van organisatieverandering
 
 - Totaal gepresteerde uren afgelopen week: `TODO`
 - Detailoverzicht gepresteerde uren per taak: 
-  - Opzoeken basis Delta1: 1u
-  - Opzetten basis Delta1: 3u
+  - (Cedric) Opzoeken basis Delta1: 1u
+  - (Cedric) Opzetten basis Delta1: 3u
+  - (Cedric) Migreren weekrapporten naar Github Repo van Green: 2u
 
 ## Planning volgende week
 
