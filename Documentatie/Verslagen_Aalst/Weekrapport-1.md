@@ -37,6 +37,10 @@ Afwezig omwille van organisatieverandering
   - (Beau) Uitleg en kick-off p3ops: 2u
   - (Beau) Persoonlijke Github in orde zetten: 30 min
   - (Beau) Details opdracht per server lezen: 2u30 
+
+  - (Robin P) Uitleg en kick-off p3ops: 2u
+  - (Robin P) Verdeling groepen: 30min
+  - (Robin P) Details opdracht per server lezen: 30min
  
 ## Planning volgende week
 

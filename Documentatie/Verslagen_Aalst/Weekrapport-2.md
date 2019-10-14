@@ -44,6 +44,11 @@ Afwezig omwille van organisatieverandering
   - (Beau) Ansible opzoekingswerk: 1u30min
   - (Beau) Github/Weekrapport: 30min
 
+  - (Robin P) Videoconferentie met Gent: 15min
+  - (Robin P) Aanmaken persoonlijk Trello-bord: 15min
+  - (Robin P) Opzoekwerk dnsmasq: 1u
+  - (Robin P) Opzoekwerk Ansible: 1u30
+
 ## Planning volgende week
 
 - Server Delta1 opzetten en configureren

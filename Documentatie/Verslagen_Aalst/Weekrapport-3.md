@@ -37,6 +37,8 @@ Afwezig omwille van organisatieverandering
   - (Beau) opzoeken basis Delta1: 1u30min
   - (Beau) Opzoekingswerk Ansbile: 1u30min
 
+  - (Robin P) Geen uren gepresteerd doordat laptop binnen was bij Lab9 voor reparatie
+
 ## Planning volgende week
 
 `TODO`

@@ -26,6 +26,8 @@ Datum contactmoment: 2019-10-14
 - Detailoverzicht gepresteerde uren per taak:
   - (Cedric) Standup met groep Gent: 20min
 
+  - (Robin P) Standup met Gent: 20min
+
 ## Planning volgende week
 
 
