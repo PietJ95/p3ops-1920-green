@@ -49,15 +49,15 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
 |                          |                                                       |
 |                          |                                                       |
 
-
-
 ## Procedure/Documentation (af)
 
-- UITLEG ROLLEN TOEVOEGEN
+- Ga naar de website: https://galaxy.ansible.com/bertvv/dhcp
+
+  - Deze rol wordt gebruikt om de DHCP-server te configureren
 
 - Ga naar het document *`servers.yml`* in de map Ansible
 
-  Voeg dit toe aan het document
+  - Voeg de role toe aan de server Kilo1
 
   - ```
     - name: kilo1
@@ -65,6 +65,8 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
       roles:
         - kilo1-dhcp	
     ```
+
+- VERDER UITLEGGEN ROLES
 
 - Ga naar het bestand *`kilo1.yml`* in de map host_vars
 
@@ -83,7 +85,7 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
         - 172.16.1.67
       ```
 
-  - Voeg een lease time toe (om de zoveel tijd een nieuw IP geven)
+  - Voeg een lease time toe (om de zoveel tijd een nieuw IP geven) (12uur)
 
     - ```
       dhcp_global_default_lease_time: 43200
@@ -97,6 +99,8 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
       ```
 
   - Maak subnetten aan per VLAN
+
+    - Per VLAN maak je een subnet aan met daarin een pool met een bepaalde range waarin de IP-adressen mogen vallen. De ranges worden bepaald via de IP-table.
 
     - ```
       dhcp_subnets:
@@ -150,6 +154,8 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
       ```
 
   - Geef elke host met een statisch IP een statische MAC adres mee en IP-adres
+
+    - Begin met een random MAC-adres zoals bijvoorbeeld '08:00:27:66:5D:01', geef hieraan het bijhorende IP-adres bepaald door de IP-table. Voor de volgende server tel je 1 op bij het vorig MAC-adres en geef je opnieuw het bijhorend IP-adres bepaald door de IP-table. Doe zo verder tot dat je alle servers een statisch MAC-adres en IP-adres hebt gegeven.
 
     - ```
       # Statisch IP via MAC
