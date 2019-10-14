@@ -40,6 +40,10 @@ Afwezig omwille van organisatieverandering
   - (Cedric) Ansible opzoekingswerk: 2u 10min
   - (Cedric) Opzoeken Ansible rollen: 30min
 
+  - (Beau) Regelen taakverdeling: 1u30min
+  - (Beau) Ansible opzoekingswerk: 1u30min
+  - (Beau) Github/Weekrapport: 30min
+
 ## Planning volgende week
 
 - Server Delta1 opzetten en configureren
