@@ -34,5 +34,7 @@ rhbase_firewall_allow_ports:
 postfix_myhostname: mail.green.local
 postfix_mydomain: green.local
 postfix_home_mailbox: /mail
-
+postfix_ldap: "true"
+ldap_domainname: green.local
+ldap_dcname: alfa1
 
