@@ -16,8 +16,9 @@ def read_yml(file_path):
         data = yaml.load(f, Loader=yaml.FullLoader)
         roles = []
         for item in data:
-            for role in item['roles']:
-                roles.append(role)
+            if item['roles'] is not None:
+                for role in item['roles']:
+                    roles.append(role)
         return roles
 
 # Clone roles from github to the ./ansible/roles/ directory
