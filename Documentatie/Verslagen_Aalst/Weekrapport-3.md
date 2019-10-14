@@ -30,6 +30,9 @@ Afwezig omwille van organisatieverandering
 
 ![Spent](img/W3/Spent.jpg)
 
+### Totaal spent
+![Totaal](img/W3/Totaal.jpg)
+
 ## Uittreksel timesheet
 
 - Totaal gepresteerde uren afgelopen week: +/- 24u
