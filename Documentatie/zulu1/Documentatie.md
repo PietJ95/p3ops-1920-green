@@ -215,8 +215,15 @@ AAN TE VULLEN
 #### Routing
 
 * Kies voor 'Interfaces' in de navigatiebalk.
-* Klik WAN in het dropdown menu. 
+* Klik 'WAN' in het dropdown menu. 
 * Verander de default gateway naar het ip van router0. 
 
+#### Export configuration file
+
+* Kies voor 'Diagnostics' in de navigatiebalk;
+* Klik op 'Backup and restore' in het dropdown menu.
+* Klik vervolgens op 'Download configuration as XML'.
+
+![Download configuration file](Images/DownloadConfigurationFile.PNG)
 
 Opgemaakt door: Olivier Troch en Joeri Verhavert
