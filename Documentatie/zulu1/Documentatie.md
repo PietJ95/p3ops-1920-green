@@ -1,12 +1,14 @@
 # Documentatie  Zulu1
 ## PfSense configuratie en setup
 ### Inlog gegevens webinterface
-Admin account
-    >*username : admin
-    >*wachtwoord: Zulu1
-User1 account
-    >*username : user1
-    >*wachtwoord: Zulu1User1
+
+Admin account  
+* username : admin  
+* wachtwoord: Zulu1  
+
+User1 account (Deze wordt later aangemaakt)  
+* username : user1  
+* wachtwoord: Zulu1User1  
 
 
 ### Manuele setup(Virtual box)
@@ -50,24 +52,31 @@ User1 account
 #### Admin account + account toevoegen
 Verander het wachtwoord van de pfsense admin account.  
 
-* Kies System in de navigatiebalk.
-* Kies User Manager in het dropdown-menu.
-* Klik op het potlood bij Admin om de instellingen aan te passen.
+* Kies 'System' in de navigatiebalk.
+* Ga naar 'User Manager' in het dropdown-menu.
+* Klik op het potlood bij 'Admin' om de instellingen aan te passen.
 * Verander het wachtwoord naar keuze. 
+
+![Image admin password change](Images/AdminAccountWachtwoordAanpassen.PNG)
 
 #### Setup-wizard
 
-* Kies System in de navigatiebalk.
-* Kies voor de optie 'Setup Wizard' in het dropdown menu.
+* Kies 'System' in de navigatiebalk.
+* Volg de optie 'Setup Wizard' in het dropdown menu met volgende instellingen.
     * Hostname: Zulu1
     * Domain: green.local
 * Kies de juiste timezone. 
-* Druk twee maal 'Next'.
 * Verander wachtwoord naar keuze.
-* Controleer jusite versie met system update.
+* Reload om de settings te herladen.
+* Controleer juiste versie met 'Check for updates'.
+
+![Image setup wizard step 2](Images/SetupWizardStep2-9.PNG)
+![Image setup wizard step 3](Images/SetupWizardStep3-9.PNG)
+![Image setup wizard step 6](Images/SetupWizardStep6-9.PNG)
+
 
 #### Monitoring service: SNMP Daemon
-Enable het SNMP Daemon service voor monitoring.  
+Enable de 'SNMP Daemon service' voor monitoring.  
 
 * Kies services in navigatiebalk. 
 * Kies vervolgens voor 'SNMP' in het dropdown menu. 
@@ -76,10 +85,12 @@ Enable het SNMP Daemon service voor monitoring.
     * Zorg ervoor dat alle SNMP Module boxes aangeduid zijn.  
     * Selecteer de interface waar je de SNMP-deamon wilt binden. Doorgaans is dit de LAN-interface in uw pfsense. 
 
+![Image setup wizard step 6](Images/EnableDeamonServices.PNG)
+
 #### Aliasses
 
 * Kies voor firewall in de navigatiebalk.
-* Kies voor alliases in het dropdown menu.
+* Druk vervolgens alliases in het dropdown menu.
     * Naam: HTTP_HTTPS
     * Type: Port(s)
         * Port: 80 (HTTP)
@@ -94,12 +105,21 @@ Enable het SNMP Daemon service voor monitoring.
         * Port: 995 (POP/S)
 * Apply Changes
 
+##### HTTP_HTTPS
+![Image HTTP_HTTPS](Images/HTTP_HTTPS_Aliasses.PNG)
+##### IMAP_IMAPS
+![Image IMAP_IMAPS](Images/IMAP_IMAPS_Aliasses.PNG)
+##### POP_POPS
+![Image POP_POPS](Images/POP_POPS_Aliasses.PNG)
+
 #### Firewall Rules
 
 ##### LAN RULES
 Dit is standaard ingesteld en vereist geen verdere configuratie.
 
 ##### WAN RULES
+Kies voor firewall in de navigatiebalk. Druk vervolgens alliases in het dropdown menu.
+
 1. Toevoegen rules voor webserver(Echo1).
 
     * Action: Pass
@@ -111,9 +131,11 @@ Dit is standaard ingesteld en vereist geen verdere configuratie.
     * Destination Port Range: 
         * other - custom (HTTP_HTTPS)
 
-    Klik op Save om de instellingen te bevestigen.
+    Klik op Save om de instellingen te bevestigen.  
 
-2. Toevoegen rules voor mailserver SMTP.
+![Image Webserver config](Images/WebServer.PNG)
+
+2. Toevoegen rules voor mailserver SMTP. 
 
     * Action: Pass
     * Interface: WAN
@@ -122,7 +144,9 @@ Dit is standaard ingesteld en vereist geen verdere configuratie.
     * Destination Port Range
         * SMTP(465) to SMTP(465)  
 
-    Klik op Save om de instellingen te bevestigen.
+    Klik op Save om de instellingen te bevestigen.  
+
+![Image Mailserver SMTP config](Images/MailServerSMTP.PNG)
 
 3. Toevoegen rules voor mailserver IMAP.
 
@@ -135,29 +159,37 @@ Dit is standaard ingesteld en vereist geen verdere configuratie.
 
     Klik op Save om de instellingen te bevestigen.
 
+![Image Mailserver IMAP config](Images/MailServerIMAP.PNG)
+
 4. Toevoegen rules voor mailserver POP.
     * Action: Pass
     * Interface: WAN
     * Source: ANY
     * Destination: Single host or alias (172.16.1.68)
     * Destination Port Range: 
-        * other - custom (POP3_POP/S)
+        * other - custom (POP_POPS)
 
     Klik op Save om de instellingen te bevestigen.
 
+![Image Mailserver POP config](Images/MailServerPOP.PNG)
+
 #### DCHP relay inschakelen
 
-* Kies voor services.
-* Kies voor DHCP Relay.
+* Kies voor 'Services' in de navigatiebalk.
+* Klik op 'DHCP Relay' in het dropdown menu.
 * Enable
     * Interface: LAN
     * Destination Server: 172.16.1.1
 
+![Image DCHP Relay](Images/DHCPRelay.PNG)
+
 #### DHCP server uitschakelen (LAN/WAN)
 
-* Kies voor services.
-* Kies voor DHCP Server.
-* Uncheck 'Enable DHCP' bij beide opties.
+* Kies voor 'Services' in de navigatiebalk.
+* Klik op 'DHCP Server' in het dropdown menu.
+* Uncheck 'Enable DHCP' bij beide opties(LAN/WAN).
+
+![Image HDCP Server voor LAN en WAN](Images/EnableDHCPServerLANWAN.PNG)
 
 #### NAT uitschakelen
 
@@ -165,21 +197,26 @@ AAN TE VULLEN
 
 #### DNS Resolver uitschakelen
 
-* Kies voor services.
-* Kies voor DNS Resolver.
+* Kies voor 'Services' in de navigatiebalk.
+* Klik op 'DNS Resolver' in het dropdown menu.
 * Uncheck 'Enable DHCP' in General.
+
+![Image DNS Resolver](Images/EnableDNSResolver.PNG)
 
 #### IPv6 uitschakelen
 
-* Kies voor system.
-* Kies voor advanced.
-* Kies voor networking.
+* Kies voor 'System' in de navigatiebalk.
+* Klik op 'Advanced' in het dropdown menu.
+* Klik vervolgens op 'Networking'.
 * Uncheck 'Allow IPv6'
+
+![Image IPv6 uitschakelen](Images/UncheckIPV6.PNG)
 
 #### Routing
 
-* kies voor interfaces
-* Kies WAN in de dropdown menu. 
-* Verander het default gateway naar het ip van router0. 
+* Kies voor 'Interfaces' in de navigatiebalk.
+* Klik WAN in het dropdown menu. 
+* Verander de default gateway naar het ip van router0. 
+
 
 Opgemaakt door: Olivier Troch en Joeri Verhavert
