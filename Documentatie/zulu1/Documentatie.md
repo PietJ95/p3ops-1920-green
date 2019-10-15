@@ -1,5 +1,13 @@
 # Documentatie  Zulu1
 ## PfSense configuratie en setup
+### Inlog gegevens webinterface
+Admin account
+    >*username : admin
+    >*wachtwoord: Zulu1
+User1 account
+    >*username : user1
+    >*wachtwoord: Zulu1User1
+
 
 ### Manuele setup(Virtual box)
 
