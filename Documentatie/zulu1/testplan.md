@@ -9,14 +9,14 @@
 
 ## Configuratie
 
-Om het testplan verder uit te werken, moet je verbinden met het intern netwerk. Voor meer informatie over hoe je dit moet doen, vind je in de documentatie.
+Om het testplan verder uit te werken, moet je verbinding maken met het interne netwerk. Voor meer informatie over hoe je dit moet doen, vind je in de documentatie.
 
 1. Controleer of de hostname Zulu1 is.
-2. Zulu1 moet zich bevinden in het domain green.local. 
+2. Zulu1 moet zich bevinden in het domein green.local. 
 3. Vervolgens mag het admin account het default wachtwoord niet meer bevatten. 
 4. Check of het systeem up to date is, dit zou het geval moeten zijn. 
 5. Als volgende stap controleer je of de SNMP Daemon service enabled is.
-6. Daarna check je of er 3 Firewall aliases zijn aangemaakt, genaamd: 
+6. Er zouden 3 Firewall aliases aanwezig moeten zijn, genaamd: 
     * HTTPandHTTPS, met volgende settings:
         >* Type: Port(s)
         >* Port: 80 (HTTP)
@@ -29,7 +29,7 @@ Om het testplan verder uit te werken, moet je verbinden met het intern netwerk. 
        >* Type: Port(s)
        >* Port: 110 (POP3)
        >* Port: 995 (POP/S)
-7. Er moeten natuurlijk ook bepaalde rules aanwezig zijn voor de firewall. 
+7. Volgende firewall rules zijn aanwezig: 
     7.1 Voor WAN zou je volgende rules moeten hebben: 
       * Rule 1: webserver(Echo1).
         >* Action: Pass
@@ -66,7 +66,7 @@ Om het testplan verder uit te werken, moet je verbinden met het intern netwerk. 
         >* Destination Port Range: 
             >* other - custom (POP3_POP/S)
             
-  7.2 Voor LAN, hoef mag je de standaard rules laten staan, controleer of deze aanwezig zijn: 
+  7.2 Voor LAN, mag je de standaard rules laten staan, controleer of deze aanwezig zijn: 
    * Rule 1: IPV4
         >* Action: Pass
         >* Interface: LAN
@@ -82,12 +82,12 @@ Om het testplan verder uit te werken, moet je verbinden met het intern netwerk. 
         >* Destination Port Range
         >* port 80 en 443
 
- 8. Op firewall Zulu1, zou DHCP relay enabled moeten zijn. Dit zou het ip moeten bevatte van de dhcp server. 
+ 8. Op firewall Zulu1, zou DHCP relay enabled moeten zijn. Dit bevat het ip adres van de DHCP server. 
  9. DHCP server service is disabled. 
  10. Vervolgens staat ipv6 ook gedisabled, samen met de DNS Resolver.
  11. Controleer of user1 aanwezig is, met volgende settings: 
     *wachtwoord: Zulu1User1.
-    *bevindt zich in de groep users en niet in de groep admins.
+    *De user bevindt zich in de groep users en niet in de groep admins.
  12. Group users heeft volgende priviledges:
       >*WebCfg - Diagnostics: Backup & Restore Allow access to the 'Diagnostics: Backup & Restore' page. (admin privilege) 
       >*WebCfg - Diagnostics: CPU Utilization Allow access to the 'Diagnostics: CPU Utilization' page.  
@@ -113,3 +113,4 @@ Om het testplan verder uit te werken, moet je verbinden met het intern netwerk. 
       >*WebCfg - Status: System Logs: Routing Allow access to the 'Status: System Logs: System: Routing' page.  
       >*WebCfg - Status: System Logs: Wireless  Allow access to the 'Status: System Logs: System: Wireless' page. 
       >*WebCfg - System: Static Routes  Allow access to the 'System: Static Routes' page.
+  13. Als laatste controleer je de status van NAT, deze zou disabled moeten zijn. 
