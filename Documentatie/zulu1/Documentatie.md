@@ -193,7 +193,12 @@ Kies voor firewall in de navigatiebalk. Druk vervolgens alliases in het dropdown
 
 #### NAT uitschakelen
 
-AAN TE VULLEN
+* Kies voor 'Firewall' in de navigatiebalk. 
+* Selecteer 'NAT' in het dropdown menu. 
+* Kies voor 'Outbound' in één van de tabbladen, dit is het 3de tabblad.
+* Vervolgens disable je NAT door 'Disable Outbound NAT rule generation' aan te vinken. 
+
+![Image Disable nat](Images/disableNat.png)
 
 #### DNS Resolver uitschakelen
 

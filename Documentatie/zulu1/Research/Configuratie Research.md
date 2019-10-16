@@ -10,5 +10,7 @@ Beschrijving : In dit bestand vind je de links die we gebruikten om informatie t
 
 [Link4: Lan/Wan setup](https://www.youtube.com/watch?v=2cBRBzpTSTk)
 
+[Link5: Disable nat on pfsense](https://docs.netgate.com/pfsense/en/latest/nat/outbound-nat.html)
+
 
 Opgemaakt door Oliver Troch en Joeri Verhavert
