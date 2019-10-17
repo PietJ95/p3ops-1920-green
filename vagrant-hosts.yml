@@ -37,6 +37,9 @@
 - name: kilo1
   ip: 172.16.1.1
 
+- name: lima1
+  ip: 172.16.1.2
+
 - name: mike1
   mac: '08:00:27:66:5D:06'
   ip: 172.16.1.3
