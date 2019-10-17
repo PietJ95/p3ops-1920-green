@@ -1,0 +1,70 @@
+#httpd_server_admin: bert@linuxlab.lan
+#httpd_listen: 8080
+---
+
+#--firewall-----------------------------#
+rhbase_firewall_allow_services:
+  - samba
+#-------------------------------#
+
+rhbase_user_groups:
+  - IT-Administratie
+  - Verkoop
+  - Administratie
+  - Ontwikkeling
+  - Directie
+
+samba_load_homes: true
+
+#--users-----------------------------#
+# We zijn hier aan het testen met het aanmaken van test users (werkt), en het weergeven van de test afdelingen
+# zoals weergegeven bij Alfa1. We hebben hier nog een paar problemen bij permissierechten wanneer er
+# meerdere gebruikers zijn. We hopen om die zo snel mogelijk te kunnen oplossen.
+
+rhbase_users: 
+  - name: Joa
+    comment: 'Joa'
+    password: '!!'
+    shell: /sbin/nologin
+    groups: 
+      - Verkoop
+  - name: Joao
+    comment: 'Joao'
+    password: '6btW7SMcgthOE'
+    groups: 
+      - Verkoop
+      - IT-Administratie
+
+
+samba_users:
+  - name: Joa
+    password: felix
+  - name: Joao
+    password: felix1
+
+
+samba_shares:
+  - name: IT-Administratie
+    group: IT-Administratie
+    valid_users: +IT-Administratie
+    write_list: +IT-Administratie
+  - name: Verkoop
+    group: Verkoop
+    valid_users: +Verkoop
+    write_list: +Verkoop
+  - name: Administratie
+    group: Administratie
+    valid_users: +Administratie
+    write_list: +Administratie
+  - name: Ontwikkeling
+    group: Ontwikkeling
+    valid_users: +Ontwikkeling
+    write_list: +Ontwikkeling
+  - name: Directie
+    group: Directie
+    valid_users: +Directie
+    write_list: +Directie
+
+
+#-------------------------------#
+
