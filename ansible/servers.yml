@@ -69,6 +69,12 @@
 #   roles:
 #     - kilo1-dhcp
 
+- hosts: lima1
+  become: true
+  roles:
+    - bertvv.rh-base
+    - bertvv.samba
+
 # #Mike1
 # - hosts: mike1
 #   become: true
