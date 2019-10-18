@@ -70,9 +70,9 @@ Verander het wachtwoord van de pfsense admin account.
 * Reload om de settings te herladen.
 * Controleer juiste versie met 'Check for updates'.
 
-![Image setup wizard step 2](Images/SetupWizardStep2-9.PNG)
-![Image setup wizard step 3](Images/SetupWizardStep3-9.PNG)
-![Image setup wizard step 6](Images/SetupWizardStep6-9.PNG)
+![Image setup wizard step 2](Images/SetupWizardStep2-9.PNG)  
+![Image setup wizard step 3](Images/SetupWizardStep3-9.PNG)  
+![Image setup wizard step 6](Images/SetupWizardStep6-9.PNG)  
 
 
 #### Monitoring service: SNMP Daemon
