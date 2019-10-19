@@ -19,7 +19,7 @@ pxeserver_images:
     kernel_url: http://ftp.hosteurope.de/mirror/centos.org/8/BaseOS/x86_64/kickstart/images/pxeboot/vmlinuz   #URL where to download the kernel image
     initrd_url: http://ftp.hosteurope.de/mirror/centos.org/8/BaseOS/x86_64/kickstart/images/pxeboot/initrd.img #URL where to download the initrd image
     # kickstart_url: #URL where to download the kickstart file.
-    kickstart_path: /vagrant/ansible/roles/papa1-pxeserver/files/centos8.cfg #Location where to copy the kickstart file from
+    #kickstart_path: /vagrant/ansible/roles/papa1-pxeserver/files/centos8.cfg #Location where to copy the kickstart file from
     label: CentOS 8 x86_64 #Label for the PXE boot menu entry of this image
 
 
