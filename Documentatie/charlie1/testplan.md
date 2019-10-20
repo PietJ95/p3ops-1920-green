@@ -77,7 +77,7 @@ To see the full list of supported variables, head to [Bert Van Vreckem's reposit
 
 8. The Ansible configuration should succeed. If not, check if you made a syntax mistake or forgot  to fill in a necessary variable. Open a github issue if you are unable to resolve the error.
 
-9. Open with your text editor /etc/resolv.conf. If you are using vagrant, it will use the DNS servers which are linked with your NAT interface. Change the ip address next to nameserver to the IP of your DNS server. In our case, this will be 172.16.1.66.
+9. On every host system that will be using the DNS server, open with your text editor /etc/resolv.conf. If you are using vagrant, it will use the DNS servers which are linked with your NAT interface. Change the ip address next to nameserver to the IP of your DNS server. In our case, this will be 172.16.1.66.
 Add a second line with "nameserver 172.16.1.67". This will be our backup DNS server.
 
 10. If the configuration succeeded, you can verify that the DNS server is working by pinging "charlie1.green.local". Keep in mind that the server will only respond to requests from the 172.16 network. If you are pinging from your physical computer, which usually has an ip in the 192.168 network, the ping will fail.

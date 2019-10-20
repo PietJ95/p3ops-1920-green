@@ -30,7 +30,6 @@ bind_zone_file_mode:                #The permissions for the main config file
 bind_allow_query:                   #Specifies which network is allowed to query the DNS server
 bind_listen_ipv4:                   #Sets on which interface the DNS server will listen
 bind_listen_ipv6:                   #Sets on which interface the DNS will listen for IPV6 networks
-bind_forwarders:                    #Specifies the name servers to forward DNS requests to if it is not able to be resolved in the internal network
 bind_recursion:                     #Boolean. Sets if recursion is allowed. Strongly recommended to turn this off if you are running an authoritive server
 bind_query_log:                     #Specifies where the logs should be saved
 bind_check_names:                   #Check host names for compliance with RFC 952 and RFC 1123 and take the defined action (e.g. warn, ignore, fail).
@@ -95,7 +94,7 @@ IMPORTANT! In our case, Bravo1 will be the authoritive master server. In order f
 
 8. The Ansible configuration should succeed. If not, check if you made a syntax mistake or forgot  to fill in a necessary variable. Open a github issue if you are unable to resolve the error.
 
-9. Open with your text editor /etc/resolv.conf. If you are using vagrant, it will use the DNS servers which are linked with your NAT interface. Change the ip address next to nameserver to the IP of your DNS server. In our case, this will be 172.16.1.66.
+9. On every host that will be using the DNS server, open with your text editor /etc/resolv.conf. If you are using vagrant, it will use the DNS servers which are linked with your NAT interface. Change the ip address next to nameserver to the IP of your DNS server. In our case, this will be 172.16.1.66.
 Add a second line with "nameserver 172.16.1.67". This will be our backup DNS server.
 
 10. If the configuration succeeded, you can verify that the DNS server is working by pinging "bravo1.green.local". Keep in mind that the server will only respond to requests from the 172.16 network. If you are pinging from your physical computer, which usually has an ip in the 192.168 network, the ping will fail.

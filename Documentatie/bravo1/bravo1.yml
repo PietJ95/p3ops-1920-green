@@ -3,14 +3,11 @@
     bind_zone_dir: /var/local/named-zones
     bind_zone_file_mode: '0660'
     bind_allow_query:
-      - 172.16.0.0/16
+      - 172.16/16
     bind_listen_ipv4:
       - any
     bind_listen_ipv6:
       - none
-    bind_forwarders:
-      - '8.8.8.8'
-      - '8.8.4.4'
     bind_recursion: false
     bind_query_log: 'data/query.log'
     bind_check_names: 'master ignore'
