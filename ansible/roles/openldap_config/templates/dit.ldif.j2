@@ -1,0 +1,5 @@
+# Base DIT
+dn: ou={{ item }},dc={{ dirsrv_fqdn.split('.')[1] }},dc={{ dirsrv_fqdn.split('.')[2] }}
+ou: {{ item|capitalize }}
+objectClass: top
+objectClass: organizationalUnit

@@ -1,0 +1,11 @@
+# Define a person here
+dn: uid={{ item.name }},{{ item.group_ou }},dc={{ dirsrv_fqdn.split('.')[1] }},dc={{ dirsrv_fqdn.split('.')[2] }}
+objectClass: top
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+cn: {{ item.cn }}
+sn: {{ item.sn }}
+uid: {{ item.name }}
+mail: {{ item.email }}
+userPassword: {{ item.password }}

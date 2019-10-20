@@ -6,13 +6,15 @@
   roles:
     - cloudalchemy.node-exporter
 
-# # Configure server alfa1 with LDAP role
+# Configure server alfa1 with LDAP role
 - name: Configure alfa1
   hosts: alfa1
   become: true
   remote_user: root
   roles:
-    - LDAP
+    - 389-ds
+    - openldap-server
+    - openldap_config
 
 # # Configure bravo 1 (also known as the primary or master DNS server) with DNS BIND
 # #

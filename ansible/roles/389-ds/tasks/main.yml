@@ -1,0 +1,53 @@
+---
+# tasks file for 389-ds
+- name: Make sure epel-release repo is present
+  yum: name=epel-release state=present
+  when: ansible_os_family == "RedHat" or ansible_os_family == "Centos"
+
+- name: Make sure hostname and IP address are present in /etc/hosts
+  lineinfile: dest=/etc/hosts regexp="^{{ ansible_default_ipv4.address }}" line="{{ ansible_default_ipv4.address }} {{ dirsrv_fqdn }} {{ dirsrv_hostname }}"
+
+- name: Initialize
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_os_family }}.yml"
+    - "default.yml"
+  when: __dirsrv_packages is not defined or dirsrv_service_name is not defined
+
+- name: Define packages
+  set_fact:
+    dirsrv_packages: "{{ __dirsrv_packages | list }}"
+  when: dirsrv_packages is not defined
+
+- name: Install
+  package: name={{ item }} state={{ dirsrv_state }}
+  with_items: "{{ dirsrv_packages }}"
+
+- name: Configure sysctl variables
+  sysctl: name={{item.name}}  value={{item.value}} sysctl_set=yes state=present
+  with_items:
+    - { name: net.ipv4.tcp_keepalive_time, value: 300 }
+    - { name: net.ipv4.ip_local_port_range, value: "1024 65000" }
+    - { name: fs.file-max, value: 64000 }
+  when: dirsrv_fqdn != "local.dev"
+      
+- name: Configure file descriptors for dirsrv systemd service
+  lineinfile:
+    dest=/etc/sysconfig/dirsrv.systemd
+    state=present
+    insertafter="^[Service]"
+    line=LimitNOFILE=8192
+  when: dirsrv_fqdn != "local.dev"
+
+- name: Silent setup file
+  template: src=templates/dirsrv.inf dest=/tmp/dirsrv.inf
+
+- name: Configure 389-ds using setup-ds-admin.pl on {{ dirsrv_hostname }} for {{ dirsrv_suffix }}
+  shell: /usr/sbin/{{ dirsrv_setupdsadmin }} --silent --file=/tmp/dirsrv.inf --logfile=/tmp/389install.log creates=/etc/dirsrv/slapd-{{ dirsrv_hostname }}/dse.ldif
+
+- name: Enable service
+  service:
+    name: "{{ dirsrv_service_name }}.target"
+    state: started
+    enabled: yes
+
