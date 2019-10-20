@@ -7,6 +7,7 @@ Dit document beschrijft alle resources die nuttig zijn voor server Delta1.
 - [Postfix antispam+virus](https://www.tecmint.com/integrate-clamav-and-spamassassin-to-protect-postfix-mails-from-viruses/)
 - [Clam AV](https://www.linux.com/tutorials/using-clamav-kill-viruses-postfix/)
 - [SELinux booleans](https://www.thegeekdiary.com/understanding-selinux-booleans/)
+- [configure mailserver](https://xdeb.org/post/2018/02/07/run-your-own-mail-server-with-postfix-and-dovecot/)
 
 ## Ansible roles
 
