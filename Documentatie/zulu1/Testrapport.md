@@ -9,7 +9,7 @@
 
 ## Configuratie
 
-Om het testplan verder uit te werken, moet je verbinding maken met het interne netwerk. Meer informatie over hoe je dit moet doen, vind je in de documentatie.
+Om het testplan verder uit te werken, moet je verbinding maken met het interne netwerk. Voor meer informatie over hoe je dit moet doen, vind je in de documentatie.
 
 1. Controleer of de hostname Zulu1 is.
 2. Zulu1 moet zich bevinden in het domein green.local. 
@@ -39,8 +39,7 @@ Om het testplan verder uit te werken, moet je verbinding maken met het interne n
         >* Source: ANY
         >* Destination: Single host or alias (172.16.1.69)
         >* Destination Port Range: 
-            >* other - custom (HTTP_HTTPS)  
-
+            >* other - custom (HTTP_HTTPS)
      * Rule 2: mailserver SMTP.
 
         >* Action: Pass
@@ -48,7 +47,7 @@ Om het testplan verder uit te werken, moet je verbinding maken met het interne n
         >* Source: ANY
         >* Destination: Single host or alias (172.16.1.68)
         >* Destination Port Range
-            >* SMTP(465) to SMTP(465)  
+            >* SMTP(465) to SMTP(465)
 
     * Rule 3: mailserver IMAP.
 
@@ -89,7 +88,7 @@ Om het testplan verder uit te werken, moet je verbinding maken met het interne n
  11. Controleer of user1 aanwezig is, met volgende settings: 
     *wachtwoord: Zulu1User1.
     *De user bevindt zich in de groep users en niet in de groep admins.
- 12. Group users heeft volgende privileges:
+ 12. Group users heeft volgende priviledges:
       >*WebCfg - Diagnostics: Backup & Restore Allow access to the 'Diagnostics: Backup & Restore' page. (admin privilege) 
       >*WebCfg - Diagnostics: CPU Utilization Allow access to the 'Diagnostics: CPU Utilization' page.  
       >*WebCfg - Diagnostics: pf Table IP addresses Allow access to the 'Diagnostics: Tables' page. 
