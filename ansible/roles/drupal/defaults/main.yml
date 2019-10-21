@@ -1,0 +1,9 @@
+drupal_domain: example.com
+
+php_packages: 
+  - rh-php72
+  - rh-php72-php-fpm
+  - rh-php72-php-mysqlnd
+  - rh-php72-php-opcache
+  - rh-php72-php-mbstring
+  - rh-php72-php-gd

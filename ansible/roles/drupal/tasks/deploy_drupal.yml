@@ -1,0 +1,51 @@
+- name: Enable Software Collections
+  yum:
+    name: centos-release-scl-rh
+    state: present
+
+- name: Install php packages necessary for drupal 8
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ php_packages }}"
+
+- name: enable php software collection
+  command: scl enable rh-php72 bash
+
+- name: Copy www.conf
+  copy:
+    src: www.conf
+    dest: /etc/opt/rh/rh-php72/php-fpm.d/www.conf
+  notify:
+    - restart php-fpm
+
+- name: Download and verify drupal
+  get_url:
+    url: https://www.drupal.org/download-latest/tar.gz
+    dest: /tmp/drupal.tar.gz
+
+- name: Create drupal directory
+  file:
+    path: /usr/share/nginx/html/drupal
+    state: directory
+
+- name: Unarchive drupal
+  unarchive:
+    src: /tmp/drupal.tar.gz
+    dest: /usr/share/nginx/html/drupal
+    extra_opts: --strip-components=1
+
+- name: Make files directory
+  file:
+    path: /usr/share/nginx/html/drupal/sites/default/files
+    state: directory
+    mode: a+w
+
+- name: Copy drupal settings tempalte
+  template:
+    src: settings.php.j2
+    dest: /usr/share/nginx/html/drupal/sites/default/settings.php
+    mode: a+w
+  notify:
+    - restart nginx
+  
