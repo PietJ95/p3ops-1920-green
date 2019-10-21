@@ -39,7 +39,8 @@
   gather_facts: yes
   remote_user: root
   roles:
-    #- bertvv.dnsmasq
+    - bertvv.rh-base
+    - bertvv.dnsmasq
 
 - hosts: november1
   become: true
