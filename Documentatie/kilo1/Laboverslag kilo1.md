@@ -43,7 +43,7 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
 | vagrant provision {NAAM} | provisioning server via vagrant                       |
 | vagrant destroy {NAAM}   | afbreken server                                       |
 | dhclient {interface}     | Ip adres opvragen via DHCP op de effectieve interface |
-|                          |                                                       |
+| ifconfig                 | routing info                                          |
 |                          |                                                       |
 |                          |                                                       |
 |                          |                                                       |
@@ -98,9 +98,27 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
       dhcp_global_domain_name: green.local
       ```
 
+  - Voeg een PXEboot server toe
+
+    - ```
+      #pxeboot
+      dhcp_global_next_server: 172.16.1.6
+      ```
+
   - Maak subnetten aan per VLAN
 
     - Per VLAN maak je een subnet aan met daarin een pool met een bepaalde range waarin de IP-adressen mogen vallen. De ranges worden bepaald via de IP-table.
+
+    - Algemeen:
+
+      - IP= netwerk-adres
+      - netmask
+      - routers = default gateway
+      - pools: begin en eind-adres
+
+    - VLAN 20: krijgt een range waaruit de dynamische adressen mogen uitgedeeld worden via dhcp
+
+    - VLAN 30, 40, 50 60, 70: krijgt een range waarin de statische IP-adressen worden gereserveerd via dhcp
 
     - ```
       dhcp_subnets:
@@ -218,8 +236,8 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
   - [x] DNS domainen toevoegen
   - [x] lease time
   - [x] global domain name
-  - [ ] subnets (per VLAN?)
-  - [ ] statische IP via MAC
+  - [x] subnets (per VLAN?)
+  - [x] statische IP via MAC
 - [ ] controle (testplan)
   - [ ] controle VLAN
     - [ ] controleer per VLAN of het IP-adres uit de juiste range komt
@@ -230,7 +248,7 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
     - [x] wat leren we
     - [ ] cheatsheet
   - [ ] stappenplan
-  - [ ] extra uitleg bij stappenplan
+  - [x] extra uitleg bij stappenplan
   - [ ] testplan
   - [x] TO DO
   - [ ] resources
@@ -252,3 +270,5 @@ https://docs.fedoraproject.org/en-US/Fedora/25/pdf/Networking_Guide/Fedora-25-Ne
 https://support.rackspace.com/how-to/changing-dns-settings-on-linux/
 
 https://www.cyberciti.biz/faq/linux-unix-find-out-dns-server-ip-address-names/172
+
+<https://lifehacker.com/how-to-set-up-dhcp-reservations-and-never-check-an-ip-5822605>
