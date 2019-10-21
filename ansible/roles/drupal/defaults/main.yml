@@ -1,4 +1,5 @@
 drupal_domain: example.com
+drupal_directory: /usr/share/nginx/html/drupal
 
 php_packages: 
   - rh-php72

@@ -26,25 +26,25 @@
 
 - name: Create drupal directory
   file:
-    path: /usr/share/nginx/html/drupal
+    path: "{{ drupal_directory }}"
     state: directory
 
 - name: Unarchive drupal
   unarchive:
     src: /tmp/drupal.tar.gz
-    dest: /usr/share/nginx/html/drupal
+    dest: "{{ drupal_directory }}"
     extra_opts: --strip-components=1
 
 - name: Make files directory
   file:
-    path: /usr/share/nginx/html/drupal/sites/default/files
+    path: "{{ drupal_directory }}/sites/default/files"
     state: directory
     mode: a+w
 
 - name: Copy drupal settings tempalte
   template:
     src: settings.php.j2
-    dest: /usr/share/nginx/html/drupal/sites/default/settings.php
+    dest: "{{ drupal_directory }}/sites/default/settings.php"
     mode: a+w
   notify:
     - restart nginx
