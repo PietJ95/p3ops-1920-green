@@ -14,13 +14,13 @@ dhcp_global_domain_name: green.local
 dhcp_global_next_server: 172.16.1.6
 
 dhcp_subnets:
-    # VLAN 20
+    # VLAN 20 clients
   - ip: 172.16.0.0
     netmask: 255.255.255.0
     routers: 172.16.0.254
     pools:
-      - range_begin: 172.16.0.2
-        range_end: 172.16.0.254
+      - range_begin: 172.16.0.1
+        range_end: 172.16.0.253
 
     # VLAN 30
   - ip: 172.16.1.0
@@ -94,6 +94,9 @@ dhcp_hosts:
   - name: Zulu1
     mac: '08:00:27:66:5D:0B'
     ip: 172.16.1.106
+ #- name: Zulu1
+ #  mac: ''
+ #  ip: 172.16.1.102
   - name: Router0
     mac: '08:00:27:66:5D:0C'
     ip: 172.16.1.105
@@ -103,6 +106,9 @@ dhcp_hosts:
   - name: Switch2
     mac: '08:00:27:66:5D:0E'
     ip: 172.16.1.98
+ # - name: Switch2
+  #  mac: ''
+   # ip: 172.16.1.101
   - name: Management
     mac: '08:00:27:66:5D:0F'
     ip: 172.16.99.1   
