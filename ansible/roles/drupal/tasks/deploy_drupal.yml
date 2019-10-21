@@ -3,11 +3,17 @@
     name: centos-release-scl-rh
     state: present
 
-- name: Install php packages necessary for drupal 8
+- name: Install required packages necessary for drupal 8
   yum:
     name: "{{ item }}"
     state: present
-  loop: "{{ php_packages }}"
+  loop: "{{ required_packages }}"
+
+- name: Link rh-php72 to php
+  file:
+    src: /opt/rh/rh-php72/root/usr/bin/php
+    dest: /usr/bin/php
+    state: link
 
 - name: Copy www.conf
   copy:
@@ -23,19 +29,23 @@
     checksum: "{{ composer_checksum }}"
 
 - name: Install composer
-  shell: "scl enable rh-php72 bash && php /tmp/composer-setup.php --install-dir={{ composer_path }} --filename=composer"
-
+  command: "php /tmp/composer-setup.php --install-dir={{ composer_path }} --filename=composer"
+  
 - name: Create drupal directory
   file:
     path: "{{ drupal_directory }}"
     state: directory
 
 - name: Create drupal project with composer
-  shell: "scl enable rh-php72 bash && composer create-project -y {{ drupal_version }} {{ drupal_directory }} --no-interaction"
+  command: "{{ composer_path }}/composer create-project {{ drupal_version }} {{ drupal_directory }} --no-interaction"
   args:
     chdir: "{{ drupal_directory }}"
+  notify:
+    - restart nginx
 
 - name: Install drupal
-  command: "scl enable rh-php72 bash && {{ drupal_directory }}/vendor/bin/drush --root={{ drupal_directory }} site-install -y --site-name={{ drupal_site }} --account-name={{ drupal_account_name }} --account-pass={{ drupal_account_pass }} --db-url=mysql://{{ database_user }}:{{ database_password }}@{{ database_host }}/{{ database }}"
+  command: "{{ drupal_directory }}/vendor/bin/drush --root={{ drupal_directory }} site-install -y --site-name={{ drupal_site }} --account-name={{ drupal_account_name }} --account-pass={{ drupal_account_pass }} --db-url=mysql://{{ database_user }}:{{ database_password }}@{{ database_host }}/{{ database }}"
   args:
     chdir: "{{ drupal_directory }}"
+  notify:
+    - restart nginx
