@@ -8,6 +8,7 @@ Dit document beschrijft alle resources die nuttig zijn voor server Delta1.
 - [Clam AV](https://www.linux.com/tutorials/using-clamav-kill-viruses-postfix/)
 - [SELinux booleans](https://www.thegeekdiary.com/understanding-selinux-booleans/)
 - [configure mailserver](https://xdeb.org/post/2018/02/07/run-your-own-mail-server-with-postfix-and-dovecot/)
+- [Setup E-mail Server Centos](https://hostpresto.com/community/tutorials/how-to-setup-an-email-server-on-centos7/)
 
 ## Ansible roles
 

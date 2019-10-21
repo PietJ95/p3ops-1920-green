@@ -3,60 +3,61 @@
 
 rhbase_firewall_allow_services:
   - dhcp
-
+#dns master and slave
 dhcp_global_domain_name_servers:
   - 172.16.1.66
   - 172.16.1.67
 
+#12u
 dhcp_global_default_lease_time: 43200
 dhcp_global_max_lease_time: 43200
+#domain
 dhcp_global_domain_name: green.local
+#pxeboot
+dhcp_global_next_server: 172.16.1.6 
 
 dhcp_subnets:
-    # VLAN 20
+    # VLAN 20 clients voor gebruik DHCP
   - ip: 172.16.0.0
     netmask: 255.255.255.0
-    routers: 172.16.0.1
+    routers: 172.16.0.254
     pools:
-      - range_begin: 172.16.0.2
-        range_end: 172.16.0.254
+      - range_begin: 172.16.0.1
+        range_end: 172.16.0.253
 
-    # VLAN 30
+    # VLAN 30 voor reservaties statische IP's
   - ip: 172.16.1.0
     netmask: 255.255.255.192
-    routers: 172.16.0.1
+    routers: 172.16.1.62
     pools:
       - range_begin: 172.16.1.1
         range_end: 172.16.1.62
 
-    # VLAN 40
+    # VLAN 40 voor reservaties statische IP's
   - ip: 172.16.1.96
     netmask: 255.255.255.252
-    routers: 172.16.0.1
     pools:
       - range_begin: 172.16.1.97
         range_end: 172.16.1.98
 
-    # VLAN 50
+    # VLAN 50 voor reservaties statische IP's
   - ip: 172.16.1.64
     netmask: 255.255.255.224
-    routers: 172.16.0.1
+    routers: 172.16.1.94
     pools:
       - range_begin: 172.16.1.65
         range_end: 172.16.1.94
 
-    # VLAN 60
+    # VLAN 60 voor reservaties statische IP's
   - ip: 172.16.1.100
     netmask: 255.255.255.252
-    routers: 172.16.0.1
     pools:
       - range_begin: 172.16.1.101
         range_end: 172.16.1.102
         
-    # VLAN 70
+    # VLAN 70 voor reservaties statische IP's
   - ip: 172.16.1.104
     netmask: 255.255.255.252
-    routers: 172.16.0.1
     pools:
       - range_begin: 172.16.1.105
         range_end: 172.16.1.106
@@ -96,6 +97,11 @@ dhcp_hosts:
   - name: Zulu1
     mac: '08:00:27:66:5D:0B'
     ip: 172.16.1.106
+    # Zulu1 tweede interface???
+    # Zulu1 statisch, niet via DHCP?
+ #- name: Zulu1
+ #  mac: ''
+ #  ip: 172.16.1.102
   - name: Router0
     mac: '08:00:27:66:5D:0C'
     ip: 172.16.1.105
@@ -105,6 +111,10 @@ dhcp_hosts:
   - name: Switch2
     mac: '08:00:27:66:5D:0E'
     ip: 172.16.1.98
-  - name: Management
-    mac: '08:00:27:66:5D:0F'
-    ip: 172.16.99.1   
+    # waarom 2 interface??
+ # - name: Switch2
+  #  mac: ''
+   # ip: 172.16.1.101
+#  - name: Management
+ #   mac: '08:00:27:66:5D:0F'
+  #  ip: 172.16.99.1   

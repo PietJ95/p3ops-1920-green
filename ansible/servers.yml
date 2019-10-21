@@ -39,7 +39,7 @@
   gather_facts: yes
   remote_user: root
   roles:
-    - bertvv.dnsmasq
+    #- bertvv.dnsmasq
 
 - hosts: november1
   become: true
@@ -53,10 +53,10 @@
   roles:
     - bertvv.rh-base
     - sepolicy
-    - bertvv.httpd
-    - bertvv.mailserver
-    - bertvv.squirrelmail
-    - infOpen.lynis
+    #- bertvv.httpd
+    #- bertvv.mailserver
+    #- bertvv.squirrelmail
+    #- infOpen.lynis
 
 #Echo1
 - hosts: echo1
@@ -109,7 +109,7 @@
     - bertvv.rh-base
     - cloudalchemy.prometheus
     - cloudalchemy.grafana
-    #  - cloudalchemy.snmp-exporter
+    - cloudalchemy.snmp-exporter
     - jdauphant.dns
 
 - hosts: papa1
