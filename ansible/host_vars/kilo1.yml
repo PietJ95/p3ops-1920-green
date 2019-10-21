@@ -11,12 +11,13 @@ dhcp_global_domain_name_servers:
 dhcp_global_default_lease_time: 43200
 dhcp_global_max_lease_time: 43200
 dhcp_global_domain_name: green.local
+dhcp_global_next_server: 172.16.1.6
 
 dhcp_subnets:
     # VLAN 20
   - ip: 172.16.0.0
     netmask: 255.255.255.0
-    routers: 172.16.0.1
+    routers: 172.16.0.254
     pools:
       - range_begin: 172.16.0.2
         range_end: 172.16.0.254
@@ -24,7 +25,7 @@ dhcp_subnets:
     # VLAN 30
   - ip: 172.16.1.0
     netmask: 255.255.255.192
-    routers: 172.16.0.1
+    routers: 172.16.1.62
     pools:
       - range_begin: 172.16.1.1
         range_end: 172.16.1.62
@@ -32,7 +33,6 @@ dhcp_subnets:
     # VLAN 40
   - ip: 172.16.1.96
     netmask: 255.255.255.252
-    routers: 172.16.0.1
     pools:
       - range_begin: 172.16.1.97
         range_end: 172.16.1.98
@@ -40,7 +40,7 @@ dhcp_subnets:
     # VLAN 50
   - ip: 172.16.1.64
     netmask: 255.255.255.224
-    routers: 172.16.0.1
+    routers: 172.16.1.94
     pools:
       - range_begin: 172.16.1.65
         range_end: 172.16.1.94
@@ -48,7 +48,6 @@ dhcp_subnets:
     # VLAN 60
   - ip: 172.16.1.100
     netmask: 255.255.255.252
-    routers: 172.16.0.1
     pools:
       - range_begin: 172.16.1.101
         range_end: 172.16.1.102
@@ -56,7 +55,6 @@ dhcp_subnets:
     # VLAN 70
   - ip: 172.16.1.104
     netmask: 255.255.255.252
-    routers: 172.16.0.1
     pools:
       - range_begin: 172.16.1.105
         range_end: 172.16.1.106

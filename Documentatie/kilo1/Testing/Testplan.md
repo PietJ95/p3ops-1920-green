@@ -10,12 +10,6 @@
   - De interfaces de juiste IP-adressen hebben
     - 1 moet 172.16.128.10
     - 1 moet een adres hebben uit de pool
-  - De VM moet kunnen gaan naar de website 'http://www.avalon.lan'
-- Alle boxen destoryen en een volledige vagrant up doen
-  - Alle testen moeten slagen
-  - Services zoals FTP, SMB, DHCP, DNS en Webserver moet zichtbaar zijn in de aangemaakte VM
-- Op de VM kunnen inloggen als verschillende personen in de FTP en SMB-server
-
 
 
 
@@ -23,6 +17,8 @@
 
 
 Controle IP-instellingen
+
+
 
 - Eerste adapter komt uit pool 1 (lukt niet)
   - [ ] IP = 172.16.128.10
@@ -118,15 +114,19 @@ lo: flags=73  mtu 65536
         TX packets 4  bytes 328 (328.0 B)                                                                                                                                   
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0                                                                                                          
 
-WORKSTATION AANMAKEN 
 
--> DEZE WORKSTATION 2 ADAPTERS GEVEN
 
-​	-> 1 statisch
+**WORKSTATION AANMAKEN** 
 
-​	-> 1 DHCP in de juiste range
+**-> DEZE WORKSTATION 2 ADAPTERS GEVEN**
 
--> controle op workstation via ifconfig
+**​	-> 1 statisch**
+
+**​	-> 1 DHCP in de juiste range**
+
+**-> controle op workstation via ifconfig**
+
+
 
   
 
