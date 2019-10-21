@@ -1,15 +1,16 @@
 ---
 
-    dnsmasq_domain: 'green.local'
+    rhbase_firewall_allow_services: # DNS toelaten door Firewall
+      - dns
+
+    dnsmasq_domain: 'green.local' # Juiste Domain
+
+    dnsmasq_domain_needed: 'false' # Forward local requests
+
+    dnsmasq_listen_address: 172.16.1.70
 
     dnsmasq_upstream_servers:
-      - 8.8.4.4
-      - 8.8.8.8
+      - /green.local/172.16.1.66 # ns1.green.local
+      - /green.local/172.16.1.67 # ns2.green.local
 
-    dnsmasq_srv_hosts:
-      - name: _ldap._tcp.green.local
-        target: ns12.green.local
-        port: 389
-      - name: _ldap._tcp.red.be
-        target: ns12.red.local
-        port: 389
+      - 8.8.8.8 # Google DNS
