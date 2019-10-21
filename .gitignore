@@ -3,6 +3,9 @@
 # Hidden Vagrant-directory
 .vagrant
 
+# Ansible fact cache
+.ansible_cache/
+
 # Python development
 .ropeproject
 
