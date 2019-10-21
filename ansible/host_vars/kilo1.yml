@@ -11,6 +11,7 @@ dhcp_global_domain_name_servers:
 dhcp_global_default_lease_time: 43200
 dhcp_global_max_lease_time: 43200
 dhcp_global_domain_name: green.local
+dhcp_global_next_server: 172.16.1.6
 
 dhcp_subnets:
     # VLAN 20
