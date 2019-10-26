@@ -101,19 +101,21 @@ grafana_dashboards:
 5. Bekijk de grafieken
 
 ## Status Monitoring verschillende linux servers
-|   Server  	|  Monitoring status                                                                                                                                        	|
-|:---------:	|-----------------------------------------------------------------------------------------------------------------------------------------------------------	|
-|    Alfa1  	| Success                                                                                                                                                   	|
-|   Bravo1  	| Success                                                                                                                                                   	|
-|   Delta1  	| Success --> mits toevoegen firewall regel                                                                                                                 	|
-|   Echo1   	| Success                                                                                                                                                   	|
-|   Kilo1   	| Failed --> Geen connectie met kilo1, pingen lukt niet. Dit komt vermoedelijk omdat de kilo1 en de host hetzelfde ip adres hebben met de host-only adapter (172.16.1.1) 	|
-|   Lima1   	| Failed --> Server nog niet aangemaakt                                                                                                                     	|
-|   Mike1   	|  Success                                                                                                                                                  	|
-| November1 	| Failed --> Server start nog niet op zonder fouten                                                                                                         	|
-|   Oscar1  	| Success                                                                                                                                                   	|
-|   Papa1   	| Failed --> Server start nog niet op zonder fouten                                                                                                         	|
-|   Zulu1   	| Failed --> Server nog niet aangemaakt                                                                                                                     	|
+
+|  Server   | Monitoring status                         |
+| :-------: | ----------------------------------------- |
+|   Alfa1   | Success                                   |
+|  Bravo1   | Success                                   |
+| Charlie1  | Success                                   |
+|  Delta1   | Success --> mits toevoegen firewall regel |
+|   Echo1   | Success                                   |
+|   Kilo1   | Success                                   |
+|   Lima1   | Success                                   |
+|   Mike1   | Success                                   |
+| November1 | Success                                   |
+|  Oscar1   | Success                                   |
+|   Papa1   | success                                   |
+|   Zulu1   | Failed --> Server nog niet aangemaakt     |
 
 ## Troubleshooting
 

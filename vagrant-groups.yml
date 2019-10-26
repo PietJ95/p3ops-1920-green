@@ -15,11 +15,12 @@ nodeexporter:
   - alfa1
   - bravo1
   - charlie1
-#  - november1
   - delta1
-  - echo1
+#  - echo1
   - kilo1
-  - mike1
+  - lima1
+#  - mike1
+  - november1
   - oscar1
   - papa1
 

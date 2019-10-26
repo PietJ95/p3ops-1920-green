@@ -65,6 +65,7 @@
   roles:
     - common
     - drupal
+    - cloudalchemy.node-exporter
 
 # #Kilo1
 # - hosts: kilo1
@@ -89,6 +90,7 @@
   roles:
     - common
     - drupal
+    - cloudalchemy.node-exporter
 
 # # Configure oscar 1: monitoring server
 # #
