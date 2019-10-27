@@ -1,9 +1,5 @@
 # p3ops-team-repo
 
-## Takenverdeling
-
-[Google docs](https://docs.google.com/spreadsheets/d/10ZtNAXkEyRat8Yl4fSzGJcRiKkjTG_0TkfBVWvXb0Lc/edit?usp=sharing)
-
 ## Trello board
 
 Invite link: [Trello invite](https://trello.com/invite/b/3mZIkr7D/c77776add109cb1083b3267c9787840d/p3ops-1920-green)
