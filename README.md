@@ -33,15 +33,16 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Oscar1        | Stijn Van De Moortele, Maarten Beeckmans | Stijn Van De Moortele | Maarten Beeckmans |
 | Papa1         | Thijs Bryon, Robin Boone, Piet Jacobs | Thijs Bryon | Robin Boone |
 | Quebec1       | Beau Bellon, Robin Peerlinck, Robin Goesseye | Robin Goesseye | Robin Peerlinck |
-| Routing & Switching     | Bob Bracke, Olivier De Vriese, Bernard Deploige | Bernard Deploige | Olivier De Vriese |
+| Routing & Switching     | Bob Bracke, Olivier De Vriese, [Bernard Deploige](https://github.com/BernardDeploige/) | [Bernard Deploige](https://github.com/BernardDeploige/) | Olivier De Vriese |
 | Zulu1         | Joeri Verhavert, Olivier Troch | Olivier Troch | Joeri Verhavert |
+| Administratie | Thibault Dewitte, [Bernard Deploige](https://github.com/BernardDeploige/) | --- | --- |
 
 ### Per teamlid
 | Naam          | Taken      | Verantwoordelijk voor |
 | :---          | :---       | :---   |
 | Beau Bellon | Delta1, Quebec1 | Testing Delta1 |
 | Berkant Kucuksolak | Lima1 | Testing Lima1 |
-| Bernard Deploige | Administratie, Routing & Switching | Testing Routing & Switching |
+| [Bernard Deploige](https://github.com/BernardDeploige/) | Administratie, Routing & Switching | Testing Routing & Switching |
 | Bob Bracke | Routing & Switching | --- |
 | Cederic Denoo | Delta1 | Delta1 |
 | Dylano Steenhuyzen | November1 | November1 |
