@@ -25,7 +25,8 @@ rhbase_users:
   - name: johndoe
     groups:
       - users
-    password: "$1$WIFkXf07$HQZFgDlnfpSd9B.8McNcf."
+    # Password = test123
+    password: "$6$rzSe0ya3TumnQAGo$oJfY6KB/GhlaTeL98CjQ9.KgciX60R/iEqaPkyyTqUUACKaaRD2MjcaPWPkk7ZFO4v.9iDfYlWo7E/cboy1nP0"
     shell: /sbin/nologin
 
   - name: ericdoe

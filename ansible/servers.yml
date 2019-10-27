@@ -54,10 +54,10 @@
   roles:
     - bertvv.rh-base
     - sepolicy
-    #- bertvv.httpd
-    #- bertvv.mailserver
-    #- bertvv.squirrelmail
-    #- infOpen.lynis
+    - bertvv.httpd
+    - bertvv.mailserver
+    - bertvv.squirrelmail
+    - infOpen.lynis
 
 #Echo1
 - hosts: echo1
