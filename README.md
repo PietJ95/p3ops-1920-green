@@ -18,9 +18,51 @@ Slack: [join Slack channel](https://join.slack.com/t/projecteniiigreen/shared_in
 
 De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak, "Testen" is voor de verantwoordelijke voor de acceptatietests (schrijft dus testrapport). De naam van de verantwoordelijke is een link naar diens Github profielpagina, bv. [Bert Van Vreckem](https://github.com/bertvv/).
 
-| Taak | Uitvoering | Testen |
-| :--- | :---       | :---   |
-|      |            |        |
+### Per server
+| Taak          | Uitvoering | Testen | Verantwoordelijke |
+| :---          | :---       | :---   | :---   |
+| Alpha1        | Milan Dewilde, Thibault Dewitte | Thibault Dewitte | Milan Dewitte |
+| Bravo1        | Robin Ophalvens, Jolien Vervinckt | Jolien Vervinckt | Robin Ophalvens |
+| Charlie1      | Robin Ophalvens, Jolien Vervinckt | Robin Ophalvens | Jolien Vervinckt |
+| Delta1        | Beau Bellon, Robin Peerlinck, Cederic Denoo | Beau Bellon | Cederic Denoo |
+| Echo1         | Piet Jacobs, Karel Van Hecke | Karel Van Hecke | Piet Jacobs |
+| Kilo1         | Yordi De Rijcke, Lincy De Groote | Lincy De Groote | Yordi De Rijcke |
+| Lima1         | Berkant Kucuksolak, Jonas Spitaels | Berkant Kucuksolak | Jonas Spitaels |
+| Mike1         | Karel Van Hecke | Karel Van Hecke | Karel Van Hecke |
+| November1     | Dylano Steenhuzen | Dylano Steenhuzen | Dylano Steenhuzen |
+| Oscar1        | Stijn Van De Moortele, Maarten Beeckmans | Stijn Van De Moortele | Maarten Beeckmans |
+| Papa1         | Thijs Bryon, Robin Boone, Piet Jacobs | Thijs Bryon | Robin Boone |
+| Quebec1       | Beau Bellon, Robin Peerlinck, Robin Goesseye | Robin Goesseye | Robin Peerlinck |
+| Routing & Switching     | Bob Bracke, Olivier De Vriese, Bernard Deploige | Bernard Deploige | Olivier De Vriese |
+| Zulu1         | Joeri Verhavert, Olivier Troch | Olivier Troch | Joeri Verhavert |
+
+
+| Naam          | Taken      | Verantwoordelijk voor |
+| :---          | :---       | :---   |
+| Beau Bellon | Delta1, Quebec1 |  |
+| Berkant Kucuksolak | Lima1 |  |
+| Bernard Deploige | Administratie, Routing & Switching |  |
+| Bob Bracke | Routing & Switching |  |
+| Cederic Denoo | Delta1 | Delta1 |
+| Dylano Steenhuyzen | November1 | November1 |
+| Jari Van De Cappelle |  |  |
+| Jolien Vervinckt | Bravo1, Charlie1 | Charlie1 |
+| Jonas Spitaels | Lima1 | Lima1 |
+| Karel Van Hecke | Echo1, Mike1 | Mike1 |
+| Lincy De Groote | Kilo1 |  |
+| Maarten Beeckmans | Oscar1 | Oscar1 |
+| Milan Dewilde | Apha1 | Alpha1 |
+| Olivier De Vriese | Routing & Switching | Routing & Switching |
+| Olivier Troch | Zulu1 |  |
+| Piet Jacobs | Echo1, Papa1 | Echo1 |
+| Robin Boone | Papa1 | Papa1 |
+| Robin Goesseye | Quebec1 |  |
+| Robin Ophalvens | Bravo1, Charlie1 |  |
+| Robin Peerlinck | Quebec1 | Quebec1 |
+| Stijn Van De Moortele | Oscar1 |  |
+| Thibault Dewitte | Alpha1 |  |
+| Thijs Bryon  | Papa1 |  |
+| Yordi De Rijcke | Kilo1 | Kilo1 |
 
 ## Overzicht IP-adrestoewijzing
 
