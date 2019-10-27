@@ -36,7 +36,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Routing & Switching     | Bob Bracke, Olivier De Vriese, Bernard Deploige | Bernard Deploige | Olivier De Vriese |
 | Zulu1         | Joeri Verhavert, Olivier Troch | Olivier Troch | Joeri Verhavert |
 
-
+### Per teamlid
 | Naam          | Taken      | Verantwoordelijk voor |
 | :---          | :---       | :---   |
 | Beau Bellon | Delta1, Quebec1 |  |
