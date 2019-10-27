@@ -19,10 +19,8 @@ dhcp_global_domain_name: green.local
 #pxeboot
 dhcp_global_next_server: 172.16.1.6 
 
-
-
 dhcp_subnets:
-    # VLAN 20 clients voor gebruik DHCP
+    # VLAN 20
   - ip: 172.16.0.0
     netmask: 255.255.255.0
     routers: 172.16.0.254
@@ -32,22 +30,15 @@ dhcp_subnets:
       - range_begin: 172.16.0.1
         range_end: 172.16.0.253
 
-    # VLAN 30 voor reservaties statische IP's kilo1, lima1, mike1, november1, oscar1, papa1
+    # VLAN 30
   - ip: 172.16.1.0
     netmask: 255.255.255.192
     routers: 172.16.1.62
     pools:
-      - range_begin: 172.16.1.1
+      - range_begin: 172.16.1.10
         range_end: 172.16.1.62
 
-    # VLAN 40 voor reservaties statische IP's => DENK DAT WE DIT MOGEN WEGLATEN (verbinding switch2 en switch1)
-  - ip: 172.16.1.96
-    netmask: 255.255.255.252
-    pools:
-      - range_begin: 172.16.1.97
-        range_end: 172.16.1.98
-
-    # VLAN 50 voor reservaties statische IP's alfa1, bravo1, charlie1, delta1, echo1
+    # VLAN 50
   - ip: 172.16.1.64
     netmask: 255.255.255.224
     routers: 172.16.1.94
@@ -55,22 +46,8 @@ dhcp_subnets:
 #   bootp: allows
 #   filename: "pxelinux.0"
     pools:
-      - range_begin: 172.16.1.65
+      - range_begin: 172.16.1.80
         range_end: 172.16.1.94
-
-    # VLAN 60 voor reservaties statische IP's  => DENK DAT WE DIT MOGEN WEGLATEN (verbinding tussen zulu1 en switch2)
-  - ip: 172.16.1.100
-    netmask: 255.255.255.252
-    pools:
-      - range_begin: 172.16.1.101
-        range_end: 172.16.1.102
-        
-    # VLAN 70 voor reservaties statische IP's  => DENK DAT WE DIT MOGEN WEGLATEN (verbinding tussen router0 en zulu1
-  - ip: 172.16.1.104
-    netmask: 255.255.255.252
-    pools:
-      - range_begin: 172.16.1.105
-        range_end: 172.16.1.106
 
 # Statisch IP via MAC
 dhcp_hosts:
@@ -104,29 +81,3 @@ dhcp_hosts:
   - name: Papa1
     mac: '08:00:27:66:5D:0A'
     ip: 172.16.1.6
-    #zulu weglaten
-  - name: Zulu1
-    mac: '08:00:27:66:5D:0B'
-    ip: 172.16.1.106
-    # Zulu1 tweede interface???
-    # Zulu1 statisch, niet via DHCP?
- #- name: Zulu1
- #  mac: ''
- #  ip: 172.16.1.102
-    # router 0, switch1 en switch2 weglaten
-  - name: Router0
-    mac: '08:00:27:66:5D:0C'
-    ip: 172.16.1.105
-  - name: Switch1
-    mac: '08:00:27:66:5D:0D'
-    ip: 172.16.1.97
-  - name: Switch2
-    mac: '08:00:27:66:5D:0E'
-    ip: 172.16.1.98
-    # waarom 2 interface??
- # - name: Switch2
-  #  mac: ''
-   # ip: 172.16.1.101
-#  - name: Management
- #   mac: '08:00:27:66:5D:0F'
-  #  ip: 172.16.99.1   
