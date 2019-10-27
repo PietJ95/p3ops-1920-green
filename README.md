@@ -39,29 +39,29 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 ### Per teamlid
 | Naam          | Taken      | Verantwoordelijk voor |
 | :---          | :---       | :---   |
-| Beau Bellon | Delta1, Quebec1 |  |
-| Berkant Kucuksolak | Lima1 |  |
-| Bernard Deploige | Administratie, Routing & Switching |  |
-| Bob Bracke | Routing & Switching |  |
+| Beau Bellon | Delta1, Quebec1 | Testing Delta1 |
+| Berkant Kucuksolak | Lima1 | Testing Lima1 |
+| Bernard Deploige | Administratie, Routing & Switching | Testing Routing & Switching |
+| Bob Bracke | Routing & Switching | --- |
 | Cederic Denoo | Delta1 | Delta1 |
 | Dylano Steenhuyzen | November1 | November1 |
 | Jari Van De Cappelle |  |  |
 | Jolien Vervinckt | Bravo1, Charlie1 | Charlie1 |
 | Jonas Spitaels | Lima1 | Lima1 |
 | Karel Van Hecke | Echo1, Mike1 | Mike1 |
-| Lincy De Groote | Kilo1 |  |
+| Lincy De Groote | Kilo1 | Testing Kilo1 |
 | Maarten Beeckmans | Oscar1 | Oscar1 |
 | Milan Dewilde | Apha1 | Alpha1 |
 | Olivier De Vriese | Routing & Switching | Routing & Switching |
-| Olivier Troch | Zulu1 |  |
+| Olivier Troch | Zulu1 | Testing Zulu1 |
 | Piet Jacobs | Echo1, Papa1 | Echo1 |
 | Robin Boone | Papa1 | Papa1 |
-| Robin Goesseye | Quebec1 |  |
-| Robin Ophalvens | Bravo1, Charlie1 |  |
+| Robin Goesseye | Quebec1 | Testing Quebec1 |
+| Robin Ophalvens | Bravo1, Charlie1 | Bravo1, Testing Charlie1 |
 | Robin Peerlinck | Quebec1 | Quebec1 |
-| Stijn Van De Moortele | Oscar1 |  |
-| Thibault Dewitte | Alpha1 |  |
-| Thijs Bryon  | Papa1 |  |
+| Stijn Van De Moortele | Oscar1 | Testing Oscar1 |
+| Thibault Dewitte | Alpha1 | Testing Alpha1 |
+| Thijs Bryon  | Papa1 | Testing Papa1 |
 | Yordi De Rijcke | Kilo1 | Kilo1 |
 
 ## Overzicht IP-adrestoewijzing
