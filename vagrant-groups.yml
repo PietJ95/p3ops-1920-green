@@ -25,7 +25,3 @@ nodeexporter:
   - papa1
 
 #cluster groep aanmaken voor echo1,mike1 en november1
-galera_cluster_nodes:
-  - mike1
-  - echo1
-  - november1
