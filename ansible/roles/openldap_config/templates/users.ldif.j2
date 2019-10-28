@@ -1,5 +1,5 @@
 # Define a person here
-dn: uid={{ item.name }},{{ item.group_ou }},dc={{ dirsrv_fqdn.split('.')[1] }},dc={{ dirsrv_fqdn.split('.')[2] }}
+dn: uid={{ item.name }},{{ item.group_ou }},dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }}
 objectClass: top
 objectClass: person
 objectClass: inetOrgPerson
