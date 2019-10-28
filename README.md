@@ -30,7 +30,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Papa1               | Thijs Bryon, Robin Boone, Piet Jacobs                                                  | Thijs Bryon                                             | Robin Boone       |
 | Quebec1             | Beau Bellon, Robin Peerlinck, Robin Goesseye                                           | Robin Goesseye                                          | Robin Peerlinck   |
 | Routing & Switching | Bob Bracke, Olivier De Vriese, [Bernard Deploige](https://github.com/BernardDeploige/) | [Bernard Deploige](https://github.com/BernardDeploige/) | Olivier De Vriese |
-| Zulu1               | Joeri Verhavert, Olivier Troch                                                         | Olivier Troch                                           | Joeri Verhavert   |
+| Zulu1               | Joeri Verhavert, [Olivier Troch](https://github.com/OlivierTroch)                                                         | [Olivier Troch](https://github.com/OlivierTroch)                                           | Joeri Verhavert   |
 | Administratie       | Thibault Dewitte, [Bernard Deploige](https://github.com/BernardDeploige/)              | ---                                                     | ---               |
 
 ### Per teamlid
@@ -45,12 +45,12 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Jari Van De Cappelle                                    |                                    |                             |
 | Jolien Vervinckt                                        | Bravo1, Charlie1                   | Charlie1                    |
 | [Jonas Spitaels](https://github.com/JonasSpitaels)      | Lima1                              | Lima1                       |
-| Karel Van Hecke                                         | Echo1, Mike1                       | Echo1, Mike1                       |
+| Karel Van Hecke                                         | Echo1, Mike1                       | Echo1, Mike1                |
 | Lincy De Groote                                         | Kilo1                              | Testing Kilo1               |
 | Maarten Beeckmans                                       | Oscar1                             | Oscar1                      |
 | Milan Dewilde                                           | Apha1                              | Alpha1                      |
 | Olivier De Vriese                                       | Routing & Switching                | Routing & Switching         |
-| Olivier Troch                                           | Zulu1                              | Testing Zulu1               |
+| [Olivier Troch](https://github.com/OlivierTroch)        | Zulu1                              | Testing Zulu1               |
 | Piet Jacobs                                             | Papa1                              | Papa1                       |
 | Robin Boone                                             | Papa1                              | Papa1                       |
 | [Robin Goesseye](https://github.com/Robybob9)           | Quebec1                            | Testing Quebec1             |
