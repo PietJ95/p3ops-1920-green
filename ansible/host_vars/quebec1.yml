@@ -1,7 +1,37 @@
 ---
 
+    hosts_entries:
+      - name: alfa1
+        ip: 172.16.1.65
+      - name: bravo1
+        ip: 172.16.1.66
+      - name: charlie1
+        ip: 172.16.1.67
+      - name: delta1
+        ip: 172.16.1.68
+      - name: echo1
+        ip: 172.16.1.69
+      - name: kilo1
+        ip: 172.16.1.1
+      - name: lima1
+        ip: 172.16.1.2
+      - name: mike1
+        ip: 172.16.1.3
+      - name: november1
+        ip: 172.16.1.4
+      - name: oscar1
+        ip: 172.16.1.5
+      - name: papa1
+        ip: 172.16.1.6
+
+
     rhbase_firewall_allow_services: # DNS toelaten door Firewall
       - dns
+
+    dns_nameservers:
+      - "DNS1=172.16.1.66"
+      - "DNS2=172.16.1.67"
+      - "DNS3=8.8.8.8"
 
     dnsmasq_domain: 'green.local' # Juiste Domain
 
@@ -10,7 +40,11 @@
     dnsmasq_listen_address: 172.16.1.70
 
     dnsmasq_upstream_servers:
+      - 8.8.8.8
+      # HoGent DNS Nog toevoegen
+
       - /green.local/172.16.1.66 # ns1.green.local
       - /green.local/172.16.1.67 # ns2.green.local
 
-      - 8.8.8.8 # Google DNS
+     # - /red.local/ # ns1.red.local
+     # - /red.local/ # ns2.red.local

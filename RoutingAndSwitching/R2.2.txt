@@ -2,11 +2,13 @@ enable
 configure terminal
 hostname R2.2
 
-int g0/0
+snmp-server community public RO
+
+int g0/0/0
 ip address 172.16.1.101 255.255.255.252
 no shut
 
-int g0/1
+int g0/0/1
 ip address 172.16.1.94 255.255.255.224
 ip helper-address 172.16.1.1 
 no shut

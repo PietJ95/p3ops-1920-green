@@ -112,6 +112,9 @@ def forwarded_ports(vm, host)
 
     ports.each do |port|
       vm.network "forwarded_port", guest: port['guest'], host: port['host']
+      # Toegevoegd voor clusters door november1
+      vm.network "forwarded_port", guest: 3306, host: 3306,
+        auto_correct: true
     end
   end
 end
@@ -119,6 +122,8 @@ end
 def provision_ansible(node, host, groups)
   ansible_mode = run_locally? ? 'ansible_local' : 'ansible'
   node.vm.provision ansible_mode do |ansible|
+    #Toegevoegd door november1
+    ansible.limit = "all"
     ansible.compatibility_mode = '2.0'
     if ! groups.nil?
       ansible.groups = groups
@@ -126,6 +131,14 @@ def provision_ansible(node, host, groups)
     ansible.playbook = host.key?('playbook') ?
         "ansible/#{host['playbook']}" :
         "ansible/site.yml"
+    # Toegevoegd voor clusters door november1
+    ansible.groups = {
+      "galera_cluster_nodes" => [
+        "172.16.1.4",
+        "172.16.1.3",
+        "172.16.1.69"
+        ]
+    }
     ansible.become = true
   end
 end

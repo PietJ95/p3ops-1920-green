@@ -2,7 +2,12 @@ enable
 configure terminal
 hostname S1.1
 
+snmp-server community public RO
+
 vlan 50
+
+int vlan50
+ip address 172.16.1.80 255.255.255.224
 
 int range f0/1-6
 switchport mode access
@@ -11,6 +16,7 @@ no shut
 
 enable secret Admin
 service password-encryption
+
 ip domain-name green.local
 crypto key generate rsa
 1024

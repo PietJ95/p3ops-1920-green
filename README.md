@@ -27,7 +27,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Mike1               | Karel Van Hecke                                                                        | Karel Van Hecke                                         | Karel Van Hecke   |
 | November1           | Dylano Steenhuzen                                                                      | Dylano Steenhuzen                                       | Dylano Steenhuzen |
 | Oscar1              | Stijn Van De Moortele, Maarten Beeckmans                                               | Stijn Van De Moortele                                   | Maarten Beeckmans |
-| Papa1               | Thijs Bryon, Robin Boone, Piet Jacobs                                                  | Thijs Bryon                                             | Robin Boone       |
+| Papa1               | Thijs Bryon, [Robin Boone](https://github.com/Robinsane), Piet Jacobs                                                  |  [Robin Boone](https://github.com/Robinsane) , Thijs Bryon                                             |  [Robin Boone](https://github.com/Robinsane)       |
 | Quebec1             | Beau Bellon, Robin Peerlinck, Robin Goesseye                                           | Robin Goesseye                                          | Robin Peerlinck   |
 | Routing & Switching | Bob Bracke, Olivier De Vriese, [Bernard Deploige](https://github.com/BernardDeploige/) | [Bernard Deploige](https://github.com/BernardDeploige/) | Olivier De Vriese |
 | Zulu1               | Joeri Verhavert, [Olivier Troch](https://github.com/OlivierTroch)                      | [Olivier Troch](https://github.com/OlivierTroch)        | Joeri Verhavert   |
@@ -45,7 +45,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Jari Van De Cappelle                                                         |                                    |                             |
 | Jolien Vervinckt                                                             | Bravo1, Charlie1                   | Charlie1                    |
 | [Jonas Spitaels](https://github.com/JonasSpitaels)                           | Lima1                              | Lima1                       |
-| Karel Van Hecke                                                              | Echo1, Mike1                       | Echo1, Mike1                |
+| [Karel Van Hecke](https://github.com/karelvanhecke)                                                              | Echo1, Mike1                       | Echo1, Mike1                |
 | Lincy De Groote                                                              | Kilo1                              | Testing Kilo1               |
 | [Maarten Beeckmans](https://github.com/maartenbeeckmans)                     | Oscar1                             | Oscar1                      |
 | [Milan Dewilde](https://github.com/HoGentTIN/p3ops-1920-logboek-milanHogent) | Alfa1                              | Alfa1                       |
