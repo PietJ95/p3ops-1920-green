@@ -48,6 +48,7 @@ prometheus_scrape_configs:
           - november1.green.local:9100
           - oscar1.green.local:9100
           - papa1.green.local:9100
+          - quebec1.green.local:9100
           - zulu1.green.local:9100
   # - job_name: "servicediscovery"
   #   file_sd_configs:
@@ -57,6 +58,10 @@ prometheus_scrape_configs:
     static_configs:
       - targets:
         - 172.16.1.97  # SNMP device.
+        - 172.16.1.98
+        - 172.16.1.80
+        - 172.16.1.50
+        - 172.16.0.80
     metrics_path: /snmp
     params:
       module: [if_mib]
@@ -90,9 +95,6 @@ grafana_dashboards:
   - dashboard_id: 1666 # BIND DNS
     revision_id: 1
     datasource: 'prometheus'
-  - dashboard_id: 9908 # SNMP
-    revision_id: 1
-    datasource: 'prometheus'
   - dashboard_id: 405 # Algemeen
     revision_id: 8
     datasource: 'prometheus' 
@@ -101,4 +103,7 @@ grafana_dashboards:
     datasource: 'prometheus' 
   - dashboard_id: 6287 # Host overview, werkt behalve grafana pie chart
     revision_id: 2
+    datasource: 'prometheus'
+  - dashboard_id: 2408 # SNMP Interface throughput
+    revision_id: 1
     datasource: 'prometheus'
