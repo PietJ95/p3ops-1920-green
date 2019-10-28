@@ -118,57 +118,39 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
 
     - VLAN 20: krijgt een range waaruit de dynamische adressen mogen uitgedeeld worden via dhcp
 
-    - VLAN 30, 40, 50 60, 70: krijgt een range waarin de statische IP-adressen worden gereserveerd via dhcp
+    - VLAN 30 en 50: krijgt een range waarin de statische IP-adressen worden gereserveerd via dhcp
 
     - ```
       dhcp_subnets:
-          # VLAN 20
-        - ip: 172.16.0.0
-          netmask: 255.255.255.0
-          routers: 172.16.0.1
-          pools:
-            - range_begin: 172.16.0.2
-              range_end: 172.16.0.254
+    # VLAN 20
+  - ip: 172.16.0.0
+    netmask: 255.255.255.0
+    routers: 172.16.0.254
+#   booting: allow
+#   bootp: allow
+    pools:
+      - range_begin: 172.16.0.1
+        range_end: 172.16.0.253
 
-          # VLAN 30
-        - ip: 172.16.1.0
-          netmask: 255.255.255.192
-          routers: 172.16.0.1
-          pools:
-            - range_begin: 172.16.1.1
-              range_end: 172.16.1.62
+    # VLAN 30
+  - ip: 172.16.1.0
+    netmask: 255.255.255.192
+    routers: 172.16.1.62
+    pools:
+      - range_begin: 172.16.1.10
+        range_end: 172.16.1.62
 
-          # VLAN 40
-        - ip: 172.16.1.96
-          netmask: 255.255.255.252
-          routers: 172.16.0.1
-          pools:
-            - range_begin: 172.16.1.97
-              range_end: 172.16.1.98
+    # VLAN 50
+  - ip: 172.16.1.64
+    netmask: 255.255.255.224
+    routers: 172.16.1.94
+#   booting: allow
+#   bootp: allows
+#   filename: "pxelinux.0"
+    pools:
+      - range_begin: 172.16.1.80
+        range_end: 172.16.1.94
 
-          # VLAN 50
-        - ip: 172.16.1.64
-          netmask: 255.255.255.224
-          routers: 172.16.0.1
-          pools:
-            - range_begin: 172.16.1.65
-              range_end: 172.16.1.94
-
-          # VLAN 60
-        - ip: 172.16.1.100
-          netmask: 255.255.255.252
-          routers: 172.16.0.1
-          pools:
-            - range_begin: 172.16.1.101
-              range_end: 172.16.1.102
-              
-          # VLAN 70
-        - ip: 172.16.1.104
-          netmask: 255.255.255.252
-          routers: 172.16.0.1
-          pools:
-            - range_begin: 172.16.1.105
-              range_end: 172.16.1.106
       ```
 
   - Geef elke host met een statisch IP een statische MAC adres mee en IP-adres
@@ -178,51 +160,37 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
     - ```
       # Statisch IP via MAC
       dhcp_hosts:
-        - name: Alfa1
-          mac: '08:00:27:66:5D:01'
-          ip: 172.16.1.65
-        - name: Bravo1
-          mac: '08:00:27:66:5D:02'
-          ip: 172.16.16.66
-        - name: Charlie1
-          mac: '08:00:27:66:5D:03'
-          ip: 172.16.1.67
-        - name: Delta1
-          mac: '08:00:27:66:5D:04'
-          ip: 172.16.1.68
-        - name: Echo1
-          mac: '08:00:27:66:5D:05'
-          ip: 172.16.1.69
-        - name: Lima1
-          mac: '08:00:27:66:5D:06'
-          ip: 172.16.1.2
-        - name: Mike1
-          mac: '08:00:27:66:5D:07'
-          ip: 172.16.1.3
-        - name: November1
-          mac: '08:00:27:66:5D:08'
-          ip: 172.16.1.4
-        - name: Oscar1
-          mac: '08:00:27:66:5D:09'
-          ip: 172.16.1.5
-        - name: Papa1
-          mac: '08:00:27:66:5D:0A'
-          ip: 172.16.1.6
-        - name: Zulu1
-          mac: '08:00:27:66:5D:0B'
-          ip: 172.16.1.106
-        - name: Router0
-          mac: '08:00:27:66:5D:0C'
-          ip: 172.16.1.105
-        - name: Switch1
-          mac: '08:00:27:66:5D:0D'
-          ip: 172.16.1.97
-        - name: Switch2
-          mac: '08:00:27:66:5D:0E'
-          ip: 172.16.1.98
-        - name: Management
-          mac: '08:00:27:66:5D:0F'
-          ip: 172.16.99.1   
+  - name: Alfa1
+    mac: '08:00:27:66:5D:01'
+    ip: 172.16.1.65
+  - name: Bravo1
+    mac: '08:00:27:66:5D:02'
+    ip: 172.16.1.66
+  - name: Charlie1
+    mac: '08:00:27:66:5D:03'
+    ip: 172.16.1.67
+  - name: Delta1
+    mac: '08:00:27:66:5D:04'
+    ip: 172.16.1.68
+  - name: Echo1
+    mac: '08:00:27:66:5D:05'
+    ip: 172.16.1.69
+  - name: Lima1
+    mac: '08:00:27:66:5D:06'
+    ip: 172.16.1.2
+  - name: Mike1
+    mac: '08:00:27:66:5D:07'
+    ip: 172.16.1.3
+  - name: November1
+    mac: '08:00:27:66:5D:08'
+    ip: 172.16.1.4
+  - name: Oscar1
+    mac: '08:00:27:66:5D:09'
+    ip: 172.16.1.5
+  - name: Papa1
+    mac: '08:00:27:66:5D:0A'
+    ip: 172.16.1.6
+
       ```
 
 
