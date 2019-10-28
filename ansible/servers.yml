@@ -25,7 +25,7 @@
   roles:
     - dnsBindBravoCharlie
 
-# # Configure charlie 1 (also known as the secondary, backup or slave dns server) with DNS BIND      
+# # Configure charlie 1 (also known as the secondary, backup or slave dns server) with DNS BIND
 - name: Configure charlie1
   gather_facts: yes
   hosts: charlie1
@@ -39,13 +39,13 @@
   gather_facts: yes
   remote_user: root
   roles:
-    #- bertvv.rh-base
-    #- bertvv.dnsmasq
+    - bertvv.rh-base
+    - bertvv.dnsmasq
 
 - hosts: november1
   become: true
   gather_facts: yes
-  roles: 
+  roles:
     - mariadb-server
     - mariadb-galera-cluster
 
@@ -53,12 +53,12 @@
   hosts: delta1
   become: true
   roles:
-    #- bertvv.rh-base
-    #- sepolicy
-    #- bertvv.httpd
-    #- bertvv.mailserver
-    #- bertvv.squirrelmail
-    #- infOpen.lynis
+    - bertvv.rh-base
+    - sepolicy
+    - bertvv.httpd
+    - bertvv.mailserver
+    - bertvv.squirrelmail
+    - infOpen.lynis
 
 #Echo1
 - hosts: echo1
@@ -82,8 +82,8 @@
 - hosts: lima1
   become: true
   roles:
-    #- bertvv.rh-base
-    #- bertvv.samba
+    - bertvv.rh-base
+    - bertvv.samba
 
 #Mike1
 - hosts: mike1
@@ -123,6 +123,5 @@
 
 - hosts: papa1
   become: true
-  roles: 
+  roles:
     - papa1-pxeserver
-
