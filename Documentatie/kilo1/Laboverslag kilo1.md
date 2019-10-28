@@ -2,7 +2,7 @@
 
 # Documentatie Kilo1 (DHCP-server)
 
-- Student name: Lincy De Groote en Yordi 
+- Student name: Lincy De Groote en Yordi De Rijcke
 - Leren werken met:
   - DHCP servers
   - pools
