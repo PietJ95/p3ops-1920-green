@@ -21,7 +21,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Bravo1              | Robin Ophalvens, Jolien Vervinckt                                                      | Jolien Vervinckt                                        | Robin Ophalvens   |
 | Charlie1            | Robin Ophalvens, Jolien Vervinckt                                                      | Robin Ophalvens                                         | Jolien Vervinckt  |
 | Delta1              | Beau Bellon, Robin Peerlinck, Cedric Denoo                                             | Beau Bellon                                             | Cedric Denoo      |
-| Echo1               | Karel Van Hecke                                                           | Karel Van Hecke                                         | Karel Van Hecke       |
+| Echo1               | Karel Van Hecke                                                                        | Karel Van Hecke                                         | Karel Van Hecke   |
 | Kilo1               | Yordi De Rijcke, Lincy De Groote                                                       | Lincy De Groote                                         | Yordi De Rijcke   |
 | Lima1               | Berkant Kucuksolak, Jonas Spitaels                                                     | Berkant Kucuksolak                                      | Jonas Spitaels    |
 | Mike1               | Karel Van Hecke                                                                        | Karel Van Hecke                                         | Karel Van Hecke   |
@@ -30,36 +30,36 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Papa1               | Thijs Bryon, Robin Boone, Piet Jacobs                                                  | Thijs Bryon                                             | Robin Boone       |
 | Quebec1             | Beau Bellon, Robin Peerlinck, Robin Goesseye                                           | Robin Goesseye                                          | Robin Peerlinck   |
 | Routing & Switching | Bob Bracke, Olivier De Vriese, [Bernard Deploige](https://github.com/BernardDeploige/) | [Bernard Deploige](https://github.com/BernardDeploige/) | Olivier De Vriese |
-| Zulu1               | Joeri Verhavert, [Olivier Troch](https://github.com/OlivierTroch)                                                         | [Olivier Troch](https://github.com/OlivierTroch)                                           | Joeri Verhavert   |
+| Zulu1               | Joeri Verhavert, [Olivier Troch](https://github.com/OlivierTroch)                      | [Olivier Troch](https://github.com/OlivierTroch)        | Joeri Verhavert   |
 | Administratie       | Thibault Dewitte, [Bernard Deploige](https://github.com/BernardDeploige/)              | ---                                                     | ---               |
 
 ### Per teamlid
-| Naam                                                    | Taken                              | Verantwoordelijk voor       |
-| :------------------------------------------------------ | :--------------------------------- | :-------------------------- |
-| [Beau Bellon](https://github.com/bellonbeau)            | Delta1, Quebec1                    | Testing Delta1              |
-| [Berkant Kucuksolak](https://github.com/BerkantKs)      | Lima1                              | Testing Lima1               |
-| [Bernard Deploige](https://github.com/BernardDeploige/) | Administratie, Routing & Switching | Testing Routing & Switching |
-| Bob Bracke                                              | Routing & Switching                | ---                         |
-| [Cedric Denoo](https://github.com/cdenoo)               | Delta1                             | Delta1                      |
-| Dylano Steenhuyzen                                      | November1                          | November1                   |
-| Jari Van De Cappelle                                    |                                    |                             |
-| Jolien Vervinckt                                        | Bravo1, Charlie1                   | Charlie1                    |
-| [Jonas Spitaels](https://github.com/JonasSpitaels)      | Lima1                              | Lima1                       |
-| Karel Van Hecke                                         | Echo1, Mike1                       | Echo1, Mike1                |
-| Lincy De Groote                                         | Kilo1                              | Testing Kilo1               |
-| Maarten Beeckmans                                       | Oscar1                             | Oscar1                      |
-| [Milan Dewilde](https://github.com/HoGentTIN/p3ops-1920-logboek-milanHogent)                                           | Alfa1                              | Alfa1                      |
-| Olivier De Vriese                                       | Routing & Switching                | Routing & Switching         |
-| [Olivier Troch](https://github.com/OlivierTroch)        | Zulu1                              | Testing Zulu1               |
-| Piet Jacobs                                             | Papa1                              | Papa1                       |
-| Robin Boone                                             | Papa1                              | Papa1                       |
-| [Robin Goesseye](https://github.com/Robybob9)           | Quebec1                            | Testing Quebec1             |
-| Robin Ophalvens                                         | Bravo1, Charlie1                   | Bravo1, Testing Charlie1    |
-| [Robin Peerlinck](https://github.com/DoctorPear)        | Quebec1                            | Quebec1                     |
-| Stijn Van De Moortele                                   | Oscar1                             | Testing Oscar1              |
-| Thibault Dewitte                                        | Alpha1                             | Testing Alpha1              |
-| Thijs Bryon                                             | Papa1                              | Testing Papa1               |
-| Yordi De Rijcke                                         | Kilo1                              | Kilo1                       |
+| Naam                                                                         | Taken                              | Verantwoordelijk voor       |
+| :--------------------------------------------------------------------------- | :--------------------------------- | :-------------------------- |
+| [Beau Bellon](https://github.com/bellonbeau)                                 | Delta1, Quebec1                    | Testing Delta1              |
+| [Berkant Kucuksolak](https://github.com/BerkantKs)                           | Lima1                              | Testing Lima1               |
+| [Bernard Deploige](https://github.com/BernardDeploige/)                      | Administratie, Routing & Switching | Testing Routing & Switching |
+| Bob Bracke                                                                   | Routing & Switching                | ---                         |
+| [Cedric Denoo](https://github.com/cdenoo)                                    | Delta1                             | Delta1                      |
+| Dylano Steenhuyzen                                                           | November1                          | November1                   |
+| Jari Van De Cappelle                                                         |                                    |                             |
+| Jolien Vervinckt                                                             | Bravo1, Charlie1                   | Charlie1                    |
+| [Jonas Spitaels](https://github.com/JonasSpitaels)                           | Lima1                              | Lima1                       |
+| Karel Van Hecke                                                              | Echo1, Mike1                       | Echo1, Mike1                |
+| Lincy De Groote                                                              | Kilo1                              | Testing Kilo1               |
+| [Maarten Beeckmans](https://github.com/maartenbeeckmans)                     | Oscar1                             | Oscar1                      |
+| [Milan Dewilde](https://github.com/HoGentTIN/p3ops-1920-logboek-milanHogent) | Alfa1                              | Alfa1                       |
+| Olivier De Vriese                                                            | Routing & Switching                | Routing & Switching         |
+| [Olivier Troch](https://github.com/OlivierTroch)                             | Zulu1                              | Testing Zulu1               |
+| Piet Jacobs                                                                  | Papa1                              | Papa1                       |
+| Robin Boone                                                                  | Papa1                              | Papa1                       |
+| [Robin Goesseye](https://github.com/Robybob9)                                | Quebec1                            | Testing Quebec1             |
+| Robin Ophalvens                                                              | Bravo1, Charlie1                   | Bravo1, Testing Charlie1    |
+| [Robin Peerlinck](https://github.com/DoctorPear)                             | Quebec1                            | Quebec1                     |
+| Stijn Van De Moortele                                                        | Oscar1                             | Testing Oscar1              |
+| Thibault Dewitte                                                             | Alpha1                             | Testing Alpha1              |
+| Thijs Bryon                                                                  | Papa1                              | Testing Papa1               |
+| Yordi De Rijcke                                                              | Kilo1                              | Kilo1                       |
 
 ## Overzicht IP-adrestoewijzing
 
