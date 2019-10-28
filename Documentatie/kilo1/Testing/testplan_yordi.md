@@ -93,7 +93,7 @@ no shutdown
 9. `sudo systemctl restart dhcpd`
 
 ## kilo1 DHCP scope voor VLAN 50 testen
-### Statisch IP testen
+### Fixed IP testen
 1. `vagrant ssh bravo1`
 2. `ip address show eth1`, het IP adres moet 172.16.1.66/27 zijn
 3. `ip route show`, 'default via 172.16.1.94' moet er in staan
@@ -107,10 +107,12 @@ no shutdown
 5. Start de VM in VirtualBox
 6. `vagrant ssh bravo1`
 7. Vraag een nieuw IP adres op via `sudo dhclient eth1`
-8. `ip address show eth1`, het IP adres moet in de range '172.16.1.80 - 172.16.1.94' liggen.
+8. `ip address show eth1`, het IP adres moet in de range '172.16.1.80 - 172.16.1.93' liggen.
+9. `ip route show`, 'default via 172.16.1.94' moet er in staan
+10. `cat /etc/resolv.conf`, DNS servers 172.16.1.66 en 172.16.1.67 moeten erin staan, alsook het search domain green.local
 
 ## kilo1 DHCP scope voor VLAN 30 testen
-### Statisch IP testen
+### Fixed IP testen
 1. `sudo poweroff`
 2. Navigeer naar VirtualBox > bravo1 VM > Settings > Network > Adapter 2 > Advanced
 3. Verander 'Name' naar de netwerkinterface die verbonden is met f0/3 op de switch
@@ -122,3 +124,15 @@ no shutdown
 9. `ip address show eth1`, het IP adres moet 172.16.1.2/26 zijn
 10. `ip route show`, 'default via 172.16.1.62' moet er in staan
 11. `cat /etc/resolv.conf`, DNS servers 172.16.1.66 en 172.16.1.67 moeten erin staan, alsook het search domain green.local
+
+### Dynamisch IP testen
+1. `sudo poweroff`
+2. Navigeer naar VirtualBox > bravo1 VM > Settings > Network > Adapter 2 > Advanced
+3. Verander het MAC adres van de adapter naar '080037665D06'
+4. Klik 'OK'
+5. Start de VM in VirtualBox
+6. `vagrant ssh bravo1`
+7. Vraag een nieuw IP adres op via `sudo dhclient eth1`
+8. `ip address show eth1`, het IP adres moet in de range '172.16.1.10 - 172.16.1.61' liggen.
+9. `ip route show`, 'default via 172.16.1.62' moet er in staan
+10. `cat /etc/resolv.conf`, DNS servers 172.16.1.66 en 172.16.1.67 moeten erin staan, alsook het search domain green.local
