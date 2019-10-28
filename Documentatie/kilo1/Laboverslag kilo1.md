@@ -126,8 +126,6 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
   - ip: 172.16.0.0
     netmask: 255.255.255.0
     routers: 172.16.0.254
-#   booting: allow
-#   bootp: allow
     pools:
       - range_begin: 172.16.0.1
         range_end: 172.16.0.253
@@ -144,9 +142,6 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
   - ip: 172.16.1.64
     netmask: 255.255.255.224
     routers: 172.16.1.94
-#   booting: allow
-#   bootp: allows
-#   filename: "pxelinux.0"
     pools:
       - range_begin: 172.16.1.80
         range_end: 172.16.1.94
@@ -215,7 +210,7 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
   - [x] Inleiding
     - [x] wat leren we
     - [ ] cheatsheet
-  - [ ] stappenplan
+  - [x] stappenplan
   - [x] extra uitleg bij stappenplan
   - [x] testplan
   - [x] TO DO
