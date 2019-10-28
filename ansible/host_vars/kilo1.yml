@@ -31,7 +31,7 @@ dhcp_subnets:
     routers: 172.16.1.62
     pools:
       - range_begin: 172.16.1.10
-        range_end: 172.16.1.62
+        range_end: 172.16.1.61
 
     # VLAN 50
   - ip: 172.16.1.64
@@ -39,7 +39,7 @@ dhcp_subnets:
     routers: 172.16.1.94
     pools:
       - range_begin: 172.16.1.80
-        range_end: 172.16.1.94
+        range_end: 172.16.1.93
 
 # Fixed IP via MAC
 dhcp_hosts:
