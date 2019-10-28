@@ -48,7 +48,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Karel Van Hecke                                         | Echo1, Mike1                       | Echo1, Mike1                |
 | Lincy De Groote                                         | Kilo1                              | Testing Kilo1               |
 | Maarten Beeckmans                                       | Oscar1                             | Oscar1                      |
-| Milan Dewilde                                           | Apha1                              | Alpha1                      |
+| [Milan Dewilde](https://github.com/HoGentTIN/p3ops-1920-logboek-milanHogent)                                           | Alfa1                              | Alfa1                      |
 | Olivier De Vriese                                       | Routing & Switching                | Routing & Switching         |
 | [Olivier Troch](https://github.com/OlivierTroch)        | Zulu1                              | Testing Zulu1               |
 | Piet Jacobs                                             | Papa1                              | Papa1                       |
