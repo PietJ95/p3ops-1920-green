@@ -21,10 +21,15 @@ rhbase_firewall_allow_services:
   - smtps
   - smtp-submission
 
+#DNS SERVER
+dns_nameservers: 
+  - DNS1=172.16.1.66
+
 rhbase_users:
   - name: johndoe
     groups:
       - users
+      - wheel
     # Password = test123
     password: "$6$rzSe0ya3TumnQAGo$oJfY6KB/GhlaTeL98CjQ9.KgciX60R/iEqaPkyyTqUUACKaaRD2MjcaPWPkk7ZFO4v.9iDfYlWo7E/cboy1nP0"
     shell: /sbin/nologin
@@ -32,6 +37,7 @@ rhbase_users:
   - name: ericdoe
     groups:
       - users
+      - wheel
     password: "$1$WIFkXf07$HQZFgDlnfpSd9B.8McNcf."
     shell: /sbin/nologin
 
@@ -40,59 +46,19 @@ rhbase_selinux_booleans:
 
 rhbase_firewall_allow_ports:
   - 9100/tcp # Dit is nodig om de server te monitoren
-  - 587/tcp #Poorten die moeten openstaan voor Squirrelmail
-  - 465/tcp
-  - 110/tcp
-  - 143/tcp
 
-postfix_myhostname: mail.green.local
-postfix_mydomain: green.local
-postfix_home_mailbox: /mail
-postfix_ldap: "true"
-ldap_domainname: green.local
+postfix_myhostname: 'mail.green.local'
+postfix_mydomain: 'green.local'
+postfix_home_mailbox: 'mail/'
+postfix_mynetwork: 172.16.1.64/27
 ldap_dcname: alfa1
+ldap_domainname: green
+ldap_root_domain: local
+postfix_ldap: false
 
+httpd_scripting: 'php'
 Squirrelmail_domain: green.local
-
-# Misschien nodig voor squirrelmail 
-# post_tasks:
-#   - name: Add imap host to /etc/hosts
-#     lineinfile:
-#       dest: /etc/hosts
-#       line: "172.16.1.68 mail.green.local"
-#   - seboolean:
-#       name: httpd_can_sendmail
-#       state: yes
-#       persistent: yes
-#   - name: Download compatibility plugin
-#     get_url:
-#       url: http://www.squirrelmail.org/plugins/compatibility-2.0.16-1.0.tar.gz
-#       dest: $HOME/
-#   - name: Download empty_trash plugin
-#     get_url:
-#       url: http://www.squirrelmail.org/plugins/empty_trash-2.0-1.2.2.tar.gz
-#       dest: $HOME/
-#   - name: Download secure_login plugin
-#     get_url:
-#       url: http://www.squirrelmail.org/plugins/secure_login-1.4-1.2.8.tar.gz
-#       dest: $HOME/
-#   - name: Extract compatibility plugin
-#     unarchive:
-#       src: $HOME/compatibility-2.0.16-1.0.tar.gz
-#       dest: /usr/share/squirrelmail/plugins
-#       remote_src: yes
-#   - name: Exctract empty_trash plugin
-#     unarchive:
-#       src: $HOME/empty_trash-2.0-1.2.2.tar.gz
-#       dest: /usr/share/squirrelmail/plugins
-#       remote_src: yes
-#   - name: Extract secure_login plugin
-#     unarchive:
-#       src: $HOME/secure_login-1.4-1.2.8.tar.gz
-#       dest: /usr/share/squirrelmail/plugins
-#       remote_src: yes
-#   - name: Packages clean up
-#     file:
-#       state: absent
-#       path: $HOME/*.tar.gz
-
+Squirrelmail_imapServerAddress: 172.16.1.68
+Squirrelmail_smtpServerAddress: 172.16.1.68
+Squirrelmail_imap_port: 143
+Squirrelmail_smtp_port: 25
