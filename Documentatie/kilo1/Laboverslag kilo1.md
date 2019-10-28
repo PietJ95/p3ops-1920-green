@@ -15,26 +15,18 @@
 
 Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-configuratie te geven. De IP-configuratie houdt het volgende in: IP-adres, netwerkmask, default gateway, DNS. De servers krijgen een statisch IP-adres via MAC-adres. Hosts doorverwijzen naar PXEBoot server die willen booten over het netwerk.
 
-- 2 L2-switchen: 
-  - Verbinden alle computersystemen binnen een VLAN.
-- l2 L3-switchen: 
-  - Zorgen voor de inter-VLAN verbindingen.
 - VLAN 20 : interne clients om Private
-  -  **dynamische IP-adressen (via DHCP)** 
+  -  **Dynamische DHCP scope: 172.16.0.1 - 172.16.0.253** 
   -  Toegang tot de publieke servers van de andere domeinen.
 - VLAN 30 : interne servers
-  - **Vaste IP adressen**
+  - **Fixed DHCP adressen voor interne servers**
+  - **Dynamische DHCP scope: 172.16.1.10 - 172.16.1.61**
   - Enkel bereikbaar voor hosts van het eigen domein.
-- VLAN 40 : Verbinding tussen de 2 L3 switchen
-  - **Vaste IP adressen.**
 - VLAN 50 : publiek toegankelijke servers
-  - **Vaste IP adressen**
+  - **Fixed DHCP adressen voor interne servers**
+  - **Dynamische DHCP scope: 172.16.1.80 - 172.16.1.93**
   - Bereikbaar voor interne clients én voor clients van andere domeinen.
-- VLAN 60 :
-  - Verbinding naar de PFSense Firewall.
-- VLAN 70 :
-  - Verbinding naar het router netwerk en de buitenwereld
-
+  
 ## Cheat sheet
 
 | Command                  | Uitleg                                                |
@@ -42,14 +34,14 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
 | vagrant up {NAAM}        | opstarten van server via vagrant                      |
 | vagrant provision {NAAM} | provisioning server via vagrant                       |
 | vagrant destroy {NAAM}   | afbreken server                                       |
-| dhclient {interface}     | Ip adres opvragen via DHCP op de effectieve interface |
-| ifconfig                 | routing info                                          |
-|                          |                                                       |
-|                          |                                                       |
+| dhclient -v {interface}  | Ip adres opvragen via DHCP op de effectieve interface |
+| ip a                     | IP configuratie bekijken                              |
+| ip r                     | Route configuratie bekijken                           |
+| cat /etc/resolv.conf     | DNS configuratie bekijken                             |
 |                          |                                                       |
 |                          |                                                       |
 
-## Procedure/Documentation (af)
+## Procedure/Documentation
 
 - Ga naar de website: https://galaxy.ansible.com/bertvv/dhcp
 
@@ -101,8 +93,10 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
   - Voeg een PXEboot server toe
 
     - ```
-      #pxeboot
-      dhcp_global_next_server: 172.16.1.6
+      # PXEboot config
+      dhcp_global_bootp: allow
+      dhcp_global_booting: allow
+      dhcp_global_next_server: 172.16.1.6 # papa1
       ```
 
   - Maak subnetten aan per VLAN
@@ -136,7 +130,7 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
     routers: 172.16.1.62
     pools:
       - range_begin: 172.16.1.10
-        range_end: 172.16.1.62
+        range_end: 172.16.1.61
 
     # VLAN 50
   - ip: 172.16.1.64
@@ -144,7 +138,7 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
     routers: 172.16.1.94
     pools:
       - range_begin: 172.16.1.80
-        range_end: 172.16.1.94
+        range_end: 172.16.1.93
 
       ```
 
@@ -188,7 +182,6 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
 
       ```
 
-
 ## To Do
 
 - [x] correcte ansible role vinden
@@ -215,10 +208,6 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
   - [x] testplan
   - [x] TO DO
   - [ ] resources
-- [ ] EXTRA
-  - [ ] trello borden/ kaarten 
-  - [ ] logboek
-  - [ ] tijdregistratie
 
 ## Resources
 
