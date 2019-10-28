@@ -1,31 +1,26 @@
 # kilo1 DHCP-server
 ---
-#dns_nameservers:
-#  -"DNS1=172.16.1.66"
 rhbase_firewall_allow_services:
   - dhcp
-#dns master and slave
+# DNS servers
 dhcp_global_domain_name_servers:
   - 172.16.1.66
   - 172.16.1.67
 
-#12u
-dhcp_global_default_lease_time: 43200
+dhcp_global_default_lease_time: 43200 # = 12u
 dhcp_global_max_lease_time: 43200
-#domain
-dhcp_global_domain_name: green.local
-#dhcp_global_filename: "pxelinux.0" => filename to request for boot
-#dhcp_global_routers: Switch1 L3
-#pxeboot
-dhcp_global_next_server: 172.16.1.6 
+dhcp_global_domain_name: green.local # search domain
+
+# PXEboot config
+dhcp_global_bootp: allow
+dhcp_global_booting: allow
+dhcp_global_next_server: 172.16.1.6  # papa1
 
 dhcp_subnets:
     # VLAN 20
   - ip: 172.16.0.0
     netmask: 255.255.255.0
     routers: 172.16.0.254
-#   booting: allow
-#   bootp: allow
     pools:
       - range_begin: 172.16.0.1
         range_end: 172.16.0.253
@@ -42,14 +37,11 @@ dhcp_subnets:
   - ip: 172.16.1.64
     netmask: 255.255.255.224
     routers: 172.16.1.94
-#   booting: allow
-#   bootp: allows
-#   filename: "pxelinux.0"
     pools:
       - range_begin: 172.16.1.80
         range_end: 172.16.1.94
 
-# Statisch IP via MAC
+# Fixed IP via MAC
 dhcp_hosts:
   - name: Alfa1
     mac: '08:00:27:66:5D:01'
