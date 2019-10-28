@@ -27,7 +27,6 @@
 * Indien je de keylayout wilt aanpassen, dan kies je voor 'keyboard'.
     * Klik op het plusje om een nieuw keyboard layout toe te voegen. 
     * Klik op add wanneer je jouw gepaste keylayout hebt gekozen.
-    * Verwijder daarna de standaard keylayout?
 ![configuratie scherm](Images/Timezone.png)
 * Indien je de datum en tijd wilt aanpassen, dan kies je voor 'Time & Date'.
     * Kies je gepaste timezone, en klik op "Done". 
