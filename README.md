@@ -27,7 +27,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Mike1               | Karel Van Hecke                                                                        | Karel Van Hecke                                         | Karel Van Hecke   |
 | November1           | Dylano Steenhuzen                                                                      | Dylano Steenhuzen                                       | Dylano Steenhuzen |
 | Oscar1              | Stijn Van De Moortele, Maarten Beeckmans                                               | Stijn Van De Moortele                                   | Maarten Beeckmans |
-| Papa1               | Thijs Bryon, Robin Boone, Piet Jacobs                                                  | Thijs Bryon                                             | Robin Boone       |
+| Papa1               | Thijs Bryon, [Robin Boone](https://github.com/Robinsane), Piet Jacobs                                                  |  [Robin Boone](https://github.com/Robinsane) , Thijs Bryon                                             |  [Robin Boone](https://github.com/Robinsane)       |
 | Quebec1             | Beau Bellon, Robin Peerlinck, Robin Goesseye                                           | Robin Goesseye                                          | Robin Peerlinck   |
 | Routing & Switching | Bob Bracke, Olivier De Vriese, [Bernard Deploige](https://github.com/BernardDeploige/) | [Bernard Deploige](https://github.com/BernardDeploige/) | Olivier De Vriese |
 | Zulu1               | Joeri Verhavert, [Olivier Troch](https://github.com/OlivierTroch)                      | [Olivier Troch](https://github.com/OlivierTroch)        | Joeri Verhavert   |
