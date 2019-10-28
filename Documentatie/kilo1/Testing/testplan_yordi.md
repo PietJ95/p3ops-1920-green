@@ -13,50 +13,46 @@
 4. Verbind de switch met de PC (consolekabel)
 
 ### Router instellen
-`
-enable
-configure terminal
-interface f0/1.20
-encapsulation dot1Q 20
-ip address 172.16.0.254 255.255.255.0
-ip helper-address 172.16.1.1
-no shutdown
-interface f0/1.30
-encapsulation dot1Q 30
-ip address 172.16.1.62 255.255.255.192
-no shutdown
-interface f0/1.50
-encapsulation dot1Q 50
-ip address 172.16.1.94 255.255.255.224
-ip helper-address 172.16.1.1
-no shutdown
-interface f0/1
-no shutdown
-`
+`enable`
+`configure terminal`
+`interface f0/1.20`
+`encapsulation dot1Q 20`
+`ip address 172.16.0.254 255.255.255.0`
+`ip helper-address 172.16.1.1`
+`no shutdown`
+`interface f0/1.30`
+`encapsulation dot1Q 30`
+`ip address 172.16.1.62 255.255.255.192`
+`no shutdown`
+`interface f0/1.50`
+`encapsulation dot1Q 50`
+`ip address 172.16.1.94 255.255.255.224`
+`ip helper-address 172.16.1.1`
+`no shutdown`
+`interface f0/1`
+`no shutdown`
 
 ### Switch instellen
-`
-enable
-configure terminal
-vlan 20
-vlan 30
-vlan 50
-interface f0/1
-switchport mode trunk
-no shutdown
-interface f0/2
-switchport mode access
-switchport access vlan 20
-no shutdown
-interface f0/3
-switchport mode access
-switchport access vlan 30
-no shutdown
-interface f0/5
-switchport mode access
-switchport acces vlan 50
-no shutdown
-`
+`enable`
+`configure terminal`
+`vlan 20`
+`vlan 30`
+`vlan 50`
+`interface f0/1`
+`switchport mode trunk`
+`no shutdown`
+`interface f0/2`
+`switchport mode access`
+`switchport access vlan 20`
+`no shutdown`
+`interface f0/3`
+`switchport mode access`
+`switchport access vlan 30`
+`no shutdown`
+`interface f0/5`
+`switchport mode access`
+`switchport acces vlan 50`
+`no shutdown`
 
 ### kilo1 instellen
 1. `vagrant up kilo1 --provison`, dit zal falen vanwege een non-host-only IP adres op eth1, wordt hierna opgelost
