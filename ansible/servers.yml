@@ -39,6 +39,7 @@
   gather_facts: yes
   remote_user: root
   roles:
+    - bertvv.hosts
     - bertvv.rh-base
     - bertvv.dnsmasq
 
