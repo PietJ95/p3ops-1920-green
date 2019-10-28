@@ -2,6 +2,8 @@ enable
 conf t
 hostname S1.3
 
+snmp-server community public RO
+
 vlan 20
 vlan 99
 

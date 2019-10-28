@@ -2,6 +2,8 @@ enable
 configure terminal
 hostname S1.2
 
+snmp-server community public RO
+
 vlan 20
 vlan 30
 vlan 50
