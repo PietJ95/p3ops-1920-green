@@ -45,7 +45,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Jari Van De Cappelle                                                         |                                    |                             |
 | Jolien Vervinckt                                                             | Bravo1, Charlie1                   | Charlie1                    |
 | [Jonas Spitaels](https://github.com/JonasSpitaels)                           | Lima1                              | Lima1                       |
-| Karel Van Hecke                                                              | Echo1, Mike1                       | Echo1, Mike1                |
+| [Karel Van Hecke](https://github.com/karelvanhecke)                                                              | Echo1, Mike1                       | Echo1, Mike1                |
 | Lincy De Groote                                                              | Kilo1                              | Testing Kilo1               |
 | [Maarten Beeckmans](https://github.com/maartenbeeckmans)                     | Oscar1                             | Oscar1                      |
 | [Milan Dewilde](https://github.com/HoGentTIN/p3ops-1920-logboek-milanHogent) | Alfa1                              | Alfa1                       |
