@@ -4,17 +4,16 @@ Een monitoringsysteem dat de toestand van het gehele netwerk + services kan vi-s
 
 Afhankelijk van het type apparaat worden minstens volgende parameters opge-volgd:
 
-
 *  Cisco routers en switches en Firewalls (via SNMP)
 
-⋅⋅* CPU-gebruik
-⋅⋅* Geheugengebruik
-⋅⋅* Inkomend verkeer op alle netwerkpoortenm
-⋅⋅* Uitgaand verkeer op alle netwerkpoorten
+   * CPU-gebruik
+   * Geheugengebruik
+   * Inkomend verkeer op alle netwerkpoorten
+   * Uitgaand verkeer op alle netwerkpoorten
 
 * Linux servers (zowel fysieke hosts als VMs)
-⋅⋅* CPU-gebruikmGeheugengebruikmToestand van de harde schij(f)(ven)
-⋅⋅* Toestand van de specifieke service die op de machine draait (bv. metrieken over de database-queries, HTTP-requests, DNS-requests, enz.)
+  * CPU-gebruikmGeheugengebruikmToestand van de harde schij(f)(ven)
+  * Toestand van de specifieke service die op de machine draait (bv. metrieken over de database-queries, HTTP-requests, DNS-requests, enz.)
 
 * Werkstations:
 ⋅⋅* CPU-gebruik
