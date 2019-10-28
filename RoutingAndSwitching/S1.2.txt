@@ -4,9 +4,10 @@ hostname S1.2
 
 snmp-server community public RO
 
-vlan 20
 vlan 30
-vlan 50
+
+int vlan30
+ip address 172.16.1.50 255.255.255.192
 
 int range f0/1-7
 switchport mode access
@@ -15,6 +16,7 @@ no shut
 
 enable secret Admin
 service password-encryption
+
 ip domain-name green.local
 crypto key generate rsa
 1024
