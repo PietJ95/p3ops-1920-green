@@ -206,18 +206,18 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
   - [x] global domain name
   - [x] subnets (per VLAN?)
   - [x] statische IP via MAC
-- [ ] controle (testplan)
-  - [ ] controle VLAN
-    - [ ] controleer per VLAN of het IP-adres uit de juiste range komt
-  - [ ] controle statische IP via MAC
-    - [ ] controleer per server of het IP-adres correct is
+- [x] controle (testplan)
+  - [x] controle VLAN
+    - [x] controleer per VLAN of het IP-adres uit de juiste range komt
+  - [x] controle statische IP via MAC
+    - [x] controleer per server of het IP-adres correct is
 - [ ] Documentatie
   - [x] Inleiding
     - [x] wat leren we
     - [ ] cheatsheet
   - [ ] stappenplan
   - [x] extra uitleg bij stappenplan
-  - [ ] testplan
+  - [x] testplan
   - [x] TO DO
   - [ ] resources
 - [ ] EXTRA
