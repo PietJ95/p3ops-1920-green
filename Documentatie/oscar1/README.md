@@ -16,9 +16,9 @@ Afhankelijk van het type apparaat worden minstens volgende parameters opge-volgd
   * Toestand van de specifieke service die op de machine draait (bv. metrieken over de database-queries, HTTP-requests, DNS-requests, enz.)
 
 * Werkstations:
-⋅⋅* CPU-gebruik
-⋅⋅* Geheugengebruik
-⋅⋅* Toestand van de harde schij(f)(ven)
-⋅⋅* Gebruikerslogins
+  * CPU-gebruik
+  * Geheugengebruik
+  * Toestand van de harde schij(f)(ven)
+  * Gebruikerslogins
 
 De resultaten zijn raadpleegbaar via een dashboard dat ook oposcar1draait, via urlhttps://mon.green.local/. Sommige monitoringsystemen hebben een ingebouwdsysteem voor visualisatie (bv. Kibana voor Elastic Stack), er bestaan ook afzonder-lijke tools (bv. Grafana of Graphite)
