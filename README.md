@@ -52,7 +52,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Olivier De Vriese                                                            | Routing & Switching                | Routing & Switching         |
 | [Olivier Troch](https://github.com/OlivierTroch)                             | Zulu1                              | Testing Zulu1               |
 | Piet Jacobs                                                                  | Papa1                              | Papa1                       |
-| Robin Boone                                                                  | Papa1                              | Papa1                       |
+| [Robin Boone](https://github.com/Robinsane)                                                                 | Papa1                              | Papa1                       |
 | [Robin Goesseye](https://github.com/Robybob9)                                | Quebec1                            | Testing Quebec1             |
 | Robin Ophalvens                                                              | Bravo1, Charlie1                   | Bravo1, Testing Charlie1    |
 | [Robin Peerlinck](https://github.com/DoctorPear)                             | Quebec1                            | Quebec1                     |
