@@ -19,11 +19,13 @@ Dit document beschrijft alle resources die nuttig zijn voor server Delta1.
 
 ## Commands
 
-| Commando                     | Uitvoering                               |
-| :--------------------------- | :--------------------------------------- |
-| `journalctl -f`              | laatste logberichten volgen              |
-| `setsebool [boolean] on|off` | zet selinux boolean aan of af            |
-| `getsebool [boolean]`        | geeft aan of de selinux boolean aanstaat |
+| Commando                     | Uitvoering                                   |
+| :----------------------------| :--------------------------------------------|
+| `journalctl -f`              | laatste logberichten volgen                  |
+| `setsebool [boolean] on|off` | zet selinux boolean aan of af                |
+| `getsebool [boolean]`        | geeft aan of de selinux boolean aanstaat     |
+| `./scripts/dependencies.sh ./ansible/servers.yml`| Ophalen van Ansible roles|
+
 
 ## Testen
 
