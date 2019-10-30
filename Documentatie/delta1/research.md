@@ -24,3 +24,7 @@ Dit document beschrijft alle resources die nuttig zijn voor server Delta1.
 | `journalctl -f`              | laatste logberichten volgen              |
 | `setsebool [boolean] on|off` | zet selinux boolean aan of af            |
 | `getsebool [boolean]`        | geeft aan of de selinux boolean aanstaat |
+
+## Testen
+
+Om te testen met gebruikers die lokaal zijn aangemaakt moet er in `/etc/postfix/master.cf` de lijn `-o smtpd_client_restrictions=permit_sasl_authenticated,reject` in commentaar gezet worden. Dit moet zo omdat lokale gebruikers anders geen toegang wordt gegeven om mails te versturen/ontvangen.
