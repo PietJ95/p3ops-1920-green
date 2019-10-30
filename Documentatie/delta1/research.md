@@ -27,4 +27,6 @@ Dit document beschrijft alle resources die nuttig zijn voor server Delta1.
 
 ## Testen
 
-Om te testen met gebruikers die lokaal zijn aangemaakt moet er in `/etc/postfix/master.cf` de lijn `-o smtpd_client_restrictions=permit_sasl_authenticated,reject` in commentaar gezet worden. Dit moet zo omdat lokale gebruikers anders geen toegang wordt gegeven om mails te versturen/ontvangen.
+Om te testen met gebruikers die lokaal zijn aangemaakt moet er in `/etc/postfix/master.cf` de lijn `-o smtpd_client_restrictions=permit_sasl_authenticated,reject` in commentaar gezet worden. Dit moet zo omdat lokale gebruikers anders geen toegang wordt gegeven om mails te versturen/ontvangen. 
+
+Na dit aangepast te hebben moet `Postfix` vervolgens gereload worden door middel van het commando `sudo postfix reload`.
