@@ -15,23 +15,23 @@ Slack: [join Slack channel](https://join.slack.com/t/projecteniiigreen/shared_in
 De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak, "Testen" is voor de verantwoordelijke voor de acceptatietests (schrijft dus testrapport). De naam van de verantwoordelijke is een link naar diens Github profielpagina, bv. [Bert Van Vreckem](https://github.com/bertvv/).
 
 ### Per server
-| Taak                | Uitvoering                                                                             | Testen                                                  | Verantwoordelijke |
-| :------------------ | :------------------------------------------------------------------------------------- | :------------------------------------------------------ | :---------------- |
-| Alpha1              | Milan Dewilde, Thibault Dewitte                                                        | Thibault Dewitte                                        | Milan Dewitte     |
-| Bravo1              | Robin Ophalvens, Jolien Vervinckt                                                      | Jolien Vervinckt                                        | Robin Ophalvens   |
-| Charlie1            | Robin Ophalvens, Jolien Vervinckt                                                      | Robin Ophalvens                                         | Jolien Vervinckt  |
-| Delta1              | Beau Bellon, Robin Peerlinck, Cedric Denoo                                             | Beau Bellon                                             | Cedric Denoo      |
-| Echo1               | Karel Van Hecke                                                                        | Karel Van Hecke                                         | Karel Van Hecke   |
-| Kilo1               | Yordi De Rijcke, Lincy De Groote                                                       | Lincy De Groote                                         | Yordi De Rijcke   |
-| Lima1               | Berkant Kucuksolak, Jonas Spitaels                                                     | Berkant Kucuksolak                                      | Jonas Spitaels    |
-| Mike1               | Karel Van Hecke                                                                        | Karel Van Hecke                                         | Karel Van Hecke   |
-| November1           | Dylano Steenhuzen                                                                      | Dylano Steenhuzen                                       | Dylano Steenhuzen |
-| Oscar1              | Stijn Van De Moortele, Maarten Beeckmans                                               | Stijn Van De Moortele                                   | Maarten Beeckmans |
-| Papa1               | Thijs Bryon, [Robin Boone](https://github.com/Robinsane), [Piet Jacobs](https://github.com/PietJ95)                                                  |  [Robin Boone](https://github.com/Robinsane) , Thijs Bryon                                             |  [Robin Boone](https://github.com/Robinsane)       |
-| Quebec1             | Beau Bellon, Robin Peerlinck, Robin Goesseye                                           | Robin Goesseye                                          | Robin Peerlinck   |
-| Routing & Switching | Bob Bracke, Olivier De Vriese, [Bernard Deploige](https://github.com/BernardDeploige/) | [Bernard Deploige](https://github.com/BernardDeploige/) | Olivier De Vriese |
-| Zulu1               | Joeri Verhavert, [Olivier Troch](https://github.com/OlivierTroch)                      | [Olivier Troch](https://github.com/OlivierTroch)        | Joeri Verhavert   |
-| Administratie       | Thibault Dewitte, [Bernard Deploige](https://github.com/BernardDeploige/)              | ---                                                     | ---               |
+| Taak                | Uitvoering                                                                                          | Testen                                                    | Verantwoordelijke                                        |
+| :------------------ | :-------------------------------------------------------------------------------------------------- | :-------------------------------------------------------- | :------------------------------------------------------- |
+| Alpha1              | Milan Dewilde, Thibault Dewitte                                                                     | Thibault Dewitte                                          | Milan Dewitte                                            |
+| Bravo1              | Robin Ophalvens, Jolien Vervinckt                                                                   | Jolien Vervinckt                                          | Robin Ophalvens                                          |
+| Charlie1            | Robin Ophalvens, Jolien Vervinckt                                                                   | Robin Ophalvens                                           | Jolien Vervinckt                                         |
+| Delta1              | Beau Bellon, Robin Peerlinck, Cedric Denoo                                                          | Beau Bellon                                               | Cedric Denoo                                             |
+| Echo1               | Karel Van Hecke                                                                                     | Karel Van Hecke                                           | Karel Van Hecke                                          |
+| Kilo1               | Yordi De Rijcke, Lincy De Groote                                                                    | Lincy De Groote                                           | Yordi De Rijcke                                          |
+| Lima1               | Berkant Kucuksolak, Jonas Spitaels                                                                  | Berkant Kucuksolak                                        | Jonas Spitaels                                           |
+| Mike1               | Karel Van Hecke                                                                                     | Karel Van Hecke                                           | Karel Van Hecke                                          |
+| November1           | Dylano Steenhuzen                                                                                   | Dylano Steenhuzen                                         | Dylano Steenhuzen                                        |
+| Oscar1              | Stijn Van De Moortele, [Maarten Beeckmans](https://github.com/maartenbeeckmans)                     | Stijn Van De Moortele                                     | [Maarten Beeckmans](https://github.com/maartenbeeckmans) |
+| Papa1               | Thijs Bryon, [Robin Boone](https://github.com/Robinsane), [Piet Jacobs](https://github.com/PietJ95) | [Robin Boone](https://github.com/Robinsane) , Thijs Bryon | [Robin Boone](https://github.com/Robinsane)              |
+| Quebec1             | Beau Bellon, Robin Peerlinck, Robin Goesseye                                                        | Robin Goesseye                                            | Robin Peerlinck                                          |
+| Routing & Switching | Bob Bracke, Olivier De Vriese, [Bernard Deploige](https://github.com/BernardDeploige/)              | [Bernard Deploige](https://github.com/BernardDeploige/)   | Olivier De Vriese                                        |
+| Zulu1               | Joeri Verhavert, [Olivier Troch](https://github.com/OlivierTroch)                                   | [Olivier Troch](https://github.com/OlivierTroch)          | Joeri Verhavert                                          |
+| Administratie       | Thibault Dewitte, [Bernard Deploige](https://github.com/BernardDeploige/)                           | ---                                                       | ---                                                      |
 
 ### Per teamlid
 | Naam                                                                         | Taken                              | Verantwoordelijk voor       |
@@ -45,14 +45,14 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Jari Van De Cappelle                                                         |                                    |                             |
 | Jolien Vervinckt                                                             | Bravo1, Charlie1                   | Charlie1                    |
 | [Jonas Spitaels](https://github.com/JonasSpitaels)                           | Lima1                              | Lima1                       |
-| [Karel Van Hecke](https://github.com/karelvanhecke)                                                              | Echo1, Mike1                       | Echo1, Mike1                |
+| [Karel Van Hecke](https://github.com/karelvanhecke)                          | Echo1, Mike1                       | Echo1, Mike1                |
 | Lincy De Groote                                                              | Kilo1                              | Testing Kilo1               |
 | [Maarten Beeckmans](https://github.com/maartenbeeckmans)                     | Oscar1                             | Oscar1                      |
 | [Milan Dewilde](https://github.com/HoGentTIN/p3ops-1920-logboek-milanHogent) | Alfa1                              | Alfa1                       |
 | Olivier De Vriese                                                            | Routing & Switching                | Routing & Switching         |
 | [Olivier Troch](https://github.com/OlivierTroch)                             | Zulu1                              | Testing Zulu1               |
-| [Piet Jacobs](https://github.com/PietJ95)                                                                  | Papa1                              | Papa1                       |
-| [Robin Boone](https://github.com/Robinsane)                                                                 | Papa1                              | Papa1                       |
+| [Piet Jacobs](https://github.com/PietJ95)                                    | Papa1                              | Papa1                       |
+| [Robin Boone](https://github.com/Robinsane)                                  | Papa1                              | Papa1                       |
 | [Robin Goesseye](https://github.com/Robybob9)                                | Quebec1                            | Testing Quebec1             |
 | Robin Ophalvens                                                              | Bravo1, Charlie1                   | Bravo1, Testing Charlie1    |
 | [Robin Peerlinck](https://github.com/DoctorPear)                             | Quebec1                            | Quebec1                     |
