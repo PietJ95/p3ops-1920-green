@@ -27,7 +27,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Mike1               | Karel Van Hecke                                                                        | Karel Van Hecke                                         | Karel Van Hecke   |
 | November1           | Dylano Steenhuzen                                                                      | Dylano Steenhuzen                                       | Dylano Steenhuzen |
 | Oscar1              | Stijn Van De Moortele, Maarten Beeckmans                                               | Stijn Van De Moortele                                   | Maarten Beeckmans |
-| Papa1               | Thijs Bryon, [Robin Boone](https://github.com/Robinsane), Piet Jacobs                                                  |  [Robin Boone](https://github.com/Robinsane) , Thijs Bryon                                             |  [Robin Boone](https://github.com/Robinsane)       |
+| Papa1               | Thijs Bryon, [Robin Boone](https://github.com/Robinsane), [Piet Jacobs](https://github.com/PietJ95)                                                  |  [Robin Boone](https://github.com/Robinsane) , Thijs Bryon                                             |  [Robin Boone](https://github.com/Robinsane)       |
 | Quebec1             | Beau Bellon, Robin Peerlinck, Robin Goesseye                                           | Robin Goesseye                                          | Robin Peerlinck   |
 | Routing & Switching | Bob Bracke, Olivier De Vriese, [Bernard Deploige](https://github.com/BernardDeploige/) | [Bernard Deploige](https://github.com/BernardDeploige/) | Olivier De Vriese |
 | Zulu1               | Joeri Verhavert, [Olivier Troch](https://github.com/OlivierTroch)                      | [Olivier Troch](https://github.com/OlivierTroch)        | Joeri Verhavert   |
@@ -51,7 +51,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | [Milan Dewilde](https://github.com/HoGentTIN/p3ops-1920-logboek-milanHogent) | Alfa1                              | Alfa1                       |
 | Olivier De Vriese                                                            | Routing & Switching                | Routing & Switching         |
 | [Olivier Troch](https://github.com/OlivierTroch)                             | Zulu1                              | Testing Zulu1               |
-| Piet Jacobs                                                                  | Papa1                              | Papa1                       |
+| [Piet Jacobs](https://github.com/PietJ95)                                                                  | Papa1                              | Papa1                       |
 | [Robin Boone](https://github.com/Robinsane)                                                                 | Papa1                              | Papa1                       |
 | [Robin Goesseye](https://github.com/Robybob9)                                | Quebec1                            | Testing Quebec1             |
 | Robin Ophalvens                                                              | Bravo1, Charlie1                   | Bravo1, Testing Charlie1    |
