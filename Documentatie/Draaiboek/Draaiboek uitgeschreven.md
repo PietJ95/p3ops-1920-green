@@ -89,3 +89,28 @@ Eens de evaluatie is afgerond wordt alles netjes opgeruimd: al het gebruikt mate
 ### Meeting 3
 Korte meeting om nog eens te reïtereren hoe alles verlopen is. 
 Alle groepen kort overlopen hoe het gegaan is.
+
+## Concreet
+
+| Groep | Beschrijving taak | Geschatte duur | Start uur | Maximaal eind uur      |
+| :----------- | :----------- | :------------ | :--- | :-------------- | 
+| Iedereen | Stand-up 1 | 15 min | 09:00 | 09:15 |
+| Iedereen | Klaarstellen machines | 30 - 45 min | 09:00 | 09:45 - 10:00 |
+| R&S | Opstellen netwerk | 30 - 45 min | 09:15 | 09:45 - 10:00 |
+| Kilo1 | Installeren machine | 15 min | 10:00 - 10:15 | 10:15 - 10:30 |
+| Bravo1 | Installeren machine | 15 min | 10:15 - 10:30 | 10:30 - 10:45 |
+| Quebec1 | Installeren machine | 15 min | 10:30 - 10:45 | 10:45 - 11:00 |
+| November1 | Installeren machine | 15 min | 10:45 - 11:00 | 11:00 - 11:15 |
+| Echo1 | Installeren machine | 15 min | 11:15 - 11:30 | 11:30 - 11:45 |
+| Mike1 | Installeren machine | 15 min | 11:30 - 11:45 | 11:45 - 12:00 |
+| Lima1 | Installeren machine | 15 min | 11:45 - 12:00 | 12:00 - 12:15 |
+| Iedereen | Lunch pauze | 30 min | 12:00 - 12:15 | 12:30 - 12:45 |
+| Iedereen | Stand-up 2 | 15 min | 12:30 - 12:45 | 12:45 - 13:00 |
+| Delta1 | Installeren machine | 15 min | 13:00 - 13:15 | 13:15 - 13:30 |
+| Papa1 | Installeren machine | 15 min | 13:15 - 13:30 | 13:30 - 13:45 |
+| Oscar1 | Installeren machine | 15 min | 13:45 - 14:00 | 14:00 - 14:15 |
+| Zulu | Installeren machine | 15 min | 14:00 - 14:15 | 14:15 - 14:30 |
+| Iedereen | Evaluatie | 45 min | 16:00 | 16:45 |
+| Iedereen | Opruimen | 15 min | 17:00 | 17:15 |
+
+Eens de machines op de server staan moeten de testplannen doorlopen worden door de verantwoordelijke groepen. 
