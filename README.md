@@ -17,7 +17,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 ### Per server
 | Taak                | Uitvoering                                                                                          | Testen                                                    | Verantwoordelijke                                        |
 | :------------------ | :-------------------------------------------------------------------------------------------------- | :-------------------------------------------------------- | :------------------------------------------------------- |
-| Alpha1              | Milan Dewilde, Thibault Dewitte                                                                     | Thibault Dewitte                                          | Milan Dewitte                                            |
+| Alpha1              | Milan Dewilde, Thibault Dewitte, Lincy De Groote, Yordi De Rijcke                                                                     | Thibault Dewitte                                          | Milan Dewitte                                            |
 | Bravo1              | Robin Ophalvens, Jolien Vervinckt                                                                   | [Jolien Vervinckt](https://github.com/JolienVervinckt)                                          | [Robin Ophalvens](https://github.com/RobinOphalvens)                                          |
 | Charlie1            | Robin Ophalvens, Jolien Vervinckt                                                                   | [Robin Ophalvens](https://github.com/RobinOphalvens)                                          | [Jolien Vervinckt](https://github.com/JolienVervinckt)                                         |
 | Delta1              | Beau Bellon, Robin Peerlinck, Cedric Denoo                                                          | Beau Bellon                                               | Cedric Denoo                                             |
@@ -46,7 +46,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Jolien Vervinckt                                                             | Bravo1, Charlie1                   | Charlie1                    |
 | [Jonas Spitaels](https://github.com/JonasSpitaels)                           | Lima1                              | Lima1                       |
 | [Karel Van Hecke](https://github.com/karelvanhecke)                          | Echo1, Mike1                       | Echo1, Mike1                |
-| Lincy De Groote                                                              | Kilo1                              | Testing Kilo1               |
+| Lincy De Groote                                                              | Kilo1, Alpha1                      | Testing Kilo1               |
 | [Maarten Beeckmans](https://github.com/maartenbeeckmans)                     | Oscar1                             | Oscar1                      |
 | [Milan Dewilde](https://github.com/HoGentTIN/p3ops-1920-logboek-milanHogent) | Alfa1                              | Alfa1                       |
 | Olivier De Vriese                                                            | Routing & Switching                | Routing & Switching         |
@@ -57,9 +57,9 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Robin Ophalvens                                                              | Bravo1, Charlie1                   | Bravo1, Testing Charlie1    |
 | [Robin Peerlinck](https://github.com/DoctorPear)                             | Quebec1                            | Quebec1                     |
 | Stijn Van De Moortele                                                        | Oscar1                             | Testing Oscar1              |
-| Thibault Dewitte                                                             | Alpha1                             | Testing Alpha1              |
+| [Thibault Dewitte](https://github.com/Fliby)                                 | Administratie, Alpha1              | Testing Alpha1, Administratie  |
 | Thijs Bryon                                                                  | Papa1                              | Testing Papa1               |
-| Yordi De Rijcke                                                              | Kilo1                              | Kilo1                       |
+| Yordi De Rijcke                                                              | Kilo1, Alpha1                      | Kilo1                       |
 
 ## Overzicht IP-adrestoewijzing
 
