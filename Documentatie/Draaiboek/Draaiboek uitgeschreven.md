@@ -95,7 +95,7 @@ Deze feedback staat niet op punten maar is toch wel heel belangrijk ivm de actue
 
 ### Opruimen
 
-Eens de evaluatie is afgerond wordt alles netjes opgeruimd: al het gebruikt materiaal wordt gereset en de desbetreffende kabels worden opgebergd.  
+Eens de evaluatie is afgerond wordt alles netjes opgeruimd: al het gebruikt materiaal wordt gereset en de desbetreffende kabels worden opgeborgen.  
 
 
 ### Meeting 3
