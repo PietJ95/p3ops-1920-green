@@ -53,7 +53,7 @@ Het is ook belangrijk om te vermelden dat elke groep en in het algemeen wordt bi
 
 ### Sessie 1
 
-Eerst en vooral zal alles moeten worden opgesteld door de teams van Routers & Switching en de productie-omgeving: hiervoor wordt één uur voorzien.  
+Eerst en vooral zal alles moeten worden opgesteld door de teams van Routers & Switching en de productie-omgeving: hiervoor wordt maximum één uur voorzien.  
 Tijdens dit ene uur wordt er verwacht van de andere groepen dat ze hun testplan, testrapport en troubleshooting documentatie allemaal klaar hebben staan.  
 Eens het netwerk volledig is opgesteld zou aan de hand van `vagrant up` alles in de volgorde van de prioriteitslijst worden opgesteld.  
 Het is van cruciaal belang dat elke groep op voorhand alles heeft getest en voorbereid is op alle mogelijke situaties.   
