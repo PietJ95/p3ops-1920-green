@@ -11,14 +11,17 @@ Dit document is ter referentie voor onze eerste opstelling van de productie-omge
 
 ### Tijdsschema
 
-09u00-09u15: Meeting 1
-09u15-12u00: Sessie 1
-12u00-12u30: Middagpauze
-12u30-12u45: Meeting 2
-12u45-16u00: Sessie 2
-16u00-16u45: Evaluatie
-16u45-17u00: Opruimen
-17u00-17u15: Meeting 3
+| Tijd | Wat? |
+| :----------- | :----------- | 
+| 09u00-09u15 | Meeting 1 | 
+| 09u15-12u00 | Sessie 1 | 
+| 12u00-12u30 | Middagpauze | 
+| 12u30-12u45 | Meeting 2| 
+| 12u45-16u00 | Sessie 2 | 
+| 16u00-16u45 | Evaluatie | 
+| 16u45-17u00 | Opruimen | 
+| 17u00-17u15 | Meeting 3 | 
+
 
 ## Planning
 
@@ -43,6 +46,7 @@ Zulu1 (firewall) kan apart worden opgesteld doorheen de hele dag.
 Er wordt van iedereen verwacht dat ze dit document hebben gelezen en weten wat hun individuele taken zijn. 
 In deze meeting gaan we nog even vlug een korte planning overlopen en herinneren wie aan te spreken indien er problemen zijn.
 Het tijdsschema wordt ook nog even overlopen maar iedereen zou dit al moeten kennen.
+Het is ook belangrijk om te vermelden dat elke groep en in het algemeen wordt bijgehouden waar het fout loopt en hoe we dit kunnen vermijden in de toekomst.
 
 ### Sessie 1 
 
@@ -81,6 +85,7 @@ Het laatste uur checkt het productieteam opnieuw of alles in orde is om geëvalu
 ### Evaluatie
 
 De docenten volgen ons globaal testplan en geven hierop feedback.
+Deze feedback staat niet op punten maar is toch wel heel belangrijk ivm de actuele productie-release in week 13.
 
 ### Opruimen
 
