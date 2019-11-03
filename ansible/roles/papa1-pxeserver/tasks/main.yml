@@ -1,116 +1,45 @@
-# roles/pxeserver/tasks/main.yml
 ---
+# nginx
+- name: Create CentOS ISO directory.
+  file: path={{ pxe_server_kickstart_iso_mount_path }} state=directory
 
-- include_vars: "{{ item }}"
-  with_first_found:
-    - "{{ ansible_distribution }}.yml"
-    - "{{ ansible_os_family }}.yml"
-  tags: pxeserver
+- name: Create kickstart files directory.
+  file: path={{ pxe_server_kickstart_file_path }} state=directory
 
-- name: Install packages
-  package:
-    name: "{{ item }}"
-    state: installed
-  with_items: "{{ pxeserver_packages }}"
-  tags: pxeserver
+- name: Copy pxe-server nginx config in place.
+  template: src=nginx.conf.j2 dest=/etc/nginx/conf.d/pxe-server.conf
+  notify: reload nginx
 
-- name: Ensure services are started
-  service:
-    name: "{{ item }}"
-    state: started
-    enabled: true
-  with_items: "{{ pxeserver_services }}"
-  tags: pxeserver
+# tftp
+- name: Create pxelinux directories.
+  file: path={{ pxe_server_kickstart_tftpboot_path }}/{{ item }} state=directory
+  with_items:
+    - pxelinux.cfg
+    - pxelinux
 
-- name: Create directory for PXEboot related files
-  file:
-    path: "{{ pxeserver_path }}"
-    state: directory
-  tags: pxeserver
+- name: Copy syslinux files.
+  copy: src="/usr/share/syslinux/{{ item }}" dest={{ pxe_server_kickstart_tftpboot_path }}/ remote_src=True
+  with_items:
+    - pxelinux.0
+    - menu.c32
 
-- name: Make Network Boot Programs for BIOS and UEFI based systems available
-  command: cp "{{ item }}" "{{ pxeserver_path }}/{{ item|regex_replace('.*/', '') }}"
-  args:
-    creates: "{{ pxeserver_path }}/{{ item|regex_replace('.*/', '') }}"
-  with_items: "{{ pxeserver_files }}"
-  tags: pxeserver
+# download ISO
+- name: Download isolinux files from http://ftp.hosteurope.de/mirror/centos.org/8/BaseOS/x86_64/os/isolinux/
+  get_url: url=http://ftp.hosteurope.de/mirror/centos.org/8/BaseOS/x86_64/os/isolinux/{{ item }} dest={{ pxe_server_kickstart_tftpboot_path }}/{{ item }}
+  with_items:
+    - initrd.img
+    - vmlinuz
 
-- name: Create directory for PXE server configuration
-  file:
-    path: "{{ pxeserver_path }}/pxelinux.cfg"
-    state: directory
-  tags: pxeserver
+- name: Download centos8.iso
+  get_url: url={{ pxe_server_kickstart_iso_download_path }} dest={{ pxe_server_kickstart_iso_file_path }}
 
-- name: Create directories for boot images
-  file:
-    path: "{{ pxeserver_path }}/{{ item.name }}"
-    state: directory
-  with_items: "{{ pxeserver_images }}"
-  tags: pxeserver
+# ISO mount
+- name: Mount the CentOS image.
+  mount: name={{ pxe_server_kickstart_iso_mount_path }} src={{ pxe_server_kickstart_iso_file_path }} opts=ro,loop fstype=iso9660 state=mounted
 
-- name: Download boot images
-  get_url:
-    url: "{{ item.kernel_url }}"
-    dest: "{{ pxeserver_path }}/{{ item.name }}/vmlinuz"
-  with_items: "{{ pxeserver_images }}"
-  tags: pxeserver
+# PXE menu.
+- name: Copy default menu.
+  template: src=default.menu.j2 dest={{ pxe_server_kickstart_tftpboot_path }}/pxelinux.cfg/default
 
-- name: Download initrd images
-  get_url:
-    url: "{{ item.initrd_url }}"
-    dest: "{{ pxeserver_path }}/{{ item.name }}/initrd.img"
-  with_items: "{{ pxeserver_images }}"
-  tags: pxeserver
-
-- name: Ensure directory for the root filesystem exists
-  file:
-    path: "{{ pxeserver_path }}/{{ item.name }}/rootfs"
-    state: directory
-  with_items: "{{ pxeserver_images }}"
-  tags: pxeserver
-
-- name: Create NFS exports file
-  template:
-    src: etc_exports
-    dest: /etc/exports
-  notify: restart nfs
-  tags: pxeserver
-
-- name: Create default menu for BIOS based systems
-  template:
-    src: pxelinux.cfg_default
-    dest: "{{ pxeserver_path }}/pxelinux.cfg/default"
-  tags: pxeserver
-
-- name: DHCP configuration for PXE server
-  template:
-    src: etc_dhcp_dhcpd-pxelinux.conf.j2
-    dest: /etc/dhcpd-pxelinux.conf
-    owner: root
-    group: root
-    mode: '0600'
-  notify: restart dhcp
-  tags: pxeserver
-  
-- name: Copy local kickstart files
-  copy:
-    src: "{{ item.kickstart_path }}"
-    dest: "{{ pxeserver_path }}/{{ item.name }}/ks.cfg"
-  when: item.kickstart_path is defined
-  with_items: "{{ pxeserver_images }}"
-  tags: pxeserver
-
-- name: Download remote kickstart files
-  get_url:
-    url: "{{ item.kickstart_url }}"
-    dest: "{{ pxeserver_path }}/{{ item.name }}/ks.cfg"
-  when: item.kickstart_url is defined
-  with_items: "{{ pxeserver_images }}"
-  tags: pxeserver
-
-- name: Load PXELinux DHCP configuration from main DHCP config file
-  lineinfile:
-    dest: /etc/dhcp/dhcpd.conf
-    line: 'include "/etc/dhcpd-pxelinux.conf";'
-  notify: restart dhcp
-  tags: pxeserver
+- name: Copy kickstart file
+  copy: src="/vagrant/ansible/roles/papa1-pxeserver/templates/centos8.cfg" dest="/var/www/html/kickstart/centos8.cfg" remote_src=True

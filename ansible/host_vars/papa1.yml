@@ -1,146 +1,17 @@
-# host vars papa1.yml
+#papa1 vars
 ---
-# vagrant host info:
-# name: papa1
-# mac: '08:00:27:66:5D:0A'
-# ip: 172.16.1.6
-
-#--------------------vars for pxeserver role-----------------------------------
-#Subdirectory under TFTP root for PXE specific files (default = pxelinux)
-#pxeserver_directory: 
-
-#default adress of the PXE server (took the same ip from vagrant-hosts)
-pxeserver_ip: 172.16.1.6
-#default gateway: 172.16.1.62 (do we do anything with this?)
-
-pxeserver_images:
-  - name: centos8_x86_64  #unique identifier for the image
-    default: true   #true for the default image
-    kernel_url: http://ftp.hosteurope.de/mirror/centos.org/8/BaseOS/x86_64/kickstart/images/pxeboot/vmlinuz   #URL where to download the kernel image
-    initrd_url: http://ftp.hosteurope.de/mirror/centos.org/8/BaseOS/x86_64/kickstart/images/pxeboot/initrd.img #URL where to download the initrd image
-    # kickstart_url: #URL where to download the kickstart file.
-    #kickstart_path: /vagrant/ansible/roles/papa1-pxeserver/files/centos8.cfg #Location where to copy the kickstart file from
-    label: CentOS 8 x86_64 #Label for the PXE boot menu entry of this image
-
-
-#--------------------vars for tftp role-----------------------------------
-#tftp moet (waarschijnlijk) blijven staan, om de images door te sturen naar nieuwe 'pxebooters'
-tftp_root_directory: /srv/tftp
-tftp_server_args: "--secure --create -vvv"
-tftp_setype: public_content_rw_t
-tftp_anon_write: true
-tftp_user: vagrant
-
-
-
-
-#--------------------vars for dhcp role-----------------------------------
-#tijdelijk dhcp ook op onze server, om pxe te testen (configuratie gestolen van collega's kilo1)
-
-rhbase_firewall_allow_services:
-  - dhcp
-
-dhcp_global_domain_name_servers:
-  - 172.16.1.66
-  - 172.16.1.67
-
-dhcp_global_default_lease_time: 43200
-dhcp_global_max_lease_time: 43200
-dhcp_global_domain_name: green.local
-
-dhcp_subnets:
-    # VLAN 20
-  - ip: 172.16.0.0
+pxe_server_kickstart_listen: "172.16.1.6:8188"
+pxe_server_kickstart_default_menu: 
+  "Install CentOS8": "centos8.cfg"
+pxe_server_kickstart_iso_file_path: /vagrant/ansible/roles/papa1-pxeserver/files/CentOS8.iso
+pxe_server_kickstart_iso_mount_path: /var/www/html/centos8
+#dhcp config to be added to dhcp server later on (see template)
+dhcpd_bind_interface: eth1
+dhcpd_subnets:
+  - subnet: 172.16.1.0
+    routers: 172.16.1.1
     netmask: 255.255.255.0
-    routers: 172.16.0.1
-    pools:
-      - range_begin: 172.16.0.2
-        range_end: 172.16.0.254
-
-    # VLAN 30
-  - ip: 172.16.1.0
-    netmask: 255.255.255.192
-    routers: 172.16.0.1
-    pools:
-      - range_begin: 172.16.1.1
-        range_end: 172.16.1.62
-
-    # VLAN 40
-  - ip: 172.16.1.96
-    netmask: 255.255.255.252
-    routers: 172.16.0.1
-    pools:
-      - range_begin: 172.16.1.97
-        range_end: 172.16.1.98
-
-    # VLAN 50
-  - ip: 172.16.1.64
-    netmask: 255.255.255.224
-    routers: 172.16.0.1
-    pools:
-      - range_begin: 172.16.1.65
-        range_end: 172.16.1.94
-
-    # VLAN 60
-  - ip: 172.16.1.100
-    netmask: 255.255.255.252
-    routers: 172.16.0.1
-    pools:
-      - range_begin: 172.16.1.101
-        range_end: 172.16.1.102
-        
-    # VLAN 70
-  - ip: 172.16.1.104
-    netmask: 255.255.255.252
-    routers: 172.16.0.1
-    pools:
-      - range_begin: 172.16.1.105
-        range_end: 172.16.1.106
-
-# Statisch IP via MAC
-dhcp_hosts:
-  - name: Alfa1
-    mac: '08:00:27:66:5D:01'
-    ip: 172.16.1.65
-  - name: Bravo1
-    mac: '08:00:27:66:5D:02'
-    ip: 172.16.16.66
-  - name: Charlie1
-    mac: '08:00:27:66:5D:03'
-    ip: 172.16.1.67
-  - name: Delta1
-    mac: '08:00:27:66:5D:04'
-    ip: 172.16.1.68
-  - name: Echo1
-    mac: '08:00:27:66:5D:05'
-    ip: 172.16.1.69
-  - name: Lima1
-    mac: '08:00:27:66:5D:06'
-    ip: 172.16.1.2
-  - name: Mike1
-    mac: '08:00:27:66:5D:07'
-    ip: 172.16.1.3
-  - name: November1
-    mac: '08:00:27:66:5D:08'
-    ip: 172.16.1.4
-  - name: Oscar1
-    mac: '08:00:27:66:5D:09'
-    ip: 172.16.1.5
-  - name: Papa1
-    mac: '08:00:27:66:5D:0A'
-    ip: 172.16.1.6
-  - name: Zulu1
-    mac: '08:00:27:66:5D:0B'
-    ip: 172.16.1.106
-  - name: Router0
-    mac: '08:00:27:66:5D:0C'
-    ip: 172.16.1.105
-  - name: Switch1
-    mac: '08:00:27:66:5D:0D'
-    ip: 172.16.1.97
-  - name: Switch2
-    mac: '08:00:27:66:5D:0E'
-    ip: 172.16.1.98
-  - name: Management
-    mac: '08:00:27:66:5D:0F'
-    ip: 172.16.99.1   
+    next_server: 172.16.1.6
+    range: "172.16.1.30 172.16.1.50"
+    options:
+      filename: centos/pxelinux.0

@@ -1,17 +1,16 @@
----
 galaxy_info:
-  author: Bert Van Vreckem
-  description: Role for setting up a PXE server on RHEL/CentOS 7
-  company:
-  license: BSD
-  min_ansible_version: 2.0
+  author: Shoma Nishitateno
+  description: Installs and configures L2TP/IPsec server
+  license: license BSD
+  min_ansible_version: 1.2
   platforms:
     - name: EL
       versions:
         - 7
-  galaxy_tags:
-    - system
-    - networking
+  galaxy_tags: []
+
 dependencies:
-  #- bertvv.tftp
-  #- bertvv.dhcp
+  - shomatan.nginx
+  - shomatan.dhcpd
+  - shomatan.tftp
+  - shomatan.xinetd
