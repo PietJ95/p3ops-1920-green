@@ -1,128 +1,90 @@
 # CentOS kickstart file
 
-## 1. Genereer voorbeeld ks file adhv ubuntu
+## 1. Wat er allemaal mis ging
+
+Het is aangeraden om eerst een fysieke install te doen en van daaruit de anaconda kickstart file te halen.
+installs van de minimale CentOS 8 faalde telkens opnieuw (heel wat verschillende virtualbox instelling geprobeerd + zowel op ubuntu systeem als windows systeem) en ik kreeg telkens een zeer kleurrijk scherm als resultaat. CentOS 8 heeft ook nog geen aparte minimale install, enkel de 8gb iso met als optie tijdens installatie de minimale versie. Hierdoor ben ik uiteindelijk toch overgeschakeld naar CentOS 7.
+
+Vervolgens probeerde ik via een gui programma een geavanceerder kickstart file te maken. 
 
 	sudo apt-get install system-config-kickstart
 	system-config-kickstart
-### Basic configuration
+Dit moet uitgevoerd worden op de os in kwestie. Doordat ik dit runde op mijn ubuntu machine, gaf dit syntax voor een ubuntu kickstart file. En kon ik enkel een Ubuntu optie aanklikken.
 
-Default Language: English(UK)
-keyboard: Belgian
-Mouse: auto
-Time Zone: Europe/Brussels
-Language Support: Dutch (Belgium)
-Target Architecture: x86
-v Reboot system after installation
-v Perform installation in text mode
+## 2. Installeer centos en neem de anaconda-ks.cfg
 
-### Installation Method
-Ik stel het IP adres van onze PXE-server in voor de optie FTP Server hier.
+Na installatie van centos op een fysieke laptop , nam ik de anaconda-ks.cfg over via ssh.
 
-o Perform new installation
-o FTP
-FTP Server:	172.16.1.6
-FTP Directory: /srv/tftp
+Opmerking: ingloggegevens: root : "papacentos"
 
-### Boot Loader Options
+Deze sloeg ik op als "centos_base.cfg" en ik paste 2 lijnen aan:
+We willen geen grafische installatie, dus veranderen "graphical" naar "text". En netwerk installation omdat onze pxe-server via http werkt.
 
-o Clear Master Boot Record
-o Remove all existing partitions
-o Initialize the disk label
+	# use network installation
+	url --url="http://172.16.1.6:8188/centos8"
+	# changed graphical to text
+	text
 
-### Network configuration
+## Testen en aanpassen centos8.cfg
 
-Add Network Device : eth0 : DHCP
+Verplaats en hernoem de kickstarter file: roles/papa1-pxeserver/templates/centos8.cfg
 
-### Authentication
+in de [documentatie](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/sect-kickstart-syntax#sect-kickstart-packages) alles opgezocht dat "(required)" was.
 
-/
+Testen doormiddel van een nieuwe vm te booten in virtualbox met  "Network" als eerste bootoptie. Bij netwerkopties intern netwerk aanduiden.
+Testboot via netwerk gaf veel fouten in verband met de drive "sdb"
+ Oplossing : elkens "sdb"veranderen naar "sda", dit is vermoedlijk omdat ik de eerste manuele install via usb deed en hij hierdoor de drive toen sdb noemde.
 
-### User configuration
+@minimal package werd niet gevonden => opgelost door weg te halen
 
-Full Name: Robin Boone
-Username: admin
-Password: GPass123
+De pxeboot was succesvol met de aangepaste basis kickstarter. Vervolgens gaan we de kickstarter file meer configureren:
 
-### Firewall configuration
+Verwijderd:
 
-Trusted devices: v eth1
-							v eth0
+	network  --hostname=localhost.localdomain
 
-Trusted services: v www (http)
-							v FTP
-							v ssh
-							v Mail (SMTP)
-
-### Display configuration
-
-/
-
-### Package Selection
-
-v Ubuntu Desktop
-
-### Pre-Installation Script
-
-### Post-Installation Script
-
-## 2. Installeer centos op een vm en neem de anaconda-ks.cfg
-
-First, we’ll have to change the installation media from “cdrom” to “url”. I’m using one of the [mirrors](https://www.centos.org/download/mirrors/) available:
-
-```
-# Use CDROM installation media
-#cdrom
-
-# Use network installation
-url --url="http://mirror.zetup.net/CentOS/7/os/x86_64/"
-```
-
-
-
-We’ll also have to tell the installation to clear out any previous partitions on “sda” (the primary disk):
-
-```
-# Partition clearing information
-#clearpart --none --initlabel
-clearpart --all --drives=sda
-```
-
-Since we want the machine to automatically reboot after completed installation, we’ll have to tell it to do that:
+Toevoegingen:
 
 ```
 # Reboot after installation
 reboot
 ```
 
+na reboot gebruikte hij opnieuw de netwerkboot, voeg bij bootloader de optie "--leavebootorder" toe om de installatie als eerste bootoptie in te stellen:
 
+	bootloader --append=" crashkernel=auto" --location=mbr --boot-drive=sda --leavebootorder
 
-- [Kickstart options](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-kickstart-syntax.html#sect-kickstart-commands) - A list of all commands and options
-- [%pre](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-kickstart-syntax.html#sect-kickstart-preinstall) - Pre-installation scripts
-- [%post](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-kickstart-syntax.html#sect-kickstart-postinstall) - Post-installation scripts
-- [%addon](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-kickstart-syntax.html#sect-kickstart-addon) - Add-ons for Anaconda which expand the functionality of the installer
-- [%packages](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-kickstart-syntax.html#sect-kickstart-packages) - Software packages to install
+User admin toevoegen
 
-I recommend taking a minute or two to read through the [Kickstart How-To](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-kickstart-howto.html).
-
-## Verify the Kickstart file
-
-You can make sure your Kickstart file is valid by using “ksvalidator”:
-
-Install ksvalidator:
-
-```
-yum install pykickstart
-```
-
-Run ksvalidator on your Kickstart file:
-
-```
-ksvalidator /path/to/anaconda-ks.cfg
-```
+	# Maak user admin aan
+	user --name="admin" --password="AdminGreen" --groups="wheel"
 
 
 
+## 4. Post installatie scripts
 
+Handige package installeren & het systeem updaten.
+Bij post-scripts (tussen %post %end):
+
+	dnf install nano vim wget curl net-tools lsof bash-completion
+	dnf update
+
+Om de scripts te testen, heb ik bij virtualbox een NAT adapter toegevoegd als 2e adapter, om zo tot aan het internet te geraken.
+Getest: tijdens installatie in de shell successvol 8.8.8.8 kunnen pingen.
+
+Opmerking: bij storage-log krijg ik vaak de melding: "Failed to reset SElinux context for ... -> later kan dit beter bekeken worden
+
+TODO: test of deze geïnstalleerd zijn
+
+Opmerking: voor toekomstige testen is het  misschien een goed idee om "dnf update" in commentaar te zetten, de post-installatie scripts duren momenteel zeer lang.
+
+TODO-------------------------------------------------
+
+automatisch voorgeconfigureerd om in het netwerk opgenomen te worden (bv. administrator-gebruiker, package-installatie, configuratie updates). 
+
+Het systeem kan dan verder geconfigureerd worden via configuration management(ruby based: puppet /chef. python based: saltstack)
+
+stuurt ook meteen informatie over de werking door naar het monitoringsysteem.
 
 
 
