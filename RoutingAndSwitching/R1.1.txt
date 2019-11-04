@@ -7,6 +7,9 @@ snmp-server community public RO
 router rip
 version 2
 network 172.16.1.104
+network 172.16.0.0
+network 172.16.1.0
+network 172.16.1.64
 
 access-list 30 deny 172.16.1.0 0.0.0.63
 
@@ -19,3 +22,11 @@ no shutdown
 interface g0/0/1
 ip address 172.16.1.109 255.255.255.252
 no shutdown
+
+interface Tunnel0
+tunnel mode gre ip
+ip address 172.16.4.1 255.255.255.252
+tunnel source 172.16.1.109
+tunnel destination 172.18.3.2
+router ospf 10
+network 172.16.4.0 0.0.0.3 area 0
