@@ -18,5 +18,4 @@ galaxy_info:
   galaxy_tags:
     - ldap
 
-dependencies:
-  - 389-ds
+dependencies: []
