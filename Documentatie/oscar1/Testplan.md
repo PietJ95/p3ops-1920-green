@@ -2,7 +2,7 @@
 
 > Voor het testen van deze server is het belangrijk dat bravo1 opstaat. Deze server is nodig voor het resolven van hostnames.
 
-Breng de virtuele machine 'up' met het volgende commando: `vagrant up oscar`.  
+Breng de virtuele machine 'up' met het volgende commando: `vagrant up oscar1`.  
 Bekijk de uitvoer van dit commando. Dit mag geen foutmeldingen geven.
 
 - [ ] Commando geeft geen foutmeldingen
