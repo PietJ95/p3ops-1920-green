@@ -30,25 +30,15 @@ echo "-----------------------------"
 echo "Updating system.."
 yum -y update
 echo "-----------------------------"
-#Prompt for clearing
-Read -p "Configuration has completed, type 1 to continue.." input
-if $input=1
-	then clear
-fi
 
 #Showing ip
 echo "-----------------------------"
-#$ /sbin/ifconfig eth0| grep 'inet addr:'
-#$ /sbin/ifconfig eth1| grep 'inet addr:'
-#$ /sbin/ifconfig lo| grep 'inet addr:'
+#$ /sbin/ifconfig enp2s0f0| grep 'inet'
+#$ /sbin/ifconfig enp2s0f1| grep 'inet'
+#$ /sbin/ifconfig lo| grep 'inet'
+#$ /sbin/ifconfig virbr0-nic| grep 'inet'
+#$ /sbin/ifconfig docker0| grep 'inet'
 echo "Ip wordt hier normaal getoond, nog te doen"
 
 echo "-----------------------------"
 
-#Prompt for reboot
-Read -p "Type 1 to reboot system.." input
-if $input=1
-	#Rebooting systeM
-	echo "Rebooting sytem.."
-	reboot -f
-fi
