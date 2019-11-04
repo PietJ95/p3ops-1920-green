@@ -31,14 +31,15 @@ Deze prioriteitslijst toont aan in welke volgorde we de machines zullen opstarte
 2. Kilo1 (DHCP)
 3. Alfa1 (Domeinserver)
 4. Bravo1 & Charlie1 (DNS)
-5. Quebec1 (Forwarding DNS)
-6. November1 (MariaDB)
-7. Echo1 (Webserver)
-8. Mike1 (Content management systeem)
-9. Lima1 (Interne file-server)
-10. Delta1 (Mailserver)
-11. Papa1 (PXEBoot-server)
-12. Oscar1 (Monitoring-systeem)
+5. Oscar1 (Monitoring-systeem)
+6. Papa1 (PXEBoot-server)
+7. Quebec1 (Forwarding DNS)
+8. November1 (MariaDB)
+9. Echo1 (Webserver)
+10. Mike1 (Content management systeem)
+11. Lima1 (Interne file-server)
+12. Delta1 (Mailserver)
+
 
 Zulu1 (firewall) kan apart worden opgesteld doorheen de hele dag.
 
