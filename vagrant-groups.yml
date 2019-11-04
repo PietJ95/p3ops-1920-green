@@ -27,7 +27,7 @@ nodeexporter:
 
 #cluster groep aanmaken voor echo1,mike1 en november1
 galera_cluster_nodes:
-  - november1
-  - november2
-  - november3
+  - 172.16.1.4
+  - 172.16.1.7
+  - 172.16.1.8
   
