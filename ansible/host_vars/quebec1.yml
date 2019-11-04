@@ -23,10 +23,12 @@
         ip: 172.16.1.5
       - name: papa1
         ip: 172.16.1.6
-
-
+      
     rhbase_firewall_allow_services: # DNS toelaten door Firewall
       - dns
+
+    rhbase_firewall_allow_ports:
+      - 9100/tcp
 
     dns_nameservers:
       - "DNS1=172.16.1.66"
