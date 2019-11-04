@@ -49,7 +49,6 @@ prometheus_scrape_configs:
           - oscar1.green.local:9100
           - papa1.green.local:9100
           - quebec1.green.local:9100
-          - zulu1.green.local:9100
   # - job_name: "servicediscovery"
   #   file_sd_configs:
   #     - files:
@@ -62,7 +61,7 @@ prometheus_scrape_configs:
         - 172.16.1.80
         - 172.16.1.50
         - 172.16.0.80
-        - 172.16.1.102 # Zulu server
+        - zulu1.green.local
     metrics_path: /snmp
     params:
       module: [if_mib]
@@ -84,27 +83,12 @@ grafana_datasources:
     url: 'http://localhost:9090'
     basicAuth: false
 grafana_dashboards:
-  - dashboard_id: 10645 # 1 Node Exporter 0.16 + for Prometheus Monitoring display board
-    revision_id: 1
-    datasource: 'prometheus'
-  # - dashboard_id: 2939 # Overview
-  #   revision_id: 8
-  #   datasource: 'prometheus'
-  # - dashboard_id: 9901 # Node Exporter Server Metrics - Summary
-  #   revision_id: 1
-  #   datasource: 'prometheus'
-  - dashboard_id: 1666 # BIND DNS
-    revision_id: 1
-    datasource: 'prometheus'
   - dashboard_id: 405 # Algemeen
     revision_id: 8
     datasource: 'prometheus' 
-  - dashboard_id: 1860 # 1 server tegelijk
+  - dashboard_id: 1860 # Node exporter full, 1 server tegelijk
     revision_id: 15
     datasource: 'prometheus' 
-  - dashboard_id: 6287 # Host overview, werkt behalve grafana pie chart
-    revision_id: 2
-    datasource: 'prometheus'
   - dashboard_id: 2408 # SNMP Interface throughput
     revision_id: 1
     datasource: 'prometheus'
