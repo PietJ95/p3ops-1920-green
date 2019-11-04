@@ -39,6 +39,21 @@
   hosts: quebec1
   gather_facts: yes
   remote_user: root
+  tasks:
+    - name: Copy runbats to quebec1
+      copy:
+        src: ../test/quebec1/runbats.sh
+        dest: /etc/runbats.sh
+        owner: vagrant
+        group: vagrant
+        mode: '0777'
+    - name: Copy test.bats to quebec1
+      copy:
+        src: ../test/quebec1/test.bats
+        dest: /etc/test.bats
+        owner: vagrant
+        group: vagrant
+        mode: '0777'
   roles:
     - bertvv.hosts
     - bertvv.rh-base

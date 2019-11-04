@@ -30,6 +30,10 @@
     rhbase_firewall_allow_ports:
       - 9100/tcp
 
+    rhbase_install_packages:
+      - bind-utils
+      - git
+
     dns_nameservers:
       - "DNS1=172.16.1.66"
       - "DNS2=172.16.1.67"
