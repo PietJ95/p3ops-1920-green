@@ -1,3 +1,4 @@
+#Alle gedeelde variabalen tussen de 3 database servers
 ---
 ##Mariadb-server variabalen##
 
@@ -28,9 +29,3 @@ mariadb_bind_address: '0.0.0.0'
 ##Mariadb-galera-cluster variabelen##
 galera_cluster_name: mariadb_cluster
 root_password: admin
-
-
-#Op te lossen error:
-# De 'galera-cluster-nodes' in vagrant-groups kan fout zijn in notatie,
-#Dit ben ik te weten gekomen omdat "Start first node" wordt geskipd
-#en dus 172.16.1.4 niet als master node wordt ingesteld
