@@ -53,6 +53,8 @@
             ip: '172.16.1.5'
           - name: papa1
             ip: '172.16.1.6'
+          - name: quebec1
+            ip: '172.16.1.70'
           - name: zulu1
             ip: '172.16.1.106'
           - name: zulu1

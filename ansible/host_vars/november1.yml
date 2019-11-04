@@ -1,9 +1,12 @@
 ---
+##Mariadb-server variabalen##
 
+#Databanken aanmaken voor de drupal servers
 mariadb_databases: 
   - name: drupal_echo1 
   - name: drupal_mike1
 
+#Databank gebruikers aanmaken voor de drupal servers
 mariadb_users: 
   - name: echo1_user
     password: echo1
@@ -14,8 +17,20 @@ mariadb_users:
     password: mike1
     priv: 'drupal_mike1.*:ALL'
     append_privs: 'yes'
-    host: '172.16.1.3'   
+    host: '172.16.1.3'  
 
+#root passwoord instellen
 mariadb_root_password: admin
 
+#zorgen dat elke remote connectie toegang heeft
 mariadb_bind_address: '0.0.0.0'
+
+##Mariadb-galera-cluster variabelen##
+galera_cluster_name: mariadb_cluster
+root_password: admin
+
+
+#Op te lossen error:
+# De 'galera-cluster-nodes' in vagrant-groups kan fout zijn in notatie,
+#Dit ben ik te weten gekomen omdat "Start first node" wordt geskipd
+#en dus 172.16.1.4 niet als master node wordt ingesteld

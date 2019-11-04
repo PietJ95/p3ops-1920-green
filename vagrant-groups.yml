@@ -15,10 +15,14 @@ nodeexporter:
   - alfa1
   - bravo1
   - charlie1
-#  - november1
   - delta1
-  - echo1
+#  - echo1
   - kilo1
-  - mike1
+  - lima1
+#  - mike1
+  - november1
   - oscar1
   - papa1
+  - quebec1
+
+#cluster groep aanmaken voor echo1,mike1 en november1

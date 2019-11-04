@@ -1,10 +1,10 @@
 # roles/mariadb/tasks/install.yml
 ---
 
-- name: Add official MariaDB repository
+- name: Add repository mariadb-server galera cluster
   yum_repository:
     name: MariaDB
-    description: Official MariaDB repository
+    description: Repository MariaDb-server Galera cluster
     baseurl: "http://{{ mariadb_mirror }}/{{ mariadb_version }}/{{ ansible_distribution|lower|regex_replace('redhat', 'rhel')|regex_replace('oraclelinux', 'centos') }}{{ ansible_distribution_major_version }}-amd64"
     gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
     gpgcheck: true

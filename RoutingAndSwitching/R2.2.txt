@@ -1,0 +1,37 @@
+enable
+configure terminal
+hostname R2.2
+
+snmp-server community public RO
+
+int g0/0/0
+ip address 172.16.1.101 255.255.255.252
+no shut
+
+int g0/0/1
+ip address 172.16.1.94 255.255.255.224
+ip helper-address 172.16.1.1 
+no shut
+
+int s0/1/0
+ip address 172.16.1.98 255.255.255.252
+no shut
+
+router rip
+version 2
+network 172.16.1.64
+network 172.16.1.96
+network 172.16.1.100
+
+enable secret Admin
+service password-encryption
+ip domain-name green.local
+crypto key generate rsa
+1024
+username Admin secret Admin
+line vty 0 15
+transport input ssh
+login local
+exit
+ip ssh version 2
+exit

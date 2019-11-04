@@ -126,6 +126,7 @@ def provision_ansible(node, host, groups)
     ansible.playbook = host.key?('playbook') ?
         "ansible/#{host['playbook']}" :
         "ansible/site.yml"
+    }
     ansible.become = true
   end
 end
