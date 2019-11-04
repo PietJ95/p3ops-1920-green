@@ -1,8 +1,8 @@
 #!/bin/bash
 #Changing user
-echo "loggin in with student sudo rights  .."
-sudo su -
-echo "-----------------------------"
+#echo "loggin in with student sudo rights  .."
+#sudo su -
+#echo "-----------------------------"
 #Installing kvm and starting kvm
 echo "-----------------------------"
 echo "Installing and starting kvm.."
