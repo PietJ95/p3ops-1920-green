@@ -62,6 +62,7 @@ prometheus_scrape_configs:
         - 172.16.1.80
         - 172.16.1.50
         - 172.16.0.80
+        - 172.16.1.102 # Zulu server
     metrics_path: /snmp
     params:
       module: [if_mib]
