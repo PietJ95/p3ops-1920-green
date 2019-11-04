@@ -1,8 +1,5 @@
 #!/bin/bash
-#Changing user
-#echo "loggin in with student sudo rights  .."
-#sudo su -
-#echo "-----------------------------"
+echo "-----------------------------"
 #Installing kvm and starting kvm
 echo "-----------------------------"
 echo "Installing and starting kvm.."
@@ -12,12 +9,15 @@ service start libvirtd
 echo "-----------------------------"
 #Installing vagrant
 echo "Installing and configure vagrant.."
-yum -y install https://releases.hashicorp.com/vagrant/1.9.6/vagrant_1.9.6_x86_64.rpm
+yum -y install https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.rpm
 sudo yum install -y gcc libvirt-devel
 vagrant plugin install vagrant-libvirt
 vagrant plugin install vagrant-mutate
 vagrant plugin install vagrant-rekey-ssh
 echo "-----------------------------"
+echo "install ansible"
+yum -y install epel-release
+yum -y install ansible
 #Installing git
 echo "Installing git on system.."
 yum install git -y
@@ -37,12 +37,10 @@ echo "-----------------------------"
 
 #Showing ip
 echo "-----------------------------"
-#$ /sbin/ifconfig enp2s0f0| grep 'inet'
-#$ /sbin/ifconfig enp2s0f1| grep 'inet'
-#$ /sbin/ifconfig lo| grep 'inet'
-#$ /sbin/ifconfig virbr0-nic| grep 'inet'
-#$ /sbin/ifconfig docker0| grep 'inet'
-echo "Ip wordt hier normaal getoond, nog te doen"
-
+/sbin/ifconfig enp2s0f0| grep 'inet'
+/sbin/ifconfig enp2s0f1| grep 'inet'
+/sbin/ifconfig lo| grep 'inet'
+/sbin/ifconfig virbr0-nic| grep 'inet'
+/sbin/ifconfig docker0| grep 'inet'
 echo "-----------------------------"
 
