@@ -13,6 +13,10 @@ echo "-----------------------------"
 #Installing vagrant
 echo "Installing and configure vagrant.."
 yum -y install https://releases.hashicorp.com/vagrant/1.9.6/vagrant_1.9.6_x86_64.rpm
+sudo yum install -y gcc libvirt-devel
+vagrant plugin install vagrant-libvirt
+vagrant plugin install vagrant-mutate
+vagrant plugin install vagrant-rekey-ssh
 echo "-----------------------------"
 #Installing git
 echo "Installing git on system.."
