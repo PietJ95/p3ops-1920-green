@@ -12,7 +12,6 @@
   become: true
   remote_user: root
   roles:
-    - 389-ds
     - openldap-server
     - openldap_config
 
