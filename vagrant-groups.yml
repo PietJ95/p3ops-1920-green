@@ -26,3 +26,8 @@ nodeexporter:
   - quebec1
 
 #cluster groep aanmaken voor echo1,mike1 en november1
+galera_cluster_nodes:
+  - november1
+  - november2
+  - november3
+  
