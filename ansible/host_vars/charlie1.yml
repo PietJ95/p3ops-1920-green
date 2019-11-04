@@ -6,8 +6,8 @@
     bind_zone_domains:
       - name: green.local
 
-    prometheus_servers:
-      - 172.16.1.5
-    prometheus_components:
-      - bind_exporter_digitalocean
-    prometheus_bind_exporter_digitalocean_port: 8053
+    # prometheus_servers:
+    #   - 172.16.1.5
+    # prometheus_components:
+    #   - bind_exporter_digitalocean
+    # prometheus_bind_exporter_digitalocean_port: 8053
