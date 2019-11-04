@@ -32,6 +32,7 @@
   remote_user: root
   roles:
     - dnsBindBravoCharlie
+    - mesaguy.prometheus
 
 # #configure quebec 1 (forwards the requests to ns12.green.local and ns12.red.local or extern dns-server)
 - name: Configure quebec1
