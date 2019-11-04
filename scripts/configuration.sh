@@ -19,6 +19,7 @@ echo "install ansible"
 yum -y install epel-release
 yum -y install ansible
 #Installing git
+cd /home/student/
 echo "Installing git on system.."
 yum install git -y
 echo "-----------------------------"
@@ -34,7 +35,6 @@ echo "-----------------------------"
 echo "Updating system.."
 yum -y update
 echo "-----------------------------"
-
 #Showing ip
 echo "-----------------------------"
 /sbin/ifconfig enp2s0f0| grep 'inet'
