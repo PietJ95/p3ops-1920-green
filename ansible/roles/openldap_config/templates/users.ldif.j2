@@ -2,10 +2,17 @@
 dn: uid={{ item.name }},{{ item.group_ou }},dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }}
 objectClass: top
 objectClass: person
-objectClass: inetOrgPerson
-objectClass: organizationalPerson
+objectClass: posixAccount
+objectClass: shadowAccount
 cn: {{ item.cn }}
 sn: {{ item.sn }}
 uid: {{ item.name }}
-mail: {{ item.email }}
 userPassword: {{ item.password }}
+gidNumber: 100
+uidNumber: {{ item.uidNumber }}
+homeDirectory: /home/{{ item.name }}
+loginShell: /bin/bash
+gecos: {{ item.name }}
+shadowLastChange: 0
+shadowMax: 0
+shadowWarning: 0

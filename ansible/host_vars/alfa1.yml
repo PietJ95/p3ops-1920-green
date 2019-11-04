@@ -42,6 +42,7 @@ openldap_create_users:
     password: milan
     email: dewilde.milan@hotmail.com
     group_ou: ou=Afdelingen
+    uidNumber: 1501
 
 openldap_add_uniquemember:
   - name: milan
