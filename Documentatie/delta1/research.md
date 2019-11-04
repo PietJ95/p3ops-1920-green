@@ -39,7 +39,7 @@ Na dit aangepast te hebben moet `Postfix` vervolgens gereload worden door middel
 
 Zoals bij het testen hierboven, om er voor te zorgen dat de lokale gebruikers permissies hebben om mails te versturen en ontvangen moeten de twee lijnen in commentaar worden gezet. Als dit niet gebeurt hebben de gebruikers geen toegang en krijg je volgende error message:
 
-![](hhttps://github.com/HoGentTIN/p3ops-1920-green/blob/master/Documentatie/delta1/images/SquirrelmailRecipient.png)
+![](https://github.com/HoGentTIN/p3ops-1920-green/blob/master/Documentatie/delta1/images/SquirrelmailRecipient.png)
 
 ### Versturen mail poort 25
 
