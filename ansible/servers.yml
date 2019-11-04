@@ -68,16 +68,11 @@
     - drupal
     - cloudalchemy.node-exporter
 
-# #Kilo1
-# - hosts: kilo1
-#   become: true
-#   roles:
-#     - kilo1-dhcp
-#   pre_tasks:
-#     - name: Configure hostname
-#       hostname:
-#         name: kilo1.green.local
-#   tasks:
+#Kilo1
+- hosts: kilo1
+  become: true
+  roles:
+    - kilo1-dhcp
 
 - hosts: lima1
   become: true

@@ -22,10 +22,10 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Charlie1            | [Robin Ophalvens](https://github.com/RobinOphalvens), [Jolien Vervinckt](https://github.com/JolienVervinckt)                             | [Robin Ophalvens](https://github.com/RobinOphalvens)         | [Jolien Vervinckt](https://github.com/JolienVervinckt)   |
 | Delta1              | Beau Bellon, Robin Goesseye, Cedric Denoo                   | Beau Bellon                                                  | Cedric Denoo                                             |
 | Echo1               | Karel Van Hecke                                              | Karel Van Hecke                                              | Karel Van Hecke                                          |
-| Kilo1               | Yordi De Rijcke, Lincy De Groote                             | Yordi De Rijcke                                              | [Lincy De Groote](https://github.com/LincyDeGroote)      |
-| Lima1               | Berkant Kucuksolak, Jonas Spitaels                           | Berkant Kucuksolak                                           | Jonas Spitaels                                           |
+| Kilo1               | [Yordi De Rijcke](https://github.com/yordiDeRijcke), Lincy De Groote | [Yordi De Rijcke](https://github.com/yordiDeRijcke)          | [Lincy De Groote](https://github.com/LincyDeGroote)      |
+| Lima1               | Berkant Kucuksolak, Jonas Spitaels                           | Berkant Kucuksolak                                           | [Jonas Spitaels](https://github.com/JonasSpitaels)                                          |
 | Mike1               | Karel Van Hecke                                              | Karel Van Hecke                                              | Karel Van Hecke                                          |
-| November1           | Dylano Steenhuzen                                            | Dylano Steenhuzen                                            | Dylano Steenhuzen                                        |
+| November1           | Dylano Steenhuyzen                                            | Dylano Steenhuyzen                                            | Dylano Steenhuyzen                                        |
 | Oscar1              | [Stijn Van De Moortele](https://github.com/StijnVDM), [Maarten Beeckmans](https://github.com/maartenbeeckmans), [Jolien Vervinckt](https://github.com/JolienVervinckt),  [Robin Ophalvens](https://github.com/RobinOphalvens)| [Stijn Van De Moortele](https://github.com/StijnVDM)         | [Maarten Beeckmans](https://github.com/maartenbeeckmans) |
 | Papa1               | [Thijs Bryon](https://github.com/ThijsBryon), [Robin Boone](https://github.com/Robinsane), [Piet Jacobs](https://github.com/PietJ95) | [Robin Boone](https://github.com/Robinsane) , [Thijs Bryon](https://github.com/ThijsBryon) | [Robin Boone](https://github.com/Robinsane)              |
 | Quebec1             | Beau Bellon, Robin Peerlinck, Robin Goesseye                 | Robin Goesseye                                               | Robin Peerlinck                                          |
@@ -41,7 +41,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | [Bernard Deploige](https://github.com/BernardDeploige/)                      | Administratie, Routing & Switching | Testing Routing & Switching |
 | Bob Bracke                                                                   | Routing & Switching                | ---                         |
 | [Cedric Denoo](https://github.com/cdenoo)                                    | Delta1                             | Delta1                      |
-| Dylano Steenhuyzen                                                           | November1                          | November1                   |
+| [Dylano Steenhuyzen](https://github.com/Dyvex)                                                           | November1                          | November1                   |
 | Jari Van De Cappelle                                                         |                                    |                             |
 | [Jolien Vervinckt](https://github.com/JolienVervinckt)                       | Bravo1, Charlie1                   | Charlie1                    |
 | [Jonas Spitaels](https://github.com/JonasSpitaels)                           | Lima1                              | Lima1                       |
