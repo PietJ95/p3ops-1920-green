@@ -15,3 +15,6 @@ Nov 04 13:03:08 november1 systemd[1]: mariadb.service: main process exited, code
 Nov 04 13:03:08 november1 systemd[1]: Failed to start MariaDB 10.4.8 database server.
 Nov 04 13:03:08 november1 systemd[1]: Unit mariadb.service entered failed state.
 Nov 04 13:03:08 november1 systemd[1]: mariadb.service failed.
+
+- Opgelost door:
+    * In vagrant-groups de 'galera_cluster_nodes' aan te passen naar de ip-adressen van de databank servers. Dit heb ik opgemerkt omdat de gcom:// verbinding maakte met de servernamen in plaats van de  
