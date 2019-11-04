@@ -9,6 +9,10 @@ server {
     alias {{ pxe_server_kickstart_iso_mount_path }};
   }
 
+  location /fedora {
+    alias {{ pxe_server_kickstart_iso_mount_path_fedora }};
+  }
+
   location /kickstart {
     root /var/www/html;
   }

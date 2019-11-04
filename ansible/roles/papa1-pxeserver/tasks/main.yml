@@ -37,9 +37,15 @@
 - name: Mount the CentOS image.
   mount: name={{ pxe_server_kickstart_iso_mount_path }} src={{ pxe_server_kickstart_iso_file_path }} opts=ro,loop fstype=iso9660 state=mounted
 
+- name: Mount the Fedora image.
+  mount : name={{ pxe_server_kickstart_iso_mount_path_fedora }} src={{ pxe_server_kickstart_iso_file_path_fedora }} opts=ro,loop fstype=iso9660 state=mounted
+
 # PXE menu.
 - name: Copy default menu.
   template: src=default.menu.j2 dest={{ pxe_server_kickstart_tftpboot_path }}/pxelinux.cfg/default
 
-- name: Copy kickstart file
+- name: Copy CentOS kickstart file
   copy: src="/vagrant/ansible/roles/papa1-pxeserver/templates/centos8.cfg" dest="/var/www/html/kickstart/centos8.cfg" remote_src=True
+
+- name: Copy Fedora kickstart file
+  copy: src="/vagrant/ansible/roles/papa1-pxeserver/templates/fedora.cfg" dest="/var/www/html/kickstart/fedora.cfg" remote_src=True

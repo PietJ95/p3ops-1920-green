@@ -14,3 +14,9 @@ label {{ key }}
     kernel vmlinuz
     append initrd=initrd.img inst.repo=http://{{ pxe_server_kickstart_listen }}/centos8/ ks=http://{{ pxe_server_kickstart_listen }}/kickstart/{{ value }}
 {% endfor %}
+
+{% for key, value in pxe_server_kickstart_default_menu_fedora.iteritems() %}
+label {{key}}
+	kernel vmlinuz
+	append initrd=initrd.img inst.repo=http://{{ pxe_server_kickstart_listen }}/fedora/ ks=http://{{ pxe_server_kickstart_listen }}/kickstart/{{ value }}
+{% endfor %}

@@ -13,3 +13,11 @@ Vb: shomatan.dhcpd
 - Juiste OS kiezen (Fedora/RedHat x64)
 - Netwerk instellen op "internal network" (intnet)
 - Onder "Systeem" de opstartvolgorde wijzigen naar Netwerk als eerste (vanboven plaatsen)
+
+---
+## Opgelet:
+
+Indien je maar 1 van de 2 iso  files hebt staan veronderstel ik dat het ansible script gaat falen aangezien die beide iso's verwacht momenteel.  
+Ben niet zeker wat de beste workaround is hiervoor, eventueel een dummy iso gebruiken en hernoemen naar de andere.
+
+Idem voor de .cfg files
