@@ -48,9 +48,9 @@
     dnsmasq_upstream_servers:
       - 8.8.8.8
       # HoGent DNS Nog toevoegen
-
+      
       - /green.local/172.16.1.66 # ns1.green.local
       - /green.local/172.16.1.67 # ns2.green.local
 
-     # - /red.local/ # ns1.red.local
-     # - /red.local/ # ns2.red.local
+      - /red.local/172.18.1.67 # ns1.red.local
+      - /red.local/172.18.1.68 # ns2.red.local
