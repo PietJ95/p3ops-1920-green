@@ -2,12 +2,44 @@ enable
 configure terminal
 hostname R1.2
 
-snmp-server community public RO
+int s0/1/0
+ip address 172.16.2.2 255.255.255.252
+no shut
 
 int g0/0/0
-ip address 172.16.1.110 255.255.255.252
-no shutdown
+ip address 172.16.3.1 255.255.255.252
+no shut
 
-interface g0/0/1
-ip address 172.16.2.1 255.255.255.252
-no shutdown
+int g0/0/1
+ip address 172.16.1.110 255.255.255.252
+no shut
+exit
+
+router rip
+version 2
+network 172.16.0.0
+network 172.16.1.0
+network 172.16.1.64
+passive-interface s0/1/0  
+passive-interface g0/0/0
+default-information originate
+exit
+
+router ospf 10
+router-id 10.10.10.10
+network 172.16.3.0 0.0.0.3 area 0
+passive-interface g0/0/1
+exit
+
+enable secret Admin
+service password-encryption
+ip domain-name green.local
+crypto key generate rsa
+1024
+username Admin secret Admin
+line vty 0 15
+transport input ssh
+login local
+exit
+ip ssh version 2
+exit

@@ -32,3 +32,25 @@ Dit document beschrijft alle resources die nuttig zijn voor server Delta1.
 Om te testen met gebruikers die lokaal zijn aangemaakt moet er in `/etc/postfix/master.cf` de lijn `-o smtpd_client_restrictions=permit_sasl_authenticated,reject` in commentaar gezet worden. Dit moet zo omdat lokale gebruikers anders geen toegang wordt gegeven om mails te versturen/ontvangen. 
 
 Na dit aangepast te hebben moet `Postfix` vervolgens gereload worden door middel van het commando `sudo postfix reload`.
+
+## Troubleshooting
+
+### Squirrelmail: Recipient Address Rejected: Access denied
+
+Zoals bij het testen hierboven, om er voor te zorgen dat de lokale gebruikers permissies hebben om mails te versturen en ontvangen moeten de twee lijnen in commentaar worden gezet. Als dit niet gebeurt hebben de gebruikers geen toegang en krijg je volgende error message:
+
+![](https://github.com/HoGentTIN/p3ops-1920-green/blob/master/Documentatie/delta1/images/SquirrelmailRecipient.png)
+
+### Versturen mail poort 25
+
+Als er voor het versturen van mail gebruik gemaakt wordt van de standaard poort 25, dan lukt dit niet. Er moet gebruik gemaakt worden van de alternatieve poort 587.
+
+### Verkeerde directory mail
+
+Indien er in het configuratiescript `postfix_home_mailbox: /mail` staat, wordt er in plaats van een map `mail` een bestand aangemaakt. Dit zorgt er voor wanneer er mail wordt gestuurd naar een bepaalde gebruiker dat deze niet meer kan inloggen.
+
+Dit wordt opgelost door het pad correct mee te geven n.l. `postfix_home_mailbox: mail/`, dit zorgt er voor dat er effectief een directory mail wordt aangemaakt en dat gebruikers dus mail kunnen ontvangen.
+
+
+
+

@@ -60,7 +60,15 @@ rhbase_firewall_allow_ports:
 
 postfix_myhostname: mail.green.local
 postfix_mydomain: green.local
-postfix_home_mailbox: /mail
+postfix_home_mailbox: mail/
+
+#Alfa1 Gebruikers
+# ldap_fqdn1: alfa1.green.local
+# ldap_ou: People
+# ldap_dcname: alfa1
+# ldap_domainname: green
+# ldap_root_domain: local
+# postfix_ldap: false
 
 Squirrelmail_domain: green.local
 Squirrelmail_imapServerAddress: delta1

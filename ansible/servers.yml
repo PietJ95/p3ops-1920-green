@@ -12,7 +12,6 @@
   become: true
   remote_user: root
   roles:
-    - 389-ds
     - openldap-server
     - openldap_config
 
@@ -25,6 +24,7 @@
   roles:
     - dnsBindBravoCharlie
 
+
 # # Configure charlie 1 (also known as the secondary, backup or slave dns server) with DNS BIND
 - name: Configure charlie1
   gather_facts: yes
@@ -32,12 +32,28 @@
   remote_user: root
   roles:
     - dnsBindBravoCharlie
+ #   - mesaguy.prometheus
 
 # #configure quebec 1 (forwards the requests to ns12.green.local and ns12.red.local or extern dns-server)
 - name: Configure quebec1
   hosts: quebec1
   gather_facts: yes
   remote_user: root
+  tasks:
+    - name: Copy runbats to quebec1
+      copy:
+        src: ../test/quebec1/runbats.sh
+        dest: /etc/runbats.sh
+        owner: vagrant
+        group: vagrant
+        mode: '0777'
+    - name: Copy test.bats to quebec1
+      copy:
+        src: ../test/quebec1/test.bats
+        dest: /etc/test.bats
+        owner: vagrant
+        group: vagrant
+        mode: '0777'
   roles:
     - bertvv.hosts
     - bertvv.rh-base
@@ -69,22 +85,18 @@
     - drupal
     - cloudalchemy.node-exporter
 
-# #Kilo1
-# - hosts: kilo1
-#   become: true
-#   roles:
-#     - kilo1-dhcp
-#   pre_tasks:
-#     - name: Configure hostname
-#       hostname:
-#         name: kilo1.green.local
-#   tasks:
+#Kilo1
+- hosts: kilo1
+  become: true
+  roles:
+    - kilo1-dhcp
 
 - hosts: lima1
   become: true
   roles:
     - bertvv.rh-base
     - bertvv.samba
+    - openldap_client
 
 #Mike1
 - hosts: mike1

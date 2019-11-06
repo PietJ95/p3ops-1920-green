@@ -1,0 +1,7 @@
+---
+- name: Install client packages
+  shell: sudo yum install –y pam_ldap openldap openldap-clients authconfig
+  
+- name: Use LDAP
+  shell: authconfig --enableldap --enableldapauth --ldapserver=172.16.1.65 --ldapbasedn="dc=green,dc=local" --enablemkhomedir --updateall
+
