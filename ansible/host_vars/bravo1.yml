@@ -71,4 +71,14 @@
             ip: '172.16.99.1'
         network: 
           - '172.16'
+    bind_statistics_channels: true
+
+    prometheus_servers:
+      - 172.16.1.5
+    prometheus_components:
+      - bind_exporter_digitalocean
+    prometheus_bind_exporter_digitalocean_port: 9119
+
+    # prometheus_bind_exporter_digitalocean_extra_opts:
+    #   - '-bind.stats-groups "server,view,tasks"'
     

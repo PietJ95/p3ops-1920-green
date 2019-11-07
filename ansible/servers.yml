@@ -21,8 +21,20 @@
   hosts: bravo1
   remote_user: root
   gather_facts: yes
+  # pre_tasks:
+  #   - name: Allow tcp port 8053 on selinux
+  #     command: sudo semanage port -a -t dns_port_t -p tcp 8053
+  #     run_once: true
+  pre_tasks:
+    - name: Allow tcp port 8053 on SELinux
+      seport:
+        ports: 8053
+        proto: tcp
+        setype: dns_port_t
+        state: present
   roles:
     - dnsBindBravoCharlie
+    - mesaguy.prometheus
 
 
 # # Configure charlie 1 (also known as the secondary, backup or slave dns server) with DNS BIND
@@ -30,9 +42,16 @@
   gather_facts: yes
   hosts: charlie1
   remote_user: root
+  pre_tasks:
+    - name: Allow tcp port 8053 on SELinux
+      seport:
+        ports: 8053
+        proto: tcp
+        setype: dns_port_t
+        state: present
   roles:
     - dnsBindBravoCharlie
- #   - mesaguy.prometheus
+    - mesaguy.prometheus
 
 # #configure quebec 1 (forwards the requests to ns12.green.local and ns12.red.local or extern dns-server)
 - name: Configure quebec1
