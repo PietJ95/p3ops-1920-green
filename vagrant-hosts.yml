@@ -62,7 +62,6 @@
 - name: papa1
   mac: '08:00:27:66:5D:0A'
   ip: 172.16.1.6
-  intnet: true
   
 # Example of a more elaborate host definition
 # - name: srv002
