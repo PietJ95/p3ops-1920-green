@@ -30,7 +30,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | Papa1               | [Thijs Bryon](https://github.com/ThijsBryon), [Robin Boone](https://github.com/Robinsane), [Piet Jacobs](https://github.com/PietJ95) | [Robin Boone](https://github.com/Robinsane) , [Thijs Bryon](https://github.com/ThijsBryon) | [Robin Boone](https://github.com/Robinsane)              |
 | Quebec1             | Beau Bellon, Robin Peerlinck, Robin Goesseye                 | Robin Goesseye                                               | Robin Peerlinck                                          |
 | Routing & Switching | [Bob Bracke](https://github.com/BobBracke), [Olivier De Vriese](https://github.com/OlivierDeVriese), [Bernard Deploige](https://github.com/BernardDeploige/) | [Bernard Deploige](https://github.com/BernardDeploige/)      | Olivier De Vriese                                        |
-| Zulu1               | Joeri Verhavert, [Olivier Troch](https://github.com/OlivierTroch) | [Olivier Troch](https://github.com/OlivierTroch)             | Joeri Verhavert                                          |
+| Zulu1               | [Joeri Verhavert](https://github.com/joeriverhavert), [Olivier Troch](https://github.com/OlivierTroch) | [Olivier Troch](https://github.com/OlivierTroch)             | [Joeri Verhavert](https://github.com/joeriverhavert)                                         |
 | Administratie       | Thibault Dewitte, [Bernard Deploige](https://github.com/BernardDeploige/) | ---                                                          | ---                                                      |
 
 ### Per teamlid
