@@ -51,6 +51,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 | [Milan Dewilde](https://github.com/HoGentTIN/p3ops-1920-logboek-milanHogent) | Alfa1                              | Alfa1                       |
 | Olivier De Vriese                                                            | Routing & Switching                | Routing & Switching         |
 | [Olivier Troch](https://github.com/OlivierTroch)                             | Zulu1                              | Testing Zulu1               |
+| [Joeri Verhavert](https://github.com/joeriverhavert)                             | Zulu1                              |  Zulu1               |
 | [Piet Jacobs](https://github.com/PietJ95)                                    | Papa1                              | Papa1                       |
 | [Robin Boone](https://github.com/Robinsane)                                  | Papa1                              | Papa1                       |
 | [Robin Goesseye](https://github.com/Robybob9)                                | Quebec1, Delta1                            | Testing Quebec1             |
