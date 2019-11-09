@@ -69,7 +69,7 @@
             ip: '172.16.1.101'
           - name: Management
             ip: '172.16.99.1'
-        network: 
+        networks: 
           - '172.16'
     bind_statistics_channels: true
 
