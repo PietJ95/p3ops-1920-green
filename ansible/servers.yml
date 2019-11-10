@@ -93,6 +93,7 @@
     - bertvv.mailserver
     - bertvv.squirrelmail
     - infOpen.lynis
+    - bats
 
 # Echo1
 - hosts: echo1
