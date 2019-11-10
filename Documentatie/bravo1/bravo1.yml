@@ -56,6 +56,8 @@
           - name: quebec1
             ip: '172.16.1.70'
           - name: zulu1
+            ip: '172.16.1.106'
+          - name: zulu1
             ip: '172.16.1.102'
           - name: Router0
             ip: '172.16.1.105'
@@ -67,6 +69,16 @@
             ip: '172.16.1.101'
           - name: Management
             ip: '172.16.99.1'
-        network: 
+        networks: 
           - '172.16'
+    bind_statistics_channels: true
+
+    prometheus_servers:
+      - 172.16.1.5
+    prometheus_components:
+      - bind_exporter_digitalocean
+    prometheus_bind_exporter_digitalocean_port: 9119
+
+    # prometheus_bind_exporter_digitalocean_extra_opts:
+    #   - '-bind.stats-groups "server,view,tasks"'
     
