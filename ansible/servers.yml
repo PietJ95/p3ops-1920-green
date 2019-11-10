@@ -1,5 +1,5 @@
 ---
-# # Node exporter for monitoring:
+# Node exporter for monitoring:
 - name: node-exporter
   hosts: nodeexporter
   become: true
@@ -15,8 +15,7 @@
     - openldap-server
     - openldap_config
 
-# # Configure bravo 1 (also known as the primary or master DNS server) with DNS BIND
-# #
+# Configure bravo 1 (also known as the primary or master DNS server) with DNS BIND
 - name: Configure bravo1
   hosts: bravo1
   remote_user: root
@@ -36,8 +35,7 @@
     - dnsBindBravoCharlie
     - mesaguy.prometheus
 
-
-# # Configure charlie 1 (also known as the secondary, backup or slave dns server) with DNS BIND
+# Configure charlie 1 (also known as the secondary, backup or slave dns server) with DNS BIND
 - name: Configure charlie1
   gather_facts: yes
   hosts: charlie1
@@ -53,7 +51,7 @@
     - dnsBindBravoCharlie
     - mesaguy.prometheus
 
-# #configure quebec 1 (forwards the requests to ns12.green.local and ns12.red.local or extern dns-server)
+# Configure quebec 1 (forwards the requests to ns12.green.local and ns12.red.local or extern dns-server)
 - name: Configure quebec1
   hosts: quebec1
   gather_facts: yes
@@ -96,7 +94,7 @@
     - bertvv.squirrelmail
     - infOpen.lynis
 
-#Echo1
+# Echo1
 - hosts: echo1
   become: true
   roles:
@@ -104,7 +102,7 @@
     - drupal
     - cloudalchemy.node-exporter
 
-#Kilo1
+# Configure kilo1 DHCP server
 - hosts: kilo1
   become: true
   roles:
@@ -117,7 +115,7 @@
     - bertvv.samba
     - openldap_client
 
-#Mike1
+# Mike1
 - hosts: mike1
   become: true
   roles:
@@ -125,24 +123,7 @@
     - drupal
     - cloudalchemy.node-exporter
 
-# # Configure oscar 1: monitoring server
-# #
-# #- hosts: oscar1
-# #  become: true
-# #  gather_facts: yes
-# #  roles:
-# #  - cloudalchemy.prometheus
-# #  - cloudalchemy.grafana
-
-# - hosts: oscar1
-#   become: true
-#   gather_facts: yes
-#   roles:
-#   - bertvv.rh-base
-#   - cloudalchemy.prometheus
-#   - cloudalchemy.grafana
-#   - jdauphant.dns
-
+# Configure oscar 1: monitoring server
 - hosts: oscar1
   become: true
   gather_facts: yes
