@@ -34,6 +34,7 @@
 
 - name: delta1
   ip: 172.16.1.68
+  box: bento/centos-7.6
 
 - name: echo1
   mac: '08:00:27:66:5D:05'
