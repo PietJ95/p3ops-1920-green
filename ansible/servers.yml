@@ -13,7 +13,7 @@
   remote_user: root
   roles:
     - openldap-server
-    - openldap_config
+    - openldap-config
 
 # Configure bravo 1 (also known as the primary or master DNS server) with DNS BIND
 - name: Configure bravo1
