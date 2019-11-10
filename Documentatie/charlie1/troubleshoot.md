@@ -19,8 +19,7 @@ Possible issues:
 
 
 ### Resolve ip address issue
-
-Bravo 1 should have a static 172.16.1.66 as IPv4 address with a /24 subnetmask. Check which ip the VM has configured by using ip a 
+Charlie 1 should have a static 172.16.1.67 as IPv4 address with a /24 subnetmask. Check which ip the VM has configured by using ip a 
 
 ``` bash
     ip a
@@ -37,7 +36,7 @@ To manually change this, edit the ethernet interface with vi which should be loc
 NM_CONTROLLED=yes
 BOOTPROTO=none
 ONBOOT=yes
-IPADDR=172.16.1.66
+IPADDR=172.16.1.67
 NETMASK=255.255.255.0
 DEVICE=eth1
 PEERDNS=no
@@ -47,11 +46,11 @@ PEERDNS=no
 
 In ansible, check in the file vagrant-hosts.yml if bravo1 has an entry.
 
-``` bash
-      #Bravo1 DNS Server
-- name: bravo1
-  mac: '08:00:27:66:5D:02'
-  ip: 172.16.1.66
+``` yaml
+   #Charlie1 DNS Backup Server
+- name: charlie1
+  mac: '08:00:27:66:5D:03'
+  ip: 172.16.1.67
   
 ``` 
 
@@ -106,8 +105,8 @@ Use the dig and nslookup commands to determine if DNS server responds to queries
  $ nslookup alpha1.green.local
 
  #Expected output:
-Server:		172.16.1.66
-Address:	172.16.1.66#53
+Server:		172.16.1.67
+Address:	172.16.1.67#53
 
 Name:	alpha1.green.local
 Address: 172.16.1.65
