@@ -17,12 +17,4 @@ Maak een duidelijk verschil tussen gebruikers, computers en groepen. Voeg enkele
  
 ## Configuratie van de LDAP rol
 
-Voor het gecentraliseerd beheer van de gebruikers kiezen we voor [OpenLDAP](https://www.openldap.org/).
-
-### Toelichting gebruikte variabelen 
-
-| Variable    | Toelichting |
-|-------------|-------------|
-https://www.techrepublic.com/article/how-to-authenticate-a-linux-client-with-ldap-server/
-https://www.howtoforge.com/linux-finger-command/
-https://wiki.archlinux.org/index.php/LDAP_authentication
+Voor het gecentraliseerd beheer van de gebruikers kiezen we voor [OpenLDAP](https://www.openldap.org/)
