@@ -5,15 +5,13 @@
 
 - name: Install the OpenLDAP and required packages for Red Hat/CentOS
   yum:
-    name: "{{ item }}"
+    name: "{{ openldap_server_pkgs }}"
     state: present
-  with_items: "{{ openldap_server_pkgs }} "
   when: ansible_os_family == 'RedHat'
 
 
 - name: Install the OpenLDAP and required packages for Ubuntu
-  apt: name={{ item }} state=installed update_cache=yes
-  with_items: openldap_server_pkgs
+  apt: name={{ openldap_server_pkgs }} state=installed update_cache=yes
   environment: env
   when: ansible_os_family == 'Debian'
 
