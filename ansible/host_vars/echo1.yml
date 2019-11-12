@@ -7,3 +7,6 @@ database_password: echo1
 drupal_site: Echo1
 drupal_account_name: admin_echo1
 drupal_account_pass: admin
+
+#prometheus_nginx_exporter:
+#  start_on_boot: yes

@@ -103,6 +103,7 @@
     - common
     - drupal
     - cloudalchemy.node-exporter
+#    - sansible.prometheus_nginx_exporter
 
 # Configure kilo1 DHCP server
 - hosts: kilo1
