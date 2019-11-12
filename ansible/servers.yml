@@ -82,6 +82,7 @@
   roles:
     - mariadb-server
     - mariadb-galera-cluster
+    - idealista.prometheus_mysqld_exporter-role
 
 - name: Configure Delta1
   hosts: delta1

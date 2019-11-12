@@ -177,3 +177,7 @@ Indien op het grafana dashboard bij bepaalde zaken staat "No data" kan je rechts
 De oscar1 server maakt gebruik van de DNS-server bravo1 om de hostnamen (alfa1,bravo1,...) om te zetten naar IP-addressen.  
  Indien er geen verbinding kan gemaakt worden met de DNS-server bravo1, dan zal prometheus geen verbinding kunnen maken met de andere servers.  
 Zorg er dus altijd voor dat de prometheus server connectie heeft met de server DNS-server.
+
+## Resources
+
+- [MariaDB monitoring](https://dzone.com/articles/monitoring-mysql-server-metrics-using-prometheus-g)

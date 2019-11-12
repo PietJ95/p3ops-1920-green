@@ -334,6 +334,11 @@ prometheus_scrape_configs:
         target_label: instance
       - target_label: __address__
         replacement: 172.16.1.5:9116  # The SNMP exporter's real hostname:port.
+  - job_name: "mysql"
+    metrics_path: "/metrics"
+    static_configs:
+      - targets:
+        - november1.green.local:9104
 
 grafana_security:
   admin_user: admin
@@ -356,4 +361,7 @@ grafana_dashboards:
     datasource: 'prometheus'
   - dashboard_id: 10024 # BIND DNS
     revision_id: 1
+    datasource: 'prometheus'
+  - dashboard_id: 7362 # MySQL Overview
+    revision_id: 5
     datasource: 'prometheus'
