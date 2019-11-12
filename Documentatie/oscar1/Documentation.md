@@ -4,43 +4,22 @@
 
 - [x] Zoeken naar goede ansible role
 - [x] Prometheus laten draaien op server `oscar1`
-- [ ] Prometheus op anders servers installeren
-- [ ] Prometheus queries schrijven
-- [ ] Zorgen dat andere servers naar prometheus rapporteren
-- [ ] Querying zodat juiste informatie wordt getoond
+- [X] Node exporter op anders servers installeren
+- [X] Zorgen dat andere servers naar prometheus rapporteren
+- [X] Querying zodat juiste informatie wordt getoond
 - [x] Installatie *Grafana* met ansible
-- [ ] Zorgen dat alles correct wordt weergegeven op grafana
-
-## Notes to Stijn
-
-> Bij testen zorgen dat je andere servers in `ansible/servers.yml` in commentaar zet. Deze gaven bij mij soms foutmeldingen omdat er dingen bij hen nog niet werken.
->
-> Installatie lukt bij mij, zie [output](commandoutput.txt).
->
-> Pingen naar het ip-adres van oscar1 (`172.16.1.5`), gaat zonder problemen, maar als ik `172.16.1.5:9100`(!1) probeer te openen in Firefox, dan lukt dit niet. Dit al geprbeerd maar werkte niet:
->
-> * Firewallregel toevoegen met http en https (`sudo firewall-cmd --add-service http`)
-> * Log over prometheus nog niet gevonden, als je dit googled krijg je resultaten van hoe logs er in importeren of hoe de logs bekijken als het draait op docker
->
-> Weet dus niet zeker als prometheus al draait op het systeem. Configuratiebestanden (`/etc/prometheus/*`) kan ik wel bekijken op de vm.
-> 
-> !1: deze poort staat ingesteld in [server.yml](/ansible/servers.yml)
-
-## Notes to Maarten
-
-> De prometheus server is bereikbaar via `172.16.1.5:9090`
-> Grafana is geinstalleerd, bereikbaar via `172.16.1.5:3000`
->   Grafana username: `admin`
->   Grafana password: `oscar1`
-> Het viel mij op dat standaard Firewalld is uitgeschakeld bij het opstarten van de server
+- [X] Zorgen dat alles correct wordt weergegeven op grafana
+- [X] SNMP Monitoring
+- [ ] Monitoring specifieke services
+- [ ] Monitoring client pc's
 
 ## Stappenplan opzetten
 
 1. `vagrant up oscar1`
 
-## Stappenplan enkele server
+## Uitleg configuratie bestanden
 
-1. Installeer prometheus-role van [Ansible Galaxy](https://galaxy.ansible.com/cloudalchemy/prometheus):
+1. Installeer prometheus-role van [Ansible Galaxy](https://galaxy.ansible.com/cloudalchemy/prometheus)
 
 ```bash
 ansible-galaxy install cloudalchemy.prometheus
@@ -54,27 +33,86 @@ ansible-galaxy install cloudalchemy.prometheus
   become: true
   gather_facts: yes
   roles:
-  - cloudalchemy.prometheus
-  - cloudalchemy.grafana
-  - cloudalchemy.node-exporter
+    - bertvv.rh-base
+    - cloudalchemy.prometheus
+    - cloudalchemy.grafana
+    - cloudalchemy.snmp-exporter
+    - jdauphant.dns
 ```
 
 3. Maak het bestand `ansible/host_vars/oscar1.yml` aan en voeg volgende code toe.  
 
 Functionaliteit code:
-* Prometheus targets toevoegen (apparaten die gemonitored moeten worden)
-* Grafana credentials instellen
-* Grafana datasource instellen
-* Grafana dashboard downloaden
+
+- Nodige firewall regels instellen
+- DNS servers van de server instellen (de DNS server moet opstaan om de servers te kunnen monitoren)
+- Prometheus targets toevoegen (apparaten die gemonitored moeten worden)
+  - Bind DNS monitoring
+  - Generieke monitoring (CPU, RAM, netwerk, ...)
+  - SNMP Monitoring (Cisco + firewall)
+- Grafana credentials instellen
+- Grafana datasource instellen
+- Grafana dashboard downloaden
 
 ``` yml
 ---
-prometheus_targets:
-  node:
-  - targets:
-    - 172.16.1.5:9100
-    labels:
-      env: Oscar1
+---
+rhbase_firewall_allow_services:
+  - http
+  - https
+rhbase_firewall_allow_ports:
+  - 9090/tcp
+  - 3000/tcp
+  - 9116/tcp
+
+dns_nameservers: 
+  - 172.16.1.66 
+  - 10.0.2.3
+
+prometheus_scrape_configs:
+  - job_name: "bind"
+    metrics_path: "/metrics"
+    static_configs:
+      - targets:
+        - bravo1.green.local:9119
+        - charlie1.green.local:9119
+
+  - job_name: "prometheus"
+    metrics_path: "/metrics"
+    static_configs:
+      - targets:
+          - alpha1.green.local:9100
+          - bravo1.green.local:9100
+          - charlie1.green.local:9100
+          - delta1.green.local:9100
+          - echo1.green.local:9100
+          - kilo1.green.local:9100
+          - lima1.green.local:9100
+          - mike1.green.local:9100
+          - november1.green.local:9100
+          - oscar1.green.local:9100
+          - papa1.green.local:9100
+          - quebec1.green.local:9100
+  - job_name: 'snmp'
+    static_configs:
+      - targets:
+        - 172.16.1.97  # SNMP device.
+        - 172.16.1.98
+        - 172.16.1.80
+        - 172.16.1.50
+        - 172.16.0.80
+        - zulu1.green.local
+    metrics_path: /snmp
+    params:
+      module: [if_mib]
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 172.16.1.5:9116  # The SNMP exporter's real hostname:port.
+
 grafana_security:
   admin_user: admin
   admin_password: oscar1
@@ -85,20 +123,31 @@ grafana_datasources:
     url: 'http://localhost:9090'
     basicAuth: false
 grafana_dashboards:
-  - dashboard_id: 10645
+  - dashboard_id: 405 # Algemeen
+    revision_id: 8
+    datasource: 'prometheus' 
+  - dashboard_id: 1860 # Node exporter full, 1 server tegelijk
+    revision_id: 15
+    datasource: 'prometheus' 
+  - dashboard_id: 2408 # SNMP Interface throughput
+    revision_id: 1
+    datasource: 'prometheus'
+  - dashboard_id: 10024 # BIND DNS
     revision_id: 1
     datasource: 'prometheus'
 ```
 
-4. Voeg aan alle servers in het bestand `ansible/servers.yml` de rol cloudalchemy.node-exporter toe.
+1. Voeg aan alle servers in het bestand `ansible/servers.yml` de rol cloudalchemy.node-exporter toe.
 
 ## Bekijken van de grafieken met grafana
 
-1. Surf naar 172.16.1.5:3000
-2. Login met gebruikersnaam `admin` en wachtwoord `oscar1`
-3. Klik linksboven op home
-4. Selecteer het enige dashboard in de lijst
-5. Bekijk de grafieken
+1. Zet oscar1 en bravo1 op `vagrant up bravo1 oscar1` (oscar1 heeft bravo1 nodig om de namen te resolven naar IP adressen)
+2. Zet de verschillende servers die je wenst te monitoren op
+3. Surf naar 172.16.1.5:3000
+4. Login met gebruikersnaam `admin` en wachtwoord `oscar1`
+5. Klik linksboven op home
+6. Selecteer het enige dashboard in de lijst
+7. Bekijk de grafieken
 
 ## Status Monitoring verschillende linux servers
 
@@ -114,8 +163,8 @@ grafana_dashboards:
 |   Mike1   | Success                                   |
 | November1 | Success                                   |
 |  Oscar1   | Success                                   |
-|   Papa1   | success                                   |
-|   Zulu1   | Failed --> Server nog niet aangemaakt     |
+|   Papa1   | Success                                   |
+|   Zulu1   | Success --> Via SNMP                      |
 
 ## Troubleshooting
 
