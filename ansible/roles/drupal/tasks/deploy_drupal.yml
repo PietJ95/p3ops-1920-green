@@ -1,3 +1,20 @@
+- name: Install policycoreutils-python
+  yum:
+    name: policycoreutils-python
+    state: present
+
+- name: Allow nginx to connect to db
+  seboolean:
+      name: httpd_can_network_connect_db
+      state: yes
+      persistent: yes
+
+- name: Allow nginx to modify files in /usr/share/nginx/html/drupal/web/sites/default/files
+  sefcontext:
+    target: '/usr/share/nginx/html/drupal/web/sites/default/files(/.*)?'
+    setype: httpd_sys_rw_content_t
+    state: present
+
 - name: Enable Software Collections
   yum:
     name: centos-release-scl-rh

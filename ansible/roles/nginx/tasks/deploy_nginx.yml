@@ -1,3 +1,8 @@
+- name: Make sure epel repo is enabled
+  yum:
+    name: epel-release
+    state: present
+
 - name: Install nginx
   yum:
     name: nginx

@@ -1,7 +1,7 @@
-- name: Make sure epel-release is enabled
-  yum:
-    name: epel-release
-    state: present
+- name: Enable metrics for nginx
+  copy:
+    src: metrics.conf
+    dest: /etc/nginx/conf.d/metrics.conf
 
 - name: Create unprivileged user for nginx exporter
   user:
