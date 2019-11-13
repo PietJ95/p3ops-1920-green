@@ -45,6 +45,13 @@ prometheus_scrape_configs:
   #     - targets:
   #       - alpha1.green.local:9330
 
+  - job_name: "nginx"
+    metrics_path: "/metrics"
+    static_configs:
+      - targets:
+        - echo1.green.local:9113
+        - mike1.green.local:9113
+
   - job_name: "prometheus"    # Custom scrape job, here using `static_config`
     metrics_path: "/metrics"
     static_configs:
