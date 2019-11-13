@@ -52,3 +52,11 @@ openldap_add_uniquemember:
 #389-directory configuration
 dirsrv_fqdn: alfa1.green.local
 dirsrv_password: letmeintomyserver
+
+# Monitoring configuration
+# prometheus_servers:
+#   - 172.16.1.5
+# prometheus_components:
+#   - openldap_exporter_tomcz
+# prometheus_openldap_exporter_tomcz_port: 9330
+# prometheus_openldap_exporter_tomcz_extra_opts: []
