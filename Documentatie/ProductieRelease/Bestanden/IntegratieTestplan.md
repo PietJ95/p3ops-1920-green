@@ -53,240 +53,63 @@ Alle servers werden geïnitialiseerd met het commando ```vagrant up```. Controle
     * Krijg je nergens de foutmelding *No Data*?
 #### 6. Papa1 (PXEBoot-server)
 #### 7. Quebec1 (Forwarding DNS)
-#### VM Testen
 * [ ] Onderzoek of de FQDN(Fully Qualified Domain Name) is ingesteld op quebec1.green.local?
   * Gebruik het commando ```hostname``` om dit te controleren. 
 
-## NSLookups Testen
-### Alfa1
-```bash
-nslookup alfa1
-```
-Dit moet teruggeven: 172.16.1.?
+##### NSLookups Testen
+* [ ] Controleer NSLookups van de servers overeenkomen met onderstaand tabel.
+    * Gebruik ``` nslookup alfa1 ``` om de gegevens te verkrijgen. 
+      * Pas steeds de servergeving aan voor de juiste server. 
 
-### Bravo1
-```bash
-nslookup bravo1
-```
-Dit moet teruggeven: 172.16.1.?
+| Naam       | VLAN    | IP-adres                         | 
+| :--------- | :------ | :------------------------------- |
+| Alfa1      | VLAN 50 | 172.16.1.65                      |
+| Bravo1     | VLAN 50 | 172.16.1.66                      |
+| Charlie1   | VLAN 50 | 172.16.1.67                      |   
+| Delta1     | VLAN 50 | 172.16.1.68                      |    
+| Echo1      | VLAN 50 | 172.16.1.69                      |   
+| Quebec1    | VLAN 50 | 172.16.1.70                      |  
+| Kilo1      | VLAN 30 | 172.16.1.1                       |   
+| Lima1      | VLAN 30 | 172.16.1.2                       |    
+| Mike1      | VLAN 30 | 172.16.1.3                       |   
+| November1  | VLAN 30 | 172.16.1.4                       |    
+| Oscar1     | VLAN 30 | 172.16.1.5                       |    
+| Papa1      | VLAN 30 | 172.16.1.6                       |
+| www.hogent.be | / | ??? |
 
-### Charlie1
-```bash
-nslookup charlie1
-```
-Dit moet teruggeven: 172.16.1.?
-
-### Delta1
-```bash
-nslookup delta1
-```
-Dit moet teruggeven: 172.16.1.?
-
-### Echo1
-```bash
-nslookup echo1
-```
-Dit moet teruggeven: 172.16.1.?
-
-### Kilo1
-```bash
-nslookup kilo1
-```
-Dit moet teruggeven: 172.16.1.?
-
-### Lima1
-```bash
-nslookup lima1
-```
-Dit moet teruggeven: 172.16.1.?
-
-### Mike1
-```bash
-nslookup mike1
-```
-Dit moet teruggeven: 172.16.1.?
-
-### November1
-```bash
-nslookup november1
-```
-Dit moet teruggeven: 172.16.1.?
-
-### Papa1
-```bash
-nslookup papa1
-```
-Dit moet teruggeven: 172.16.1.?
-
-### Oscar1
-```bash
-nslookup oscar1
-```
-Dit moet teruggeven: 172.16.1.?
-
-### Quebec1
-```bash
-nslookup quebec1
-```
-Dit moet teruggeven: 172.16.1.?
-
-### Zulu1
-```bash
-nslookup zulu1
-```
-Dit moet teruggeven: 172.16.1.?
-
-### www.hogent.be
-```bash
-nslookup www.hogent.be
-```
-
-Vindt deze de website terug?
-
-### www.facebook.com
-```bash
-nslookup www.facebook.com
-```
-
-Vindt deze de website terug?
 #### 8. November1 (MariaDB)
-1. Is de MariaDB service gestart bij de boot?
-    > *sudo systemctl status mariadb*
-2. Is de MariaDB service 'Actief'?
-    > *sudo systemctl status mariadb*
-3. Bestaan de databanken 'drupal_echo1' en 'drupal_mike1'?
-    > *mysql -uroot -p${mariadb_root_password} --execute 'show databases'*
-4. Hebben de gebruikers 'mike1_user' en 'echo1_user' schrijfrechten voor de aangewezen databanken?
-    > *mysql -u${mike1_user} -pmike1 \ --execute 'CREATE TABLE a (id int); DROP TABLE a;*
-5.  De MariaDB mag geen testdatabank en anonieme gebruikers meer hebben,klopt dit?
-    > *run mysql -uroot -p${mariadb_root_password} --execute 'show databases' test [ "0" -ne "${status}" ]*
-    > *sudo systemctl list-units --type service*
-3. Bestaan de databanken 'drupal_echo1' en 'drupal_mike1'?
-    > *mysql -uroot -p${mariadb_root_password} --execute 'show tables'*
-4. Hebben de gebruikers 'mike1_user' en 'echo1_user' schrijfrechten voor de aangewezen databanken?
-    > *mysql -u${mike1_user} -pmike1 \ --execute 'CREATE TABLE a (id int); DROP TABLE a;*
-5.  De MariaDB mag geen testdatabank en anonieme gebruikers meer hebben,klopt dit?
-    > *run mysql -uroot -p${mariadb_root_password} --execute 'show tables' test [ "0" -ne "${status}" ]*
-    > *result=$(mysql -uroot -p${mariadb_root_password} --execute "select * from user where user='';" mysql) [ -z "${result}" ]*
+* [ ] Controleer of de MariaDB service gestart is bij de boot.
+    * sudo systemctl status mariadb
+* [ ] Verifeer of de MariaDB service 'Actief' is.
+    * sudo systemctl status mariadb
+* [ ] Toets of de databanken 'drupal_echo1' en 'drupal_mike1' bestaan. 
+    * mysql -uroot -p${mariadb_root_password} --execute 'show databases'*
+    * mysql -uroot -p${mariadb_root_password} --execute 'show tables'*
+* [ ] Onderzoek of gebruikers 'mike1_user' en 'echo1_user' schrijfrechten voor de aangewezen databanken.
+    * mysql -u${mike1_user} -pmike1 \ --execute 'CREATE TABLE a (id int); DROP TABLE a;*
+* [ ] Inspecteer dat MariaDB geen testdatabank en anonieme gebruikers meer heeft. 
+    * run mysql -uroot -p${mariadb_root_password} --execute 'show databases' test [ "0" -ne "${status}" ]*
+    * sudo systemctl list-units --type service*
+    * result=$(mysql -uroot -p${mariadb_root_password} --execute "select * from user where user='';" mysql) [ -z "${result}" ]
 #### 9. Echo1 (Webserver)
 #### 10. Mike1 (Content management systeem)
-## Test toegangelijkheid
-
-1. Ga naar www.green.local (of 172.16.1.69) in de browser
-    * Expcted: Er wordt een webpagina of getoond
+##### Test toegangelijkheid
+* [ ] Controleer indien www.green.local(of 172.16.1.69) in de browser een webpagina toont.
     * Opmerking: dns records voor www.green.local zijn vereist
 
-## Test https
-
-1. Ga naar https://www.green.local
+##### Test https
+* [ ] Controleer indien https actief is. 
+ *  Ga naar https://www.green.local
     * Expected: https werkt en u krijgt een webpagina te zien
 
-2. Ga naar http://www.green.local
+* [ ] Controleer of je van **http://www.green.local** geredirect wordt naar **https://www.green.local**.
     * Expected: http://www.green.local wordt geredirect naar https://www.green.local
-
-## Test Drupal
-
-1. Ga naar www.green.local
-    * Expected: u krijgt de drupal homepage te zien
-
-2. Klik op "Log in" en "Create a new account"
-    * Expected: u krijgt een melding te zien dat het aangemaakte account op approval van de admin wacht
-
-3. Ga terug naar de log in pagina en log in met de credentials van het admin account
-    * Expected: u krijgt extra controls te zien
-
-4. Ga naar de tab "People" en unblock de test user die u in stap 2 creëerde
-    * Expected: de test user wordt successvol gedeblokkeerd
-
-5. Edit de test user
-    * Expected: u krijgt een pagina te zien waar u aanpassing aan de test user kan maken
-
-6. Verander het password van de test user
-    * Expected: het password is succesvol aangepast
-
-7. Maak een article en basic page aan onder de content tab
-    * Expected: het article en de basic page zijn succesvol aangemaakt
+##### Test Drupal
+ --> vragen aan verantwoordelijke Mike. Karel 
 #### 11. Lima1 (Interne file-server)
-
 #### 12. Delta1 (Mailserver)
-1. Correct ip-adres
-
-Run volgende commando's in terminal op de host
-
-```
-$ bats /vagrant/test/delta1/delta1.bats
-```
-
-2. Correcte default gateway
-
-Wordt nagekeken in bovenstaande bats test.
-
-3. Correcte firewall instellingen
-
-Worden nagekeken in bovenstaande bats test.
-
-4. Inloggen webportaal en mailbox bekijken in webbrowser
-
-Open browser op url http://172.16.1.68/webmail
-
-Log in met gegevens:
-
-```
-Name: johndoe
-Password: test123
-```
-
-Klik op "INBOX" in de linkerkolom
-
-5. Mail verzenden BINNEN domein
-
-Klik op "Compose" bovenaan de webpagina en voer volgende gegevens in
-
-```
-To: ericdoe@green.local
-Subject: anytesttexthere
-```
-
-en in het tekstveld:
-
-```
-Testtext in textarea from johndoe@green.local
-```
-
-Klik op "Sent" in de linkerkolom. Hier zou de mail moeten terechtkomen.
-
-6. Mail verzenden BUITEN domein
-
-Klik op "Compose" bovenaan de webpagina en voer volgende gegevens in
-
-```
-To: ericdoe@red.local
-Subject: anytesttexthere
-```
-
-en in het tekstveld:
-
-```
-Testtext in textarea from johndoe@green.local
-```
-
-Klik op "Sent" in de linkerkolom. Hier zou de mail moeten terechtkomen.
-
-7. Mail ontvangen BINNEN domein
-
-Klik op "Sign Out" rechts bovenaan de webpagina. Log weer in met volgende gegevens:
-
-```
-Name: ericdoe
-Password: test123
-```
-
-Hier zou de mail van "johndoe@green.local" moeten terechtkomen.
-
-8. Mail ontvangen BUITEN domein
-
-Deze test kan pas uitgevoerd worden in samenwerking met Windows-kant van het project.
-
-
+* [ ] Het testscript moet voltooid zijn zonder foutmeldingen. 
+  * Gebruik ```bats /vagrant/test/delta1/delta1.bats``` om het script te runnen. 
+   
 
 #### Opgesteld door Olivier Troch en Joeri Verhavert
