@@ -57,12 +57,9 @@
   command: "{{ composer_path }}/composer create-project {{ drupal_version }} {{ drupal_directory }} --no-interaction"
   args:
     chdir: "{{ drupal_directory }}"
-  notify:
-    - restart nginx
-
+ 
 - name: Install drupal
   command: "{{ drupal_directory }}/vendor/bin/drush --root={{ drupal_directory }} site-install -y --site-name={{ drupal_site }} --account-name={{ drupal_account_name }} --account-pass={{ drupal_account_pass }} --db-url=mysql://{{ database_user }}:{{ database_password }}@{{ database_host }}/{{ database }}"
   args:
     chdir: "{{ drupal_directory }}"
-  notify:
-    - restart nginx
+  
