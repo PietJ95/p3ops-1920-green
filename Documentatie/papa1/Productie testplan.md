@@ -1,10 +1,7 @@
 # Testplan papa1 voor productierelease
-## Internet connectiviteit (DNS)
-DNS resolving moet werken: 
 
-    ping google.be
 ## Services
-Controleer dat volgende services correct draaien: 
+Controleer op de PXEserver dat volgende services correct draaien: 
 - nginx
 
         systemctl status nginx
@@ -21,14 +18,10 @@ Moet als uitvoer geven:
     /dev/loop0 /var/www/html/centos8 iso9660 ro,relatime 0 0
     /dev/loop1 /var/www/html/fedora iso9660 ro,relatime 0 0
 
-## DHCP Server
-DHCP server moet up en bereikbaar zijn:
-
-    ping 172.16.1.1
-
 ## Connectiviteit met nieuwe vm's
-- Blanco VM booten met netwerkboot
+- Werkstation booten met als eerste bootoptie "boot via network"
 - Blauw scherm moet zichtbaar worden met opties voor CentOS8 en Fedora Workstation
-- Beide opties testen: files moeten correct inladen en installatie moet doorgaan tot aan het kickstart deel  
+- Bij het kiezen van de CentOS8 optie worden de installatie files gemount en begint de installatie van de OS zonder foutmeldingen
+- Bij het kiezen van de Fedora optie worden de correcte files gemount en begint de installatie van de OS zonder foutmeldingen
 
-&rarr; Hier volgt het testplan voor de Kickstart configuratie, valt buiten de scope van het PXE Server testplan.
+&rarr; De hosts geboot & geïnstalleerd adhv de PXEboot server worden apart getest adhv test files. Deze bevinden zich buiten het algemeen testplan.
