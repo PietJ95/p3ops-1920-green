@@ -4,7 +4,7 @@
   hosts: nodeexporter
   become: true
   roles:
-    - cloudalchemy.node-exporter
+    - node-exporter
 
 # Configure server alfa1 with LDAP role
 - name: Configure alfa1
