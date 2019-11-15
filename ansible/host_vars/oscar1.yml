@@ -378,3 +378,6 @@ grafana_dashboards:
   - dashboard_id: 7362 # MySQL Overview
     revision_id: 5
     datasource: 'prometheus'
+  - dashboard_id: 11199 # Nginx by nginxinc
+    revision_id: 1
+    datasource: 'prometheus'
