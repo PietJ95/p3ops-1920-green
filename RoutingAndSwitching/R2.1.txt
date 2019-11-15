@@ -16,8 +16,16 @@ no shut
 int s0/1/0
 ip address 172.16.1.97 255.255.255.252
 no shut
+exit
 
 ip route 0.0.0.0 0.0.0.0 172.16.1.98
+
+access-list 1 permit 172.16.0.0 0.0.0.255
+access-list 1 permit 172.16.1.0 0.0.0.63
+access-list 1 permit 172.16.1.64 0.0.0.31
+
+int s0/1/0
+ip access-group 1 in
 
 router rip
 version 2
