@@ -15,6 +15,8 @@ ip address 172.16.1.110 255.255.255.252
 no shut
 exit
 
+ip route 0.0.0.0 0.0.0.0 s0/1/0
+
 router rip
 version 2
 network 172.16.0.0
