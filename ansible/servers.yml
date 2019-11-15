@@ -102,8 +102,6 @@
   roles:
     - common
     - drupal
-    - cloudalchemy.node-exporter
-#    - sansible.prometheus_nginx_exporter
 
 # Configure kilo1 DHCP server
 - hosts: kilo1
@@ -124,7 +122,6 @@
   roles:
     - common
     - drupal
-    - cloudalchemy.node-exporter
 
 # Configure oscar 1: monitoring server
 - hosts: oscar1
@@ -132,9 +129,9 @@
   gather_facts: yes
   roles:
     - bertvv.rh-base
-    - cloudalchemy.prometheus
-    - cloudalchemy.grafana
-    - cloudalchemy.snmp-exporter
+    - prometheus
+    - grafana
+    - snmp-exporter
     - jdauphant.dns
 
 - hosts: papa1
