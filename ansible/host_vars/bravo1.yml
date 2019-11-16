@@ -3,7 +3,9 @@
     bind_zone_dir: /var/local/named-zones
     bind_zone_file_mode: '0660'
     bind_allow_query:
-      - 172.16/16
+      - 172.16.1.0/24
+      - 172.16.0.0/24
+      - 172.16.99.0/24
     bind_listen_ipv4:
       - any
     bind_listen_ipv6:
