@@ -1,6 +1,29 @@
-#httpd_server_admin: bert@linuxlab.lan
-#httpd_listen: 8080
----
+# Testplan Lima1
+
+Author: [Jonas Spitaels](https://github.com/JonasSpitaels) & [Berkant Kücüksolak](https://github.com/BerkantKs)
+
+
+
+
+
+# BIJKOMENDE INFORMATIE (NIET NODIG)
+
+Om de Lima1 fileserver op te zetten dienen de rollen rhbase (bertvv.rh-base), samba (bertvv.samba) en client voor openldap (openldap-client) geïnstalleerd te worden. Aangezien Alfa1 momenteel nog aan het werken is aan de integratie (met de openldap-client rol) van de door hun aangemaakte groepen (users zijn al in orde) zodat Lima1 deze kan gebruiken en hiervoor Samba users en shares kan aanmaken, werkt Lima1 voorlopig op lokaal aangemaakte users en groups. Hopelijk kan dit tegen de uiteindelijke release gefixt worden. Hieronder zijn een onderdeel 'Lokaal' en een onderdeel 'Met integratie' aangemaakt. 
+
+
+
+
+# NODIGE INFO
+
+Om Lima1 voorlopig te testen moet de code onder 'Lokaal' in het 'Lima1.yml' bestand komen. Eens je daarna 'vagrant up lima1' doet, en er normaal 0 fouten zijn, doe je 'vagrant ssh lima1'. Vervolgens controleer je a.d.h.v. de testcode bij het onderdeel 'Testcode' of de fileserver naar behoren werkt.
+
+
+
+
+## Lokaal
+
+
+
 
 #--firewall-----------------------------#
 rhbase_firewall_allow_services:
@@ -21,7 +44,6 @@ rhbase_users:
   - name: Robert
     comment: 'Robert'
     password: 'abc123!'
-    #shell: /sbin/nologin
     groups: 
       - IT_Administratie
       - Verkoop
@@ -144,5 +166,39 @@ samba_shares:
 
 
 
-#-------------------------------#
 
+
+## Met integratie
+
+
+
+## TESTCODE (4 tests)
+
+- Test of de samba shares aangemaakt en dus beschikbaar zijn
+
+Geef het volgende commando in: smbclient -L //lima1/
+Er wordt daarna een wachtwoord gevraagd. Voer het volgende wachtwoord in: vagrant
+Nu krijg je een overzicht van alle 5 de shares te zien.
+
+
+- Test of je met samba user 'Viktor' kan inloggen op de share 'IT_Administratie' waar hij WEL toegangsrechten op heeft
+
+Geef het volgende commando in: smbclient //lima1/IT_Administratie/ -UViktor%mno123!
+Je krijgt nu normaal deze prompt te zien: smb: \>
+Dit wil zeggen dat je ingelogd bent op de IT_Administratie share.
+
+
+- Test of je met samba user 'Viktor' kan inloggen op de share 'Administratie' waar hij GEEN toegangsrechten op heeft
+
+Geef het volgende commando in: smbclient //lima1/Administratie/ -UViktor%mno123!
+Je krijgt nu normaal deze error output te zien: 'NT_STATUS_ACCESS_DENIED'
+Dit wil zeggen dat je als Viktor niet kan inloggen op de Administratie share.
+
+
+- Test of je op een share kan inloggen als een gast op de 'dministratie' (of 1 van de 4 andere) share
+
+Geef het volgende commando in: smbclient //lima1/Administratie -U%
+Je krijgt nu normaal deze error output te zien: 'NT_STATUS_ACCESS_DENIED'
+Dit wil zeggen dat je als gast niet kan inloggen op de Administratie (of 1 van de 4 andere)share.
+
+---
