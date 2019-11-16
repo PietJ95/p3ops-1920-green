@@ -7,6 +7,7 @@ Controleer op de PXEserver dat volgende services correct draaien:
         systemctl status nginx
 - xinetd
         
+  
         systemctl status xinetd
 
 ## Mounts
@@ -25,3 +26,48 @@ Moet als uitvoer geven:
 - Bij het kiezen van de Fedora optie worden de correcte files gemount en begint de installatie van de OS zonder foutmeldingen
 
 &rarr; De hosts geboot & geïnstalleerd adhv de PXEboot server worden apart getest adhv test files. Deze bevinden zich buiten het algemeen testplan.
+
+# Hosts testen
+
+## CentOS
+
+Zoek het ip adres op host adhv
+
+	ip a
+
+### Test mogelijkheid tot Ansible gebruiken als CMS adhv:
+
+	#wachtwoord is papacentos
+	ssh root@~ipaddrhost~
+
+### Test admin user:
+
+	#wachtwoord is AdminGreen
+	su admin
+
+### test package installatie / configuratie updates
+   * touch testfile
+   * nano: nano testfile -> ctrl x
+   * vim: vim testfile -> :q
+   * test autocompletion in bash met tab
+   * test net-tools: ifconfig
+   * curl: curl -> ok als er suggesties gegeven worden, NOK als er staat "curl command not found" 
+
+### test monitoring
+
+Surf naar ~ipaddrhost~:9100
+
+## Fedora
+
+### Inloggen met user
+
+? root : root
+? vagrant : vagrant
+
+### controlleer aanwezigheid x (webbrowser)
+
+### controleer aanwezigheid y (Office)
+
+### Controleer aanwezigheid thunderbird (Mailclient)
+
+### Controleer aanwezigheid okular (PDF-viewer)
