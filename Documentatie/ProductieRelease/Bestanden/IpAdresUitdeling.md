@@ -8,7 +8,7 @@ In onderstaand tabel vind je de IP range per server/team om je virtuele machine 
 | Charlie1   |  172.16.1.79                      | 172.16.1.82   |
 | Delta1     |  172.16.1.83                      | 172.16.1.86   |
 | Echo1      |  172.16.1.87                      | 172.16.1.90   |
-| Quebec1    |  172.16.1.91                      | 172.16.1.94   |
+| Quebec1    |  172.16.1.91                      | 172.16.1.93   |
 | Kilo1      |  172.16.1.7                       | 172.16.1.10   |
 | Lima1      |  172.16.1.11                      | 172.16.1.14   |
 | Mike1      |  172.16.1.15                      | 172.16.1.18   |
