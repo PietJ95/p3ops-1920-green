@@ -1,4 +1,11 @@
 ---
+#Configure dns servers for all servers
+- name: config-dns
+  hosts: all:!quebec1
+  become: true
+  gather_facts: yes
+  roles:
+    - jdauphant.dns
 # Node exporter for monitoring:
 - name: node-exporter
   hosts: nodeexporter
