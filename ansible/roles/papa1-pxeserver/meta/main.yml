@@ -11,6 +11,5 @@ galaxy_info:
 
 dependencies:
   #- shomatan.nginx
-  #- shomatan.dhcpd
   #- shomatan.tftp
   #- shomatan.xinetd
