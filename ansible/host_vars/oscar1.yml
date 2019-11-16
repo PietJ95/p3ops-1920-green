@@ -7,10 +7,6 @@ rhbase_firewall_allow_ports:
   - 3000/tcp
   - 9116/tcp
 
-dns_nameservers: 
-  - 172.16.1.66 
-  - 10.0.2.3
-
 # prometheus_targets:
 #   node:
 #   - targets:
