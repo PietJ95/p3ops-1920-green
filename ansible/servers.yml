@@ -158,6 +158,7 @@
     - prometheus
     - grafana
     - snmp-exporter
+    - jdauphant.dns
 
 - hosts: papa1
   become: true
