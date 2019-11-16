@@ -30,8 +30,8 @@
     - initrd.img
     - vmlinuz
 
-- name: Download centos8.iso
-  get_url: url={{ pxe_server_kickstart_iso_download_path }} dest={{ pxe_server_kickstart_iso_file_path }}
+# - name: Download centos8.iso
+#   get_url: url={{ pxe_server_kickstart_iso_download_path }} dest={{ pxe_server_kickstart_iso_file_path }}
 
 # ISO mount
 - name: Mount the CentOS image.
@@ -49,3 +49,8 @@
 
 - name: Copy Fedora kickstart file
   copy: src="/vagrant/ansible/roles/papa1-pxeserver/templates/fedora.cfg" dest="/var/www/html/kickstart/fedora.cfg" remote_src=True
+
+- name: Put SELinux in permissive mode, logging actions that would be blocked.
+  selinux:
+    policy: targeted
+    state: permissive
