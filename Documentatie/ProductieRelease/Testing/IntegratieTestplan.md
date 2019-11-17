@@ -22,9 +22,9 @@
 * Het netwerk is volledig opgesteld door het netwerk team.
 * Alle servers zijn geïnitialiseerd en zijn up and running.
     * Dit kan je controleren met het commando:
-      ``` bash
-      vagrant status
-      ```
+	``` bash
+	vagrant status
+	```
     * Dit ziet er als volgt uit:
 	```
 	alfa1                     running (virtualbox)
