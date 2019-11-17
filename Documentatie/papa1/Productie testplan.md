@@ -61,13 +61,14 @@ Surf naar ~ipaddrhost~:9100
 
 ### Inloggen met user
 
-? root : root
-? vagrant : vagrant
+ root : root
+ vagrant : vagrant
 
-### controlleer aanwezigheid x (webbrowser)
-
-### controleer aanwezigheid y (Office)
-
+### controlleer aanwezigheid Firefox (webbrowser)
+  * Ga na of u het icoontje van firefox op uw bureaublad ziet. 
+### controleer aanwezigheid Libreoffice (Office)
+  * Ga na of u het icoontje van Libreoffice op uw bureaublad ziet. 
 ### Controleer aanwezigheid thunderbird (Mailclient)
-
+  * Ga na of u het icoontje van thunderbird op uw bureaublad ziet. 
 ### Controleer aanwezigheid okular (PDF-viewer)
+  * Ga na of u het icoontje van okular op uw bureaublad ziet. 
