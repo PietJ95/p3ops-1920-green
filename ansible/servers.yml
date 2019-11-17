@@ -113,8 +113,8 @@
   become: true
   roles:
     - bertvv.rh-base
-    - sepolicy
     - bertvv.httpd
+    - openldap-client
     - bertvv.mailserver
     - bertvv.squirrelmail
     - infOpen.lynis
