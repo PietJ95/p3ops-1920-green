@@ -26,7 +26,7 @@
               - '172.16.1.69'
             aliases:
               - www
-          - name: alpha1
+          - name: alfa1
             ip: '172.16.1.65'
           - name: bravo1
             ip: '172.16.1.66'
