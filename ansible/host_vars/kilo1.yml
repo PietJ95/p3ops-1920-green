@@ -15,6 +15,7 @@ dhcp_global_domain_name: green.local # search domain
 dhcp_global_bootp: allow
 dhcp_global_booting: allow
 dhcp_global_next_server: 172.16.1.6  # papa1
+dhcp_global_filename: "centos/pxelinux.0"
 
 dhcp_subnets:
     # VLAN 20
