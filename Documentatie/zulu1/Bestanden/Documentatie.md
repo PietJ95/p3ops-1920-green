@@ -90,16 +90,16 @@ Enable de 'SNMP Daemon service' voor monitoring.
 #### Aliasses
 
 * Kies voor firewall in de navigatiebalk.
-* Druk vervolgens alliases in het dropdown menu.
-    * Naam: HTTP_HTTPS
+* Druk vervolgens aliases in het dropdown menu.
+    * Naam: HTTPandHTTPS
     * Type: Port(s)
         * Port: 80 (HTTP)
         * Port: 443 (HTTP/S)
-    * Naam: IMAP_IMAPS
+    * Naam: IMAPandIMAPS
     * Type: Port(s)
         * Port: 143 (IMAP)
         * Port: 993 (IMAP/S)
-    * Naam: POP_POPS
+    * Naam: POPandPOPS
     * Type: Port(s)
         * Port: 110 (POP3)
         * Port: 995 (POP/S)
