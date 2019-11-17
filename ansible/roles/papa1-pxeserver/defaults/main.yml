@@ -7,5 +7,5 @@ pxe_server_kickstart_iso_download_path: "http://ftp.riken.jp/Linux/centos/7/isos
 pxe_server_kickstart_iso_mount_path: /var/www/html/centos7
 
 pxe_server_kickstart_default_timeout: 300
-pxe_server_kickstart_default_title: "########## CentOS 7 PXE Boot Menu ##########"
+pxe_server_kickstart_default_title: "########## PXE Boot Menu ##########"
 pxe_server_kickstart_default_menu: {}
