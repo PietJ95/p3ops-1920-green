@@ -5,17 +5,17 @@
 * Externe computer is geconnecteerd om de web GUI te bereiken.
 
 ### Controleer de interfaces via de web GUI
-* [] Kijk of deze correct ingesteld zijn.
+* [] Controleer of deze correct ingesteld zijn.
 	* WAN: 192.168.1.106/30
     * LAN: 192.168.1.102/29(30??)
 
-* [] Kijk of de daemon services aan staan.
+* [] Controleer of de daemon services aan staan.
     * Kies voor services in de navigatiebalk en druk op SNMP in het dropdown menu.
 	* De services staan aan, met polling port 161.
 
-* [] Kijk of de juiste roles/aliases aan staan
+* [] Controleer of de juiste roles/aliases aan staan
 	* Kies voor firewall in de navigatiebalk en druk op aliases in het dropdown menu.
-	* De volgende aliases bestaan: 
+	* De volgende aliases moeten bestaan: 
 		* HTTPandHTTPS
 			* Poort 80 & 443
 		* IMAPandIMAPS
@@ -23,11 +23,11 @@
 		* POPandPOPS
 			* Poort 110 & 995
 
-* [] Kijk of DHCP Server is uitgeschakeld
+* [] Controleer of DHCP Server is uitgeschakeld
 	* Kies voor services in de navigatiebalk en druk op DHCP Server in het dropdown menu
 	* Enable DHCP is niet aangeduid
 	
-* [] Kijk of IPv6 is uitgeschakeld
+* [] Controleer of IPv6 is uitgeschakeld
 	* Kies voor system in de navigatiebalk, druk op advanced in het dropdown menu en druk vervolgens op networking
 	* Allow IPv6 is niet aangeduid
 	
