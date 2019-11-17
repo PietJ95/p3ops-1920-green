@@ -1,4 +1,4 @@
-#Testplan setup en configuratie Zulu1
+# Testplan setup en configuratie Zulu1
 ## Setup
 1. Op het hostsysteem, ga naar de locale directory van het project repo.
 2. Voer het commando `vagrant up Zulu1` uit.
