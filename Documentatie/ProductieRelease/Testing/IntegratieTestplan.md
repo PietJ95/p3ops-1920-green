@@ -26,9 +26,22 @@
       vagrant status
       ```
     * Dit ziet er als volgt uit:
-```
-/// te doen maandag
-```
+	```
+	alfa1                     running (virtualbox)
+	quebec1                   running (virtualbox)
+	bravo1                    running (virtualbox)
+	charlie1                  running (virtualbox)
+	november1                 running (virtualbox)
+	november2                 running (virtualbox)
+	november3                 running (virtualbox)
+	delta1                    running (virtualbox)
+	echo1                     running (virtualbox)
+	kilo1                     running (virtualbox)
+	lima1                     running (virtualbox)
+	mike1                     running (virtualbox)
+	oscar1                    running (virtualbox)
+	papa1                     running (virtualbox)
+	```
 * Alle apparaten zijn voorzien van het juiste IP adres.
     * Voor servers kan je dit controleren via het commando:
     ``` bash
@@ -41,13 +54,97 @@
 
 ## Stappenplan
 #### 1. Netwerk & server opstellen (R&S & Productie-omgeving)
-###### Router0
+##### Router0
 * [ ] Test indien de hostsnaam gelijk is aan **Router0**.
     * Gebruik onderstaand commando om dit te controleren.
      ``` bash
           show running-config
      ```
-* [ ] Controleer
+* [ ] Controleer RIPv2 en ACL
+    * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show running-config
+     ```
+* [ ] Controleer interface G0/0 en interface S0/1/0
+    * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show ip interface brief
+     ```
+##### Router2
+* [ ] Test indien de hostsnaam gelijk is aan **Router2**.
+    * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show running-config
+     ```
+* [ ] Controleer RIPv2 en ACL
+    * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show running-config
+     ```
+* [ ] Controleer interface G0/0 en interface S0/1/0
+    * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show ip interface brief
+     ```
+##### Switch0L2
+* [ ] Test indien de hostsnaam gelijk is aan **Switch0L2**.
+    * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show running-config
+     ```
+* [ ] Controleer de switchport mode trunk op vlan 20 en switchport mode acces f0/2-7 vlan 20
+    * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show running-config
+     ```
+##### Switch1L3
+* [ ] Test indien de hostsnaam gelijk is aan **Switch1L3**.
+    * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show running-config
+     ```
+* [ ] Controleer de switchport mode Trunk op f0/1-2 en switchport mode Acces f0/3-8 vlan 30
+    * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show running-config
+     ```
+##### Switch2L3
+* [ ] Test indien de hostsnaam gelijk is aan **Switch2L3**.
+    * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show running-config
+     ```
+* [ ] Controleer de switchport trunk encapsulation dot1q op interface f0/1 & f0/3.
+    * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show running-config
+     ```
+ * [ ] Controleer vlan 20/30/40 interface en toegekend ip adres.
+     * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show running-config
+     ```    
+ * [ ] Controleer RIPv2.
+    * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show running-config
+     ```     
+##### Switch3L2
+* [ ] Test indien de hostsnaam gelijk is aan **Switch3L2**.
+    * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show running-config
+     ```   
+* [ ] Controleer of vlan 50 bestaat en switchport mode access vlan 50 op interfaces f0/1-53.
+    * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show running-config
+     ```  
+* [ ] Controleer switchport mode trunk native vlan 1 op f0/6. Allowed vlan 50 & 20.
+    * Gebruik onderstaand commando om dit te controleren.
+     ``` bash
+          show running-config
+     ```  
 #### 2. Kilo1 (DHCP)
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.1*** bevat.
     * Gebruik onderstaand commando om dit te controleren.
