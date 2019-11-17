@@ -1,4 +1,4 @@
-#Alle gedeelde variabalen tussen de 3 database servers
+# group_vars/galeracluster.yml
 ---
 ##Mariadb-server variabalen##
 

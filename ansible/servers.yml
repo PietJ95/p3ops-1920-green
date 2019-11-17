@@ -90,6 +90,23 @@
     - mariadb-server
     - mariadb-galera-cluster
     - idealista.prometheus_mysqld_exporter-role
+    
+#enkel opzetten na week 9 !
+#- hosts: november2
+  #become: true
+  #gather_facts: yes
+  #roles:
+    #- mariadb-server
+    #- mariadb-galera-cluster
+    #- idealista.prometheus_mysqld_exporter-role
+
+#- hosts: november3
+  #become: true
+  #gather_facts: yes
+  #roles:
+    #- mariadb-server
+    #- mariadb-galera-cluster
+    #- idealista.prometheus_mysqld_exporter-role
 
 - name: Configure Delta1
   hosts: delta1
