@@ -1,4 +1,4 @@
-#Testplan setup en configuratie Zulu1 
+# Testplan setup en configuratie Zulu1 
 ## Setup 
 1. Na het uitvoeren van 'Vagrant up Zulu1' controleerde ik de WAN en LAN, deze waren beiden in orde.
 
@@ -9,7 +9,7 @@ Ik heb een extra host aangemaakt om zo via een intern netwerk de server te berei
 1. OK, de hostname is Zulu1.  
 2. OK, Zulu1 bevindt zich in het juiste domein.   
 3. OK, het standaard wachtwoord is veranderd.  
-4. OK, via de navigatiebalk, klikken op 'System' en dan op update. Dit wa up to date.  
+4. OK, via de navigatiebalk, klikken op 'System' en dan op update. Dit was up to date.  
 5. OK, deze zijn enabled.
 6. OK, de 3 volgende firewall aliassen zijn aanwezig. 
     * HTTPandHTTPS, met volgende settings:
@@ -20,7 +20,7 @@ Ik heb een extra host aangemaakt om zo via een intern netwerk de server te berei
         >* Type: Port(s)
         >* Port: 143 (IMAP)
         >* Port: 993 (IMAP/S)
-    * POandPOPS
+    * POPandPOPS
        >* Type: Port(s)
        >* Port: 110 (POP3)
        >* Port: 995 (POP/S)
