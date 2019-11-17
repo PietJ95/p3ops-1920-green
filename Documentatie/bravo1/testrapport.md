@@ -258,6 +258,5 @@ Verkregen output:
 Server:         172.16.1.66
 Address:        172.16.1.66#53
 
-Name:   alpha1.green.local
-Address: 172.16.1.65
+** server can't find alpha1.green.local: REFUSED
 ```
