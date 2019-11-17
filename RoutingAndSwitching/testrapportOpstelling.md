@@ -45,7 +45,7 @@ Voor de opstelling is er gebruik gemaakt van onderstaande IP-tabel opgesteld met
  - [x] ACL opgesteld
  - [x] Router RIPv2 ingesteld
  - [x] Interface G0/0 open
- - [] Interface S0/1/0 open
+ - [x] Interface S0/1/0 open
 
 ### Hostnames en IP-adres geconfigureerd
 Als de prompt iets anders is dan de standaard `router>`, dan is er een hostname geconfigureerd. Kan ook gecheckt worden door `show running-config` 
@@ -92,7 +92,7 @@ Serial0/1/1            unassigned      YES unset  administratively down down
 Vlan1                  unassigned      YES unset  administratively down down
 ```
 
-Interface Serial 0/1/0 is administratively down. Is dit correct?
+**Voldaan**
 
 ## Router2
 #### Overzicht
@@ -100,9 +100,8 @@ Interface Serial 0/1/0 is administratively down. Is dit correct?
  - [x] ACL opgesteld
  - [x] Router RIPv2 ingesteld
  - [x] Interface G0/0 open
- - [] Interface S0/1/0 open
+ - [x] Interface S0/1/0 open
 
-Configuratie document is leeg.
 
 ## Switch0L2
 #### Overzicht
