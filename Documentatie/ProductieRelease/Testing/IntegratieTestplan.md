@@ -172,7 +172,7 @@
          sudo systemctl status dhcpd
      ```
 
-###### DHCP scope voor VLAN 50
+##### DHCP scope voor VLAN 50
 **Opmerking:** Bravo1 kan vervangen worden door eender welke server in VLAN 50 met fixed IP.
 * pre-task: Verbind via Secure shell met Bravo1.
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.66/27*** bevat.
@@ -191,7 +191,7 @@
          cat /etc/resolv.conf
      ```
 ​
-###### kilo1 DHCP scope voor VLAN 30 testen
+##### kilo1 DHCP scope voor VLAN 30 testen
 **Opmerking:** Lima1 kan vervangen worden door eender welke server in VLAN 30 met fixed IP.
 * pre-task: Verbind via Secure shell met Lima1.
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.2/27*** bevat.
@@ -209,7 +209,7 @@
      ``` bash
           cat /etc/resolv.conf
      ```
-###### kilo1 DHCP scope voor VLAN 20 testen
+##### kilo1 DHCP scope voor VLAN 20 testen
 * pre-task: Verbind via Secure shell met een host uit VLAN 20.
 * [ ] Controleer of de host een IP adres bevat dat binnen in de range '172.16.0.10 - 172.16.0.253' ligt.
     * Gebruik onderstaand commando om dit te controleren.
@@ -321,32 +321,32 @@
      ``` bash
          ip address show eth1
      ```
-###### Promotheus website
+##### Promotheus website
 * [ ] Verifieer of de Prometheus website bereikbaar en zichtbaar is.
   * Surf naar '172.16.1.5:9090' om de Prometheus website te bereiken.
 * [ ] Controleer of alle servers actief zijn.
   * Ga naar *Status > Targets* om dit te controleren.
     * Alle servers moet onder het hoofding *Prometheus* als **state** *up* hebben in de tabel.
     * Alle routers, switches en firewalls moeten onder de hoofding *SNMP* als **state** *up* hebben.
-###### Grafana dashboards
+##### Grafana dashboards
 * [ ] Verifieer of de Grafana website bereikbaar en zichtbaar is.
   * Surf naar '172.16.1.5:3000' om de Prometheus website te bereiken.
 * [ ] Test indien je op deze website met volgende gegevens kunt aanmelden:
     - **Gebruikersnaam**: admin
     - **Wachtwoord**: oscar1
-###### Node Exporter Server Metrics Dashboard
+##### Node Exporter Server Metrics Dashboard
 * [ ] Toets indien je nergens de foutmelding *No data* krijgt.
     * Ga naar *Home (linksboven) > Node Exporter Server Metrics*.
     * Selecteer de gewenste servers bij *Node* (linksboven).
     * Verander de tijd (*rechtsboven*) van *Last 7 days* naar *Last 5 minutes*
     * Krijg je nergens de foutmelding *No Data*?
-###### Node Exporter Full Dashboard
+##### Node Exporter Full Dashboard
 * [ ] Toets indien je nergens de foutmelding *No data* krijgt.
     * Selecteer het dashboard *Node Exporter Full* (Links bovenaan, waar *Node Exporter Server Metrics*)
     * Kies de gewenste server bij *Host* (linksboven).
     * Verander de tijd (*rechtsboven*) van *Last 7 days* naar *Last 5 minutes*.
     * Krijg je nergens de foutmelding *No Data*?
-###### SNMP Interface Througput Dashboard
+##### SNMP Interface Througput Dashboard
 * [ ] Toets indien je nergens de foutmelding *No data* krijgt.
     * Selecteer het dashboard *SNMP Interface Throughput* (Links bovenaan, waar *Node Exporter Server Metrics*)
     * Kies de gewenste server bij *Host* (linksboven)
@@ -359,7 +359,7 @@
      ``` bash
          ip address show eth1
      ```
-###### Services
+##### Services
 * [ ] Controleer indien de service *nginx* actief is.
     * Gebruik onderstaand commando om dit te controleren.
     ``` bash
@@ -370,7 +370,7 @@
     ``` bash
         systemctl status xinetd
     ```
-###### Mounts
+##### Mounts
 * [ ] Verifiëer dat de ISO files correct gemount zijn.
     * Gebruik onderstaand commando om dit te controleren.
     ``` bash
@@ -381,7 +381,7 @@
         /dev/loop0 /var/www/html/centos8 iso9660 ro,relatime 0 0
         /dev/loop1 /var/www/html/fedora iso9660 ro,relatime 0 0
     ```
-###### Connectiviteit met nieuwe vm's
+##### Connectiviteit met nieuwe vm's
   * [ ] Werkstation moet booten met als eerste bootoptie "boot via network".
   * [ ] Het blauw scherm moet zichtbaar worden met opties voor CentOS8 en Fedora Workstation.
   * [ ] Bij het kiezen van de CentOS8 optie worden de installatie files gemount en begint de installatie van de OS. Dit gebeurd zonder foutmeldingen.
@@ -401,7 +401,7 @@
        hostname
    ```
 
-###### NSLookups Testen
+##### NSLookups Testen
 * [ ] Controleer NSLookups van de servers overeenkomen met onderstaand tabel.
   * Gebruik onderstaand commando om dit te controleren.
    ``` bash
@@ -450,17 +450,17 @@
      ``` bash
          ip address show eth1
      ```
-###### Test toegangelijkheid
+##### Test toegangelijkheid
 * [ ] Controleer indien www.green.local(of 172.16.1.69) in de browser een webpagina toont.
     * Opmerking: dns records voor www.green.local zijn vereist
 
-###### Test https
+##### Test https
 * [ ] Controleer indien https actief is.
   * Ga naar https://www.green.local
     * Expected: https werkt en u krijgt een webpagina te zien
 * [ ] Controleer of je van **http://www.green.local** geredirect wordt naar **https://www.green.local**.
     * Expected: http://www.green.local wordt geredirect naar https://www.green.local
-###### Test Drupal
+##### Test Drupal
 **--> niet ontvangen groep echo1**
 
 #### 10. Mike1 (Content management systeem) AFWERKEN
@@ -476,7 +476,7 @@
      ``` bash
          ip address show eth1
      ```
-###### LDAP Client
+##### LDAP Client
 * [ ] Controleer of we de server via localhost kunnen bereiken.
     * Gebruik onderstaand commando om een query naar alle entries op de server via localhost uit te voeren.
      ``` bash
@@ -497,7 +497,7 @@
          getent passwd
      ```
 
-###### Samba
+##### Samba
 * [ ] Test of volgende samba shares aangemaakt en beschikbaar zijn.
     * Gebruik onderstaand commando om dit te controleren.
      ``` bash
