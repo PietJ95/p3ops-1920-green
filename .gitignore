@@ -23,7 +23,7 @@ test/bats/
 
 # Directories containing roles imported from Ansible Galaxy
 # (user.role notation)
-ansible/roles/*.*
+# ansible/roles/*.*
 #ignore papa1 role files
 ansible/roles/papa1-pxeserver/files/*
 
