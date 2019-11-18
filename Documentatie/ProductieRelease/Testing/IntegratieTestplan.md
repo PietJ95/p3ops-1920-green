@@ -598,8 +598,8 @@
 
 #### 13. Zulu1 (firewall)
 * [ ] Controleer of deze correct ingesteld zijn.
-	* WAN: 192.168.1.106/30
-  * LAN: 192.168.1.102/30
+	* WAN: 172.16.1.106/30
+    * LAN: 172.16.1.102/30
 
 * [ ] Controleer of de daemon services aan staan.
   * Kies voor services in de navigatiebalk en druk op SNMP in het dropdown menu.
