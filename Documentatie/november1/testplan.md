@@ -28,7 +28,7 @@
 
 2. Is november1 de master server en november2 en 3 de slave servers? 
 
-3. 
+
 
 
 #### OPMERKING BIJ TESTPLAN
