@@ -15,7 +15,7 @@ Om de Lima1 fileserver op te zetten dienen de rollen rhbase (bertvv.rh-base), sa
 
 # NODIGE INFO
 
-Om Lima1 voorlopig te testen moet de code onder 'Lokaal' in het 'Lima1.yml' bestand komen. Eens je daarna 'vagrant up lima1' doet, en er normaal 0 fouten zijn, doe je 'vagrant ssh lima1'. Vervolgens controleer je a.d.h.v. de testcode bij het onderdeel 'Testcode' of de fileserver naar behoren werkt.
+Om Lima1 voorlopig te testen moet de code onder 'Lokaal' in het 'Lima1.yml' bestand komen. Eens je daarna 'vagrant up lima1' en daarna 'vagrant provision lima1'doet, en er normaal 0 fouten zijn, doe je 'vagrant ssh lima1'. Vervolgens controleer je a.d.h.v. de testcode bij het onderdeel 'Testcode' of de fileserver naar behoren werkt.
 
 
 
@@ -174,28 +174,28 @@ samba_shares:
 
 ## TESTCODE (4 tests)
 
-- Test of de samba shares aangemaakt en dus beschikbaar zijn
+1. est of de samba shares aangemaakt en dus beschikbaar zijn
 
 Geef het volgende commando in: smbclient -L //lima1/
 Er wordt daarna een wachtwoord gevraagd. Voer het volgende wachtwoord in: vagrant
 Nu krijg je een overzicht van alle 5 de shares te zien.
 
 
-- Test of je met samba user 'Viktor' kan inloggen op de share 'IT_Administratie' waar hij WEL toegangsrechten op heeft
+2.  Test of je met samba user 'Viktor' kan inloggen op de share 'IT_Administratie' waar hij WEL toegangsrechten op heeft
 
 Geef het volgende commando in: smbclient //lima1/IT_Administratie/ -UViktor%mno123!
 Je krijgt nu normaal deze prompt te zien: smb: \>
 Dit wil zeggen dat je ingelogd bent op de IT_Administratie share.
 
 
-- Test of je met samba user 'Viktor' kan inloggen op de share 'Administratie' waar hij GEEN toegangsrechten op heeft
+3. Test of je met samba user 'Viktor' kan inloggen op de share 'Administratie' waar hij GEEN toegangsrechten op heeft
 
 Geef het volgende commando in: smbclient //lima1/Administratie/ -UViktor%mno123!
 Je krijgt nu normaal deze error output te zien: 'NT_STATUS_ACCESS_DENIED'
 Dit wil zeggen dat je als Viktor niet kan inloggen op de Administratie share.
 
 
-- Test of je op een share kan inloggen als een gast op de 'dministratie' (of 1 van de 4 andere) share
+4.  Test of je op een share kan inloggen als een gast op de 'dministratie' (of 1 van de 4 andere) share
 
 Geef het volgende commando in: smbclient //lima1/Administratie -U%
 Je krijgt nu normaal deze error output te zien: 'NT_STATUS_ACCESS_DENIED'
