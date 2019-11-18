@@ -21,6 +21,7 @@ openldap_create_organizationalunits:
 openldap_create_groups:
   - name: IT_Administratie
     gid: 1001
+    memberuid: milan
     group_ou: ou=Afdelingen
   - name: Verkoop
     gid: 1002
@@ -30,6 +31,7 @@ openldap_create_groups:
     group_ou: ou=Afdelingen
   - name: Ontwikkeling
     gid: 1004
+    memberuid: bert
     group_ou: ou=Afdelingen
   - name: Directie
     gid: 1005
@@ -43,13 +45,17 @@ openldap_create_users:
     email: dewilde.milan@hotmail.com
     group_ou: ou=Afdelingen
     uidNumber: 1501
+  - name: bert
+    cn: Bert Van Vreckem
+    sn: Van Vreckem
+    password: bert
+    email: bert@green.local
+    group_ou: ou=Afdelingen
+    uidNumber: 1502
 
 openldap_add_uniquemember:
   - name: milan
     member_dn: uid=milan,ou=Afdelingen
     group_dn: cn=default-users,ou=Afdelingen
 
-#389-directory configuration
-dirsrv_fqdn: alfa1.green.local
-dirsrv_password: letmeintomyserver
 

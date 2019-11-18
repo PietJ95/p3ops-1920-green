@@ -11,6 +11,7 @@ openldap_create_organizationalunits:
 openldap_create_groups:
   - name: my_group
     gid: 1001
+    memberuid: uid
     group_ou: ou=Groups
 
 openldap_create_users:

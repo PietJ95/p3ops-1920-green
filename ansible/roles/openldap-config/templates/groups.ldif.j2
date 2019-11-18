@@ -1,9 +1,8 @@
 # Groups
 dn: cn={{ item.name }},{{ item.group_ou }},dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }}
-#objectClass: posixgroup
-objectClass: groupofuniquenames
+objectClass: posixgroup
 objectClass: top
 cn: {{ item.name }}
-#gidNumber: {{ item.gid }}
+memberUid: {{ item.memberuid | default('')}}
+gidNumber: {{ item.gid }}
 description: {{ item.name|capitalize }}
-uniqueMember: uid=management,ou=people,dc={{ openldap_server_domain_name.split('.')[0] }},dc={{ openldap_server_domain_name.split('.')[1] }}
