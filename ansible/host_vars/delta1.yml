@@ -22,7 +22,6 @@ rhbase_firewall_allow_services:
   - smtp-submission
   - ldap
   - ldaps
-  - ldapi
 
 #DNS SERVER
 dns_nameservers:
