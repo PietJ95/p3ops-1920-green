@@ -9,6 +9,7 @@
 3. Bestaan de databanken 'drupal_echo1' en 'drupal_mike1'?
     > *mysql -uroot -p${mariadb_root_password} --execute 'show databases'*
 4. Hebben de gebruikers 'mike1_user' en 'echo1_user' schrijfrechten voor de aangewezen databanken?
+    > SELECT host,user FROM mysql.user;
     > *mysql -u${mike1_user} -pmike1 \ --execute 'CREATE TABLE a (id int); DROP TABLE a;*
 5.  De MariaDB mag geen testdatabank en anonieme gebruikers meer hebben,klopt dit?
     > *run mysql -uroot -p${mariadb_root_password} --execute 'show databases' test [ "0" -ne "${status}" ]*
