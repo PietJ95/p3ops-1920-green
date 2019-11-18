@@ -72,3 +72,5 @@ Surf naar ~ipaddrhost~:9100
   * Ga na of u het icoontje van thunderbird op uw bureaublad ziet. 
 ### Controleer aanwezigheid okular (PDF-viewer)
   * Ga na of u het icoontje van okular op uw bureaublad ziet. 
+### test monitoring
+  * Surf naar ~ipaddrhost~:9100
