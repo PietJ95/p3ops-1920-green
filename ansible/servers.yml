@@ -79,10 +79,11 @@
         group: vagrant
         mode: '0777'
   roles:
-    - bertvv.hosts
     - bertvv.rh-base
     - bertvv.dnsmasq
-
+  post_tasks:
+    - name: reload firewalld
+      shell: sudo firewall-cmd --reload
 - hosts: november1
   become: true
   gather_facts: yes
