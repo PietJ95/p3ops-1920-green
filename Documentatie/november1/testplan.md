@@ -17,8 +17,8 @@
 3. Bestaan de databanken 'drupal_echo1' en 'drupal_mike1'?
     > *mysql -uroot -p${mariadb_root_password} --execute 'show tables'*
 4. Hebben de gebruikers 'mike1_user' en 'echo1_user' schrijfrechten voor de aangewezen databanken?
-    > show grants for 'mike1_user'@'172.16.1.3';
-    > show grants for 'echo1_user'@'172.16.1.69';
+    > * show grants for 'mike1_user'@'172.16.1.3';
+    > * show grants for 'echo1_user'@'172.16.1.69';
 5.  De MariaDB mag geen testdatabank en anonieme gebruikers meer hebben,klopt dit?
     > *run mysql -uroot -p${mariadb_root_password} --execute 'show tables' test [ "0" -ne "${status}" ]*
     > *result=$(mysql -uroot -p${mariadb_root_password} --execute "select * from user where user='';" mysql) [ -z "${result}" ]*
