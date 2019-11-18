@@ -16,6 +16,7 @@ Dit document beschrijft alle resources die nuttig zijn voor server Delta1.
 - Mailserver (postfix, dovecot): [bertvv.mailserver](https://galaxy.ansible.com/bertvv/mailserver)
 - Squirrelmail: [bertvv.squirrelmail](https://galaxy.ansible.com/bertvv/squirrelmail)
 - Clam AV: [jtyr.clamav](https://galaxy.ansible.com/jtyr/clamav)
+- OpenLDAP-client
 
 ## Commands
 
@@ -50,6 +51,10 @@ Als er voor het versturen van mail gebruik gemaakt wordt van de standaard poort 
 Indien er in het configuratiescript `postfix_home_mailbox: /mail` staat, wordt er in plaats van een map `mail` een bestand aangemaakt. Dit zorgt er voor wanneer er mail wordt gestuurd naar een bepaalde gebruiker dat deze niet meer kan inloggen.
 
 Dit wordt opgelost door het pad correct mee te geven n.l. `postfix_home_mailbox: mail/`, dit zorgt er voor dat er effectief een directory mail wordt aangemaakt en dat gebruikers dus mail kunnen ontvangen.
+
+### Alfa1 gebruikers om in te loggen
+
+De gebruikers van alfa1 kunnen op onze server bekeken worden maar het lukt nog niet om hiermee op de webmail client in te loggen. Geeft voorlopig de foutmelding: 'password must be changed'.
 
 
 

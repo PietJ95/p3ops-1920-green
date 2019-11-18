@@ -30,6 +30,24 @@ Active: active (running) since Mon 2019-11-04 12:56:38 UTC; 11min ago
 ```
 
 4. Queries worden succesvol uitgevoerd, users voor echo1 en mike1 hebben alle permissions op hun respectievelijke databanken
+```
+MariaDB [(none)]> show grants for 'mike1_user'@'172.16.1.3';
++--------------------------------------------------------------------------------------------------------------------+
+| Grants for mike1_user@172.16.1.3                                                                                   |
++--------------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'mike1_user'@'172.16.1.3' IDENTIFIED BY PASSWORD '*1A90E913429B1A33A74EF6EE977FF5ED61B35966' |
+| GRANT ALL PRIVILEGES ON `drupal_mike1`.* TO 'mike1_user'@'172.16.1.3'                                              |
++--------------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.000 sec)
+
+MariaDB [(none)]> show grants for 'echo1_user'@'172.16.1.69';
++---------------------------------------------------------------------------------------------------------------------+
+| Grants for echo1_user@172.16.1.69                                                                                   |
++---------------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'echo1_user'@'172.16.1.69' IDENTIFIED BY PASSWORD '*C4B258467076606C0D126200B84EF3026C088344' |
+| GRANT ALL PRIVILEGES ON `drupal_echo1`.* TO 'echo1_user'@'172.16.1.69'                                              |
++---------------------------------------------------------------------------------------------------------------------+
+```
 
 5. Er zijn geen test databanken en anonieme users aanwezig
 
