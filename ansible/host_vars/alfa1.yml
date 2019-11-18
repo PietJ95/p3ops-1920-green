@@ -21,7 +21,9 @@ openldap_create_organizationalunits:
 openldap_create_groups:
   - name: IT_Administratie
     gid: 1001
-    memberuid: milan
+    memberuid: 
+      - bert
+      - milan
     group_ou: ou=Afdelingen
   - name: Verkoop
     gid: 1002
@@ -31,7 +33,8 @@ openldap_create_groups:
     group_ou: ou=Afdelingen
   - name: Ontwikkeling
     gid: 1004
-    memberuid: bert
+    memberuid:
+      - bert
     group_ou: ou=Afdelingen
   - name: Directie
     gid: 1005

@@ -3,6 +3,10 @@ dn: cn={{ item.name }},{{ item.group_ou }},dc={{ openldap_server_domain_name.spl
 objectClass: posixgroup
 objectClass: top
 cn: {{ item.name }}
-memberUid: {{ item.memberuid | default('')}}
+{% if item.memberuid is defined %}
+{% for group_name in item.memberuid %}
+memberuid: {{group_name}}
+{% endfor %}
+{% endif %}
 gidNumber: {{ item.gid }}
 description: {{ item.name|capitalize }}
