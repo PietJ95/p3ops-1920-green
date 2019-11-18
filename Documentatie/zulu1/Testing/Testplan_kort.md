@@ -6,8 +6,8 @@
 
 ### Controleer de interfaces via de web GUI
 * [] Controleer of deze correct ingesteld zijn.
-	* WAN: 192.168.1.106/30
-    * LAN: 192.168.1.102/29(30??)
+	* WAN: 172.16.1.106/30
+  * LAN: 172.16.1.102/30
 
 * [] Controleer of de daemon services aan staan.
     * Kies voor services in de navigatiebalk en druk op SNMP in het dropdown menu.
@@ -15,7 +15,7 @@
 
 * [] Controleer of de juiste roles/aliases aan staan
 	* Kies voor firewall in de navigatiebalk en druk op aliases in het dropdown menu.
-	* De volgende aliases moeten bestaan: 
+	* De volgende aliases moeten bestaan:
 		* HTTPandHTTPS
 			* Poort 80 & 443
 		* IMAPandIMAPS
@@ -26,12 +26,12 @@
 * [] Controleer of DHCP Server is uitgeschakeld
 	* Kies voor services in de navigatiebalk en druk op DHCP Server in het dropdown menu
 	* Enable DHCP is niet aangeduid
-	
+
 * [] Controleer of IPv6 is uitgeschakeld
 	* Kies voor system in de navigatiebalk, druk op advanced in het dropdown menu en druk vervolgens op networking
 	* Allow IPv6 is niet aangeduid
-	
+
 * [] Ping naar de interfaces van je externe computer
 	* Gebruik je commandline en ping naar:
-		* WAN: 192.168.1.106/30
-		* LAN: 192.168.1.102/29(30??)
+		* WAN: 172.16.1.106/30
+		* LAN: 172.18.1.102/30
