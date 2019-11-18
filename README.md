@@ -36,7 +36,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 ### Per teamlid
 | Naam                                                                         | Taken                              | Verantwoordelijk voor       |
 | :--------------------------------------------------------------------------- | :--------------------------------- | :-------------------------- |
-| [Beau Bellon](https://github.com/bellonbeau)                                 | Delta1, Quebec1                    | Testing Delta1              |
+| [Beau Bellon](https://github.com/bellonbeau)                                 | Delta1                             | Testing Delta1              |
 | [Berkant Kucuksolak](https://github.com/BerkantKs)                           | Lima1                              | Testing Lima1               |
 | [Bernard Deploige](https://github.com/BernardDeploige/)                      | Administratie, Routing & Switching | Testing Routing & Switching |
 | Bob Bracke                                                                   | Routing & Switching                | ---                         |
