@@ -7,22 +7,38 @@
   #Alfa1 LDAP server
 - name: alfa1
   mac: '08:00:27:66:5D:01'
+  ip: 172.16.1.65
 
   #Bravo1 DNS Server
 - name: bravo1
   mac: '08:00:27:66:5D:02'
+  ip: 172.16.1.66
   
   #Charlie1 DNS Backup Server
 - name: charlie1
   mac: '08:00:27:66:5D:03'
+  ip: 172.16.1.67
+
+  #master-server 1 cluster
+- name: november1
+  mac: '08:00:27:66:5D:04'
+  ip: 172.16.1.4
+
+  #slave-server 1 cluster
+- name: november2
+  ip: 172.16.1.7
+  
+  #slave-server 2 cluster
+- name: november3
+  ip: 172.16.1.8
 
 - name: delta1
   ip: 172.16.1.68
-  mac: '08:00:27:66:5D:04'
-  #  box: bento/centos-7.6
+  box: bento/centos-7.6
 
 - name: echo1
   mac: '08:00:27:66:5D:05'
+  ip: 172.16.1.69
 
 - name: quebec1
   ip: 172.16.1.70
@@ -33,30 +49,20 @@
 
 - name: lima1
   ip: 172.16.1.2
-  mac: '08:00:27:66:5D:06'
 
 - name: mike1
-  mac: '08:00:27:66:5D:07'
-
-  #master-server 1 cluster
-- name: november1
-  mac: '08:00:27:66:5D:08'
-
-  #slave-server 1 cluster
-  #- name: november2
-  #  ip: 172.16.1.7
-  
-  #slave-server 2 cluster
-  #- name: november3
-  #  ip: 172.16.1.8
+  mac: '08:00:27:66:5D:06'
+  ip: 172.16.1.3
 
   # Oscar1 Monitoring Server
 - name: oscar1
   mac: '08:00:27:66:5D:09'
+  ip: 172.16.1.5
   
   # papa1 PXEserver
 - name: papa1
   mac: '08:00:27:66:5D:0A'
+  ip: 172.16.1.6
   
 # Example of a more elaborate host definition
 # - name: srv002
