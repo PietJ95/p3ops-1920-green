@@ -29,21 +29,21 @@ dns_nameservers:
   - 172.16.1.67
   - 8.8.8.8
 
-# rhbase_users:
-#   - name: johndoe
-#     groups:
-#       - users
-#       - wheel
-#     # Password = test123
-#     password: "$6$rzSe0ya3TumnQAGo$oJfY6KB/GhlaTeL98CjQ9.KgciX60R/iEqaPkyyTqUUACKaaRD2MjcaPWPkk7ZFO4v.9iDfYlWo7E/cboy1nP0"
-#     shell: /sbin/nologin
+rhbase_users:
+   - name: johndoe
+     groups:
+       - users
+       - wheel
+     # Password = test123
+     password: "$6$rzSe0ya3TumnQAGo$oJfY6KB/GhlaTeL98CjQ9.KgciX60R/iEqaPkyyTqUUACKaaRD2MjcaPWPkk7ZFO4v.9iDfYlWo7E/cboy1nP0"
+     shell: /sbin/nologin
 
-#   - name: ericdoe
-#     groups:
-#       - users
-#       - wheel
-#     password: "$1$WIFkXf07$HQZFgDlnfpSd9B.8McNcf."
-#     shell: /sbin/nologin
+   - name: ericdoe
+     groups:
+       - users
+       - wheel
+     password: "$1$WIFkXf07$HQZFgDlnfpSd9B.8McNcf."
+     shell: /sbin/nologin
 
 post_tasks:
   - name: Add imap host to /etc/hosts
