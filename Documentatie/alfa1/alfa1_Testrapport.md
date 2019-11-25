@@ -1,61 +1,70 @@
 # Alfa1 testrapport
 
-*Vooraf:* 
-- machine alfa1 en lima1 destroyen aan de hand van het commando `vagrant destroy alfa1 lima1`
-- machine alfa1 werd geprovisioned aan de hand van commando `vagrant up alfa1` en doorloopt succesvol het playbook.
-- machine lima1 werd geprovisioned aan de hand van commando `vagrant up lima1` en doorloopt succesvol het playbook.
+### *Vooraf:* 
 
-## Testen alfa1
-- maak een ssh-verbinding aan de hand van het commando `vagrant ssh alfa1`
+- Alfa1 en lima1 zijn gedestroyed met `vagrant destroy alfa1 lima1`
+  - [ ] alfa1 en lima1 zijn niet actief (destroy)
+- Alfa1 is geprovisioned met `vagrant up alfa1` en doorloopt succesvol het playbook.
+  - [ ] alfa1 is correct geprovisioned, er zijn geen errors
+- lima1 is geprovisioned met `vagrant up lima1` en doorloopt succesvol het playbook.
+  - [ ] lima1 is correct geprovisioned, er zijn geen errors
 
-  - [ ] vagrant ssh lukt
+### Testen alfa1
 
-- controleer of LDAP-service runt aan de hand van het commando `systemctl status slapd`
-  - [ ] status is active (running) 
+- Maak een SSH-verbinding met `vagrant ssh alfa1`
 
-- user aanmaken
-  - LDIF aanmaken in homefolder
-    ```Define a person here
-    dn: uid=testuser,dc=green,dc=local
-    objectClass: top
-    objectClass: person
-    objectClass: posixAccount
-    objectClass: shadowAccount
-    cn: testuser
-    sn: testuser
-    uid: testuser
-    userPassword: test123
-    gidNumber: 100
-    uidNumber: 1234
-    homeDirectory: /home/testuser
-    loginShell: /bin/bash
-    gecos: testuser
-    shadowLastChange: 12
-    shadowMax: 10000000
-    shadowWarning: 0
-    ```
+  - [ ] SSH-verbinding met alfa1 is succesvol
 
-  - voeg user toe aan de hand van het commando ` ldapadd -h localhost -x -D "cn=Manager,dc=green,dc=local" -w letmein -f testuser.ldif`
+- Controleer of de LDAP service runt met `systemctl status slapd`
 
-    - [ ] user is toegevoegd (geen error)
+  - [ ] Status is `active (running)` 
 
-- Verifieer dat we de server via localhost kunnen bereiken met het commando `ldapsearch -x -LLL` om een query naar alle entries op de server via localhost uit te voeren
-  - [ ] alle entries kunnen zien inclusief de nieuwe testuser
+- Maak een LDIF aan voor de testuser
 
+  ```
+  cat << EOF > testuser.ldif
+  dn: uid=testuser,dc=green,dc=local
+  objectClass: top
+  objectClass: person
+  objectClass: posixAccount
+  objectClass: shadowAccount
+  cn: testuser
+  sn: testuser
+  uid: testuser
+  userPassword: test123
+  gidNumber: 100
+  uidNumber: 1234
+  homeDirectory: /home/testuser
+  loginShell: /bin/bash
+  gecos: testuser
+  shadowLastChange: 12
+  shadowMax: 10000000
+  shadowWarning: 0
+  EOF
+  ```
 
+- Voeg de testuser toe aan LDAP met `ldapadd -h localhost -x -D "cn=Manager,dc=green,dc=local" -w letmein -f testuser.ldif`
 
-## Testen op client (lima1)
-- maak een ssh-verbinding aan de hand van het commando `vagrant ssh lima1`
-  - [ ] ssh-verbinding met lima1 is gelukt
-- aanmelden `su milan`
-  - [ ] aanmelden als user Milan lukt
-- Verifieer dat we de server via ip kunnen bereiken
-  - Gebruik command `ldapsearch -x -LLL` om alle entries van de server op te vragen
-    - [ ] alle entries zijn zichtbaar
-- Verifieer dat onze gebruiker werd aangemaakt als systeemgebruiker
-  - Gebruik command `getent passwd` om een lijst van gebruikers en hun informatie te verkrijgen
-- groepen controleren via `getent group`
+  - [ ] user is toegevoegd aan LDAP zonder error
 
+- Verifieer dat de LDAP server bereikbaar is met `ldapsearch -x -LLL`
 
+  - [ ] Alle entries zijn zichtbaar inclusief de nieuwe testuser
 
-ruiker werd aangemaakt op de client
+### Testen op client (lima1)
+
+- Maak een SSH-verbinding met `vagrant ssh lima1`
+  - [ ] SSH-verbinding met lima1 is succesvol
+- Probeer de LDAP server te bereiken met `ldapsearch -x -LLL`
+  - [ ] Alle entries zijn zichtbaar inclusief de nieuwe testuser
+- Controleer dat alle gebruikers gekend zijn op het systeem met `getent passwd`
+  - [ ] De gebruikers `milan, bert, testuser` zijn gekend
+- Controleer dat je kan inloggen als LDAP user met `su testuser`
+  - [ ] Er kan ingelogd worden met de user testuser
+- Controleer dat alle groepen gekend zijn met `getent group`
+  - [ ] De groepen `IT_Administratie, Verkoop, Administratie, Ontwikkeling, Directie` zijn gekend
+
+### Opmerkingen/problemen
+
+Schrijf hier problemen of opmerkingen die je bent tegengekomen tijdens het testen van de server.
+
