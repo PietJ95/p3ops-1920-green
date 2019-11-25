@@ -54,17 +54,19 @@
 		</bogons>
 		<already_run_config_upgrade></already_run_config_upgrade>
 		<timezone>Etc/Greenwich</timezone>
+		<enableserial></enableserial>
 	</system>
 	<interfaces>
 		<wan>
 			<enable></enable>
 			<if>em0</if>
-			<blockpriv></blockpriv>
-			<blockbogons></blockbogons>
 			<descr><![CDATA[WAN]]></descr>
+			<spoofmac></spoofmac>
+			<alias-address></alias-address>
+			<alias-subnet>32</alias-subnet>
 			<ipaddr>172.16.1.106</ipaddr>
 			<subnet>30</subnet>
-			<spoofmac></spoofmac>
+			<gateway>external_gateway</gateway>
 		</wan>
 		<lan>
 			<enable></enable>
@@ -81,7 +83,28 @@
 			<gatewayv6></gatewayv6>
 		</lan>
 	</interfaces>
-	<staticroutes></staticroutes>
+	<staticroutes>
+		<route>
+			<network>172.16.0.0/24</network>
+			<gateway>internal_gateway</gateway>
+			<descr></descr>
+		</route>
+		<route>
+			<network>172.16.1.0/26</network>
+			<gateway>internal_gateway</gateway>
+			<descr></descr>
+		</route>
+		<route>
+			<network>172.16.1.64/27</network>
+			<gateway>internal_gateway</gateway>
+			<descr></descr>
+		</route>
+		<route>
+			<network>172.16.1.96/30</network>
+			<gateway>internal_gateway</gateway>
+			<descr></descr>
+		</route>
+	</staticroutes>
 	<dhcpd>
 		<lan>
 			<range>
@@ -266,33 +289,35 @@
 			</created>
 		</rule>
 		<rule>
-			<type>pass</type>
-			<ipprotocol>inet</ipprotocol>
-			<descr><![CDATA[Default allow LAN to any rule]]></descr>
-			<interface>lan</interface>
+			<id></id>
 			<tracker>0100000101</tracker>
-			<source>
-				<network>lan</network>
-			</source>
-			<destination>
-				<any></any>
-			</destination>
-		</rule>
-		<rule>
 			<type>pass</type>
-			<ipprotocol>inet6</ipprotocol>
-			<descr><![CDATA[Default allow LAN IPv6 to any rule]]></descr>
 			<interface>lan</interface>
-			<tracker>0100000102</tracker>
+			<ipprotocol>inet</ipprotocol>
+			<tag></tag>
+			<tagged></tagged>
+			<max></max>
+			<max-src-nodes></max-src-nodes>
+			<max-src-conn></max-src-conn>
+			<max-src-states></max-src-states>
+			<statetimeout></statetimeout>
+			<statetype><![CDATA[keep state]]></statetype>
+			<os></os>
 			<source>
-				<network>lan</network>
+				<any></any>
 			</source>
 			<destination>
 				<any></any>
 			</destination>
+			<descr><![CDATA[Default allow LAN to any rule]]></descr>
+			<updated>
+				<time>1574695881</time>
+				<username>admin@172.16.0.101 (Local Database)</username>
+			</updated>
 		</rule>
 		<separator>
 			<wan></wan>
+			<lan></lan>
 		</separator>
 	</filter>
 	<shaper></shaper>
@@ -441,9 +466,9 @@
 		<dnssecstripped></dnssecstripped>
 	</unbound>
 	<revision>
-		<time>1571144854</time>
-		<description><![CDATA[admin@172.16.1.101 (Local Database): /interfaces.php made unknown change]]></description>
-		<username>admin@172.16.1.101 (Local Database)</username>
+		<time>1574696353</time>
+		<description><![CDATA[admin@172.16.0.101 (Local Database): Saved static route configuration.]]></description>
+		<username>admin@172.16.0.101 (Local Database)</username>
 	</revision>
 	<cert>
 		<refid>5d99f0f2355f0</refid>
@@ -452,13 +477,134 @@
 		<crt>LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVlakNDQTJLZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREJhTVRnd05nWURWUVFLRXk5d1psTmwKYm5ObElIZGxZa052Ym1acFozVnlZWFJ2Y2lCVFpXeG1MVk5wWjI1bFpDQkRaWEowYVdacFkyRjBaVEVlTUJ3RwpBMVVFQXhNVmNHWlRaVzV6WlMwMVpEazVaakJtTWpNMU5XWXdNQjRYRFRFNU1UQXdOakV6TkRrek9Gb1hEVEkxCk1ETXlPREV6TkRrek9Gb3dXakU0TURZR0ExVUVDaE12Y0daVFpXNXpaU0IzWldKRGIyNW1hV2QxY21GMGIzSWcKVTJWc1ppMVRhV2R1WldRZ1EyVnlkR2xtYVdOaGRHVXhIakFjQmdOVkJBTVRGWEJtVTJWdWMyVXROV1E1T1dZdwpaakl6TlRWbU1EQ0NBU0l3RFFZSktvWklodmNOQVFFQkJRQURnZ0VQQURDQ0FRb0NnZ0VCQUsyTDFYbEhqOHNNCkRsZzNhM2dxS3p1K1lCV0psY01rUERYSjdxWnhvdWh1aWJXVmgwd3A3WHg2bG9qcWl5YlRrQ1k2S2ZTemRpWEoKNkwyNXlhV3VSdTBJenU0cGw3WFpLU3kvQjFDRGtsZjdHVzVHMDdydWdUQWlVaWd3R1hJekZrbmFwQVFXejNNawpiaVJVYjZKbXQ2NEIvYUpCaWxzUTFiQ25UQVVDSnNIREsvUlJzWnJpSFR4L25IVGhuUmF5N2VUalBBWEZNdEl5Cmo1ZHZKVUZibmZaSEo5UG9aaTA2QTE2UElQVWhkMFgwaUFRbUhVd1pGbVhERUtKZGhJRWk2THBaVGpDQ0FCTHgKS3JnMmpjMWc3N3NrbTRtU1VHdUhTTUQvWlJ2aTlVU2FoYnU2ZjVRMy8vMVlac3VraEJPUkl1dnVyaG9VRUNHMQpPYVREZlFscGw4RUNBd0VBQWFPQ0FVa3dnZ0ZGTUFrR0ExVWRFd1FDTUFBd0VRWUpZSVpJQVliNFFnRUJCQVFECkFnWkFNQXNHQTFVZER3UUVBd0lGb0RBekJnbGdoa2dCaHZoQ0FRMEVKaFlrVDNCbGJsTlRUQ0JIWlc1bGNtRjAKWldRZ1UyVnlkbVZ5SUVObGNuUnBabWxqWVhSbE1CMEdBMVVkRGdRV0JCUStzYlUvK3JHSDVpU2U0eWRKcEVYKwp1RHZpK3pDQmdnWURWUjBqQkhzd2VZQVVQckcxUC9xeGgrWWtudU1uU2FSRi9yZzc0dnVoWHFSY01Gb3hPREEyCkJnTlZCQW9UTDNCbVUyVnVjMlVnZDJWaVEyOXVabWxuZFhKaGRHOXlJRk5sYkdZdFUybG5ibVZrSUVObGNuUnAKWm1sallYUmxNUjR3SEFZRFZRUURFeFZ3WmxObGJuTmxMVFZrT1RsbU1HWXlNelUxWmpDQ0FRQXdIUVlEVlIwbApCQll3RkFZSUt3WUJCUVVIQXdFR0NDc0dBUVVGQ0FJQ01DQUdBMVVkRVFRWk1CZUNGWEJtVTJWdWMyVXROV1E1Ck9XWXdaakl6TlRWbU1EQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUFONWNJQ2VZVmFNdSswa1lPYkMyb0JZSUEKY2lQV3E5Y0IxZTRPQVpMOXdmYVZlS0NWMEhRVmR6U3pHRnh2ZTMrQWNqYmZFREpTS0dIR1o0aU5rcndUa25TaAo5Z3Y0VU9PWHJ4T3ZhcjdFOWE4YzUzdTNYa3VFdHNnZXkxd3lnNnVsZzE1NVlyd1dxZHNtT3lURkFKeGo0SjlmCnYyUUJWT1JvVFNFUWlxL0ZLZm9VMjZ5OWhqclhoTG1rMldKQk1la3NYZWFXRzZpSm11RWd6WnBwd0hPa0RmQ1cKMlhGbUNVcVdscUhuK1hPa3lCa1ZSZTBsY2w0RktCbmttdDdnYU9BYnlSNndzcFE0dXVpVllNVTIzbU9mUXdWdQpaU3UvMzNvM0tLVWdNMXVxQ2VNTys2QmxnWTFlUmRmNG5FRlRPSHhpOGdlNFJvQ1FaUHpob2VlcWRVVmgvdz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K</crt>
 		<prv>LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2UUlCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktjd2dnU2pBZ0VBQW9JQkFRQ3RpOVY1UjQvTERBNVkKTjJ0NEtpczd2bUFWaVpYREpEdzF5ZTZtY2FMb2JvbTFsWWRNS2UxOGVwYUk2b3NtMDVBbU9pbjBzM1lseWVpOQp1Y21scmtidENNN3VLWmUxMlNrc3Z3ZFFnNUpYK3hsdVJ0TzY3b0V3SWxJb01CbHlNeFpKMnFRRUZzOXpKRzRrClZHK2lacmV1QWYyaVFZcGJFTld3cDB3RkFpYkJ3eXYwVWJHYTRoMDhmNXgwNFowV3N1M2s0endGeFRMU01vK1gKYnlWQlc1MzJSeWZUNkdZdE9nTmVqeUQxSVhkRjlJZ0VKaDFNR1JabHd4Q2lYWVNCSXVpNldVNHdnZ0FTOFNxNApObzNOWU8rN0pKdUprbEJyaDBqQS8yVWI0dlZFbW9XN3VuK1VOLy85V0diTHBJUVRrU0xyN3E0YUZCQWh0VG1rCnczMEphWmZCQWdNQkFBRUNnZ0VBRWFqeUh6Wk9CcDZDY3kyb2pRRFZoMjNXL3pvUitGcWVtZWFqbDJKbTdub1oKSDFaSS8xSWc3WkxYOExUVlZpMGZOUlNrSWxlRXhWR25rbTd1ZXlLaDZ3c0RhNjdsMWtaejd5NjlRczh3dkMwOApLRUdpMkJuZklaUE1nblJxa25scVlqZVNpeXY3RGo5OXljcWgxWWZZVnlleXRLa3d1QldkZVMxOUNlRnZLalpVCklvR2VYL0pSajVtQlpZZ1VkTk1FWFZUTURpYkNVUjFjcGN6YzUvdWV6eXJwTmxXeGkvRm45M3N2NGc3NDNYencKanY0SHN0eDRBeUVzRW5ocklVR01IQWFqa1VKakIzL3MraUxDTTlsbllOSU05Si9veWFjVFo3SzFwY1B4bXRHbQpNQWtkbkJQSkNZUDhqZGxjUjRwbjZRRmlsRCtMTnVEMGhySVlTT0d3d1FLQmdRRGoxNlRyNnRxZ1pVMTQ3VmIxCjRFUXRuSFI5ZzJzTXdQenZsRHl6Sy8yQXlBb1IxYjJoVDRJczN4YzB4VTF5R2xVc0dLNmllekoxR0NhOVU3a3cKUXZYdnFVbFBaV1JxWjArRXEvUXdKMmVPdko0enJOOVRGQytSeHM5QmZkcGRKOTQxemdzMTYydXFGeU83bEZhOQpGYThEU0c5ZmRKSDlIUXIxK0JwK1V2Q3pPUUtCZ1FEQy9tVzVKdUxGUjNsWWxBbVBRMW5JNkJOOEJwQUdoTEJICmZLSHVkand3TUtydkJXTXAxakkzdkVSUkxDWU9JcHZ3M0wzNEp2N2JXK3Y0Ukpxcnh0Z2Y1RkE3UzJlOGhhRm0KWm8zNWI2SkZZcnhpeE9lYURVelpZVjNoOVVOM0NEbzRTMS9xL1o0SmRjVkVzUnVRRUhsMjZmYTBrN0VvSnlzSgpKZm5xSTNQZ3lRS0JnRUxFWGNMNHBxcWNKUkRMMUZEbk1IT0JScTNGUmlpTm9WRi95aTNqTlQxNDRXS0tsVEJoClFVOXU3TGo5SEkzVVk2TXhkSE9PMEtGNXUxaDk0V1hnS1h2YXl1M21VMy9PMklHVGRsSnFLYkd0V2xyZ1RPMW0KbSs0SEtaTVNrMXY3SStYMmhGaC9yYVJCZGFveGRSMmg3aEJ6T0pmcmJDQ1ZVekh6UzZnN0crZ1pBb0dBZlpDSQpQTFJYcnlZWmMvclFOUnJ2eERuOTRnM3Z6T0xCQ1NldXR2b1lSQWZ5NnJ3VFlTdDNad0NyRllKU2R5TytPMXBLClVuUDZCWk9wM2xOL0xrSjdoZjNsMUdqNFFpUGpEU2ZaSU5qTUs5WXE3WWRTaEpjdjk0T0ZpeTMrNWJXOGwrZWgKdXBiYW44amc0UjBUWEsvZko3MzlpY2JaZTd2Tk1MVHR1K0pjaWxFQ2dZRUFyMU5XUjFkNU5mWWpxVEk3T2gxRgprWWVwc3dVdk9rZFRKdUo1VzJ6cEJ3ZTI2WE9ZL1c2TE9UbkRNMDVVYmEva00xUjRNQVJEdktTVTlnOG1hMzMrCkZJWnJ4bWR2c2dPeW1ac1NRNlpHS1NWbytsSEhLTWZ3SnVaeVQ1VXU1RzVGcm90NzNxb1VERzNiNW94Y0lWMDgKSEFkdkRzckZxV0o5amRRY2tyR0V6VG89Ci0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0K</prv>
 	</cert>
-	<ppps>
-	</ppps>
+	<ppps></ppps>
 	<dhcrelay>
 		<enable></enable>
 		<interface>lan</interface>
 		<server>172.16.1.1</server>
 	</dhcrelay>
 	<gateways>
+		<gateway_item>
+			<interface>lan</interface>
+			<gateway>172.16.1.101</gateway>
+			<name>internal_gateway</name>
+			<weight>1</weight>
+			<ipprotocol>inet</ipprotocol>
+			<descr></descr>
+		</gateway_item>
+		<gateway_item>
+			<interface>wan</interface>
+			<gateway>172.16.1.105</gateway>
+			<name>external_gateway</name>
+			<weight>1</weight>
+			<ipprotocol>inet</ipprotocol>
+			<descr></descr>
+		</gateway_item>
+		<defaultgw4>external_gateway</defaultgw4>
 	</gateways>
+	<installedpackages>
+		<routed>
+			<config>
+				<enable>on</enable>
+				<iface_array>lan,wan</iface_array>
+				<ripversion>2</ripversion>
+				<passwd></passwd>
+				<enable_no_ag></enable_no_ag>
+				<enable_no_super_ag></enable_no_super_ag>
+			</config>
+		</routed>
+		<frrospfdinterfaces>
+			<config>
+				<interface>lan</interface>
+				<descr></descr>
+				<networktype></networktype>
+				<passive></passive>
+				<mtuignore></mtuignore>
+				<metric></metric>
+				<interfacearea></interfacearea>
+				<acceptfilter></acceptfilter>
+				<authtype></authtype>
+				<password></password>
+				<routerpriorityelections></routerpriorityelections>
+				<retransmitinterval></retransmitinterval>
+				<hellointervalinseconds></hellointervalinseconds>
+				<deadtimer></deadtimer>
+				<minimalhello></minimalhello>
+			</config>
+			<config>
+				<interface>wan</interface>
+				<descr></descr>
+				<networktype></networktype>
+				<passive></passive>
+				<mtuignore></mtuignore>
+				<metric></metric>
+				<interfacearea></interfacearea>
+				<acceptfilter></acceptfilter>
+				<authtype></authtype>
+				<password></password>
+				<routerpriorityelections></routerpriorityelections>
+				<retransmitinterval></retransmitinterval>
+				<hellointervalinseconds></hellointervalinseconds>
+				<deadtimer></deadtimer>
+				<minimalhello></minimalhello>
+			</config>
+		</frrospfdinterfaces>
+		<frrospfdareas></frrospfdareas>
+		<frrospfd>
+			<config>
+				<enable>on</enable>
+				<adjacencylog></adjacencylog>
+				<routerid></routerid>
+				<spfholdtime></spfholdtime>
+				<spfdelay></spfdelay>
+				<area>2.2.2.2</area>
+				<areatype>none</areatype>
+				<row>
+					<routevalue></routevalue>
+					<routearea></routearea>
+				</row>
+				<redistributeconnectedsubnets></redistributeconnectedsubnets>
+				<redistributeconnectedsubnets_metric></redistributeconnectedsubnets_metric>
+				<redistributeconnectedsubnets_metrictype></redistributeconnectedsubnets_metrictype>
+				<redistributeconnectedsubnets_routemap>none</redistributeconnectedsubnets_routemap>
+				<redistributeconnectedsubnets_distlist>none</redistributeconnectedsubnets_distlist>
+				<redistributekernel></redistributekernel>
+				<redistributekernel_metric></redistributekernel_metric>
+				<redistributekernel_metrictype></redistributekernel_metrictype>
+				<redistributekernel_routemap>none</redistributekernel_routemap>
+				<redistributekernel_distlist>none</redistributekernel_distlist>
+				<redistributebgp></redistributebgp>
+				<redistributebgp_metric></redistributebgp_metric>
+				<redistributebgp_metrictype></redistributebgp_metrictype>
+				<redistributebgp_routemap>none</redistributebgp_routemap>
+				<redistributebgp_distlist>none</redistributebgp_distlist>
+				<redistributestatic></redistributestatic>
+				<redistributestatic_metric></redistributestatic_metric>
+				<redistributestatic_metrictype></redistributestatic_metrictype>
+				<redistributestatic_routemap>none</redistributestatic_routemap>
+				<redistributestatic_distlist>none</redistributestatic_distlist>
+				<redistributedefaultroute></redistributedefaultroute>
+				<redistributedefaultroute_always></redistributedefaultroute_always>
+				<redistributedefaultroute_metric></redistributedefaultroute_metric>
+				<redistributedefaultroute_metrictype></redistributedefaultroute_metrictype>
+				<redistributedefaultroute_routemap>none</redistributedefaultroute_routemap>
+				<rfc1583></rfc1583>
+				<opaquelsa></opaquelsa>
+				<referencebandwidth></referencebandwidth>
+				<max_metric_administrative></max_metric_administrative>
+				<max_metric_startup></max_metric_startup>
+				<max_metric_shutdown></max_metric_shutdown>
+				<writemultiplier></writemultiplier>
+				<abrtype>cisco</abrtype>
+			</config>
+		</frrospfd>
+		<quaggaospfdraw>
+			<config>
+				<bgpdrunning>ISEhISEgYmdwZC5jb25mIGRvZXMgbm90IGV4aXN0IG9yIGlzIGVtcHR5Lg==</bgpdrunning>
+				<ospfdrunning>ISEhISEgb3NwZmQuY29uZiBkb2VzIG5vdCBleGlzdCBvciBpcyBlbXB0eS4=</ospfdrunning>
+				<ospf6drunning>ISEhISEgb3NwZjZkLmNvbmYgZG9lcyBub3QgZXhpc3Qgb3IgaXMgZW1wdHku</ospf6drunning>
+				<zebrarunning>ISEhISEgemVicmEuY29uZiBkb2VzIG5vdCBleGlzdCBvciBpcyBlbXB0eS4=</zebrarunning>
+			</config>
+		</quaggaospfdraw>
+	</installedpackages>
 </pfsense>

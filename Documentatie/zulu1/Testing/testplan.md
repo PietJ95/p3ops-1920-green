@@ -87,8 +87,8 @@ Om het testplan verder uit te werken, moet je verbinding maken met het interne n
  9. DHCP server service is disabled.
  10. Vervolgens staat ipv6 ook gedisabled, samen met de DNS Resolver.
  11. Controleer of user1 aanwezig is, met volgende settings:
-    *wachtwoord: Zulu1User1.
-    *De user bevindt zich in de groep users en niet in de groep admins.
+    *wachtwoord: Zulu1User1.*
+    *De user bevindt zich in de groep users en niet in de groep admins.*
  12. Group users heeft volgende privileges:
       >*WebCfg - Diagnostics: Backup & Restore Allow access to the 'Diagnostics: Backup & Restore' page. (admin privilege)
       >*WebCfg - Diagnostics: CPU Utilization Allow access to the 'Diagnostics: CPU Utilization' page.  
@@ -113,13 +113,42 @@ Om het testplan verder uit te werken, moet je verbinding maken met het interne n
       >*WebCfg - Status: System Logs: Portal Auth Allow access to the 'Status: System Logs: Portal Auth' page.  
       >*WebCfg - Status: System Logs: Routing Allow access to the 'Status: System Logs: System: Routing' page.  
       >*WebCfg - Status: System Logs: Wireless  Allow access to the 'Status: System Logs: System: Wireless' page.
-      >*WebCfg - System: Static Routes  Allow access to the 'System: Static Routes' page.
-  13. Als laatste controleer je de status van NAT, deze zou disabled moeten zijn.
+      >*WebCfg - System: Static Routes  Allow access to the 'System: Static Routes' page.*
 
-  #### Testing forwarding
+13. Vervolgens controleer je de status van NAT, deze zou disabled moeten zijn.
+14. Verifeer indien 2 gateway's zijn ingesteld met volgende eigenschappen:
+      * Een internal gateway met:
+          * Disabled: Unchecked
+          * Interface: LAN
+          * Address Family: IPV4
+          * Name: internal_gateway
+          * Gateway: 172.16.1.101
+      * Een external gateway met:
+          * Disabled: Unchecked
+          * Interface: WAN
+          * Address Family: IPV4
+          * Name: internal_gateway
+          * Gateway: 172.16.1.105
+15. Als laatste controleer je of 4 statische routes aanwezig zijn met volgende eigenschappen:
+    * Route 1
+        * Destination network: 172.16.0.0/24
+        * Gateway: internal_gateway - 172.16.1.101
+        * Disabled: Unchecked
+    * Route 2
+        * Destination network: 172.16.1.0/26
+        * Gateway: internal_gateway - 172.16.1.101
+        * Disabled: Unchecked
+    * Route 3
+        * Destination network: 172.16.1.64/27
+        * Gateway: internal_gateway - 172.16.1.101
+        * Disabled: Unchecked
+    * Route 4
+        * Destination network: 172.16.1.96/30
+        * Gateway: internal_gateway - 172.16.1.101
+        * Disabled: Unchecked
 
-  14. Maak een nieuwe vm aan op het zelfde netwerk als de pfsense.
-  15. Geef de Vm een gepast ip dat binnen het subnet ligt van de PfSense.
-      15a. Dit IP ligt in het subne van de LAN verbinding.
-  16. Ping naar het ip van de wan interface, dit zou normaal moeten lukken.
-    16a. Deze ping toon: "icmp_seg=.. Packet filtered"
+#### Ping
+16. Controleer van een client indien je kunt pingen naar:
+    * het LAN interface
+    * het WAN interface
+    * Een interface achter de WAN interface
