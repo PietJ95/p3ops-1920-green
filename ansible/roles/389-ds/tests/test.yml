@@ -1,5 +1,0 @@
-# test.yml
----
-- hosts: all
-  roles:
-    - { role: role_under_test, dirsrv_fqdn: local.dev } 
