@@ -35,19 +35,15 @@
   - alle entries kunnen zien inclusief de nieuwe testuser
 
 
+
 ## Testen op client (lima1)
 - maak een ssh-verbinding aan de hand van het commando `vagrant ssh lima1`
--  
-- Verifieer dat we de server via localhost kunnen bereiken
-  - Gebruik command `ldapsearch -x -LLL` om een query naar alle entries op de server via localhost uit te voeren
+- aanmelden `su milan`
+- Verifieer dat we de server via ip kunnen bereiken
+  - Gebruik command `ldapsearch -x -LLL` om alle entries van de server op te vragen
 - Verifieer dat onze gebruiker werd aangemaakt als systeemgebruiker
   - Gebruik command `getent passwd` om een lijst van gebruikers en hun informatie te verkrijgen
+- groepen controleren via `getent group`
 
-## Alfa1: LDAP-server
-systeemgebruiker
-users 
-groepen
-inloggen als user
-user toevoegen aan groep (enkel ldap server kan dit)
-user toevoegen vanuit andere server via manager
+
 
