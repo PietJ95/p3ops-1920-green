@@ -30,4 +30,8 @@ Beschrijving : In dit bestand vind je alle research terug die wij nodig hadden o
 
 [Link13: shared folder virtualbox](https://www.techrepublic.com/article/how-to-share-folders-between-guest-and-host-in-virtualbox/)
 
+[Link14: Change internal network adapter to bridged adapter](https://superuser.com/questions/752954/need-to-do-bridged-adapter-only-in-vagrant-no-nat)
+
+[Link15: Change internal network adapter to bridged adapter](https://linuxconfig.org/how-to-create-and-manage-kvm-virtual-machines-from-cli)
+
 Opgemaakt door Oliver Troch en Joeri Verhavert

@@ -1,114 +1,167 @@
 # Testplan Bravo1
 
-Author: [Jolien Vervinckt](https://github.com/JolienVervinckt) & [Robin Ophalvens](https://github.com/RobinOphalvens)
-
-
-## DNS BIND
-
-
-This role installs the BIND implementation of DNS on a specified server. In this tutorial, we will walk through the steps to install the Authoritive DNS server on our Bravo1 server.
-
-The role, written by [Bert van Vreckem](https://github.com/bertvv/ansible-role-bind), has the ability to enable the epel repo, install bind along with its utils, edit the main configuration file, create forward and reverse zones and its zone files.
-
-The configuration is done by setting variables to our specific needs.
-
 ## Requirements
 
-
-This role requires you to have Ansible installed, preferably the latest version. You do not need to use a specific OS in order to use this role but you will need a terminal that is able to run Ansible.
-
-
-## Role Variables
+* Bravo1 en Charlie1 zijn niet afhankelijk van andere servers om naar behoren te kunenn functioneren
+* via het commando "vagrant up bravo1" en optioneel "vagrant provision bravo1" zou ansible succesvol de configuratie van de DNS server moeten behandelen.
 
 
-For our use case, we will use the following variables that are passed to the role. A description is also provided.
+## Stap 1: Check of de named service (naam van de bind applicatie op CentOS) actief is
 
-```yaml
+Commando:
 
-bind_zone_dir:                      #Sets the path to the server directory
-bind_zone_file_mode:                #The permissions for the main config file
-bind_allow_query:                   #Specifies which network is allowed to query the DNS server
-bind_listen_ipv4:                   #Sets on which interface the DNS server will listen
-bind_listen_ipv6:                   #Sets on which interface the DNS will listen for IPV6 networks
-bind_recursion:                     #Boolean. Sets if recursion is allowed. Strongly recommended to turn this off if you are running an authoritive server
-bind_query_log:                     #Specifies where the logs should be saved
-bind_check_names:                   #Check host names for compliance with RFC 952 and RFC 1123 and take the defined action (e.g. warn, ignore, fail).
-bind_zone_master_server_ip:         #REQUIRED. This variable decides if the role will install the master or server role on the specified server.
-bind_zone_minimum_ttl:              #Minimum time to live field in SOA record
-bind_zone_time_to_refresh:          #Time to expire field in SOA record
-bind_zone_time_to_retry:            #Time to expire field in SOA record
-bind_zone_time_to_expire:           #Time to refresh field in SOA record
-bind_zone_domains:                  #Name of domains that will be used. Example: green.local
-name:                               #Name of the host that should be resolved. Example: bravo1
-ip:                                 #IP of the host that should be resolved. Example: 172.16.1.66
-aliases:                            #Additional name for the host. Example: ns1
-network:                            #Network of the domain
-role:                               #Name of the Ansible role that will be used
-
+``` bash
+    sudo systemctl status named
 ```
 
-To see the full list of supported variables, head to [Bert Van Vreckem's repository](https://github.com/bertvv/ansible-role-bind)
+Verwachte output:
 
-## Steps to configure bravo1 with bind-role role
+``` bash
+    ● named.service - Berkeley Internet Name Domain (DNS)
+   Loaded: loaded (/usr/lib/systemd/system/named.service; enabled; vendor preset: disabled)
+   Active: active (running) since Sat 2019-11-16 11:32:53 UTC; 4min 58s ago
+  Process: 4940 ExecReload=/bin/sh -c /usr/sbin/rndc reload > /dev/null 2>&1 || /bin/kill -HUP $MAINPID (code=exited, status=0/SUCCESS)
+  Process: 4862 ExecStart=/usr/sbin/named -u named -c ${NAMEDCONF} $OPTIONS (code=exited, status=0/SUCCESS)
+  Process: 4860 ExecStartPre=/bin/bash -c if [ ! "$DISABLE_ZONE_CHECKING" == "yes" ]; then /usr/sbin/named-checkconf -z "$NAMEDCONF"; else echo "Checking of zone files is disabled"; fi (code=exited, status=0/SUCCESS)
+ Main PID: 4864 (named)
+   CGroup: /system.slice/named.service
+           └─4864 /usr/sbin/named -u named -c /etc/named.conf
 
-1. (Recommended method): clone the [ansible-role-bind](https://github.com/bertvv/ansible-role-bind) repository in the ansible/roles directory. The directory should be called: dnsBindBravoCharlie
+Nov 16 11:32:53 bravo1 named[4864]: configuring command channel from '/etc/...y'
+Nov 16 11:32:53 bravo1 named[4864]: reloading configuration succeeded
+Nov 16 11:32:53 bravo1 named[4864]: reloading zones succeeded
+Nov 16 11:32:53 bravo1 named[4864]: all zones loaded
+Nov 16 11:32:53 bravo1 named[4864]: running
+Nov 16 11:32:53 bravo1 named[4864]: managed-keys-zone: Unable to fetch DNSK...ed
+Nov 16 11:32:53 bravo1 systemd[1]: Reloaded Berkeley Internet Name Domain (DNS).
+Nov 16 11:32:53 bravo1 named[4864]: resolver priming query complete
+Nov 16 11:35:37 bravo1 named[4864]: client @0x7f9d8c0c6790 172.16.1.66#5318...ed
+Nov 16 11:35:37 bravo1 named[4864]: client @0x7f9d8c0c6790 172.16.1.66#5318...45
+Hint: Some lines were ellipsized, use -l to show in full.
 
-2. Delete following files:
-* .git 
-* .gitignore
-* CHANGELOG.md
-* README.md
-* LICENSE.md
+``` 
 
-3. Open with your preffered text editor ansible/host_vars/bravo1.yml. Create the file if it is not present yet.
+## Stap 2: versturen van een dns query
 
-4. Copy the following [configuration](./bravo1.yml) and paste it in bravo1.yml. Be careful with spacing and syntax. Ansible is very strict with the way it reads files.
-
-5. Next, verify if bravo1 has an entry in ansible/servers.yml. If not, add the following lines:
-
-```yaml
-
-- name: Configure bravo1
-  hosts: bravo1
-  remote_user: root
-  gather_facts: yes
-  roles:
-    - dnsBindBravoCharlie
-
-```
-
-6. If you're using Vagrant to launch the DNS server,  make sure bravo1 has an entry in vagrant-hosts.yml. If not, add the following two lines:
-
-```yaml
-
-  #Bravo1 DNS Server
-- name: bravo1
-  mac: '08:00:27:66:5D:02'
-  ip: 172.16.1.66
-
-```
-
-IMPORTANT! In our case, Bravo1 will be the authoritive master server. In order for Ansible to correctly recognise its function, make sure that the ip address above and the variable "bind_zone_master_server_ip:" are matching. Otherwise, this server will be given the slave role.
-
-7. Launch the server. If you are using vagrant, the ansible provisioning should automatically start. 
-
-8. The Ansible configuration should succeed. If not, check if you made a syntax mistake or forgot  to fill in a necessary variable. Open a github issue if you are unable to resolve the error.
-
-9. On every host that will be using the DNS server, open with your text editor /etc/resolv.conf. If you are using vagrant, it will use the DNS servers which are linked with your NAT interface. Change the ip address next to nameserver to the IP of your DNS server. In our case, this will be 172.16.1.66.
-Add a second line with "nameserver 172.16.1.67". This will be our backup DNS server.
-
-10. If the configuration succeeded, you can verify that the DNS server is working by pinging "bravo1.green.local". Keep in mind that the server will only respond to requests from the 172.16 network. If you are pinging from your physical computer, which usually has an ip in the 192.168 network, the ping will fail.
-
-11. You can also check if the configuration files are edited accordingly by logging in into the server through ssh and using the cat command in the terminal. Each config file should look like this:
-
-* [/etc/named.conf](./Configuratiefiles/named.conf)
-* [/etc/hostname](./Configuratiefiles/hostname)
-* [/etc/hosts](./Configuratiefiles/hosts)
-* [/etc/resolv.conf](./Configuratiefiles/resolv.conf)
-* [/var/local/named-zones/green.local](./Configuratiefiles/green.local)
+### Note: 
+In de live productie omgeving worden alle dns-requests eerst naar quebec 1 verstuurd en vervolgens naar bravo1/charlie1 indien de bestemming zich in green.local bevindt. Om bravo1 of charlie1 individueel te testen moet je met vi met root rechten bestand /etc/resolv.conf aanpassen en de nameserver verwijzen naar 172.16.1.66.
 
 
-## License
+Via nslookup:
 
-BSD
+
+``` bash
+    nslookup alpha1.green.local
+``` 
+
+Verwachte output:
+
+
+``` bash
+Server:		172.16.1.66
+Address:	172.16.1.66#53
+
+Name:	alpha1.green.local
+Address: 172.16.1.65
+``` 
+
+Via dig commando:
+
+
+``` bash
+    dig alpha1.green.local
+``` 
+
+Verwachte output:
+
+
+``` bash
+    [vagrant@bravo1 ~]$ dig alpha1.green.local
+
+; <<>> DiG 9.11.4-P2-RedHat-9.11.4-9.P2.el7 <<>> alpha1.green.local
+;; global options: +cmd
+;; Got answer:
+;; WARNING: .local is reserved for Multicast DNS
+;; You are currently testing what happens when an mDNS query is leaked to DNS
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 11265
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 2
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;alpha1.green.local.		IN	A
+
+;; ANSWER SECTION:
+alpha1.green.local.	604800	IN	A	172.16.1.65
+
+;; AUTHORITY SECTION:
+green.local.		604800	IN	NS	bravo1.green.local.
+
+;; ADDITIONAL SECTION:
+bravo1.green.local.	604800	IN	A	172.16.1.66
+
+;; Query time: 0 msec
+;; SERVER: 172.16.1.66#53(172.16.1.66)
+;; WHEN: Sat Nov 16 11:36:05 UTC 2019
+;; MSG SIZE  rcvd: 100
+
+
+``` 
+## Stap 3: reverse lookup
+
+``` bash
+    nslookup 172.16.1.65
+``` 
+
+Verwachte output:
+
+
+``` bash
+    65.1.16.172.in-addr.arpa	name = alpha1.green.local.
+
+``` 
+
+
+Via dig commando:
+
+
+``` bash
+    dig +noall +answer -x 172.16.1.65
+``` 
+
+Verwachte output:
+
+``` bash
+    
+65.1.16.172.in-addr.arpa. 604800 IN	PTR	alpha1.green.local.
+
+``` 
+
+
+
+
+## Stap 4: controleer of server enkel reageert op request vanuit de 172.16/16 netwerk
+
+Indien stap 2 en 3 succesvol verliep betekent dit dat uw host zich in het bovenvermelde netwerk bevindt. U kan dit verifiëren met het "ip a" commando.
+Pas het ip adres, bijvoorbeeld op uw fysieke apparaat aan naar 192.168.0.x (getal naar keuze zolang dit niet in conflict komt met een ander apparaat op uw netwerk). Test de nslookup commando opnieuw. Deze keer zou deze moeten mislopen
+
+Via nslookup:
+
+
+``` bash
+    nslookup alpha1.green.local
+``` 
+
+Verwachte output:
+
+
+``` bash
+Server:		172.16.1.66
+Address:	172.16.1.66#53
+
+** server can't find alpha1.green.local: REFUSED
+
+
+``` 
 

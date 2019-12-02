@@ -28,12 +28,12 @@ Er wordt verwacht dat iedereen dit document grondig heeft gelezen en dat iederee
 Deze prioriteitslijst toont aan in welke volgorde we de machines zullen opstarten.
 
 1. Netwerk & server opstellen (R&S & Productie-omgeving)
-2. Kilo1 (DHCP)
-3. Alfa1 (Domeinserver)
-4. Bravo1 & Charlie1 (DNS)
-5. Oscar1 (Monitoring-systeem)
-6. Papa1 (PXEBoot-server)
-7. Quebec1 (Forwarding DNS)
+2. Quebec1 (Forwarding DNS)
+3. Kilo1 (DHCP)
+4. Alfa1 (Domeinserver)
+5. Bravo1 & Charlie1 (DNS)
+6. Oscar1 (Monitoring-systeem)
+7. Papa1 (PXEBoot-server)
 8. November1 (MariaDB)
 9. Echo1 (Webserver)
 10. Mike1 (Content management systeem)

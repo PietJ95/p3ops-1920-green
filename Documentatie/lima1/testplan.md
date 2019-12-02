@@ -100,7 +100,7 @@ To see the full list of supported variables for rh-base, head to [Bert Van Vreck
 
 8. The Ansible configuration should succeed. If not, check if you made a syntax mistake or forgot  to fill in a necessary variable. Open a github issue if you are unable to resolve the error.
 
-9. check 
+9. check -> zie 'testplan lima1 BEKNOPT'
 
 
 ## License

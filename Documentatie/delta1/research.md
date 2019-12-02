@@ -16,6 +16,7 @@ Dit document beschrijft alle resources die nuttig zijn voor server Delta1.
 - Mailserver (postfix, dovecot): [bertvv.mailserver](https://galaxy.ansible.com/bertvv/mailserver)
 - Squirrelmail: [bertvv.squirrelmail](https://galaxy.ansible.com/bertvv/squirrelmail)
 - Clam AV: [jtyr.clamav](https://galaxy.ansible.com/jtyr/clamav)
+- OpenLDAP-client
 
 ## Commands
 
@@ -43,14 +44,36 @@ Zoals bij het testen hierboven, om er voor te zorgen dat de lokale gebruikers pe
 
 ### Versturen mail poort 25
 
-Als er voor het versturen van mail gebruik gemaakt wordt van de standaard poort 25, dan lukt dit niet. Er moet gebruik gemaakt worden van de alternatieve poort 587.
+Als er voor het versturen van mail gebruik gemaakt wordt van de standaard poort 25, dan lukt dit niet.
+
+### Oplossing
+
+Er moet gebruik gemaakt worden van de alternatieve poort 587.
 
 ### Verkeerde directory mail
 
 Indien er in het configuratiescript `postfix_home_mailbox: /mail` staat, wordt er in plaats van een map `mail` een bestand aangemaakt. Dit zorgt er voor wanneer er mail wordt gestuurd naar een bepaalde gebruiker dat deze niet meer kan inloggen.
 
+### Oplossing
+
 Dit wordt opgelost door het pad correct mee te geven n.l. `postfix_home_mailbox: mail/`, dit zorgt er voor dat er effectief een directory mail wordt aangemaakt en dat gebruikers dus mail kunnen ontvangen.
 
+### Alfa1 gebruikers om in te loggen
 
+De gebruikers van alfa1 kunnen op onze server bekeken worden maar het lukt nog niet om hiermee op de webmail client in te loggen. Geeft voorlopig de foutmelding: 'password must be changed'.
+
+### Connection dropped by IMAP server: Query: CAPABILITY
+
+Deze error gebeurt wanneer er een gebruiker van Alfa1 wil inloggen maar de rechten niet heeft om de map mail aan te maken.
+
+### Oplossing
+
+De gebruiker moet eerst eens inloggen op de machine, dan worden de mappen meteen aangemaakt.
+
+### Error 451: Temporary Lookup Failure
+
+Deze error komt voor bij het versturen van een mail met een gebruiker sedert de alfa1 gebruikers gekoppeld zijn aan Delta1. 
+
+![](https://github.com/HoGentTIN/p3ops-1920-green/blob/master/Documentatie/delta1/images/Error451.png)
 
 

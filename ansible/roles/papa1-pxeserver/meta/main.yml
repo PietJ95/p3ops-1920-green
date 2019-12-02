@@ -10,7 +10,6 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
-  #- shomatan.nginx
-  #- shomatan.dhcpd
-  #- shomatan.tftp
-  #- shomatan.xinetd
+  - shomatan.nginx
+  - shomatan.tftp
+  - shomatan.xinetd

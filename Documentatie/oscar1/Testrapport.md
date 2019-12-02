@@ -54,5 +54,80 @@ Bekijk de uitvoer van dit commando. Dit mag geen foutmeldingen geven.
 - Krijg je nergens de foutmelding *No Data*?
   - [ ] In orde
 
+## Testen monitoren specifieke services
+
+### Bind DNS Monitoring
+
+#### Voorbereiding
+
+- Voor het testen van DNS monitoring moeten `bravo1` en `charlie1` draaien. Dit doe je met volgend commando:
+
+```bash
+vagrant up bravo1 charlie1
+```
+
+#### Testen
+
+- **172.16.1.5:9090** - *Prometheus*
+  - [x] Website kan worden bekeken
+  - Op deze website ga je naar *Status > Targets*.
+  - Alle servers die draaien, moeten onder de hoofding *Bind* als **state** *up* hebben in de tabel.
+    - [x] Dit is in orde
+- **172.16.1.5:3000** - *Grafana dashboard*
+  - Op deze website ga je naar *Home (linksboven) > Bind DNS (Fixed)*.
+  - Kies de gewenste server bij *Instance* (linksboven)
+  - Verander de tijd (*rechtsboven*) van *Last 7 days* naar *Last 5 minutes*
+  - Krijg je nergens de foutmelding *No Data*?
+  > Enkel bij "Resolver Cashe RR Sets" , "CPU Usage" en "Named CPU Time" wordt er geen data gevonden
+    - [ ] In orde
+
+### MariaDB monitoring
+
+#### Voorbereiding
+
+- Voor het testen van DNS monitoring moeten `november1` draaien. Dit doe je met volgend commando:
+
+```bash
+vagrant up november1
+```
+
+#### Testen
+
+- **172.16.1.5:9090** - *Prometheus*
+  - [ ] Website kan worden bekeken
+  - Op deze website ga je naar *Status > Targets*.
+  - Alle servers die draaien, moeten onder de hoofding *MySQL* als **state** *up* hebben in de tabel.
+    - [ ] Dit is in orde
+- **172.16.1.5:3000** - *Grafana dashboard*
+  - Op deze website ga je naar *Home (linksboven) > MySQL Overview*.
+  - Kies de gewenste server bij *Host* (linksboven)
+  - Verander de tijd (*rechtsboven*) van *Last 7 days* naar *Last 5 minutes*
+  - Krijg je nergens de foutmelding *No Data*?
+    - [ ] In orde
+
+### Nginx Monitoring
+
+#### Voorbereiding
+
+- Voor het testen van DNS monitoring moeten `echo1` en `mike1` draaien. Dit doe je met volgend commando:
+
+```bash
+vagrant up echo1 mike1
+```
+
+#### Testen
+
+- **172.16.1.5:9090** -  *Prometheus*
+  - [ ] Website kan worden bekeken
+  - Op deze website ga je naar *Status > Targets*.
+  - Alle servers die draaien, moeten onder de hoofding *Nginx* als **state** *up* hebben in de tabel.
+    - [ ] Dit is in orde
+- **172.16.1.5:3000** - *Grafana dashboard*
+  - Op deze website ga je naar *Home (linksboven) > NGINX by nginxinc*.
+  - Kies de gewenste server bij *Instance* (linksboven)
+  - Verander de tijd (*rechtsboven*) van *Last 7 days* naar *Last 5 minutes*
+  - Krijg je nergens de foutmelding *No Data*?
+    - [ ] In orde
+
 > **Indien alles in orde**:
 > - [ ] Testen geslaagd!

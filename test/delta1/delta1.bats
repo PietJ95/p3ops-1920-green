@@ -9,10 +9,13 @@ nic="eth1"
     result=$(ip a | grep ${nic} | sed -En 's/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
     [ "${result}" = "${ipaddr}" ]
 }
-@test "Correct default gateway for ${nic}" {
-    gateway="172.16.1.94"
-    result=$(cat /etc/sysconfig/network-scripts/ifcfg-${nic} | grep 'GATEWAY=')
-    [ "${result}" = "GATEWAY=${gateway}" ]
+@test "Correct nameserver 1" {
+    result=$(cat /etc/resolv.conf | grep '172.16.1.66')
+    [ ! -z "${result}" ]
+}
+@test "Correct nameserver 2" {
+    result=$(cat /etc/resolv.conf | grep '172.16.1.67')
+    [ ! -z "${result}" ]
 }
 
 # Firewall
@@ -20,11 +23,23 @@ nic="eth1"
     result=$(sudo systemctl status firewalld | grep 'Active' | sed 's/^[[:space:]]*//' | cut -d' ' -f1-3)
     [ "${result}" = "Active: active (running)" ]
 }
-@test "Correct services allowed through firewall" {
-    result=$(sudo firewall-cmd --list-all | grep 'services' | sed 's/^[[:space:]]*//')
-    [ "${result}" = "services: ssh dhcpv6-client http https pop3 pop3s imap imaps smtp smtps smtp-submission" ]
+@test "Service 'https' allowed through firewall" {
+    result=$(sudo firewall-cmd --list-all | grep 'services.*https')
+    [ ! -z "${result}" ]
 }
-@test "Correct ports allowed through firewall" {
-    result=$(sudo firewall-cmd --list-all | grep 'ports' | head -1 | sed 's/^[[:space:]]*//')
-    [ "${result}" = "ports: 9100/tcp 587/tcp" ]
+@test "Service 'imaps' allowed through firewall" {
+    result=$(sudo firewall-cmd --list-all | grep 'services.*imaps')
+    [ ! -z "${result}" ]
+}
+@test "Service 'smtps' allowed through firewall" {
+    result=$(sudo firewall-cmd --list-all | grep 'services.*smtps')
+    [ ! -z "${result}" ]
+}
+@test "Service 'smtp-submission' allowed through firewall" {
+    result=$(sudo firewall-cmd --list-all | grep 'services.*smtp-submission')
+    [ ! -z "${result}" ]
+}
+@test "Service 'ldap' allowed through firewall" {
+    result=$(sudo firewall-cmd --list-all | grep 'services.*ldap')
+    [ ! -z "${result}" ]
 }

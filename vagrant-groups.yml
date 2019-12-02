@@ -26,7 +26,7 @@ nodeexporter:
   - quebec1
 
 #cluster groep aanmaken voor november1,november2,november3 zodat deze allen dezelfde waarden van de variabelen krijgen
-galera_cluster:
+galeracluster:
   - november1
   - november2
   - november3
