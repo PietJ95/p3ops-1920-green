@@ -28,8 +28,8 @@ Er wordt verwacht dat iedereen dit document grondig heeft gelezen en dat iederee
 Deze prioriteitslijst toont aan in welke volgorde we de machines zullen opstarten.
 
 1. Netwerk & server opstellen (R&S & Productie-omgeving)
-2. Quebec1 (Forwarding DNS)
-3. Kilo1 (DHCP)
+2. Kilo1 (DHCP)
+3. Quebec1 (Forwarding DNS)
 4. Alfa1 (Domeinserver)
 5. Bravo1 & Charlie1 (DNS)
 6. Oscar1 (Monitoring-systeem)
