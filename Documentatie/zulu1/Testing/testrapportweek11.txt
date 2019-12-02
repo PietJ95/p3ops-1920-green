@@ -1,0 +1,7 @@
+# Testrapport week 11
+## Opmerkingen
+Het netwerk is niet online dus ik maak een eigen host aan met een statisch ip-adres en een default gateway
+- 172.16.0.159
+- 255.255.255.0
+- 172.16.0.254
+Het netwerk werkt maar DHCP is niet online. Via een statisch adres verbind ik met de pfsense web gui.
