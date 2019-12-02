@@ -15,6 +15,14 @@
     setype: httpd_sys_rw_content_t
     state: present
 
+- name: Put SELinux in permissive mode, logging actions that would be blocked.
+  selinux:
+    policy: targeted
+    state: permissive
+
+- name: Disable selinux
+  command: setenforce 0
+
 - name: Enable Software Collections
   yum:
     name: centos-release-scl-rh
