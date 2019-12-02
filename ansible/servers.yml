@@ -1,4 +1,15 @@
 ---
+- name: Configure User vm
+  hosts: all
+  become: true
+  tasks:
+    - name: Creating student with admin access
+      user:
+        name: student
+        #password is student
+        password: '$6$VeUtYm1fjQtfB11b$ViMU3H58feTTRPVHmSFZezFAfxIQ69zBtYgYYE1FWflQC06/aSJidpK/yo6Z0L6/g8P3z.aq8trq/0uMHeveo.'
+        groups: wheel
+
 #Configure dns servers for all servers
 - name: config-dns
   hosts: all:!quebec1
@@ -91,7 +102,7 @@
     - mariadb-server
     - mariadb-galera-cluster
     - idealista.prometheus_mysqld_exporter-role
-    
+
 #enkel opzetten na week 9 !
 #- hosts: november2
   #become: true
