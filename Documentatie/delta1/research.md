@@ -10,7 +10,8 @@ Dit document beschrijft alle resources die nuttig zijn voor server Delta1.
 - [configure mailserver](https://xdeb.org/post/2018/02/07/run-your-own-mail-server-with-postfix-and-dovecot/)
 - [Setup E-mail Server Centos](https://hostpresto.com/community/tutorials/how-to-setup-an-email-server-on-centos7/)
 - [Postfix hardening](https://linux-audit.com/postfix-hardening-guide-for-security-and-privacy/)
-
+- [Postfix with LDAP](http://www.postfix.org/LDAP_README.html)
+- [Postfix with LDAP Backend Guide (Proberen)](https://www.dev-eth0.de/2016/12/19/postfix_ldap/?fbclid=IwAR3uWCGukmQ-JHyEr2bflWnhiSBOi8CdTjUVK6NWVW5zyZOzkfhTpAbehfU)
 ## Ansible roles
 
 - Mailserver (postfix, dovecot): [bertvv.mailserver](https://galaxy.ansible.com/bertvv/mailserver)
@@ -72,7 +73,7 @@ De gebruiker moet eerst eens inloggen op de machine, dan worden de mappen meteen
 
 ### Error 451: Temporary Lookup Failure
 
-Deze error komt voor bij het versturen van een mail met een gebruiker sedert de alfa1 gebruikers gekoppeld zijn aan Delta1. 
+Deze error komt voor bij het versturen van een mail met een gebruiker sinds we de alfa1 gebruikers aan Delta1 hebben gekoppeld.
 
 ![](https://github.com/HoGentTIN/p3ops-1920-green/blob/master/Documentatie/delta1/images/Error451.png)
 
