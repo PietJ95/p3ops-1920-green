@@ -6,7 +6,7 @@ snmp-server community public RO
 
 vlan 20
 
-int range f0/1-7
+int range f0/1-15
 switchport mode access
 switchport access vlan 20
 exit
