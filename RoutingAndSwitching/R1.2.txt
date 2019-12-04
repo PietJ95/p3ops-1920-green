@@ -16,23 +16,7 @@ no shut
 exit
 
 ip route 0.0.0.0 0.0.0.0 s0/1/0
-
-router rip
-version 2
-network 172.16.0.0
-network 172.16.1.0
-network 172.16.1.64
-passive-interface s0/1/0  
-passive-interface g0/0/0
-exit
-
-router ospf 10
-router-id 10.10.10.10
-network 172.16.3.0 0.0.0.3 area 0
-network 172.16.2.0 0.0.0.3 area 0
-network 172.16.1.108 0.0.0.3 area 0
-passive-interface g0/0/1
-exit
+ip route 172.16.0.0 255.255.0.0 g0/0/1
 
 enable secret Admin
 service password-encryption
