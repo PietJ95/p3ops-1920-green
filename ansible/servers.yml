@@ -139,7 +139,7 @@
   roles:
     - common
     - drupal
-    - cloudalchemy.node-exporter
+    - node-exporter
 
 # Configure kilo1 DHCP server
 - hosts: kilo1
@@ -160,7 +160,7 @@
   roles:
     - common
     - drupal
-    - cloudalchemy.node-exporter
+    - node-exporter
 
 # Configure oscar 1: monitoring server
 - hosts: oscar1
