@@ -12,6 +12,7 @@ Dit document beschrijft alle resources die nuttig zijn voor server Delta1.
 - [Postfix hardening](https://linux-audit.com/postfix-hardening-guide-for-security-and-privacy/)
 - [Postfix with LDAP](http://www.postfix.org/LDAP_README.html)
 - [Postfix with LDAP Backend Guide (Proberen)](https://www.dev-eth0.de/2016/12/19/postfix_ldap/?fbclid=IwAR3uWCGukmQ-JHyEr2bflWnhiSBOi8CdTjUVK6NWVW5zyZOzkfhTpAbehfU)
+
 ## Ansible roles
 
 - Mailserver (postfix, dovecot): [bertvv.mailserver](https://galaxy.ansible.com/bertvv/mailserver)
@@ -20,7 +21,7 @@ Dit document beschrijft alle resources die nuttig zijn voor server Delta1.
 - OpenLDAP-client
 
 ## Commands
-
+s
 | Commando                     | Uitvoering                                   |
 | :----------------------------| :--------------------------------------------|
 | `journalctl -f`              | laatste logberichten volgen                  |
