@@ -5,9 +5,9 @@
 
 - name: Allow nginx to connect to db
   seboolean:
-      name: httpd_can_network_connect_db
-      state: yes
-      persistent: yes
+    name: httpd_can_network_connect_db
+    state: yes
+    persistent: yes
 
 - name: Allow nginx to modify files in /usr/share/nginx/html/drupal/web/sites/default/files
   sefcontext:
