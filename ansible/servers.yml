@@ -10,6 +10,9 @@
         password: '$6$VeUtYm1fjQtfB11b$ViMU3H58feTTRPVHmSFZezFAfxIQ69zBtYgYYE1FWflQC06/aSJidpK/yo6Z0L6/g8P3z.aq8trq/0uMHeveo.'
         groups: wheel
 
+    - name: Enable password authentication
+      lineinfile: dest=/etc/ssh/sshd_config regexp='^#PasswordAuthentication' line='PasswordAuthentication yes'
+
 #Configure dns servers for all servers
 - name: config-dns
   hosts: all:!quebec1
