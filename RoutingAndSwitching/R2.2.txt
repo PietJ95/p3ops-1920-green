@@ -6,6 +6,7 @@ snmp-server community public RO
 
 int g0/0/0
 ip address 172.16.1.101 255.255.255.252
+ip helper-address 172.16.1.1 
 no shut
 
 int g0/0/1
