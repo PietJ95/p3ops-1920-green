@@ -168,11 +168,13 @@
   become: true
   gather_facts: yes
   roles:
+    - tls
     - bertvv.rh-base
     - prometheus
     - grafana
     - snmp-exporter
     - jdauphant.dns
+    - iptables
 
 - hosts: papa1
   become: true
