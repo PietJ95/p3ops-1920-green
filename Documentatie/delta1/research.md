@@ -88,4 +88,18 @@ https://serverfault.com/questions/179419/postfix-recipient-address-rejected-user
 
 https://talk.plesk.com/threads/solved-postfix-mail-for-domain-com-loops-back-to-myself.329459/
 
-=> 
+=> mail server staat niet aangekondigd in dns records
+
+### error: no file /etc/postfix/aliases.db
+
+Reden: `aliases.db` staat in `/etc/`
+
+Oplossing:
+- `ln -s /etc/aliases.db /etc/postfix/aliases.db`
+
+### error: wrong user/password
+
+Reden: delta1 maakt niet automatisch de home dir aan van een ldap-user
+
+Oplossing:
+- `vagrant ssh delta1 && sudo su [user]`
