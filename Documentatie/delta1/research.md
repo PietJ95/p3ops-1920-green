@@ -78,4 +78,14 @@ Deze error komt voor bij het versturen van een mail met een gebruiker sinds we d
 
 ![](https://github.com/HoGentTIN/p3ops-1920-green/blob/master/Documentatie/delta1/images/Error451.png)
 
+### Recipient address rejected: User unknown in local recipient table
 
+https://serverfault.com/questions/179419/postfix-recipient-address-rejected-user-unknown-in-local-recipient-table
+
+=> mail versturen naar bert@delta1.green.local werkt wel (gedeeltelijk, mail wordt nog altijd verworpen)
+
+### mail for delta1.green.local loops back to myself
+
+https://talk.plesk.com/threads/solved-postfix-mail-for-domain-com-loops-back-to-myself.329459/
+
+=> 
