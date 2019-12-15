@@ -7,6 +7,10 @@ rhbase_firewall_allow_ports:
   - 3000/tcp
   - 9116/tcp
 
+rhbase_user_groups:
+  - sslcerts
+
+
 dns_nameservers: 
   - 172.16.1.66 
   - 10.0.2.3
@@ -356,10 +360,16 @@ grafana_dashboards:
     revision_id: 1
     datasource: 'prometheus'
 
+
+
 #Specifies cert keys in order to allow https traffic
+grafana_address: '172.16.1.5'
+grafana_port: 3000
 grafana_server:
-  cert_key: "/etc/pki/tls/private/oscar1.key"
-  cert_file: "/etc/pki/tls/certs/oscar1.crt"
+  protocol: http
+  cert_key: ""
+  cert_file: ""
 
-
-
+firewall_additional_rules:
+  - "sudo iptables -t nat -I OUTPUT -p tcp -d 127.0.0.1 --dport 443 -j REDIRECT --to-ports 3000"
+  - "sudo iptables -t nat -I PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 3000"  

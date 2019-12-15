@@ -174,13 +174,21 @@
     - grafana
     - snmp-exporter
     - jdauphant.dns
-
-#Redirects traffic from ports 80 and 443 to Grafana server
+    - iptables
+    
   post_tasks:
-    - shell: "sudo iptables -t nat -I OUTPUT -p tcp -d 127.0.0.1 --dport 80 -j REDIRECT --to-ports 3000"
-    - shell: "sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 3000"
-    - shell: "sudo iptables -t nat -I OUTPUT -p tcp -d 127.0.0.1 --dport 443 -j REDIRECT --to-ports 3000"
-    - shell: "sudo iptables -t nat -I PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 3000" 
+    - shell: "cp /etc/pki/tls/certs/oscar1.crt /etc/grafana"
+    - shell: "cp /etc/pki/tls/private/oscar1.key /etc/grafana"
+    - shell: "chown root:grafana /etc/grafana/oscar1.crt"
+    - shell: "chown root:grafana /etc/grafana/oscar1.key"
+    - shell: "chmod 775 /etc/grafana/oscar1.crt"
+    - shell: "chmod 775 /etc/grafana/oscar1.key"
+    - shell: "sed -i 's#protocol = http#protocol = https#g' /etc/grafana/grafana.ini"
+    - shell: "sed -i 's#root_url = http://172.16.1.5:3000#root_url = https://172.16.1.5:3000#g' /etc/grafana/grafana.ini"
+    - shell: "sed -i 's#cert_key =#cert_key=/etc/grafana/oscar1.key#g' /etc/grafana/grafana.ini"
+    - shell: "sed -i 's#cert_file =#cert_file=/etc/grafana/oscar1.crt#g' /etc/grafana/grafana.ini"    
+    - shell: "systemctl restart grafana-server"
+
 
 - hosts: papa1
   become: true
