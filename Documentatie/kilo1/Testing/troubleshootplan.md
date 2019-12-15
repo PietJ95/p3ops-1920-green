@@ -10,7 +10,7 @@
 
   - ```
      ip a
-    ```
+     ```
 
 - route controleren/ default gateway 
 
@@ -24,3 +24,25 @@
     vi /etc/dhcp/dhcpd.conf
     ```
 
+
+- Connectie testen met hosts
+
+  - ```
+    ping {address}
+    ```
+
+
+- Een lijst van tussenliggende routers naar zijn bestemming weergeven
+
+  - ```
+    traceroute {address}
+    ```
+
+
+- DHCP configuratie file
+
+  - ```
+    cat /etc/dhcp/dhcpd.conf
+    ```
+
+    ​
