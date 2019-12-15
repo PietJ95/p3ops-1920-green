@@ -67,7 +67,7 @@
   blockinfile:
     dest: "{{ postfix_config_dir }}/main.cf"
     block: |
-      alias_maps = hash:/etc/postfix/aliases    
+      alias_maps = hash:/etc/aliases
       virtual_alias_maps = ldap:/etc/postfix/ldap-aliases.cf
       local_recipient_maps = $alias_maps, ldap:/etc/postfix/ldap-users.cf
   when: postfix_ldap == true
@@ -83,11 +83,3 @@
     src: ldap-users.cf.j2
     dest: /etc/postfix/ldap-users.cf
   when: postfix_ldap == true
-
-- name: Create symlink to aliases.db
-  file:
-    src: /etc/aliases.db
-    dest: /etc/postfix/aliases.db
-    owner: vagrant
-    group: vagrant
-    state: link
