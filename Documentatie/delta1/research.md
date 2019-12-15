@@ -84,22 +84,39 @@ https://serverfault.com/questions/179419/postfix-recipient-address-rejected-user
 
 => mail versturen naar bert@delta1.green.local werkt wel (gedeeltelijk, mail wordt nog altijd verworpen)
 
-### mail for delta1.green.local loops back to myself
+### Error: mail for delta1.green.local loops back to myself
 
 https://talk.plesk.com/threads/solved-postfix-mail-for-domain-com-loops-back-to-myself.329459/
+https://www.cyberciti.biz/faq/postfix-mail-for-domaincom-loops-back-to-myself-error-and-solution/
 
 => mail server staat niet aangekondigd in dns records
 
-### error: no file /etc/postfix/aliases.db
+### Error: no file /etc/postfix/aliases.db
 
 Reden: `aliases.db` staat in `/etc/`
 
 Oplossing:
 - `ln -s /etc/aliases.db /etc/postfix/aliases.db`
 
-### error: wrong user/password
+### Error: wrong user/password
 
 Reden: delta1 maakt niet automatisch de home dir aan van een ldap-user
 
 Oplossing:
 - `vagrant ssh delta1 && sudo su [user]`
+- OF `./scripts/delta1.sh`
+
+### Mail verzenden lukt, mail ontvangen niet
+
+
+Reden: ? geen errors, geen logs
+
+### Error: postfix user unknown in virtual alias table
+
+https://serverfault.com/questions/788967/postfix-user-unknown-in-virtual-alias-table
+
+### Error: postfix: user unknown in local recipient table
+
+https://serverfault.com/questions/846866/postfix-user-unknown-in-local-recipient-table-only-with-the-main-domain-hostna
+
+http://www.postfix.org/STANDARD_CONFIGURATION_README.html
