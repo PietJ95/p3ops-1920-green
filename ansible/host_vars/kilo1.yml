@@ -20,6 +20,8 @@ dhcp_global_booting: allow
 dhcp_global_next_server: 172.16.1.6  # papa1
 dhcp_global_filename: "centos/pxelinux.0"
 
+#subnet per VLAN waarin IP's moeten worden uitgedeeld
+#VLAN 20, 30 en 50
 dhcp_subnets:
     # VLAN 20
   - ip: 172.16.0.0
