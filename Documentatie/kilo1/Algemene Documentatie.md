@@ -1,5 +1,3 @@
-
-
 # Documentatie Kilo1 (DHCP-server)
 
 - Student name: Lincy De Groote en Yordi De Rijcke
@@ -13,7 +11,7 @@
   - ansible
   - git
 
-Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-configuratie te geven. De IP-configuratie houdt het volgende in: IP-adres, netwerkmask, default gateway, DNS. De servers krijgen een statisch IP-adres via MAC-adres. Hosts doorverwijzen naar PXEBoot server die willen booten over het netwerk.
+Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-configuratie te geven. De IP-configuratie houdt het volgende in: IP-adres, netwerkmask, default gateway en DNS. De servers krijgen een statisch IP-adres via MAC-adres. Hosts doorverwijzen naar PXEBoot server die willen booten over het netwerk.
 
 - VLAN 20 : interne clients om Private
   -  **Dynamische DHCP scope: 172.16.0.1 - 172.16.0.253** 
@@ -29,17 +27,20 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
   
 ## Cheat sheet
 
-| Command                  | Uitleg                                                |
-| ------------------------ | ----------------------------------------------------- |
-| vagrant up {NAAM}        | opstarten van server via vagrant                      |
-| vagrant provision {NAAM} | provisioning server via vagrant                       |
-| vagrant destroy {NAAM}   | afbreken server                                       |
-| dhclient -v {interface}  | Ip adres opvragen via DHCP op de effectieve interface |
-| ip a                     | IP configuratie bekijken                              |
-| ip r                     | Route configuratie bekijken                           |
-| cat /etc/resolv.conf     | DNS configuratie bekijken                             |
-|                          |                                                       |
-|                          |                                                       |
+| Command                  | Uitleg                                                    |
+| ------------------------ | --------------------------------------------------------- |
+| vagrant up {NAAM}        | opstarten van server via vagrant                          |
+| vagrant provision {NAAM} | provisioning server via vagrant                           |
+| vagrant destroy {NAAM}   | afbreken server                                           |
+| dhclient -v {interface}  | Ip adres opvragen via DHCP op de effectieve interface     |
+| ip a                     | IP configuratie bekijken                                  |
+| ip r                     | Route configuratie bekijken                               |
+| cat /etc/resolv.conf     | DNS configuratie bekijken                                 |
+| ping {address}           | connectie testen met hosts                                |
+| traceroute {address}     | een lijst van tussenliggende routers naar zijn bestemming |
+| ip r \| grep default     | default gateway                                           |
+| cat /etc/dhcp/dhcpd.conf | DHCP configuratie bekijken                                |
+| systemctl restart dhcpd  | restart DHCP                                              |
 
 ## Procedure/Documentation
 
@@ -47,7 +48,7 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
 
   - Deze rol wordt gebruikt om de DHCP-server te configureren
 
-- Ga naar het document *`servers.yml`* in de map Ansible
+- Ga naar het document *`servers.yml`* in de map `Ansible`
 
   - Voeg de role toe aan de server Kilo1
 
@@ -58,9 +59,7 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
         - kilo1-dhcp	
     ```
 
-- VERDER UITLEGGEN ROLES
-
-- Ga naar het bestand *`kilo1.yml`* in de map host_vars
+- Ga naar het bestand *`kilo1.yml`* in de map `host_vars`
 
   - Voeg dit toe aan het document om de DHCP toe te laten in de firewall
 
@@ -96,7 +95,8 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
       # PXEboot config
       dhcp_global_bootp: allow
       dhcp_global_booting: allow
-      dhcp_global_next_server: 172.16.1.6 # papa1
+      dhcp_global_next_server: 172.16.1.6  # papa1
+      dhcp_global_filename: "centos/pxelinux.0"
       ```
 
   - Maak subnetten aan per VLAN
@@ -110,77 +110,76 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
       - routers = default gateway
       - pools: begin en eind-adres
 
-    - VLAN 20: krijgt een range waaruit de dynamische adressen mogen uitgedeeld worden via dhcp
+    - `VLAN 20`: krijgt een range waaruit de dynamische adressen mogen uitgedeeld worden via dhcp
 
-    - VLAN 30 en 50: krijgt een range waarin de statische IP-adressen worden gereserveerd via dhcp
+    - `VLAN 30 en 50`: krijgt een range waarin de statische IP-adressen worden gereserveerd via dhcp
 
     - ```
       dhcp_subnets:
-    # VLAN 20
-  - ip: 172.16.0.0
-    netmask: 255.255.255.0
-    routers: 172.16.0.254
-    pools:
-      - range_begin: 172.16.0.1
-        range_end: 172.16.0.253
+          # VLAN 20
+        - ip: 172.16.0.0
+          netmask: 255.255.255.0
+          routers: 172.16.0.254
+          pools:
+            - range_begin: 172.16.0.1
+              range_end: 172.16.0.253
 
-    # VLAN 30
-  - ip: 172.16.1.0
-    netmask: 255.255.255.192
-    routers: 172.16.1.62
-    pools:
-      - range_begin: 172.16.1.10
-        range_end: 172.16.1.61
+          # VLAN 30
+        - ip: 172.16.1.0
+          netmask: 255.255.255.192
+          routers: 172.16.1.62
+          pools:
+            - range_begin: 172.16.1.10
+              range_end: 172.16.1.61
 
-    # VLAN 50
-  - ip: 172.16.1.64
-    netmask: 255.255.255.224
-    routers: 172.16.1.94
-    pools:
-      - range_begin: 172.16.1.80
-        range_end: 172.16.1.93
-
+          # VLAN 50
+        - ip: 172.16.1.64
+          netmask: 255.255.255.224
+          routers: 172.16.1.94
+          pools:
+            - range_begin: 172.16.1.80
+              range_end: 172.16.1.93
       ```
+    - Geef elke host met een statisch IP een statische MAC adres mee en IP-adres
+      - Begin met een random MAC-adres zoals bijvoorbeeld '08:00:27:66:5D:01', geef hieraan het bijhorende IP-adres bepaald door de IP-table. Voor de volgende server tel je 1 op bij het vorig MAC-adres en geef je opnieuw het bijhorend IP-adres bepaald door de IP-table. Doe zo verder tot dat je alle servers een statisch MAC-adres en IP-adres hebt gegeven.
 
-  - Geef elke host met een statisch IP een statische MAC adres mee en IP-adres
+      - ```
+        # Fixed IP via MAC
+        dhcp_hosts:
+          - name: Alfa1
+            mac: '08:00:27:66:5D:01'
+            ip: 172.16.1.65
+          - name: Bravo1
+            mac: '08:00:27:66:5D:02'
+            ip: 172.16.1.66
+          - name: Charlie1
+            mac: '08:00:27:66:5D:03'
+            ip: 172.16.1.67
+          - name: Delta1
+            mac: '08:00:27:66:5D:04'
+            ip: 172.16.1.68
+          - name: Echo1
+            mac: '08:00:27:66:5D:05'
+            ip: 172.16.1.69
+          - name: Lima1
+            mac: '08:00:27:66:5D:06'
+            ip: 172.16.1.2
+          - name: Mike1
+            mac: '08:00:27:66:5D:07'
+            ip: 172.16.1.3
+          - name: November1
+            mac: '08:00:27:66:5D:08'
+            ip: 172.16.1.4
+          - name: Oscar1
+            mac: '08:00:27:66:5D:09'
+            ip: 172.16.1.5
+          - name: Papa1
+            mac: '08:00:27:66:5D:0A'
+            ip: 172.16.1.6
+        ```
 
-    - Begin met een random MAC-adres zoals bijvoorbeeld '08:00:27:66:5D:01', geef hieraan het bijhorende IP-adres bepaald door de IP-table. Voor de volgende server tel je 1 op bij het vorig MAC-adres en geef je opnieuw het bijhorend IP-adres bepaald door de IP-table. Doe zo verder tot dat je alle servers een statisch MAC-adres en IP-adres hebt gegeven.
+        ​
 
-    - ```
-      # Statisch IP via MAC
-      dhcp_hosts:
-  - name: Alfa1
-    mac: '08:00:27:66:5D:01'
-    ip: 172.16.1.65
-  - name: Bravo1
-    mac: '08:00:27:66:5D:02'
-    ip: 172.16.1.66
-  - name: Charlie1
-    mac: '08:00:27:66:5D:03'
-    ip: 172.16.1.67
-  - name: Delta1
-    mac: '08:00:27:66:5D:04'
-    ip: 172.16.1.68
-  - name: Echo1
-    mac: '08:00:27:66:5D:05'
-    ip: 172.16.1.69
-  - name: Lima1
-    mac: '08:00:27:66:5D:06'
-    ip: 172.16.1.2
-  - name: Mike1
-    mac: '08:00:27:66:5D:07'
-    ip: 172.16.1.3
-  - name: November1
-    mac: '08:00:27:66:5D:08'
-    ip: 172.16.1.4
-  - name: Oscar1
-    mac: '08:00:27:66:5D:09'
-    ip: 172.16.1.5
-  - name: Papa1
-    mac: '08:00:27:66:5D:0A'
-    ip: 172.16.1.6
-
-      ```
 
 ## To Do
 
@@ -199,15 +198,15 @@ Kilo1 is een DHCP-server die gebruikt wordt om de werkstations een correcte ip-c
     - [x] controleer per VLAN of het IP-adres uit de juiste range komt
   - [x] controle statische IP via MAC
     - [x] controleer per server of het IP-adres correct is
-- [ ] Documentatie
+- [x] Documentatie
   - [x] Inleiding
     - [x] wat leren we
-    - [ ] cheatsheet
+    - [x] cheatsheet
   - [x] stappenplan
   - [x] extra uitleg bij stappenplan
   - [x] testplan
   - [x] TO DO
-  - [ ] resources
+  - [x] resources
 
 ## Resources
 

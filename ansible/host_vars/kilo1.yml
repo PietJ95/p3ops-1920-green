@@ -7,8 +7,11 @@ dhcp_global_domain_name_servers:
   - 172.16.1.66
   - 172.16.1.67
 
+#lease times
 dhcp_global_default_lease_time: 43200 # = 12u
 dhcp_global_max_lease_time: 43200
+
+#global domain
 dhcp_global_domain_name: green.local # search domain
 
 # PXEboot config
