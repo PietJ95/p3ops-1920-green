@@ -80,4 +80,5 @@ Users:
 
 ## Test MariaDB Galera cluster
 
-TO DO
+Niet meer getest met dat netwerkopzetting de prioriteit was.
+Alles werkte behalve dat november2 en 3 niet in de ansible config file kwamen
