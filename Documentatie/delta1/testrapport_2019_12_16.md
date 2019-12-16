@@ -30,7 +30,17 @@ $ bats /vagrant/test/delta1/delta1.bats
 Resultaat:
 
 ```
-%TODO
+ ✓ Correct IP address
+ ✓ Correct nameserver 1
+ ✓ Correct nameserver 2
+ ✓ Firewall is running
+ ✓ Service 'https' allowed through firewall
+ ✓ Service 'imaps' allowed through firewall
+ ✓ Service 'smtps' allowed through firewall
+ ✓ Service 'smtp-submission' allowed through firewall
+ ✓ Service 'ldap' allowed through firewall
+
+9 tests, 0 failures
 ```
 
 3. Inloggen webportaal en mailbox bekijken in webbrowser
@@ -48,9 +58,7 @@ Klik op "INBOX" in de linkerkolom
 
 Resultaat:
 
-```
-%TODO
-```
+![Productie_Inbox](./images/Productie_Inbox.png)
 
 4. Mail verzenden BINNEN domein
 
@@ -69,13 +77,13 @@ Testtext in textarea from johndoe@green.local
 
 Klik op "Send"
 
+![Productie_Send](./images/Productie_Send.png)
+
 Klik op "Sent" in de linkerkolom. Hier zou de mail moeten terechtkomen.
 
 Resultaat:
 
-```
-%TODO
-```
+![Productie_Sent](./images/Productie_Sent.png)
 
 5. Mail verzenden BUITEN domein
 
@@ -94,13 +102,14 @@ Testtext in textarea from johndoe@green.local
 
 Klik op "Send"
 
+![Productie_Send](./images/Productie_Red_Send.png)
+
 Klik op "Sent" in de linkerkolom. Hier zou de mail moeten terechtkomen.
 
 Resultaat:
 
-```
-%TODO
-```
+
+![Productie_Sent](./images/Productie_Red_Sent.png)
 
 6. Mail ontvangen BINNEN domein
 
@@ -115,9 +124,7 @@ Hier zou de mail van "milan@green.local" moeten terechtkomen.
 
 Resultaat:
 
-```
-%TODO
-```
+![Productie_Receive](./images/Productie_Receive.png)
 
 7. Mail ontvangen BUITEN domein
 
