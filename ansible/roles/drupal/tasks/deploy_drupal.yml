@@ -51,7 +51,6 @@
   get_url:
     url: "{{ composer_url }}"
     dest: "/tmp/composer-setup.php"
-    checksum: "{{ composer_checksum }}"
 
 - name: Install composer
   command: "php /tmp/composer-setup.php --install-dir={{ composer_path }} --filename=composer"
