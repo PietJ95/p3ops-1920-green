@@ -82,9 +82,9 @@ surf naar chamilo.be (ip route 172.16.0.0 255.255.0.0 s0/1/1 WINDOWS!)
 
 ##### SSH
 Controleer indien je een secure shell connectie kan maken met volgende addressen.
-* [ ] Admin@172.16.1.50 (S1.1 - vlan 50)
-* [ ] Admin@172.16.0.254 (R2.1)
-* [ ] Admin@172.16.1.110 (R1.2)
+    * [ ] Admin@172.16.1.50 (S1.1 - vlan 50)
+    * [ ] Admin@172.16.0.254 (R2.1)
+    * [ ] Admin@172.16.1.110 (R1.2)
 
 #### 2. Kilo1 (DHCP)
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.1*** bevat.
