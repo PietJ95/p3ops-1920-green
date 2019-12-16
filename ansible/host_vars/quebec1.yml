@@ -13,9 +13,10 @@
       - git
 
     dns_nameservers:
-      - "DNS1=172.16.1.66"
-      - "DNS2=172.16.1.67"
-      - "DNS3=8.8.8.8"
+      - "DNS1=8.8.8.8"
+      - "DNS2=172.16.1.66"
+      - "DNS3=172.16.1.67"
+
 
     dnsmasq_domain: 'green.local' # Juiste Domain
 
@@ -30,5 +31,5 @@
       - /green.local/172.16.1.66 # ns1.green.local
       - /green.local/172.16.1.67 # ns2.green.local
 
-      - /red.local/172.18.1.67 # ns1.red.local
-      - /red.local/172.18.1.68 # ns2.red.local
+      - /red.local/172.18.1.66 # ns1.red.local
+      - /red.local/172.18.1.67 # ns2.red.local
