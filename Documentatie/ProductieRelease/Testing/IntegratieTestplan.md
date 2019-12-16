@@ -394,8 +394,8 @@ Controleer indien je een secure shell connectie kan maken met volgende addressen
     * `Mariadb [None]> use drupal_mike1;`
     * `CREATE TABLE a (id int); DROP TABLE a;`
 * [ ] Inspecteer dat MariaDB geen testdatabank en anonieme gebruikers meer heeft.
-    * `mysql -uroot -p${mariadb_root_password} --execute 'show databases'`
-    * `mysql -uroot -p${mariadb_root_password} --execute "select * from user where user='';"`
+    * `mysql -uroot -p `
+    * `Mariadb [None]> select user, password, host from mysql.user;`
     
 #### 9. Echo1 (Webserver)
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.69/27*** bevat.
