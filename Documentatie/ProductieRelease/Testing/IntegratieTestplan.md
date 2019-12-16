@@ -401,16 +401,67 @@ Controleer indien je een secure shell connectie kan maken met volgende addressen
     * Expected: https werkt en u krijgt een webpagina te zien
 * [ ] Controleer of je van **http://www.green.local** geredirect wordt naar **https://www.green.local**.
     * Expected: http://www.green.local wordt geredirect naar https://www.green.local
-##### Test Drupal
-**--> niet ontvangen groep echo1**
 
-#### 10. Mike1 (Content management systeem) AFWERKEN
+##### Test Drupal
+* [ ] Ga naar www.green.local
+    * Expected: u krijgt de drupal homepage te zien
+
+* [ ] Klik op "Log in" en "Create a new account"
+    * Expected: u krijgt een melding te zien dat het aangemaakte account op approval van de admin wacht
+
+* [ ] Ga terug naar de log in pagina en log in met de credentials van het admin account
+    * Expected: u krijgt extra controls te zien
+
+* [ ] Ga naar de tab "People" en unblock de test user die u in stap 2 creëerde
+    * Expected: de test user wordt successvol gedeblokkeerd
+
+* [ ] Edit de test user
+    * Expected: u krijgt een pagina te zien waar u aanpassing aan de test user kan maken
+
+* [ ] Verander het password van de test user
+    * Expected: het password is succesvol aangepast
+
+* [ ] Maak een article en basic page aan onder de content tab
+    * Expected: het article en de basic page zijn succesvol aangemaakt
+
+#### 10. Mike1 (Content management systeem)
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.3/26*** bevat.
     * Gebruik onderstaand commando om dit te controleren.
      ``` bash
          ip address show eth1
      ```
-**--> niet ontvangen groep echo1**
+##### Test toegangelijkheid
+* [ ] Controleer indien www.green.local(of 172.16.1.69) in de browser een webpagina toont.
+    * Opmerking: dns records voor www.green.local zijn vereist
+
+##### Test https
+* [ ] Controleer indien https actief is.
+  * Ga naar https://www.green.local
+    * Expected: https werkt en u krijgt een webpagina te zien
+* [ ] Controleer of je van **http://www.green.local** geredirect wordt naar **https://www.green.local**.
+    * Expected: http://www.green.local wordt geredirect naar https://www.green.local
+
+##### Test Drupal
+* [ ] Ga naar www.green.local
+    * Expected: u krijgt de drupal homepage te zien
+
+* [ ] Klik op "Log in" en "Create a new account"
+    * Expected: u krijgt een melding te zien dat het aangemaakte account op approval van de admin wacht
+
+* [ ] Ga terug naar de log in pagina en log in met de credentials van het admin account
+    * Expected: u krijgt extra controls te zien
+
+* [ ] Ga naar de tab "People" en unblock de test user die u in stap 2 creëerde
+    * Expected: de test user wordt successvol gedeblokkeerd
+
+* [ ] Edit de test user
+    * Expected: u krijgt een pagina te zien waar u aanpassing aan de test user kan maken
+
+* [ ] Verander het password van de test user
+    * Expected: het password is succesvol aangepast
+
+* [ ] Maak een article en basic page aan onder de content tab
+    * Expected: het article en de basic page zijn succesvol aangemaakt
 #### 11. Lima1 (Interne file-server)
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.2/26*** bevat.
     * Gebruik onderstaand commando om dit te controleren.
