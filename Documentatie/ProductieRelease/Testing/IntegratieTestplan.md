@@ -388,8 +388,9 @@ Controleer indien je een secure shell connectie kan maken met volgende addressen
 * [ ] Onderzoek of gebruikers 'mike1_user' en 'echo1_user' schrijfrechten voor de aangewezen databanken.
     * `mysql -u${mike1_user} -pmike1 \ --execute 'CREATE TABLE a (id int); DROP TABLE a;`
 * [ ] Inspecteer dat MariaDB geen testdatabank en anonieme gebruikers meer heeft.
-    * `mysql -uroot -p${mariadb_root_password} --execute 'show databases' test [ "0" -ne "${status}" ]`
-    *  `mysql -uroot -p${mariadb_root_password} --execute "select * from user where user='';"`
+    * `mysql -uroot -p${mariadb_root_password} --execute 'show databases'`
+    * `mysql -uroot -p${mariadb_root_password} --execute "select * from user where user='';"`
+    
 #### 9. Echo1 (Webserver)
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.69/27*** bevat.
     * Gebruik onderstaand commando om dit te controleren.
