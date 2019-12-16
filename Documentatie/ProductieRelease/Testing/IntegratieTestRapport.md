@@ -217,13 +217,12 @@ default via 172.16.1.94 dev eth1 proto dhcp metric 101
        ``` bash
            ip address show eth1
        ```
-       RESULT
   * [x] Controleer of de eerste entry **default via 172.16.1.62** bevat.
       * Gebruik onderstaand commando om dit te controleren.
        ``` bash
             ip route show
        ```
-  * [ ] Test indien resolv.conf de DNS entrys bevat(172.16.1.66 en 172.16.1.67) en alsook het search domain green.local.
+  * [x] Test indien resolv.conf de DNS entrys bevat(172.16.1.66 en 172.16.1.67) en alsook het search domain green.local.
       * Gebruik onderstaand commando om dit te controleren.
        ``` bash
             cat /etc/resolv.conf
