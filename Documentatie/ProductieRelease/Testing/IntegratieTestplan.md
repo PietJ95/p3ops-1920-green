@@ -374,6 +374,10 @@ Controleer indien je een secure shell connectie kan maken met volgende addressen
 	- user = echo1_user
 	- pass = echo1
 	- ip = 172.16.1.69
+* **OPMERKING:** 
+	> Soms moet men inloggen in de databank eerst voor te testen,
+	ga dus eerst in de database met  `Mariadb [None]> use databaseName;`
+	
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.4/26*** bevat.
     * Gebruik onderstaand commando om dit te controleren.
      ``` bash
@@ -386,7 +390,9 @@ Controleer indien je een secure shell connectie kan maken met volgende addressen
 * [ ] Toets of de databanken 'drupal_echo1' en 'drupal_mike1' bestaan.
     * `mysql -uroot -p${mariadb_root_password} --execute 'show databases'`
 * [ ] Onderzoek of gebruikers 'mike1_user' en 'echo1_user' schrijfrechten voor de aangewezen databanken.
-    * `mysql -u${mike1_user} -pmike1 \ --execute 'CREATE TABLE a (id int); DROP TABLE a;`
+    * `mysql -u${mike1_user} -pmike1` 
+    * `Mariadb [None]> use drupal_mike1;`
+    * `CREATE TABLE a (id int); DROP TABLE a;`
 * [ ] Inspecteer dat MariaDB geen testdatabank en anonieme gebruikers meer heeft.
     * `mysql -uroot -p${mariadb_root_password} --execute 'show databases'`
     * `mysql -uroot -p${mariadb_root_password} --execute "select * from user where user='';"`
