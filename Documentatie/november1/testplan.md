@@ -2,22 +2,19 @@
 
 ## Test MariaDB
 
-1. Is de MariaDB service gestart bij de boot en actief?
-    > * sudo systemctl status mariadb*
-    > * sudo systemctl status mariadb*
-2. Bestaan de databanken 'drupal_echo1' en 'drupal_mike1'?
-    > * mysql -uroot -p${mariadb_root_password} --execute 'show databases'*
-3. Hebben de gebruikers 'mike1_user' en 'echo1_user' schrijfrechten voor de aangewezen databanken?
-    > * SELECT host,user FROM mysql.user;
-    > * mysql -u${mike1_user} -pmike1 \ --execute 'CREATE TABLE a (id int); DROP TABLE a;*
-4.  De MariaDB mag geen testdatabank en anonieme gebruikers meer hebben,klopt dit?
-    > * run mysql -uroot -p${mariadb_root_password} --execute 'show databases' test [ "0" -ne "${status}" ]*
-    > * sudo systemctl list-units --type service*
-5. Hebben de gebruikers 'mike1_user' en 'echo1_user' schrijfrechten voor de aangewezen databanken?
-    > * show grants for 'mike1_user'@'172.16.1.3';
-    > * show grants for 'echo1_user'@'172.16.1.69';
-6.  De MariaDB mag geen testdatabank en anonieme gebruikers meer hebben,klopt dit?
-    > * mysql -uroot -p${mariadb_root_password} --execute 'show tables' test [ "0" -ne "${status}" ]*
+1. [ ] Controleer of de MariaDB service gestart is bij de boot.
+    * `sudo systemctl status mariadb`
+2. [ ] Verifeer of de MariaDB service 'Actief' is.
+    * `sudo systemctl status mariadb`
+3. [ ] Toets of de databanken 'drupal_echo1' en 'drupal_mike1' bestaan.
+    * `mysql -uroot -p${mariadb_root_password} --execute 'show databases'`
+4. [ ] Onderzoek of gebruikers 'mike1_user' en 'echo1_user' schrijfrechten voor de aangewezen databanken.
+    * `mysql -u${mike1_user} -pmike1` 
+    * `Mariadb [None]> use drupal_mike1;`
+    * `CREATE TABLE a (id int); DROP TABLE a;`
+5. [ ] Inspecteer dat MariaDB geen testdatabank en anonieme gebruikers meer heeft.
+    * `mysql -uroot -p `
+    * `Mariadb [None]> select user, password, host from mysql.user;`
 
 #### OPMERKING BIJ TESTPLAN
 >  Het is zo dat men enkel kan inloggen op de drupal_mike1 en drupal_echo1 databases nadat de servers mike1 en echo1 opgezet zijn. Dit komt omdat deze hun users mike1_user en echo1_user enkel priviliges hebben op hun hosts 172.16.1.69 en 172.16.1.3. Dus wanneer deze nog niet opgezet zijn en je wilt inloggen met de accounts zal deze  de error geven dat,indien je de host niet specifieert,*"Access denied for user 'mike1_user'@'localhost'"*
