@@ -367,23 +367,29 @@ Controleer indien je een secure shell connectie kan maken met volgende addressen
 | www.hogent.be | / | ??? |
 
 #### 8. November1 (MariaDB)
+*	- **passwoord root**= admin
+	- user = mike1_user
+	- pass = mike1
+	- ip = 172.16.1.3
+	- user = echo1_user
+	- pass = echo1
+	- ip = 172.16.1.69
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.4/26*** bevat.
     * Gebruik onderstaand commando om dit te controleren.
      ``` bash
          ip address show eth1
      ```
 * [ ] Controleer of de MariaDB service gestart is bij de boot.
-    * sudo systemctl status mariadb
+    * `sudo systemctl status mariadb`
 * [ ] Verifeer of de MariaDB service 'Actief' is.
-    * sudo systemctl status mariadb
+    * `sudo systemctl status mariadb`
 * [ ] Toets of de databanken 'drupal_echo1' en 'drupal_mike1' bestaan.
-    * mysql -uroot -p${mariadb_root_password} --execute 'show databases'
+    * `mysql -uroot -p${mariadb_root_password} --execute 'show databases'`
 * [ ] Onderzoek of gebruikers 'mike1_user' en 'echo1_user' schrijfrechten voor de aangewezen databanken.
-    * mysql -u${mike1_user} -pmike1 \ --execute 'CREATE TABLE a (id int); DROP TABLE a;
+    * `mysql -u${mike1_user} -pmike1 \ --execute 'CREATE TABLE a (id int); DROP TABLE a;`
 * [ ] Inspecteer dat MariaDB geen testdatabank en anonieme gebruikers meer heeft.
-    * run mysql -uroot -p${mariadb_root_password} --execute 'show databases' test [ "0" -ne "${status}" ]
-    * sudo systemctl list-units --type service
-    * result=$(mysql -uroot -p${mariadb_root_password} --execute "select * from user where user='';" mysql) [ -z "${result}" ]
+    * `mysql -uroot -p${mariadb_root_password} --execute 'show databases' test [ "0" -ne "${status}" ]`
+    *  `mysql -uroot -p${mariadb_root_password} --execute "select * from user where user='';"`
 #### 9. Echo1 (Webserver)
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.69/27*** bevat.
     * Gebruik onderstaand commando om dit te controleren.
