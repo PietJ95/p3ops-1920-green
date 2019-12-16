@@ -54,97 +54,38 @@
 
 ## Stappenplan
 #### 1. Netwerk & server opstellen (R&S & Productie-omgeving)
-##### Router0
-* [ ] Test indien de hostsnaam gelijk is aan **Router0**.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-* [ ] Controleer RIPv2 en ACL
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-* [ ] Controleer interface G0/0 en interface S0/1/0
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show ip interface brief
-     ```
-##### Router2
-* [ ] Test indien de hostsnaam gelijk is aan **Router2**.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-* [ ] Controleer RIPv2 en ACL
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-* [ ] Controleer interface G0/0 en interface S0/1/0
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show ip interface brief
-     ```
-##### Switch0L2
-* [ ] Test indien de hostsnaam gelijk is aan **Switch0L2**.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-* [ ] Controleer de switchport mode trunk op vlan 20 en switchport mode acces f0/2-7 vlan 20
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-##### Switch1L3
-* [ ] Test indien de hostsnaam gelijk is aan **Switch1L3**.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-* [ ] Controleer de switchport mode Trunk op f0/1-2 en switchport mode Acces f0/3-8 vlan 30
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-##### Switch2L3
-* [ ] Test indien de hostsnaam gelijk is aan **Switch2L3**.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-* [ ] Controleer de switchport trunk encapsulation dot1q op interface f0/1 & f0/3.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
- * [ ] Controleer vlan 20/30/40 interface en toegekend ip adres.
-     * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```    
- * [ ] Controleer RIPv2.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```     
-##### Switch3L2
-* [ ] Test indien de hostsnaam gelijk is aan **Switch3L2**.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```   
-* [ ] Controleer of vlan 50 bestaat en switchport mode access vlan 50 op interfaces f0/1-53.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```  
-* [ ] Controleer switchport mode trunk native vlan 1 op f0/6. Allowed vlan 50 & 20.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```  
+##### vanuit VLAN 20
+* [ ] Controleer indien volgende pings succesvol zijn :
+    * [ ] ping 172.16.0.80 (S1.3)
+    * [ ] ping 172.16.0.254 (R2.1 DG)
+    * [ ] ping 172.16.1.62 (R2.1 naar vlan 3O)
+    * [ ] ping 172.16.1.50 (S1.2 vlan 30)
+    * [ ] ping 172.16.1.97 (R2.1 serieel)
+    * [ ] ping 172.16.1.98 (R2.2 serieel)
+    * [ ] ping 172.16.1.94 (R2.2 naar vlan 50)
+    * [ ] ping 172.16.1.80 (S1.1 vlan 50)
+
+##### Firewall
+* [ ] Controleer indien volgende pings succesvol zijn :
+    * [ ] ping 172.16.1.101 (R2.2 naar Zulu1)
+    * [ ] ping 172.16.1.102 (zulu1 - inside - lan)
+    * [ ] ping 172.16.1.106 (zulu1 - outside - wan)
+
+##### WAN
+* [ ] Controleer indien volgende pings succesvol zijn :
+    * [ ] ping 172.16.1.105 (R1.1 van zulu1)
+    * [ ] ping 172.16.1.109 (R1.1 naar R1.2)
+    * [ ] ping 172.16.1.110 (R1.2 van R1.1)
+    * [ ] ping 172.16.2.2 (R1.2 serieel naar Top)
+    * [ ] ping 172.16.2.1 (Top van R1.2)
+surf naar chamilo.be (ip route 172.16.0.0 255.255.0.0 s0/1/1 WINDOWS!)
+
+##### SSH
+Controleer indien je een secure shell connectie kan maken met volgende addressen.
+* [ ] Admin@172.16.1.50 (S1.1 - vlan 50)
+* [ ] Admin@172.16.0.254 (R2.1)
+* [ ] Admin@172.16.1.110 (R1.2)
+
 #### 2. Kilo1 (DHCP)
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.1*** bevat.
     * Gebruik onderstaand commando om dit te controleren.

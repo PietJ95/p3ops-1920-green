@@ -20,6 +20,10 @@ Vandaag, 2 december 2019 zijn we geëindigd waar we vorige week zaten. Problemen
 
 Vandaag, 9 december 2019 zijn we geëindigd met de adapters terug te zetten naar gewone internet adapter. Woensdag zal nogmaals getest worden indien we een van de adapter kunnen aanpassen naar bridged. Dit zal dus geen linking zijn naar de bridged adapter op de server zelf. Daarnaast werd de vagrant file op de server ook aangepast, bij het creëren van een virtuele machine zal deze automachine aan de juiste aan de juiste bridged adapter. Maar aangezien we die woensdag proberen testen zonder bridged adapters op de server, weten we niet of dit zal werken.
 
+Vandaag, 11 december 2019 zijn we gestart met de volledige opstelling opnieuw te beginnen. Doordat we zoveel veranderd en gesukkeld hebben, wisten we niet meer wat aangepast was en wat niet.Daardoor was het het slimste om terug even van nul te beginnen. Deze keer werden de bridge adapters aangemaakt via de virt manager. Na het aanmaken van deze adapters en het draaien van de servers. Moest enkel de default route aangepast worden om secure connectie te maken met de VM. Maar omdat het provisionen van de VM's zo lang duurt, hebben we er maar 3 kunnen doen. Vrijdag zal verder gedaan worden.
+
+Vandaag, 13 december 2019 zijn we geëindigd met de volledig opstellen op te zetten. Alle vm's werden correct gebridged. Daarnaast werd er extra ansible code voorzien die de default routing aanpast. Doordat we de server vrijdag terug aan hadden gezet. Was de default routing op de server automatisch aangepast.  Daarnaast werden er ook aantal tunneling adapters aangemaakt die gelinkt werden met de bridge adapters, die hoogswaarschijnlijk voor problemen zorgde. Na wat troubleshooten heb ik dit correct terug gezet. De server hebben we aan laten staan voor de zekerheid. Alles zou moeten werken. 
+
 ### Conclussie
 Het opstarten van virtuele machines op de server is geen probleem, connectie van de verschillende eilanden naar de virtuele machine binnen het netwerk is niet mogelijk. Dit is dankzij de bridging poorten.
 
