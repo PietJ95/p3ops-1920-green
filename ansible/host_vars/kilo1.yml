@@ -4,8 +4,7 @@ rhbase_firewall_allow_services:
   - dhcp
 # DNS servers
 dhcp_global_domain_name_servers:
-  - 172.16.1.66
-  - 172.16.1.67
+  -  172.16.1.70
 
 #lease times
 dhcp_global_default_lease_time: 43200 # = 12u
