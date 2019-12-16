@@ -377,13 +377,12 @@ Controleer indien je een secure shell connectie kan maken met volgende addressen
 * [ ] Verifeer of de MariaDB service 'Actief' is.
     * sudo systemctl status mariadb
 * [ ] Toets of de databanken 'drupal_echo1' en 'drupal_mike1' bestaan.
-    * mysql -uroot -p${mariadb_root_password} --execute 'show databases'*
-    * mysql -uroot -p${mariadb_root_password} --execute 'show tables'*
+    * mysql -uroot -p${mariadb_root_password} --execute 'show databases'
 * [ ] Onderzoek of gebruikers 'mike1_user' en 'echo1_user' schrijfrechten voor de aangewezen databanken.
-    * mysql -u${mike1_user} -pmike1 \ --execute 'CREATE TABLE a (id int); DROP TABLE a;*
+    * mysql -u${mike1_user} -pmike1 \ --execute 'CREATE TABLE a (id int); DROP TABLE a;
 * [ ] Inspecteer dat MariaDB geen testdatabank en anonieme gebruikers meer heeft.
-    * run mysql -uroot -p${mariadb_root_password} --execute 'show databases' test [ "0" -ne "${status}" ]*
-    * sudo systemctl list-units --type service*
+    * run mysql -uroot -p${mariadb_root_password} --execute 'show databases' test [ "0" -ne "${status}" ]
+    * sudo systemctl list-units --type service
     * result=$(mysql -uroot -p${mariadb_root_password} --execute "select * from user where user='';" mysql) [ -z "${result}" ]
 #### 9. Echo1 (Webserver)
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.69/27*** bevat.
