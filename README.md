@@ -17,7 +17,7 @@ De kolom "Uitvoering" bevat de verantwoordelijke voor het realiseren van de taak
 ### Per server
 | Taak                | Uitvoering                                                   | Testen                                                       | Verantwoordelijke                                        |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- | :------------------------------------------------------- |
-| Alpha1              | Milan Dewilde, Thibault Dewitte, Lincy De Groote, Yordi De Rijcke | Thibault Dewitte                                             | Milan Dewilde                                            |
+| Alfa1              | Milan Dewilde, Lincy De Groote, Yordi De Rijcke | Milan Dewilde, Lincy De Groote, Yordi De Rijcke                                          | Milan Dewilde                                            |
 | Bravo1              | [Robin Ophalvens](https://github.com/RobinOphalvens), [Jolien Vervinckt](https://github.com/JolienVervinckt)                             | [Jolien Vervinckt](https://github.com/JolienVervinckt)       | [Robin Ophalvens](https://github.com/RobinOphalvens)     |
 | Charlie1            | [Robin Ophalvens](https://github.com/RobinOphalvens), [Jolien Vervinckt](https://github.com/JolienVervinckt)                             | [Robin Ophalvens](https://github.com/RobinOphalvens)         | [Jolien Vervinckt](https://github.com/JolienVervinckt)   |
 | Delta1              | Beau Bellon, Robin Goesseye, Cedric Denoo                   | Beau Bellon                                                  | Cedric Denoo                                             |
