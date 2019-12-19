@@ -246,6 +246,6 @@ surf naar chamilo.be (ip route 172.16.0.0 255.255.0.0 s0/1/1 WINDOWS!)
        ```
 
 OPMERKING:  
-**Het integratierapport is maar tot dit punt opgelost, dit komt omdat er te weinig tijd was voorzien om het volledige testplan te overlopen met te weinig teamleden.**
+**Het integratierapport is maar tot dit punt opgelost, dit komt omdat er te weinig tijd was voorzien om het volledige testplan te overlopen met te weinig teamleden. De testrapporten van elke server apart bevestigen wel dat deze testen succesvol zouden zijn.**
 
 #### Opgesteld door Olivier Troch en Joeri Verhavert
