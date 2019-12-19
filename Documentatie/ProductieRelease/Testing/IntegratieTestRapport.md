@@ -229,19 +229,23 @@ default via 172.16.1.94 dev eth1 proto dhcp metric 101
        ```
   ##### kilo1 DHCP scope voor VLAN 20 testen
   * pre-task: Verbind via Secure shell met een host uit VLAN 20.
-  * [ ] Controleer of de host een IP adres bevat dat binnen in de range '172.16.0.10 - 172.16.0.253' ligt.
+  * [x] Controleer of de host een IP adres bevat dat binnen in de range '172.16.0.10 - 172.16.0.253' ligt.
       * Gebruik onderstaand commando om dit te controleren.
        ``` bash
            ip address show eth1
        ```
-  * [ ] Controleer of de eerste entry **default via 172.16.1.62** bevat.
+  * [x] Controleer of de eerste entry **default via 172.16.1.62** bevat.
       * Gebruik onderstaand commando om dit te controleren.
        ``` bash
            ip route show
        ```
-  * [ ] Test indien resolv.conf de DNS entrys bevat(172.16.1.66 en 172.16.1.67) en alsook het search domain green.local.
+  * [x] Test indien resolv.conf de DNS entrys bevat(172.16.1.66 en 172.16.1.67) en alsook het search domain green.local.
       * Gebruik onderstaand commando om dit te controleren.
        ``` bash
            cat /etc/resolv.conf
        ```
+
+OPMERKING:  
+Het integratierapport is maar tot dit punt opgelost, dit komt omdat er te weinig tijd was voorzien om het volledige testplan te overlopen met te weinig teamleden.
+
 #### Opgesteld door Olivier Troch en Joeri Verhavert
