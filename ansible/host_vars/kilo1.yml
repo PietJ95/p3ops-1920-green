@@ -4,11 +4,13 @@ rhbase_firewall_allow_services:
   - dhcp
 # DNS servers
 dhcp_global_domain_name_servers:
-  - 172.16.1.66
-  - 172.16.1.67
+  -  172.16.1.70
 
+#lease times
 dhcp_global_default_lease_time: 43200 # = 12u
 dhcp_global_max_lease_time: 43200
+
+#global domain
 dhcp_global_domain_name: green.local # search domain
 
 # PXEboot config
@@ -17,6 +19,8 @@ dhcp_global_booting: allow
 dhcp_global_next_server: 172.16.1.6  # papa1
 dhcp_global_filename: "centos/pxelinux.0"
 
+#subnet per VLAN waarin IP's moeten worden uitgedeeld
+#VLAN 20, 30 en 50
 dhcp_subnets:
     # VLAN 20
   - ip: 172.16.0.0

@@ -10,6 +10,8 @@ Dit document beschrijft alle resources die nuttig zijn voor server Delta1.
 - [configure mailserver](https://xdeb.org/post/2018/02/07/run-your-own-mail-server-with-postfix-and-dovecot/)
 - [Setup E-mail Server Centos](https://hostpresto.com/community/tutorials/how-to-setup-an-email-server-on-centos7/)
 - [Postfix hardening](https://linux-audit.com/postfix-hardening-guide-for-security-and-privacy/)
+- [Postfix with LDAP](http://www.postfix.org/LDAP_README.html)
+- [Postfix with LDAP Backend Guide (Proberen)](https://www.dev-eth0.de/2016/12/19/postfix_ldap/?fbclid=IwAR3uWCGukmQ-JHyEr2bflWnhiSBOi8CdTjUVK6NWVW5zyZOzkfhTpAbehfU)
 
 ## Ansible roles
 
@@ -19,7 +21,7 @@ Dit document beschrijft alle resources die nuttig zijn voor server Delta1.
 - OpenLDAP-client
 
 ## Commands
-
+s
 | Commando                     | Uitvoering                                   |
 | :----------------------------| :--------------------------------------------|
 | `journalctl -f`              | laatste logberichten volgen                  |
@@ -72,8 +74,49 @@ De gebruiker moet eerst eens inloggen op de machine, dan worden de mappen meteen
 
 ### Error 451: Temporary Lookup Failure
 
-Deze error komt voor bij het versturen van een mail met een gebruiker sedert de alfa1 gebruikers gekoppeld zijn aan Delta1. 
+Deze error komt voor bij het versturen van een mail met een gebruiker sinds we de alfa1 gebruikers aan Delta1 hebben gekoppeld.
 
 ![](https://github.com/HoGentTIN/p3ops-1920-green/blob/master/Documentatie/delta1/images/Error451.png)
 
+### Recipient address rejected: User unknown in local recipient table
 
+https://serverfault.com/questions/179419/postfix-recipient-address-rejected-user-unknown-in-local-recipient-table
+
+=> mail versturen naar bert@delta1.green.local werkt wel (gedeeltelijk, mail wordt nog altijd verworpen)
+
+### Error: mail for delta1.green.local loops back to myself
+
+https://talk.plesk.com/threads/solved-postfix-mail-for-domain-com-loops-back-to-myself.329459/
+https://www.cyberciti.biz/faq/postfix-mail-for-domaincom-loops-back-to-myself-error-and-solution/
+
+=> mail server staat niet aangekondigd in dns records
+
+### Error: no file /etc/postfix/aliases.db
+
+Reden: `aliases.db` staat in `/etc/`
+
+Oplossing:
+- `ln -s /etc/aliases.db /etc/postfix/aliases.db`
+
+### Error: wrong user/password
+
+Reden: delta1 maakt niet automatisch de home dir aan van een ldap-user
+
+Oplossing:
+- `vagrant ssh delta1 && sudo su [user]`
+- OF `./scripts/delta1.sh`
+
+### Mail verzenden lukt, mail ontvangen niet
+
+
+Reden: ? geen errors, geen logs
+
+### Error: postfix user unknown in virtual alias table
+
+https://serverfault.com/questions/788967/postfix-user-unknown-in-virtual-alias-table
+
+### Error: postfix: user unknown in local recipient table
+
+https://serverfault.com/questions/846866/postfix-user-unknown-in-local-recipient-table-only-with-the-main-domain-hostna
+
+http://www.postfix.org/STANDARD_CONFIGURATION_README.html

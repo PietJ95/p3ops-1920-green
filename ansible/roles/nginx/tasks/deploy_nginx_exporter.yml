@@ -26,6 +26,7 @@
 - name: Unarchive nginx_exporter archive
   unarchive:
       src: /tmp/nginx_exporter.tar.gz
+      remote_src: yes
       dest: "{{ nginx_exporter_directory }}"
       owner: "{{ nginx_exporter_user }}"
       group: "{{ nginx_exporter_group }}"
@@ -36,10 +37,3 @@
       src: nginx_exporter.service.j2
       dest: /etc/systemd/system/{{ nginx_exporter_service }}.service
   notify: restart nginx exporter
-
-- name: Open nginx exporter port
-  firewalld:
-    port: "{{ nginx_exporter_port }}"
-    permanent: yes
-    state: enabled
-    immediate: yes

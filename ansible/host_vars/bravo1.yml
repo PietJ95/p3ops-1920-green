@@ -20,6 +20,9 @@
     bind_zone_time_to_expire: "2W"
     bind_zone_domains:
       - name: green.local
+        mail_servers:
+          - name: mail
+            preference: 10
         hosts:
           - name: '@'
             ip:
@@ -41,6 +44,10 @@
 
           - name: delta1
             ip: '172.16.1.68'
+            aliases:
+              - mail
+              - smtp
+              - imap
           - name: echo1
             ip: '172.16.1.69'
           - name: kilo1
@@ -53,6 +60,8 @@
             ip: '172.16.1.4'
           - name: oscar1
             ip: '172.16.1.5'
+            aliases:
+              - mon
           - name: papa1
             ip: '172.16.1.6'
           - name: quebec1

@@ -1,6 +1,29 @@
 # Testplan papa1 voor productierelease
 
+## ISO files in pxeboot rol plaatsen & controleren of ze er zijn
+
+Vooraleer de pxeserver wordt up gebracht aan de hand van Ansible, zorgen we dat de server al onze nodige bestanden heeft voor de papa1-pxeserver rol
+Ga op laptop naar de papa1-pxeserver map en gebruik secure copy:
+
+TEMP: ww: GreenAdmin18
+Opmerking: VLAN 20 172.16.0.0 /24
+gateway: 172.16.0.254
+
+Opmerking: bij het up brengen van andere VM's  (dus voor en na papa1) de iso files  verplaatsen naar een andere folder, zodat niet elke rol de iso's in een shared folder laden.
+De iso files plaatsen we  tijdelijk in /home/student/
+
+	scp -r files student@172.16.1.10:/home/student/p3ops-1920-green/ansible/roles/papa1-pxeserver
+
+testen: Check in de server of de files aanwezig zijn:
+
+	ssh student@172.16.1.10
+	cd /home/p3ops-1920-green/ansible/roles/papa1-pxeserver/files
+	ls
+
+
+
 ## Services
+
 Controleer op de PXEserver dat volgende services correct draaien: 
 - nginx
 

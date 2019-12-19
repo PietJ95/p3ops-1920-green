@@ -1,3 +1,6 @@
+#firewall
+rhbase_firewall_allow_ports:
+  - 389/tcp
 #The domain prefix for ldap
 openldap_server_domain_name: green.local
 

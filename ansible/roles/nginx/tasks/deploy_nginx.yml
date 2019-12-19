@@ -7,6 +7,16 @@
   yum:
     name: nginx
     state: present
+    
+- name: Install cryptography 2
+  yum:
+    name: python2-cryptography
+    state: present
+   
+- name: Install cryptography 3
+  yum:
+    name: python36-cryptography
+    state: present
 
 - name: Copy default nginx config
   copy:
@@ -47,11 +57,3 @@
     csr_path: "{{ nginx_key_directory }}/{{ csr }}"
     provider: selfsigned
   notify: restart nginx
-
-- name: Open ports for nginx
-  firewalld:
-      state: enabled
-      permanent: yes
-      immediate: yes
-      service: "{{ item }}"
-  loop: "{{ nginx_ports }}"

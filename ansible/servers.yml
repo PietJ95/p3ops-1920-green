@@ -1,4 +1,18 @@
 ---
+- name: Configure User vm
+  hosts: all
+  become: true
+  tasks:
+    - name: Creating student with admin access
+      user:
+        name: student
+        #password is student
+        password: '$6$VeUtYm1fjQtfB11b$ViMU3H58feTTRPVHmSFZezFAfxIQ69zBtYgYYE1FWflQC06/aSJidpK/yo6Z0L6/g8P3z.aq8trq/0uMHeveo.'
+        groups: wheel
+
+    - name: Enable password authentication
+      lineinfile: dest=/etc/ssh/sshd_config regexp='^#PasswordAuthentication' line='PasswordAuthentication yes'
+
 #Configure dns servers for all servers
 - name: config-dns
   hosts: all:!quebec1
@@ -19,6 +33,7 @@
   become: true
   remote_user: root
   roles:
+    - bertvv.rh-base
     - openldap-server
     - openldap-config
 
@@ -91,7 +106,7 @@
     - mariadb-server
     - mariadb-galera-cluster
     - idealista.prometheus_mysqld_exporter-role
-    
+
 #enkel opzetten na week 9 !
 #- hosts: november2
   #become: true
@@ -125,9 +140,8 @@
 - hosts: echo1
   become: true
   roles:
-    - common
     - drupal
-    - cloudalchemy.node-exporter
+    - node-exporter
 
 # Configure kilo1 DHCP server
 - hosts: kilo1
@@ -139,27 +153,42 @@
   become: true
   roles:
     - bertvv.rh-base
-    - bertvv.samba
     - openldap-client
+    - bertvv.samba
 
 # Mike1
 - hosts: mike1
   become: true
   roles:
-    - common
     - drupal
-    - cloudalchemy.node-exporter
+    - node-exporter
 
 # Configure oscar 1: monitoring server
 - hosts: oscar1
   become: true
   gather_facts: yes
   roles:
+    - tls
     - bertvv.rh-base
     - prometheus
     - grafana
     - snmp-exporter
     - jdauphant.dns
+    - iptables
+    
+  post_tasks:
+    - shell: "cp /etc/pki/tls/certs/oscar1.crt /etc/grafana"
+    - shell: "cp /etc/pki/tls/private/oscar1.key /etc/grafana"
+    - shell: "chown root:grafana /etc/grafana/oscar1.crt"
+    - shell: "chown root:grafana /etc/grafana/oscar1.key"
+    - shell: "chmod 775 /etc/grafana/oscar1.crt"
+    - shell: "chmod 775 /etc/grafana/oscar1.key"
+    - shell: "sed -i 's#protocol = http#protocol = https#g' /etc/grafana/grafana.ini"
+    - shell: "sed -i 's#root_url = http://172.16.1.5:3000#root_url = https://172.16.1.5:3000#g' /etc/grafana/grafana.ini"
+    - shell: "sed -i 's#cert_key =#cert_key=/etc/grafana/oscar1.key#g' /etc/grafana/grafana.ini"
+    - shell: "sed -i 's#cert_file =#cert_file=/etc/grafana/oscar1.crt#g' /etc/grafana/grafana.ini"    
+    - shell: "systemctl restart grafana-server"
+
 
 - hosts: papa1
   become: true

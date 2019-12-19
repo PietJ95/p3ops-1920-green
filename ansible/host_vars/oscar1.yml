@@ -7,29 +7,13 @@ rhbase_firewall_allow_ports:
   - 3000/tcp
   - 9116/tcp
 
+rhbase_user_groups:
+  - sslcerts
+
+
 dns_nameservers: 
   - 172.16.1.66 
   - 10.0.2.3
-
-# prometheus_targets:
-#   node:
-#   - targets:
-#     - alpha1.green.local:9100
-#     - bravo1.green.local:9100
-#     - charlie1.green.local:9100
-#     - delta1.green.local:9100
-#     - echo1.green.local:9100
-#     - kilo1.green.local:9100
-#     - lima1.green.local:9100
-#     - mike1.green.local:9100
-#     - november1.green.local:9100
-#     - oscar1.green.local:9100
-#     - papa1.green.local:9100
-#     - zulu1.green.local:9100
-# #    - 172.16.1.5:9100 # Node exporter oscar1
-# #    - 172.16.1.67:9100 # Node exporter charlie1
-#     labels:
-#       env: green.local
 
 prometheus_scrape_configs:
   - job_name: "bind"
@@ -375,3 +359,17 @@ grafana_dashboards:
   - dashboard_id: 11199 # Nginx by nginxinc
     revision_id: 1
     datasource: 'prometheus'
+
+
+
+#Specifies cert keys in order to allow https traffic
+grafana_address: '172.16.1.5'
+grafana_port: 3000
+grafana_server:
+  protocol: http
+  cert_key: ""
+  cert_file: ""
+
+firewall_additional_rules:
+  - "sudo iptables -t nat -I OUTPUT -p tcp -d 127.0.0.1 --dport 443 -j REDIRECT --to-ports 3000"
+  - "sudo iptables -t nat -I PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 3000"  

@@ -6,6 +6,7 @@ snmp-server community public RO
 
 int g0/0/0
 ip address 172.16.0.254 255.255.255.0
+ip helper-address 172.16.1.1
 no shut
 
 int g0/0/1
@@ -19,11 +20,8 @@ no shut
 exit
 
 ip route 0.0.0.0 0.0.0.0 172.16.1.98
-
-router rip
-version 2
-network 172.16.0.0
-network 172.16.1.0
+ip route 172.16.0.0 255.255.255.0 g0/0/0
+ip route 172.16.1.0 255.255.255.192 g0/0/1
 
 enable secret Admin
 service password-encryption

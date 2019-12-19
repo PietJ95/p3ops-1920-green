@@ -54,97 +54,38 @@
 
 ## Stappenplan
 #### 1. Netwerk & server opstellen (R&S & Productie-omgeving)
-##### Router0
-* [ ] Test indien de hostsnaam gelijk is aan **Router0**.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-* [ ] Controleer RIPv2 en ACL
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-* [ ] Controleer interface G0/0 en interface S0/1/0
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show ip interface brief
-     ```
-##### Router2
-* [ ] Test indien de hostsnaam gelijk is aan **Router2**.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-* [ ] Controleer RIPv2 en ACL
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-* [ ] Controleer interface G0/0 en interface S0/1/0
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show ip interface brief
-     ```
-##### Switch0L2
-* [ ] Test indien de hostsnaam gelijk is aan **Switch0L2**.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-* [ ] Controleer de switchport mode trunk op vlan 20 en switchport mode acces f0/2-7 vlan 20
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-##### Switch1L3
-* [ ] Test indien de hostsnaam gelijk is aan **Switch1L3**.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-* [ ] Controleer de switchport mode Trunk op f0/1-2 en switchport mode Acces f0/3-8 vlan 30
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-##### Switch2L3
-* [ ] Test indien de hostsnaam gelijk is aan **Switch2L3**.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
-* [ ] Controleer de switchport trunk encapsulation dot1q op interface f0/1 & f0/3.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```
- * [ ] Controleer vlan 20/30/40 interface en toegekend ip adres.
-     * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```    
- * [ ] Controleer RIPv2.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```     
-##### Switch3L2
-* [ ] Test indien de hostsnaam gelijk is aan **Switch3L2**.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```   
-* [ ] Controleer of vlan 50 bestaat en switchport mode access vlan 50 op interfaces f0/1-53.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```  
-* [ ] Controleer switchport mode trunk native vlan 1 op f0/6. Allowed vlan 50 & 20.
-    * Gebruik onderstaand commando om dit te controleren.
-     ``` bash
-          show running-config
-     ```  
+##### vanuit VLAN 20
+* [ ] Controleer indien volgende pings succesvol zijn :
+    * [ ] ping 172.16.0.80 (S1.3)
+    * [ ] ping 172.16.0.254 (R2.1 DG)
+    * [ ] ping 172.16.1.62 (R2.1 naar vlan 3O)
+    * [ ] ping 172.16.1.50 (S1.2 vlan 30)
+    * [ ] ping 172.16.1.97 (R2.1 serieel)
+    * [ ] ping 172.16.1.98 (R2.2 serieel)
+    * [ ] ping 172.16.1.94 (R2.2 naar vlan 50)
+    * [ ] ping 172.16.1.80 (S1.1 vlan 50)
+
+##### Firewall
+* [ ] Controleer indien volgende pings succesvol zijn :
+    * [ ] ping 172.16.1.101 (R2.2 naar Zulu1)
+    * [ ] ping 172.16.1.102 (zulu1 - inside - lan)
+    * [ ] ping 172.16.1.106 (zulu1 - outside - wan)
+
+##### WAN
+* [ ] Controleer indien volgende pings succesvol zijn :
+    * [ ] ping 172.16.1.105 (R1.1 van zulu1)
+    * [ ] ping 172.16.1.109 (R1.1 naar R1.2)
+    * [ ] ping 172.16.1.110 (R1.2 van R1.1)
+    * [ ] ping 172.16.2.2 (R1.2 serieel naar Top)
+    * [ ] ping 172.16.2.1 (Top van R1.2)
+surf naar chamilo.be (ip route 172.16.0.0 255.255.0.0 s0/1/1 WINDOWS!)
+
+##### SSH
+Controleer indien je een secure shell connectie kan maken met volgende addressen.
+    * [ ] Admin@172.16.1.50 (S1.1 - vlan 50)
+    * [ ] Admin@172.16.0.254 (R2.1)
+    * [ ] Admin@172.16.1.110 (R1.2)
+
 #### 2. Kilo1 (DHCP)
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.1*** bevat.
     * Gebruik onderstaand commando om dit te controleren.
@@ -426,24 +367,36 @@
 | www.hogent.be | / | ??? |
 
 #### 8. November1 (MariaDB)
+*	- **passwoord root**= admin
+	- user = mike1_user
+	- pass = mike1
+	- ip = 172.16.1.3
+	- user = echo1_user
+	- pass = echo1
+	- ip = 172.16.1.69
+* **OPMERKING:** 
+	> Soms moet men inloggen in de databank eerst voor te testen,
+	ga dus eerst in de database met  `Mariadb [None]> use databaseName;`
+	
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.4/26*** bevat.
     * Gebruik onderstaand commando om dit te controleren.
      ``` bash
          ip address show eth1
      ```
 * [ ] Controleer of de MariaDB service gestart is bij de boot.
-    * sudo systemctl status mariadb
+    * `sudo systemctl status mariadb`
 * [ ] Verifeer of de MariaDB service 'Actief' is.
-    * sudo systemctl status mariadb
+    * `sudo systemctl status mariadb`
 * [ ] Toets of de databanken 'drupal_echo1' en 'drupal_mike1' bestaan.
-    * mysql -uroot -p${mariadb_root_password} --execute 'show databases'*
-    * mysql -uroot -p${mariadb_root_password} --execute 'show tables'*
+    * `mysql -uroot -p${mariadb_root_password} --execute 'show databases'`
 * [ ] Onderzoek of gebruikers 'mike1_user' en 'echo1_user' schrijfrechten voor de aangewezen databanken.
-    * mysql -u${mike1_user} -pmike1 \ --execute 'CREATE TABLE a (id int); DROP TABLE a;*
+    * `mysql -u${mike1_user} -pmike1` 
+    * `Mariadb [None]> use drupal_mike1;`
+    * `CREATE TABLE a (id int); DROP TABLE a;`
 * [ ] Inspecteer dat MariaDB geen testdatabank en anonieme gebruikers meer heeft.
-    * run mysql -uroot -p${mariadb_root_password} --execute 'show databases' test [ "0" -ne "${status}" ]*
-    * sudo systemctl list-units --type service*
-    * result=$(mysql -uroot -p${mariadb_root_password} --execute "select * from user where user='';" mysql) [ -z "${result}" ]
+    * `mysql -uroot -p `
+    * `Mariadb [None]> select user, password, host from mysql.user;`
+    
 #### 9. Echo1 (Webserver)
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.69/27*** bevat.
     * Gebruik onderstaand commando om dit te controleren.
@@ -460,16 +413,67 @@
     * Expected: https werkt en u krijgt een webpagina te zien
 * [ ] Controleer of je van **http://www.green.local** geredirect wordt naar **https://www.green.local**.
     * Expected: http://www.green.local wordt geredirect naar https://www.green.local
-##### Test Drupal
-**--> niet ontvangen groep echo1**
 
-#### 10. Mike1 (Content management systeem) AFWERKEN
+##### Test Drupal
+* [ ] Ga naar www.green.local
+    * Expected: u krijgt de drupal homepage te zien
+
+* [ ] Klik op "Log in" en "Create a new account"
+    * Expected: u krijgt een melding te zien dat het aangemaakte account op approval van de admin wacht
+
+* [ ] Ga terug naar de log in pagina en log in met de credentials van het admin account
+    * Expected: u krijgt extra controls te zien
+
+* [ ] Ga naar de tab "People" en unblock de test user die u in stap 2 creëerde
+    * Expected: de test user wordt successvol gedeblokkeerd
+
+* [ ] Edit de test user
+    * Expected: u krijgt een pagina te zien waar u aanpassing aan de test user kan maken
+
+* [ ] Verander het password van de test user
+    * Expected: het password is succesvol aangepast
+
+* [ ] Maak een article en basic page aan onder de content tab
+    * Expected: het article en de basic page zijn succesvol aangemaakt
+
+#### 10. Mike1 (Content management systeem)
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.3/26*** bevat.
     * Gebruik onderstaand commando om dit te controleren.
      ``` bash
          ip address show eth1
      ```
-**--> niet ontvangen groep echo1**
+##### Test toegangelijkheid
+* [ ] Controleer indien www.green.local(of 172.16.1.69) in de browser een webpagina toont.
+    * Opmerking: dns records voor www.green.local zijn vereist
+
+##### Test https
+* [ ] Controleer indien https actief is.
+  * Ga naar https://www.green.local
+    * Expected: https werkt en u krijgt een webpagina te zien
+* [ ] Controleer of je van **http://www.green.local** geredirect wordt naar **https://www.green.local**.
+    * Expected: http://www.green.local wordt geredirect naar https://www.green.local
+
+##### Test Drupal
+* [ ] Ga naar www.green.local
+    * Expected: u krijgt de drupal homepage te zien
+
+* [ ] Klik op "Log in" en "Create a new account"
+    * Expected: u krijgt een melding te zien dat het aangemaakte account op approval van de admin wacht
+
+* [ ] Ga terug naar de log in pagina en log in met de credentials van het admin account
+    * Expected: u krijgt extra controls te zien
+
+* [ ] Ga naar de tab "People" en unblock de test user die u in stap 2 creëerde
+    * Expected: de test user wordt successvol gedeblokkeerd
+
+* [ ] Edit de test user
+    * Expected: u krijgt een pagina te zien waar u aanpassing aan de test user kan maken
+
+* [ ] Verander het password van de test user
+    * Expected: het password is succesvol aangepast
+
+* [ ] Maak een article en basic page aan onder de content tab
+    * Expected: het article en de basic page zijn succesvol aangemaakt
 #### 11. Lima1 (Interne file-server)
 * [ ] Controleer of de server(interface eth1) het IP adres ***172.16.1.2/26*** bevat.
     * Gebruik onderstaand commando om dit te controleren.

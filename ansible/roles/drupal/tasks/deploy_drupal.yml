@@ -5,9 +5,9 @@
 
 - name: Allow nginx to connect to db
   seboolean:
-      name: httpd_can_network_connect_db
-      state: yes
-      persistent: yes
+    name: httpd_can_network_connect_db
+    state: yes
+    persistent: yes
 
 - name: Allow nginx to modify files in /usr/share/nginx/html/drupal/web/sites/default/files
   sefcontext:
@@ -51,7 +51,6 @@
   get_url:
     url: "{{ composer_url }}"
     dest: "/tmp/composer-setup.php"
-    checksum: "{{ composer_checksum }}"
 
 - name: Install composer
   command: "php /tmp/composer-setup.php --install-dir={{ composer_path }} --filename=composer"
